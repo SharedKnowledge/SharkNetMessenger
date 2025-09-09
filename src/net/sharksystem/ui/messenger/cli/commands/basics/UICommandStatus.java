@@ -1,10 +1,15 @@
 package net.sharksystem.ui.messenger.cli.commands.basics;
 
+import net.sharksystem.asap.ASAPEncounterManagerAdmin;
 import net.sharksystem.asap.crypto.ASAPCryptoAlgorithms;
 import net.sharksystem.asap.utils.DateTimeHelper;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandNoParameter;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Command for terminating the messenger.
@@ -49,9 +54,31 @@ public class UICommandStatus extends AbstractCommandNoParameter {
         sb.append(" | failed to connect: ");
         sb.append(this.getSharkMessengerApp().getHubConnectionManager().getFailedConnectionAttempts().size());
 
+        ASAPEncounterManagerAdmin encounterManagerAdmin = this.getSharkMessengerApp().getEncounterManagerAdmin();
         sb.append("\nencounter status:");
-        sb.append("\n\tencountered peers: ");
-        sb.append(this.getSharkMessengerApp().getEncounterLogs().size());
+        sb.append("\n\tcool down periode in ms: ");
+        sb.append(encounterManagerAdmin.getTimeBeforeReconnect());
+        sb.append("\n\tsum encountered peers: ");
+        int numberEncounter = this.getSharkMessengerApp().getEncounterLogs().size();
+        sb.append(numberEncounter);
+        if(numberEncounter > 0) {
+            sb.append("\n");
+            Map<CharSequence, Date> encounterTime = encounterManagerAdmin.getEncounterTime();
+            Set<CharSequence> connectedPeerIDs = encounterManagerAdmin.getConnectedPeerIDs();
+            int index = 1;
+            for(CharSequence peerID : encounterTime.keySet()) {
+                if(index != 1) sb.append("\n");
+                sb.append("\t#");
+                sb.append(index++);
+                sb.append(": ");
+                sb.append(peerID);
+                sb.append(" | ");
+                sb.append(DateTimeHelper.long2ExactTimeString(encounterTime.get(peerID).getTime()));
+                if(connectedPeerIDs.contains(peerID)) {
+                    sb.append(" | connected");
+                }
+            }
+        }
 
         this.getSharkMessengerApp().tellUI(sb.toString());
     }

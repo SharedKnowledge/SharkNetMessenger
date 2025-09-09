@@ -7,7 +7,6 @@ import java.io.PrintStream;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.ui.messenger.cli.commands.basics.*;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandCloseEncounter;
 import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandShowEncounter;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandDecryptFile;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandEncryptFile;
@@ -95,7 +94,7 @@ public class ProductionUI {
             peerName = "";
             // ask for peer name
             do {
-                System.out.print("Please enter peer name (must no be empty; first character is a letter): ");
+                System.out.print("Please enter peer name (must not be empty; first character is a letter): ");
                 try {
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
                     peerName = bufferedReader.readLine();
@@ -129,7 +128,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandHelp(sharkMessengerApp, smUI, "help", false));
 
         // simple messenger
-        smUI.addCommand(new UICommandListChannels(sharkMessengerApp, smUI, "lsChannel", true));
+        smUI.addCommand(new UICommandListChannels(sharkMessengerApp, smUI, "lsChannels", true));
         smUI.addCommand(new UICommandCreateChannel(sharkMessengerApp, smUI, "mkChannel", true));
         smUI.addCommand(new UICommandRemoveChannelByIndex(sharkMessengerApp, smUI, "rmChannel", true));
         smUI.addCommand(new UICommandSendMessage(sharkMessengerApp, smUI, "sendMessage", true));
@@ -145,11 +144,10 @@ public class ProductionUI {
         smUI.addCommand(new UICommandOpenTCP(sharkMessengerApp, smUI, "openTCP", true));
         smUI.addCommand(new UICommandConnectTCP(sharkMessengerApp, smUI, "connectTCP", true));
         smUI.addCommand(new UICommandCloseTCP(sharkMessengerApp, smUI, "closeTCP", true));
-        smUI.addCommand(new UICommandShowOpenTCPPorts(sharkMessengerApp, smUI, "showOpenTCPPorts", false));
+        smUI.addCommand(new UICommandShowOpenTCPPorts(sharkMessengerApp, smUI, "lsOpenTCPPorts", false));
 
         // encounter control
-        smUI.addCommand(new UICommandShowEncounter(sharkMessengerApp, smUI, "lsEncounter", false));
-        smUI.addCommand(new UICommandCloseEncounter(sharkMessengerApp, smUI, "closeEncounter", true));
+        smUI.addCommand(new UICommandShowEncounter(sharkMessengerApp, smUI, "lsEncounters", false));
 
         // Persons
         smUI.addCommand(new UICommandListPersons(sharkMessengerApp, smUI, "lsPersons", false));
@@ -158,8 +156,8 @@ public class ProductionUI {
 
         // PKI
         smUI.addCommand(new UICommandListCertificates(sharkMessengerApp, smUI, "lsCerts", false));
-        smUI.addCommand(new UICommandShowCertificatesByIssuer(sharkMessengerApp, smUI, "certByIssuer", false));
-        smUI.addCommand(new UICommandShowCertificatesBySubject(sharkMessengerApp, smUI, "certBySubject", false));
+        smUI.addCommand(new UICommandShowCertificatesByIssuer(sharkMessengerApp, smUI, "certsByIssuer", false));
+        smUI.addCommand(new UICommandShowCertificatesBySubject(sharkMessengerApp, smUI, "certsBySubject", false));
         smUI.addCommand(new UICommandShowPendingCredentials(sharkMessengerApp, smUI, "lsCredentials", false));
         smUI.addCommand(new UICommandSendCredentialMessage(sharkMessengerApp, smUI, "sendCredential", true));
         smUI.addCommand(new UICommandAcceptCredential(sharkMessengerApp, smUI, "acceptCredential", true));
@@ -190,7 +188,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandListHub(sharkMessengerApp, smUI, "lsHubs", false));
 
 
-        System.out.println("press ? or anything else to get a command list");
+        System.out.println("type 'help' to see the list of commands");
         smUI.runCommandLoop();
     }
 }

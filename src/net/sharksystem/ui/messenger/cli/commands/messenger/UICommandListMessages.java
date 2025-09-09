@@ -34,7 +34,6 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
                 this.getSharkMessengerApp().tellUI("there is no channel at all (yet)");
                 return;
             }
-
             SharkNetMessageList messages = channel.getMessages();
             if(messages == null || messages.size() <1) {
                 this.getSharkMessengerApp().tellUI("no messages in channel " + channelIndex);
@@ -56,5 +55,4 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
     public String getDescription() {
         return "List messages in channel (index default: universal channel.";
     }
-
 }

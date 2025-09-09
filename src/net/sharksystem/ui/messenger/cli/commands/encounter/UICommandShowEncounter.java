@@ -60,6 +60,7 @@ public class UICommandShowEncounter extends AbstractCommandNoParameter {
                 sb.append(encounterLog.encounterType.toString());
                 sb.append(" | started: ");
                 sb.append(DateTimeHelper.long2ExactTimeString(encounterLog.startTime));
+                sb.append("\n");
             }
         }
 

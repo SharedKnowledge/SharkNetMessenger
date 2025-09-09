@@ -65,7 +65,7 @@ public class SharkNetMessengerUI {
 
         UICommand command = this.commands.get(commandIdentifier);
 
-        // Interactive mode uses the old Questionaire to obtain its arguments.
+        // Interactive mode uses the old questionnaire to obtain its arguments.
         if (isInteractive) {
             command.startCommandExecution();
         } else {
@@ -228,9 +228,8 @@ public class SharkNetMessengerUI {
         sb.append("Unknown command: ");
         sb.append(commandIdentifier);
         sb.append(System.lineSeparator());
-        sb.append("Please have a look at the following list of valid commands: ");
+        sb.append("Type 'help' to see the list of commands.");
         this.outStream.println(sb.toString());
-        this.printUsage();
     }
 
     public PrintStream getOutStream() {
