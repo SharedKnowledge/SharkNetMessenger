@@ -22,18 +22,24 @@ public class UICommandShowEncounter extends AbstractCommandNoParameter {
         Iterator<CharSequence> connectPeersIter = encounterManagerAdmin.getConnectedPeerIDs().iterator();
 
         StringBuilder sb = new StringBuilder();
+        sb.append("\n");
         if(connectPeersIter == null || !connectPeersIter.hasNext()) {
-            sb.append("no encounter in the moment\n");
+            sb.append("no open encounter in the moment\n");
         } else {
+            int index = 1;
+            sb.append("open encounter\n");
             while (connectPeersIter.hasNext()) {
+                sb.append(index);
+                sb.append(": ");
                 sb.append(connectPeersIter.next());
-                if (connectPeersIter.hasNext()) sb.append(", ");
+                sb.append("\n");
             }
         }
 
         List<SharkNetMessengerApp.EncounterLog> encounterLogs =
                 this.getSharkMessengerApp().getEncounterLogs();
 
+        sb.append("\n");
         if(encounterLogs.size() < 1) {
             sb.append("no previous encounter\n");
         } else {
