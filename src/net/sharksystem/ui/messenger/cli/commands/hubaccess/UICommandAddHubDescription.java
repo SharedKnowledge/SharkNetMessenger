@@ -10,9 +10,9 @@ import net.sharksystem.ui.messenger.cli.UICommand;
 import net.sharksystem.ui.messenger.cli.commandarguments.*;
 
 public class UICommandAddHubDescription extends UICommand {
-    private UICommandStringArgument hubHost;
-    private UICommandIntegerArgument hubPort;
-    private UICommandBooleanArgument multiChannel;
+    private final UICommandStringArgument hubHost;
+    private final UICommandIntegerArgument hubPort;
+    private final UICommandBooleanArgument multiChannel;
 
     public UICommandAddHubDescription(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                                       String identifier, boolean rememberCommand) {

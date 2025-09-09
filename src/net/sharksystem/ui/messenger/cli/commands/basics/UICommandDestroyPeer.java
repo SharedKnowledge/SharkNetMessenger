@@ -17,8 +17,6 @@ public class UICommandDestroyPeer extends AbstractCommandNoParameter {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("BE CAREFUL. ALL PEER DATA WILL BE DELETED. Application stops.");
-        return sb.toString();
+        return "BE CAREFUL. ALL PEER DATA WILL BE DELETED. Application stops.";
     }
 }

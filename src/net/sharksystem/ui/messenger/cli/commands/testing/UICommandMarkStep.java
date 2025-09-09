@@ -11,13 +11,12 @@ public class UICommandMarkStep extends AbstractCommandWithSingleString {
 
     @Override
     protected void execute() throws Exception {
-        StringBuilder sb = new StringBuilder();
-        sb.append("***********************************************************************\n");
-        sb.append("                   step: ");
-        sb.append(this.getStringArgument());
-        sb.append("\n");
-        sb.append("***********************************************************************\n");
-        this.getSharkMessengerApp().tellUI(sb.toString());
+        String sb = "***********************************************************************\n" +
+                "                   step: " +
+                this.getStringArgument() +
+                "\n" +
+                "***********************************************************************\n";
+        this.getSharkMessengerApp().tellUI(sb);
         int millis = 500;
         this.getSharkMessengerApp().tellUI("wait " + millis);
         Thread.sleep(millis);

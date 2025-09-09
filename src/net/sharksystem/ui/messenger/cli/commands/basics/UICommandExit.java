@@ -22,8 +22,6 @@ public class UICommandExit extends AbstractCommandNoParameter {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Terminates the messenger.");
-        return sb.toString();
+        return "Terminates the messenger.";
     }
 }

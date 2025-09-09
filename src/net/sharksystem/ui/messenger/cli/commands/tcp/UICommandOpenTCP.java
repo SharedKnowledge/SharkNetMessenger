@@ -27,9 +27,9 @@ public class UICommandOpenTCP extends AbstractCommandWithSingleInteger {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Open new port for establishing TCP connections with.");
         // append hint for how to use
-        return sb.toString();
+        return "Open new port for establishing TCP connections with."
+                // append hint for how to use
+                ;
     }
 }

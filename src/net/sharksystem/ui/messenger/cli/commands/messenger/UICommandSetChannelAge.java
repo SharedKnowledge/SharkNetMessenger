@@ -38,9 +38,7 @@ public class UICommandSetChannelAge extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Changes channel age.");
-        return sb.toString();
+        return "Changes channel age.";
     }
     
     /**

@@ -6,7 +6,7 @@ import java.util.*;
  * This class serves testing purposes. It gives ID's to and saves information about all sent messages.
  */
 public class SentMessageCounter {
-    private static Map<CharSequence, SentMessageCounter> instances = new HashMap<>();
+    private static final Map<CharSequence, SentMessageCounter> instances = new HashMap<>();
     private final Map<String, Integer> sentMessageIDs = new HashMap<>();
     private final List<MessageData> sentMessageData = new ArrayList<>();
 

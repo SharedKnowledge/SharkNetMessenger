@@ -64,10 +64,9 @@ public abstract class AbstractCommandProduceCertificateListByPeerID extends UICo
             this.getSharkMessengerApp().tellUI("not matching certificates found");
         }
         for (ASAPCertificate certificate : certificateCollection) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(PKIHelper.asapCert2String(certificate));
-            sb.append("\n");
-            this.getSharkMessengerApp().tellUI(sb.toString());
+            String sb = PKIHelper.asapCert2String(certificate) +
+                    "\n";
+            this.getSharkMessengerApp().tellUI(sb);
         }
     }
 

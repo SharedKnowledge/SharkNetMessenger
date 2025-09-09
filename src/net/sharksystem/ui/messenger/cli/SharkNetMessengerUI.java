@@ -20,7 +20,7 @@ public class SharkNetMessengerUI {
     private final PrintStream outStream;
     private final PrintStream errStream;
     private final BufferedReader bufferedReader;
-    private List<String> parsedCommands = new ArrayList<>();
+    private final List<String> parsedCommands = new ArrayList<>();
 
     /**
      * Use for string input in unittests or no input
@@ -224,12 +224,11 @@ public class SharkNetMessengerUI {
      * @param commandIdentifier
      */
     public void commandNotFound(String commandIdentifier) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Unknown command: ");
-        sb.append(commandIdentifier);
-        sb.append(System.lineSeparator());
-        sb.append("Type 'help' to see the list of commands.");
-        this.outStream.println(sb.toString());
+        String sb = "Unknown command: " +
+                commandIdentifier +
+                System.lineSeparator() +
+                "Type 'help' to see the list of commands.";
+        this.outStream.println(sb);
     }
 
     public PrintStream getOutStream() {
@@ -276,7 +275,7 @@ public class SharkNetMessengerUI {
             sb.append(System.lineSeparator());
         }
 
-        this.outStream.println(sb.toString());
+        this.outStream.println(sb);
     }
 
     /**

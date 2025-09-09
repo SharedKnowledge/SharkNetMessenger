@@ -7,7 +7,7 @@ import asapEngineTestSuite.utils.ScenarioParamAllocation;
 public abstract class TestComponents extends ScenarioParamAllocation{
 
 	protected String printSuccess = "";
-	private ScenarioIndex si = null;
+	private final ScenarioIndex si = null;
 
 	public String getPrintSuccess() {
 		return printSuccess;

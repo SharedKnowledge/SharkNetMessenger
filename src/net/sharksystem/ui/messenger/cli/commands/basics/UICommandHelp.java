@@ -19,8 +19,6 @@ public class UICommandHelp extends AbstractCommandNoParameter {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("show valid commands.");
-        return sb.toString();
+        return "show valid commands.";
     }
 }

@@ -162,7 +162,7 @@ public class ReproduceAndDebug {
         // Compare number of sent and received messages
         int amountOutgoingMessages = smaAlice.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
         int amountIncomingMessages = smaBob.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
-        Assertions.assertTrue(amountOutgoingMessages == amountIncomingMessages);
+        Assertions.assertEquals(amountOutgoingMessages, amountIncomingMessages);
     }
 
     /**
@@ -193,7 +193,7 @@ public class ReproduceAndDebug {
         // Compare number of sent and received messages
         int amountOutgoingMessages = smaAlice.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
         int amountIncomingMessages = smaBob.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
-        Assertions.assertTrue(amountOutgoingMessages == amountIncomingMessages);
+        Assertions.assertEquals(amountOutgoingMessages, amountIncomingMessages);
     }
 
     /**
@@ -243,7 +243,7 @@ public class ReproduceAndDebug {
         // Compare number of sent and received messages
         int amountOutgoingMessages = smaAlice.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
         int amountIncomingMessages = smaBob.getSharkMessengerComponent().getChannel("test://t1").getMessages().size();
-        Assertions.assertTrue(amountOutgoingMessages == amountIncomingMessages);
+        Assertions.assertEquals(amountOutgoingMessages, amountIncomingMessages);
     }
 
 }

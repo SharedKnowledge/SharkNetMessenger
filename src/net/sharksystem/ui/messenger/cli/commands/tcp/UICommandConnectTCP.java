@@ -69,9 +69,9 @@ public class UICommandConnectTCP extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Connect to a host on given port number.");
         // append hint for how to use
-        return sb.toString();
+        return "Connect to a host on given port number."
+                // append hint for how to use
+                ;
     }
 }

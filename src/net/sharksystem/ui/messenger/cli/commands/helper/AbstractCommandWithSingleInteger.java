@@ -12,7 +12,7 @@ public abstract class AbstractCommandWithSingleInteger extends UICommand {
     private final boolean optional;
     private final int defaultValue;
     private int theValue;
-    private UICommandIntegerArgument integerArgument;
+    private final UICommandIntegerArgument integerArgument;
 
     public AbstractCommandWithSingleInteger(SharkNetMessengerApp sharkMessengerApp,
                                             SharkNetMessengerUI sharkMessengerUI, String identifier, boolean rememberCommand,

@@ -54,9 +54,7 @@ public class UICommandSaveLog extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Saves the current log to a file.");
-        return sb.toString();
+        return "Saves the current log to a file.";
     }
 
     /**

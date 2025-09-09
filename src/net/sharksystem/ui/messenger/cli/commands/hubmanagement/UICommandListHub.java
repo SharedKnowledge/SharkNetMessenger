@@ -20,13 +20,12 @@ public class UICommandListHub extends AbstractCommandNoParameter {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Number of ASAP Hubs running in this process: ");
-        sb.append(openHubPorts.size());
-        sb.append("\nlistening on following TCP ports: ");
-        sb.append(Printer.getIntegerListAsCommaSeparatedString(openHubPorts.iterator()));
+        String sb = "Number of ASAP Hubs running in this process: " +
+                openHubPorts.size() +
+                "\nlistening on following TCP ports: " +
+                Printer.getIntegerListAsCommaSeparatedString(openHubPorts.iterator());
 
-        this.getSharkMessengerApp().tellUI(sb.toString());
+        this.getSharkMessengerApp().tellUI(sb);
     }
 
     @Override

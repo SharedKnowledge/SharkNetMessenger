@@ -20,9 +20,9 @@ public class UICommandShowCertificatesBySubject extends AbstractCommandProduceCe
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("show all certificates issued for a specific peer (the subject).");
         // append hint for how to use
-        return sb.toString();
+        return "show all certificates issued for a specific peer (the subject)."
+                // append hint for how to use
+                ;
     }
 }

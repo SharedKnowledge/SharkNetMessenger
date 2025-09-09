@@ -60,9 +60,7 @@ public class UICommandCreateChannel extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Creates a new channel by uri.");
-        return sb.toString();
+        return "Creates a new channel by uri.";
     }
     
     /**

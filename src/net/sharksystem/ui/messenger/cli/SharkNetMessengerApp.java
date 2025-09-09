@@ -137,7 +137,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
             // yes it is
             ASAPEncounterManagerImpl asapEncounterManager =
                     new ASAPEncounterManagerImpl(asapHandler, asapPeer.getPeerID(),
-                            syncWithOthersInSeconds*1000);
+                            syncWithOthersInSeconds* 1000L);
             // same object - different roles
             this.encounterManager = asapEncounterManager;
             this.encounterManagerAdmin = asapEncounterManager;
@@ -195,7 +195,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     }
 
     /////////////////// settings
-    private SharkNetMessengerSettings settings = new Settings();
+    private final SharkNetMessengerSettings settings = new Settings();
     public SharkNetMessengerSettings getSettings() {
         return this.settings;
     }
@@ -221,20 +221,19 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
         }
 
         public String toString() {
-            StringBuilder sb = new StringBuilder();
-            sb.append("rememberNewHubConnections: ");
-            sb.append(this.rememberNewHubConnections);
-            sb.append(" | hubReconnect: ");
-            sb.append(this.hubReconnect);
-            sb.append("\n");
-            return sb.toString();
+            String sb = "rememberNewHubConnections: " +
+                    this.rememberNewHubConnections +
+                    " | hubReconnect: " +
+                    this.hubReconnect +
+                    "\n";
+            return sb;
         }
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////
     //                                    direct TCP connections                               //
     /////////////////////////////////////////////////////////////////////////////////////////////
-    private Map<Integer, TCPServerSocketAcceptor> openSockets = new HashMap<>();
+    private final Map<Integer, TCPServerSocketAcceptor> openSockets = new HashMap<>();
 
     private boolean portAlreadyInUse(int port) {
         // hub using that port?
@@ -259,7 +258,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
 
     public void connectTCP(String host, int portNumber) throws IOException {
         if(host.equalsIgnoreCase("127.0.0.1") || host.equalsIgnoreCase("localhost")) {
-            if(this.openSockets.keySet().contains(portNumber)) {
+            if(this.openSockets.containsKey(portNumber)) {
                 System.err.println("attempt to establish a connection to same process/peer refused");
                 return;
             }
@@ -292,7 +291,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     //                                         hub management                                  //
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-    private Map<Integer, ASAPTCPHub> asapHubs = new HashMap<>();
+    private final Map<Integer, ASAPTCPHub> asapHubs = new HashMap<>();
 
     public Set<Integer> getOpenHubPorts() {
         return this.asapHubs.keySet();
@@ -321,7 +320,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     //                                    credential management                                //
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-    private List<CredentialMessage> pendingCredentialMessages = new ArrayList<>();
+    private final List<CredentialMessage> pendingCredentialMessages = new ArrayList<>();
     public void addPendingCredentialMessage(CredentialMessage credentialMessage) {
         this.pendingCredentialMessages.add(credentialMessage);
         Log.writeLog(this, "credentialMessage received");
@@ -382,16 +381,48 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     public class EncounterLog {
         public final ASAPEncounterConnectionType encounterType;
         public final long startTime;
+        public long stopTime;
         public final CharSequence peerID;
+
         EncounterLog(ASAPEncounterConnectionType encounterType, CharSequence peerID) {
             this.encounterType = encounterType;
             this.peerID = peerID;
             this.startTime = System.currentTimeMillis();
+            this.stopTime = -1;
+        }
+
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append("peer: ");
+            sb.append(this.peerID);
+            try {
+                CharSequence peerName = SharkNetMessengerApp.this.getSharkPKIComponent()
+                        .getPersonValuesByID(this.peerID).getName();
+                sb.append(" | name: ");
+                sb.append(peerName);
+            }
+            catch(ASAPException ae) {
+                // ignore - do not know that peer.
+            }
+            sb.append(" | connection: ");
+            sb.append(this.encounterType.toString());
+            sb.append(" | started: ");
+            sb.append(DateTimeHelper.long2ExactTimeString(this.startTime));
+            if(this.stopTime > -1) {
+                sb.append(" | closed: ");
+                sb.append(DateTimeHelper.long2ExactTimeString(this.stopTime));
+            } else {
+                sb.append(" | open");
+            }
+            sb.append("\n");
+            return sb.toString();
         }
     }
 
-    private List<EncounterLog> encounterLogs = new ArrayList<>();
-    public List<EncounterLog> getEncounterLogs() { return this.encounterLogs; }
+    private final Map<CharSequence, List<EncounterLog>> encounterLogs = new HashMap<>();
+    public Map<CharSequence, List<EncounterLog>> getEncounterLogs() {
+        return this.encounterLogs;
+    }
 
     @Override
     public void encounterStarted(CharSequence peerID) {
@@ -408,7 +439,13 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
         }
 
         // log
-        this.encounterLogs.add(new EncounterLog(connectionType, peerID));
+        // already an entry for that peer present?
+        List<EncounterLog> logs = this.encounterLogs.get(peerID);
+        if(logs == null) {
+            logs = new ArrayList<>();
+            this.encounterLogs.put(peerID, logs);
+        }
+        logs.add(new EncounterLog(connectionType, peerID));
 
         // check if better ask for a (fresh) certificate
         if(!(
@@ -422,21 +459,18 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
                         this.getSharkPKIComponent().
                                 getCertificateByIssuerAndSubject(peerID, this.getSharkPeer().getPeerID());
 
-                ;
-                StringBuilder sb = new StringBuilder();
-                sb.append("\nYou have an encounter with peer ");
-                sb.append(peerID);
-                sb.append(". It issued a certificate for you that runs out ");
-                sb.append(DateTimeHelper.
-                        long2DateString(certificateByIssuerAndSubject.getValidUntil().getTimeInMillis()));
-                this.tellUI(sb.toString());
+                String sb = "\nYou have an encounter with peer " +
+                        peerID +
+                        ". It issued a certificate for you that runs out " +
+                        DateTimeHelper.
+                                long2DateString(certificateByIssuerAndSubject.getValidUntil().getTimeInMillis());
+                this.tellUI(sb);
             }
             catch(ASAPSecurityException ase) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("\nPeer ");
-                sb.append(peerID);
-                sb.append(" has not yet issued a certificate for you. You are connected now. A good time to ask for one?");
-                this.tellUI(sb.toString());
+                String sb = "\nPeer " +
+                        peerID +
+                        " has not yet issued a certificate for you. You are connected now. A good time to ask for one?";
+                this.tellUI(sb);
             }
         } catch (SharkException e) {
             this.tellUIError("unexpected problems when dealing with present certificates: " + e.getLocalizedMessage());
@@ -445,7 +479,15 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
 
     @Override
     public void encounterTerminated(CharSequence peerID) {
-        this.tellUI("\nterminated encounter: " + peerID);
+        // assume it the last encounter with that peer
+        List<EncounterLog> logs = this.encounterLogs.get(peerID);
+        if(logs == null) {
+            this.tellUIError("encounter terminated but no record - that's unexpected: " + peerID);
+        }
+
+        EncounterLog log = logs.get(logs.size() - 1);
+        log.stopTime = System.currentTimeMillis();
+        this.tellUI("\nencounter closed: " + log);
     }
 
     ////////////////////////// Hub Connections
@@ -474,11 +516,10 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     }
 
     private String enhanceMessageBeforePrinting(String msg) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(DateTimeHelper.long2ExactTimeString(System.currentTimeMillis()));
-        sb.append(": ");
-        sb.append(msg);
-        return sb.toString();
+        String sb = DateTimeHelper.long2ExactTimeString(System.currentTimeMillis()) +
+                ": " +
+                msg;
+        return sb;
     }
 
     public void tellUI(String message) {

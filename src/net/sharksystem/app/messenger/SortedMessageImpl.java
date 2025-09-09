@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public class SortedMessageImpl implements SortedMessage, Serializable {
 
-    private CharSequence id;
-    private byte[] content;
-    private Set<CharSequence> parents;
+    private final CharSequence id;
+    private final byte[] content;
+    private final Set<CharSequence> parents;
     private CharSequence replyTo;
     private int depth;
 

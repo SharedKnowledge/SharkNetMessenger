@@ -34,9 +34,7 @@ public class UICommandCreateNewKeyPair extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Creates a new pair of RSA keys.");
-        return sb.toString();
+        return "Creates a new pair of RSA keys.";
     }
 
     /**

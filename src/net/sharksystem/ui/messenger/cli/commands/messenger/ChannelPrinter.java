@@ -119,11 +119,11 @@ public class ChannelPrinter {
         byte[] content = message.getContent();
         if (content.length < 1) {
             sb.append("no content\n");
-        } else if(contentType.toString().equalsIgnoreCase(SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE.toString())) {
+        } else if(contentType.toString().equalsIgnoreCase(SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE)) {
             sb.append("'");
-            sb.append(SerializationHelper.bytes2characterSequence(content).toString());
+            sb.append(SerializationHelper.bytes2characterSequence(content));
             sb.append("'\n");
-        } else if(contentType.toString().equalsIgnoreCase(SharkNetMessage.SN_CONTENT_TYPE_FILE.toString())) {
+        } else if(contentType.toString().equalsIgnoreCase(SharkNetMessage.SN_CONTENT_TYPE_FILE)) {
             try {
                 SNMessagesSerializer.SNFileMessage snFileMessage =
                         SNMessagesSerializer.deserializeFile(message.getContent());

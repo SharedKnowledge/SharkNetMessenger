@@ -29,8 +29,6 @@ public class UICommandRemoveChannelByIndex extends AbstractCommandWithSingleInte
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Removes a channel by index (not supported in version 1. not implemented yet.");
-        return sb.toString();
+        return "Removes a channel by index (not supported in version 1. not implemented yet.";
     }
 }

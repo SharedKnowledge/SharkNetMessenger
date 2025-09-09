@@ -12,6 +12,7 @@ import net.sharksystem.ui.messenger.cli.commandarguments.*;
 import net.sharksystem.ui.messenger.cli.commands.pki.PKIUtils;
 
 import java.io.*;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -94,11 +95,10 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
             String effectiveFormat = SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE;
             switch(this.contentType) {
                 default:
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("do not know content type: ");
-                    sb.append(this.contentType);
-                    sb.append(" - but convert into bytes with ASAPSerialization");
-                    this.getSharkMessengerApp().tellUI(sb.toString());
+                    String sb = "do not know content type: " +
+                            this.contentType +
+                            " - but convert into bytes with ASAPSerialization";
+                    this.getSharkMessengerApp().tellUI(sb);
 
                 case SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE:
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -125,32 +125,30 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
     private Set<CharSequence> getAllExistingPeers(String s) {
         Set<CharSequence> peers = new HashSet<>();
         String[] stringPeers = s.split(",");
-        for (String peerName : stringPeers) {
-            peers.add(peerName);
-        }
+        Collections.addAll(peers, stringPeers);
         return peers.size() > 0 ? peers : null;
     }
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("send SNMessage [content, contentType (");
-        sb.append(SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE);
-        sb.append("), ");
 
-        // signing
-        sb.append("sign (true)");
+        String sb = "send SNMessage [content, contentType (" +
+                SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE +
+                "), " +
 
-        // encryption
-        sb.append(", receiverName (");
-        sb.append(SharkNetMessage.ANY_SHARKNET_PEER);
-        sb.append("), ");
-        sb.append(", encrypt (false)");
+                // signing
+                "sign (true)" +
 
-        // channel
-        sb.append(", channel index (1)");
-        sb.append("]");
-        return sb.toString();
+                // encryption
+                ", receiverName (" +
+                SharkNetMessage.ANY_SHARKNET_PEER +
+                "), " +
+                ", encrypt (false)" +
+
+                // channel
+                ", channel index (1)" +
+                "]";
+        return sb;
     }
 
     @Override

@@ -29,9 +29,7 @@ public class UICommandClearLog extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Clear the log.");
-        return sb.toString();
+        return "Clear the log.";
     }
 
     /**

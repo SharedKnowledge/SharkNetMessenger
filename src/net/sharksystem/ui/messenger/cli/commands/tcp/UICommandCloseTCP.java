@@ -26,9 +26,9 @@ public class UICommandCloseTCP extends AbstractCommandWithSingleInteger {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Closes a specified open port - except no more new connections to be established.");
         // append hint for how to use
-        return sb.toString();
+        return "Closes a specified open port - except no more new connections to be established."
+                // append hint for how to use
+                ;
     }
 }

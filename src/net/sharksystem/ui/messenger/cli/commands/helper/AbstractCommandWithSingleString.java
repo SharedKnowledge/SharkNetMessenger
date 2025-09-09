@@ -9,10 +9,10 @@ import net.sharksystem.ui.messenger.cli.commandarguments.UICommandStringArgument
 import java.util.List;
 
 public abstract class AbstractCommandWithSingleString extends UICommand {
-    private String defaultString;
-    private boolean optional;
+    private final String defaultString;
+    private final boolean optional;
     private String derString;
-    private UICommandStringArgument stringArgument;
+    private final UICommandStringArgument stringArgument;
 
     public AbstractCommandWithSingleString(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                                            String identifier, boolean rememberCommand) {

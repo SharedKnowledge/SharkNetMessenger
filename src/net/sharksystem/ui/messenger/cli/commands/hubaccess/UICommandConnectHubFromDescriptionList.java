@@ -12,7 +12,7 @@ import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.UICommand;
 
 public class UICommandConnectHubFromDescriptionList extends UICommand {
-    private UICommandIntegerArgument hubIndex;
+    private final UICommandIntegerArgument hubIndex;
 
     public UICommandConnectHubFromDescriptionList(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                                                   String identifier, boolean rememberCommand) {

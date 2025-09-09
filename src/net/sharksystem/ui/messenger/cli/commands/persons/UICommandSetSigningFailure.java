@@ -51,9 +51,7 @@ public class UICommandSetSigningFailure extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Sets the signing failure rate for a specific peer.");
-        return sb.toString();
+        return "Sets the signing failure rate for a specific peer.";
     }
 
     /**

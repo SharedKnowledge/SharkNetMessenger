@@ -11,7 +11,7 @@ import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.UICommand;
 
 public class UICommandRemoveHubDescription extends UICommand {
-    private UICommandIntegerArgument hubIndex;
+    private final UICommandIntegerArgument hubIndex;
 
     public UICommandRemoveHubDescription(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                                          String identifier, boolean rememberCommand) {

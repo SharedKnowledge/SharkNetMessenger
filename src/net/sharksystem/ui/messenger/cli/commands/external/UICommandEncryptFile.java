@@ -86,9 +86,7 @@ public class UICommandEncryptFile extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("encrypt an extern file for a specific peer.");
-        return sb.toString();
+        return "encrypt an extern file for a specific peer.";
     }
 
     @Override

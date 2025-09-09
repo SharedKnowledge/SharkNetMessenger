@@ -28,8 +28,6 @@ public class UICommandSendCredentialMessage extends AbstractCommandWithSingleStr
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Send a credential message to a specific peer to ask for a certificate.");
-        return sb.toString();
+        return "Send a credential message to a specific peer to ask for a certificate.";
     }
 }

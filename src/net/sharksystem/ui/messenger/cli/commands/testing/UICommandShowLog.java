@@ -36,9 +36,7 @@ public class UICommandShowLog extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Prints a log message with all executed commands in the right order.");
-        return sb.toString();
+        return "Prints a log message with all executed commands in the right order.";
     }
 
     /**

@@ -7,6 +7,7 @@ import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandNoParameter;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,16 +36,18 @@ public class UICommandShowEncounter extends AbstractCommandNoParameter {
                 sb.append("\n");
             }
         }
-
-        List<SharkNetMessengerApp.EncounterLog> encounterLogs =
-                this.getSharkMessengerApp().getEncounterLogs();
-
         sb.append("\n");
-        if(encounterLogs.size() < 1) {
-            sb.append("no previous encounter\n");
+        if(this.getSharkMessengerApp().getEncounterLogs().keySet().isEmpty()) {
+            sb.append("encounter list empty\n");
         } else {
-            sb.append("previous encounter:\n");
-            for(SharkNetMessengerApp.EncounterLog encounterLog : encounterLogs) {
+            sb.append("encounter list:\n");
+            for(CharSequence peerID : this.getSharkMessengerApp().getEncounterLogs().keySet()) {
+                for (SharkNetMessengerApp.EncounterLog encounterLog :
+                        this.getSharkMessengerApp().getEncounterLogs().get(peerID)) {
+
+                    sb.append(encounterLog.toString());
+
+                /*
                 sb.append("peer: ");
                 sb.append(encounterLog.peerID);
                 try {
@@ -61,6 +64,8 @@ public class UICommandShowEncounter extends AbstractCommandNoParameter {
                 sb.append(" | started: ");
                 sb.append(DateTimeHelper.long2ExactTimeString(encounterLog.startTime));
                 sb.append("\n");
+                 */
+                }
             }
         }
 

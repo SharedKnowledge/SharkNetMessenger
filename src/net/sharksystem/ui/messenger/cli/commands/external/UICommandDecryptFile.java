@@ -61,9 +61,7 @@ public class UICommandDecryptFile extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("decrypt an extern file decrypted for this peer.");
-        return sb.toString();
+        return "decrypt an extern file decrypted for this peer.";
     }
 
     @Override

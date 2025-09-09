@@ -46,9 +46,7 @@ public class UICommandGetOwnerInfo extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Returns information about a specific peer.");
-        return sb.toString();
+        return "Returns information about a specific peer.";
     }
 
     /**

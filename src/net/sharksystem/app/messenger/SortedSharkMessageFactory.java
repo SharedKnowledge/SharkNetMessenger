@@ -7,7 +7,7 @@ import net.sharksystem.SortedMessageFactory;
 import java.util.*;
 
 public class SortedSharkMessageFactory implements SortedMessageFactory {
-    private List<SortedMessage> sortedMessages;
+    private final List<SortedMessage> sortedMessages;
     private int currentDepth;
 
     public SortedSharkMessageFactory() {

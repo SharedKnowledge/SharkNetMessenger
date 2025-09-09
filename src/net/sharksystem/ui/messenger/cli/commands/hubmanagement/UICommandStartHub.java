@@ -43,16 +43,15 @@ public class UICommandStartHub extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("start hub: ");
-        sb.append("port (");
-        sb.append(ASAPTCPHub.DEFAULT_PORT);
-        sb.append(")");
-        sb.append(", createNewConnection (true)");
-        sb.append(", maxIdleInSeconds (");
-        sb.append(ASAPTCPHub.DEFAULT_MAX_IDLE_CONNECTION_IN_SECONDS);
-        sb.append(")");
-        return sb.toString();
+        String sb = "start hub: " +
+                "port (" +
+                ASAPTCPHub.DEFAULT_PORT +
+                ")" +
+                ", createNewConnection (true)" +
+                ", maxIdleInSeconds (" +
+                ASAPTCPHub.DEFAULT_MAX_IDLE_CONNECTION_IN_SECONDS +
+                ")";
+        return sb;
     }
     @Override
     protected boolean handleArguments(List<String> arguments) {
@@ -91,15 +90,14 @@ public class UICommandStartHub extends UICommand {
             }
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("start hub on port: ");
-        sb.append(this.port);
-        sb.append(" | creates new connections: ");
-        sb.append(this.newConnection);
-        sb.append(" | connections max idle (in sec): ");
-        sb.append(this.maxIdleInSeconds);
+        String sb = "start hub on port: " +
+                this.port +
+                " | creates new connections: " +
+                this.newConnection +
+                " | connections max idle (in sec): " +
+                this.maxIdleInSeconds;
 
-        this.getSharkMessengerApp().tellUI(sb.toString());
+        this.getSharkMessengerApp().tellUI(sb);
         return true;
     }
 }

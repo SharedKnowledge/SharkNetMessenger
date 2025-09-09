@@ -73,9 +73,7 @@ public class UICommandRenamePerson extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("change person's name.");
-        return sb.toString();
+        return "change person's name.";
     }
 
     /**

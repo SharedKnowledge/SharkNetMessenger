@@ -56,8 +56,11 @@ public class UICommandStatus extends AbstractCommandNoParameter {
 
         ASAPEncounterManagerAdmin encounterManagerAdmin = this.getSharkMessengerApp().getEncounterManagerAdmin();
         sb.append("\nencounter status:");
+        /*
         sb.append("\n\tcool down periode in ms: ");
         sb.append(encounterManagerAdmin.getTimeBeforeReconnect());
+         */
+        /*
         sb.append("\n\tsum encountered peers: ");
         int numberEncounter = this.getSharkMessengerApp().getEncounterLogs().size();
         sb.append(numberEncounter);
@@ -79,14 +82,13 @@ public class UICommandStatus extends AbstractCommandNoParameter {
                 }
             }
         }
+         */
 
         this.getSharkMessengerApp().tellUI(sb.toString());
     }
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Show app setting - todo: should be changeable.");
-        return sb.toString();
+        return "Show app setting - todo: should be changeable.";
     }
 }

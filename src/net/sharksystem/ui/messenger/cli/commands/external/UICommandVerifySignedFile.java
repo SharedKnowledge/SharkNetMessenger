@@ -64,7 +64,7 @@ public class UICommandVerifySignedFile extends UICommand {
         signatureIS.read(signature);
 
         String senderID = null;
-        if(this.getSharkMessengerApp().getPeerName().toString().equalsIgnoreCase(this.senderPeerName)) {
+        if(this.getSharkMessengerApp().getPeerName().equalsIgnoreCase(this.senderPeerName)) {
             senderID = this.getSharkMessengerApp().getSharkPeer().getPeerID().toString();
             this.senderPeerName = "you";
         } else {
@@ -92,9 +92,7 @@ public class UICommandVerifySignedFile extends UICommand {
 
     @Override
     public String getDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("decrypt an extern file decrypted for this peer.");
-        return sb.toString();
+        return "decrypt an extern file decrypted for this peer.";
     }
     @Override
     protected boolean handleArguments(List<String> arguments) {

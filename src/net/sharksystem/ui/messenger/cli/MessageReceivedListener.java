@@ -15,11 +15,10 @@ public class MessageReceivedListener extends SharkNetMessengerAppListener implem
     public void sharkMessagesReceived(CharSequence uri) {
         try {
             SharkNetMessageList messages = this.sharkMessengerApp.getSharkMessengerComponent().getChannel(uri).getMessages();
-            StringBuilder sb = new StringBuilder();
-            sb.append(messages.size());
-            sb.append("messages received in channel ");
-            sb.append(uri);
-            this.sharkMessengerApp.tellUI(sb.toString());
+            String sb = messages.size() +
+                    "messages received in channel " +
+                    uri;
+            this.sharkMessengerApp.tellUI(sb);
 
         } catch (SharkNetMessengerException | IOException e) {
             this.sharkMessengerApp.tellUIError("exception when receiving messages:" + e.getLocalizedMessage());

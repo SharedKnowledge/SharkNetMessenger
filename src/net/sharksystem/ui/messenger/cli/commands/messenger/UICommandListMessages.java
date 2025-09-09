@@ -38,9 +38,9 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
             if(messages == null || messages.size() <1) {
                 this.getSharkMessengerApp().tellUI("no messages in channel " + channelIndex);
                 return;
-            };
+            }
             ChannelPrinter channelPrinter = new ChannelPrinter();
-            this.getSharkMessengerApp().tellUI(channelPrinter.getChannelDescription(channel));
+            this.getSharkMessengerApp().tellUI(ChannelPrinter.getChannelDescription(channel));
 
             this.getSharkMessengerApp().tellUI(
                     channelPrinter.getMessagesASString(

@@ -18,7 +18,7 @@ public abstract class UICommandProduceChannelListBefore extends UICommand {
         // produce channel list
         try {
             SharkNetMessengerComponent messengerComponent = this.getSharkMessengerApp().getSharkMessengerComponent();
-            new ChannelPrinter().getChannelDescriptions(messengerComponent);
+            ChannelPrinter.getChannelDescriptions(messengerComponent);
         } catch (IOException | SharkNetMessengerException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }

@@ -109,14 +109,13 @@ public class UICommandConnectHub extends UICommand {
                 this.createNewChannel = this.createNewChannelArgument.getValue();
             }
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append("connect to hub on ");
-        sb.append(this.hubHost);
-        sb.append(", port ");
-        sb.append(this.hubPort);
-        sb.append(", createNewChannel: ");
-        sb.append(this.createNewChannel);
-        this.getSharkMessengerApp().tellUI(sb.toString());
+        String sb = "connect to hub on " +
+                this.hubHost +
+                ", port " +
+                this.hubPort +
+                ", createNewChannel: " +
+                this.createNewChannel;
+        this.getSharkMessengerApp().tellUI(sb);
 
         return true;
     }

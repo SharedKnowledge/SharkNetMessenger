@@ -102,20 +102,19 @@ public class UICommandSaveTestResults extends UICommand {
                 int messageID = Integer.parseInt(getIDFromContent(message.getContent()));
                 // Write only messages where this peer is a recipient.
                 if (message.getRecipients().contains(this.peerName)) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(System.lineSeparator());
-                    sb.append(message.getSender());
-                    sb.append(",");
-                    sb.append(this.peerName);
-                    sb.append(",");
-                    sb.append(uri);
-                    sb.append(",");
-                    sb.append(messageID);
-                    sb.append(",");
-                    sb.append(message.getCreationTime());
-                    sb.append(",");
-                    sb.append(listener.getReceivedTime(uri, messageID));
-                    Files.write(path, sb.toString().getBytes(), StandardOpenOption.APPEND);
+                    String sb = System.lineSeparator() +
+                            message.getSender() +
+                            "," +
+                            this.peerName +
+                            "," +
+                            uri +
+                            "," +
+                            messageID +
+                            "," +
+                            message.getCreationTime() +
+                            "," +
+                            listener.getReceivedTime(uri, messageID);
+                    Files.write(path, sb.getBytes(), StandardOpenOption.APPEND);
                     // TODO: For tests with more than two peers and messages with more recipients or broadcasts this
                     // format might not work for verification since every combination of recipients would need an own
                     // ID count.

@@ -27,8 +27,8 @@ public class InMemoSharkNetMessage implements SharkNetMessage {
     private CharSequence snSender;
     private boolean signed;
     private boolean verified;
-    private boolean encrypted;
-    private Set<CharSequence> snRecipients;
+    private final boolean encrypted;
+    private final Set<CharSequence> snRecipients;
     private long creationTime;
     private final List<ASAPHop> hopsList;
 

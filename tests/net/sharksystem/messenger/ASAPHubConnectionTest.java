@@ -29,10 +29,10 @@ import java.util.Collection;
 
 public class ASAPHubConnectionTest {
     private String TEST_FOLDER;
-    private CharSequence EXAMPLE_APP_FORMAT = "shark/x-connectPeersExample";
-    private int portNumberAlice = 6000;
-    private int portNumberBob = 6001;
-    private int hubPort = 6600;
+    private final CharSequence EXAMPLE_APP_FORMAT = "shark/x-connectPeersExample";
+    private final int portNumberAlice = 6000;
+    private final int portNumberBob = 6001;
+    private final int hubPort = 6600;
 
     @BeforeEach
     public void init() {
@@ -231,7 +231,7 @@ public class ASAPHubConnectionTest {
 
      */
 	class TestConnectionListener implements NewConnectionListener {
-		private ASAPEncounterManager encounterManager;
+		private final ASAPEncounterManager encounterManager;
 
 		public TestConnectionListener(ASAPEncounterManager encounterManager){
 			this.encounterManager = encounterManager;
