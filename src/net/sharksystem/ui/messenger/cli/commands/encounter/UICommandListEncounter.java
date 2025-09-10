@@ -1,18 +1,14 @@
 package net.sharksystem.ui.messenger.cli.commands.encounter;
 
 import net.sharksystem.asap.ASAPEncounterManagerAdmin;
-import net.sharksystem.asap.ASAPException;
-import net.sharksystem.asap.utils.DateTimeHelper;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandNoParameter;
 
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
-public class UICommandShowEncounter extends AbstractCommandNoParameter {
-    public UICommandShowEncounter(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
+public class UICommandListEncounter extends AbstractCommandNoParameter {
+    public UICommandListEncounter(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                                   String identifier, boolean rememberCommand) {
         super(sharkMessengerApp, sharkMessengerUI, identifier, rememberCommand);
     }
@@ -46,25 +42,6 @@ public class UICommandShowEncounter extends AbstractCommandNoParameter {
                         this.getSharkMessengerApp().getEncounterLogs().get(peerID)) {
 
                     sb.append(encounterLog.toString());
-
-                /*
-                sb.append("peer: ");
-                sb.append(encounterLog.peerID);
-                try {
-                    CharSequence peerName = this.getSharkMessengerApp().getSharkPKIComponent()
-                            .getPersonValuesByID(encounterLog.peerID).getName();
-                    sb.append(" | name: ");
-                    sb.append(peerName);
-                }
-                catch(ASAPException ae) {
-                    // ignore - do not know that peer.
-                }
-                sb.append(" | connection: ");
-                sb.append(encounterLog.encounterType.toString());
-                sb.append(" | started: ");
-                sb.append(DateTimeHelper.long2ExactTimeString(encounterLog.startTime));
-                sb.append("\n");
-                 */
                 }
             }
         }

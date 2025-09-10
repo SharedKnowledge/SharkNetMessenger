@@ -9,7 +9,7 @@ import net.sharksystem.SharkException;
 import net.sharksystem.ui.messenger.cli.commands.basics.*;
 import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandCloseEncounter;
 import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandEncounterDenyList;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandShowEncounter;
+import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandListEncounter;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandDecryptFile;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandEncryptFile;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandProduceSignature;
@@ -109,7 +109,7 @@ public class ProductionUI {
             sessionSettings.putExtra(PEERNAME_KEY, peerName.getBytes());
         }
 
-        sessionSettings.putExtra(SYNC_WITH_OTHERS_IN_SECONDS_KEY, syncWithOthersInSeconds);
+        sessionSettings.putExtra(SYNC_WITH_OTHERS_IN_SECONDS_KEY, Integer.valueOf(syncWithOthersInSeconds));
 
         // Re-direct asap/shark log messages.
         PrintStream asapLogMessages = new PrintStream("asapLogs" + peerName + ".txt");
@@ -149,7 +149,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandShowOpenTCPPorts(sharkMessengerApp, smUI, "lsTCPPorts", false));
 
         // encounter control
-        smUI.addCommand(new UICommandShowEncounter(sharkMessengerApp, smUI, "lsEncounter", false));
+        smUI.addCommand(new UICommandListEncounter(sharkMessengerApp, smUI, "lsEncounter", false));
         smUI.addCommand(new UICommandCloseEncounter(sharkMessengerApp, smUI, "closeEncounter", true));
         smUI.addCommand(new UICommandEncounterDenyList(sharkMessengerApp, smUI, "lsDeny", false));
 

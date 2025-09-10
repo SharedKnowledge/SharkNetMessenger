@@ -393,7 +393,6 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("peer: ");
             sb.append(this.peerID);
             try {
                 CharSequence peerName = SharkNetMessengerApp.this.getSharkPKIComponent()
