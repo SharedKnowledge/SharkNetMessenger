@@ -142,9 +142,14 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
             this.encounterManager = asapEncounterManager;
             this.encounterManagerAdmin = asapEncounterManager;
 
+            /*
+            manages hb connections; meaning:
+            - frequently get fresh status information from hub
+            - proposes new encounter to encounter manager when new peers connect to hub
+             */
             this.hubConnectionManager =
-//                    new HubConnectionManagerImpl(this.encounterManager, asapPeer, syncWithOthersInSeconds);
-                  new HubConnectionManagerImpl(this.encounterManager, asapPeer); // default time is okay
+                    new HubConnectionManagerImpl(this.encounterManager, asapPeer, syncWithOthersInSeconds);
+//                  new HubConnectionManagerImpl(this.encounterManager, asapPeer); // default time is okay
 
             this.hubConnectionManager.addNewConnectedHubListener(this);
 

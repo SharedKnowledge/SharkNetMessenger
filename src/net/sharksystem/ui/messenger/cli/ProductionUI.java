@@ -180,6 +180,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandDisconnectHub(sharkMessengerApp, smUI, "disconnectHub", true));
         smUI.addCommand(new UICommandListConnectedHubs(sharkMessengerApp, smUI, "lsConnectedHubs", true));
         smUI.addCommand(new UICommandConnectHubFromDescriptionList(sharkMessengerApp, smUI, "connectHubFromList", true));
+        smUI.addCommand(new UICommandForceSyncHubInformation(sharkMessengerApp, smUI, "syncHubInfo", true));
 
         // hub description management
         smUI.addCommand(new UICommandListHubDescriptions(sharkMessengerApp, smUI, "lsHubDescr", false));

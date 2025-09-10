@@ -54,6 +54,21 @@ public class UICommandListConnectedHubs extends UICommand {
             catch(SharkException se) {
                 sb.append("problem accessing hub information - maybe syncing.");
             }
+
+            if(!connectedHubs.isEmpty()) {
+                sb.append("\nlast sync with hubs: ");
+                long lastSyncTime = hubConnectionManager.getLastSyncTime();
+                float secondsPassed = (float) (System.currentTimeMillis() - lastSyncTime) / 1000;
+                sb.append(DateTimeHelper.long2ExactTimeString(lastSyncTime));
+                sb.append(": ");
+                if(secondsPassed < 60) {
+                    sb.append(secondsPassed);
+                    sb.append(" seconds ago\n");
+                } else {
+                    sb.append(secondsPassed / 60);
+                    sb.append(" minutes ago\n");
+                }
+            }
         }
         // TODO!!
         List<HubConnectionManager.FailedConnectionAttempt> failedConnectionAttemptsList =
