@@ -137,7 +137,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
             // yes it is
             ASAPEncounterManagerImpl asapEncounterManager =
                     new ASAPEncounterManagerImpl(asapHandler, asapPeer.getPeerID(),
-                            syncWithOthersInSeconds* 1000L);
+                            syncWithOthersInSeconds * 100L);
             // same object - different roles
             this.encounterManager = asapEncounterManager;
             this.encounterManagerAdmin = asapEncounterManager;

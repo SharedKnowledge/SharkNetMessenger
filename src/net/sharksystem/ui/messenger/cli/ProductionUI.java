@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import net.sharksystem.SharkException;
 import net.sharksystem.ui.messenger.cli.commands.basics.*;
 import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandCloseEncounter;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandEncounterDenyList;
+import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandDenyEncounter;
 import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandListEncounter;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandDecryptFile;
 import net.sharksystem.ui.messenger.cli.commands.external.UICommandEncryptFile;
@@ -151,7 +151,7 @@ public class ProductionUI {
         // encounter control
         smUI.addCommand(new UICommandListEncounter(sharkMessengerApp, smUI, "lsEncounter", false));
         smUI.addCommand(new UICommandCloseEncounter(sharkMessengerApp, smUI, "closeEncounter", true));
-        smUI.addCommand(new UICommandEncounterDenyList(sharkMessengerApp, smUI, "lsDeny", false));
+        smUI.addCommand(new UICommandDenyEncounter(sharkMessengerApp, smUI, "denyEncounter", false));
 
         // Persons
         smUI.addCommand(new UICommandListPersons(sharkMessengerApp, smUI, "lsPersons", false));

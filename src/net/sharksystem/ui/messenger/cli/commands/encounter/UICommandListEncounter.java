@@ -1,6 +1,7 @@
 package net.sharksystem.ui.messenger.cli.commands.encounter;
 
 import net.sharksystem.asap.ASAPEncounterManagerAdmin;
+import net.sharksystem.asap.utils.DateTimeHelper;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandNoParameter;
@@ -45,6 +46,13 @@ public class UICommandListEncounter extends AbstractCommandNoParameter {
                 }
             }
         }
+
+        sb.append("time before reconnect (in ms):\n");
+        sb.append(encounterManagerAdmin.getTimeBeforeReconnect());
+
+        sb.append("\n");
+        sb.append("deny list:\n");
+        sb.append(encounterManagerAdmin.getDenyList());
 
         this.getSharkMessengerApp().tellUI(sb.toString());
     }
