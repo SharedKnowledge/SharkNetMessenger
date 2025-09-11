@@ -27,6 +27,11 @@ public class ScenarioTCPStar extends TestComponents {
 		super(commandListToFile);
 	}
 
+	@Override
+	public int getScenarioIndex() {
+		return SCENARIO_INDEX.ordinal();
+	}
+
 	/**
 	 * Generates a commandlist for the peers to execute the test scenario: TCP, direct communication with peer1.
 	 *

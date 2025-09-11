@@ -32,7 +32,7 @@ public class TestScriptOutput {
 	/**
 	 * The current scenario index. Set to 0 by default.
 	 */
-	public static int scenarioIndex = DEFAULT_SCENARIO_INDEX.ordinal();
+	protected static int scenarioIndex = DEFAULT_SCENARIO_INDEX.ordinal();
 
 	/**
 	 * Main method to run the SkriptGenerator.
@@ -113,6 +113,7 @@ public class TestScriptOutput {
 			case 1: ScenarioTCPChain testScenarioTCPChain = new ScenarioTCPChain(clf);
 				testScenarioTCPChain.testScenarioCommandsToFile(peerCount);
 				System.out.println(testScenarioTCPChain.getPrintSuccess());
+			default: System.out.println("Scenario index not recognized.");
 		}
 	}
 

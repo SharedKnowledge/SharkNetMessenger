@@ -5,30 +5,63 @@ import asapEngineTestSuite.utils.CommandListToFile;
 public class CoreScenariosHub {
 
     public static final String START_HUB = "startHub";
-    public static final String IP = "localhost";
+    private String ipHub = "localhost";
     public static final String CONNECT_HUB = "connectHub";
     public static final String DISCONNECT_HUB = "disconnectHub";
-    public static final int PORT = 6907;
+    private int hubPort = 6907;
 
-    public static final String CONNECT_HUB_LINE = CONNECT_HUB + " " + IP + " " + PORT;
-    public static final String START_HUB_LINE = START_HUB + " " + IP + " " + PORT;
+    public CoreScenariosHub() {}
 
-
-    public CoreScenariosHub() {
+    /**
+     * Constructor for CoreScenariosHub.
+     */
+    public CoreScenariosHub(int hubStartingPort, String hubIPAddress) {
+        this.ipHub = hubIPAddress;
+        this.hubPort = hubStartingPort;
     }
 
-    private String hubHostCommandList() {
-        return START_HUB_LINE;
+    /**
+     * Generates command list for starting the hub.
+     * @return the command list as a string
+     */
+    public final String hubHostCommandList() {
+        return START_HUB + " " + ipHub + " " + hubPort
+                + System.lineSeparator();
     }
 
-    private String hubCoreAConnectorCommandList(int order) {
-        if (order == 1) {
-            return CONNECT_HUB_LINE + System.lineSeparator();
-        }
-        return CommandListToFile.WAIT + " " + 500 + System.lineSeparator()
-                + CONNECT_HUB_LINE + System.lineSeparator();
+
+    /**
+     * Generates command list for a peer to connect to the hub before the other peer.
+     * @return the command list as a string
+     */
+    public String hubCoreAConnectWithoutWait() {
+            return CONNECT_HUB + " " + ipHub + " " + hubPort
+                    + System.lineSeparator();
     }
 
+    /**
+     * Generates command list for a peer to connect to the hub after the other peer, including a wait time.
+     * @return the command list as a string
+     */
+    public String hubCoreAWaitAndConnect() {
+        return CommandListToFile.WAIT
+                + " " + 500
+                + System.lineSeparator()
+                + hubCoreAConnectWithoutWait();
+    }
+
+    public String disconnectFromHub() {
+        return DISCONNECT_HUB + " 1"
+                + System.lineSeparator();
+    }
+
+    public String disconnectFromHub(int hubIndex) {
+        return DISCONNECT_HUB + " " + hubIndex
+                + System.lineSeparator();
+    }
+}
+
+    /*
     public String hubACommandList(int index, char peer) {
         if (index == 1) {
             if (peer == 'a' || peer == 'A') {
@@ -109,3 +142,5 @@ public class CoreScenariosHub {
 //        }
 //    }
 //}
+
+     */

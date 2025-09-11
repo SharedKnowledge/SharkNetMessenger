@@ -26,10 +26,10 @@ public class ScenarioParamAllocation {
 
 	private int peerCount = DEFAULT_PEER_COUNT;
 	private String fileNameToBeSent = DEFAULT_FILE_NAME;
-	private long fileSize = parseLong(DEFAULT_FILE_SIZE);
 	private String fileSizeUnit = DEFAULT_FILE_SIZE_UNIT;
 	private ScenarioIndex scenarioIndex = DEFAULT_SCENARIO_INDEX;
 	private String hostIPAddress = CommandListToFile.DEFAULT_HOST_ADDRESS;
+	private long fileSize = parseLong(DEFAULT_FILE_SIZE);
 
 	/**
 	 * Default constructor that initializes the utils.ScenarioParamAllocation object with default values.
@@ -43,7 +43,7 @@ public class ScenarioParamAllocation {
 	 *
 	 * @param pathInfoSheet the path to the info sheet file
 	 */
-	public ScenarioParamAllocation(String pathInfoSheet) throws NullPointerException {
+	public ScenarioParamAllocation(String pathInfoSheet) {
 		try (BufferedReader bufferedReader = FileUtils.getBufferedReader(pathInfoSheet)) {
 			assignCommandListComponents(bufferedReader);
 		} catch (IOException e) {
@@ -78,7 +78,8 @@ public class ScenarioParamAllocation {
 	 * @param fileSize the size of the file
 	 */
 	public void setFileSize(String fileSize, String fileSizeUnit) {
-		if (fileSize == null || fileSize.isEmpty()) {
+		this.fileSize = parseLong(fileSize);
+		if (this.fileSize == 0) {
 			System.err.println("File size unspecified. Using default file size: " + DEFAULT_FILE_SIZE);
 			return;
 		}
@@ -86,7 +87,7 @@ public class ScenarioParamAllocation {
 			System.err.println("File size unit unspecified. Using default file size unit: " + DEFAULT_FILE_SIZE_UNIT);
 			return;
 		}
-		if (parseLong(fileSize) <= 0) {
+		if (this.fileSize <= 0) {
 			System.err.println("File size invalid. Using default file size: " + DEFAULT_FILE_SIZE);
 			return;
 		}
@@ -218,6 +219,7 @@ public class ScenarioParamAllocation {
 	 * @return the file size in bytes
 	 */
 	public long calculateFileSize(long fileSize) {
+		this.fileSize = fileSize;
 		if (fileSize <= 0)
 			return parseLong(DEFAULT_FILE_SIZE);
 		switch (fileSizeUnit.toUpperCase()) {

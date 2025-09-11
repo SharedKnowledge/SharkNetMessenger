@@ -23,9 +23,7 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 		return commandListToFile;
 	}
 
-	public int getScenarioIndex() {
-		return si.ordinal();
-	}
+	public abstract int getScenarioIndex();
 
 	/**
 	 * Generates a command list for receiving messages in a TCP scenario.
@@ -45,7 +43,7 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 			System.lineSeparator() +
 			CommandListToFile.LIST_MESSAGES +
 			System.lineSeparator() +
-			CommandListToFile.WAIT + ' ' + 300000 +
+			CommandListToFile.WAIT + ' ' + 5000 +
 			System.lineSeparator() +
 			CommandListToFile.EXIT;
 	}

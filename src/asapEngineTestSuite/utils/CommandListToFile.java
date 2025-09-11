@@ -22,6 +22,9 @@ public class CommandListToFile {
 
 	public static final String DEFAULT_HOST_ADDRESS = "localhost"; //change this to the host address
 
+	public static final String RUN_SCENARIO_SUCCESS = "Peer Wrapper: Command list for distributing IP address and receiving runScenario written to: ";
+	public static final String DEFAULT_PARAMETERS_STRING = "Using default parameters.";
+
 //	private String currentIPAddress;
 
 	private final ScenarioParamAllocation scenarioParamAllocation;
@@ -82,7 +85,7 @@ public class CommandListToFile {
 					scenarioParamAllocation.setFileNameToBeSent(args[5]);
 					FileUtils.createSpecifiedFile(size, scenarioParamAllocation.getFileNameToBeSent());
 				}
-				System.out.println("Using default parameters.");
+				System.out.println(DEFAULT_PARAMETERS_STRING);
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.err.println(args.length + " argument(s) provided.");
 				System.err.println("Using default values for the missing parameters.");
@@ -138,12 +141,17 @@ public class CommandListToFile {
 		File file = new File(CommandListToFile.RECEIVE_COMMANDS_FILE_NAME + CommandListToFile.TEXT_FILE_EXTENSION);
 		try (FileOutputStream fos = new FileOutputStream(file)) {
 			FileUtils.writeToFile(fos, receiveCommands);
-			System.out.println("Command list for distributing IP address and receiving runScenario written to (to be executed by the PeerHosts): " + file.getName());
+			System.out.println(RUN_SCENARIO_SUCCESS + file.getName());
 		} catch (IOException e) {
 			System.err.println("Error writing to file: " + e.getMessage());
 		}
 	}
 
+	/**
+	 * Writes the host command list to a file.
+	 * @param testHost the TestHost object to generate the command list
+	 * @throws IOException if an I/O error occurs while creating the file
+	 */
 	public void hostCommandListToFile(TestHost testHost) throws IOException {
 		File file = new File("hostCommandList.txt");
 		FileOutputStream fos = new FileOutputStream(file);

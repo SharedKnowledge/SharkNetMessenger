@@ -32,6 +32,11 @@ public class ScenarioTCPChain extends TestComponents {
 		super(commandListToFile);
 	}
 
+	@Override
+	public int getScenarioIndex() {
+		return SCENARIO_INDEX.ordinal();
+	}
+
 	public void sendMessage(StringBuilder scenarioScript, String peerSpecificFileNameToBeSent) {
 		scenarioScript
 			.append(CommandListToFile.SEND_MESSAGE)
