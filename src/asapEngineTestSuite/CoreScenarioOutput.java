@@ -13,7 +13,7 @@ public class CoreScenarioOutput {
 
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peer) {
 		try {
-				CommandListFinalizer.finalizeCommandList(commandList);
+				commandList = CommandListFinalizer.finalizeCommandList(commandList);
 				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -24,8 +24,8 @@ public class CoreScenarioOutput {
 		try {
 			char peer = 'A';
 			for (String s : commandLists) {
-				CommandListFinalizer.finalizeCommandList(s);
-				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), s);
+				String string = CommandListFinalizer.finalizeCommandList(s);
+				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), string);
 				peer++;
 			}
 		} catch (IOException e) {
