@@ -7,15 +7,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class CoreScenariosTCPChain extends ScenarioTCPChain {
+public class CoreScenariosTCPChain {
 
     public static final int PORT_NUMBER = 4444;
 
     public static final String OPEN_PORT_LINE = CommandListToFile.OPEN_TCP + " " + PORT_NUMBER;
-
-    public CoreScenariosTCPChain(CommandListToFile commandListToFile) {
-        super(commandListToFile);
-    }
 
     private String coreARecevingPeer() {
         return OPEN_PORT_LINE
@@ -59,35 +55,13 @@ public class CoreScenariosTCPChain extends ScenarioTCPChain {
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
                 + CommandListToFile.CONNECT_TCP + "FILLER_IP" + PORT_NUMBER
-                + System.lineSeparator()
-                + CommandListToFile.WAIT +  " " + CommandListToFile.WAIT_TIME
-                + System.lineSeparator()
-                + CommandListToFile.LIST_MESSAGES
                 + System.lineSeparator();
     }
 
     private String coreBReceivingPeer() {
         return OPEN_PORT_LINE
-                + System.lineSeparator()
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
-                + System.lineSeparator()
-                + CommandListToFile.LIST_MESSAGES
                 + System.lineSeparator();
     }
 
-    //maybe change this logic... What about combined scenarios and exit at the end?
-    public void writeCoreBToFile(int order) {
-        try {
-            if (order == 1) {
-                FileUtils.writeToFile(new FileOutputStream("/PeerA_CB1.txt"), coreBSendingPeer());
-                FileUtils.writeToFile(new FileOutputStream("/PeerB_CB1.txt"), coreBReceivingPeer());
-            }
-            else {
-                FileUtils.writeToFile(new FileOutputStream("/PeerB_CB1.txt"), coreBSendingPeer());
-                FileUtils.writeToFile(new FileOutputStream("/PeerA_CB1.txt"), coreBReceivingPeer());
-            }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-    }
+
 }

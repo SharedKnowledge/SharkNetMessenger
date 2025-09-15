@@ -8,6 +8,7 @@ public class CoreScenariosHub {
     private String ipHub = "localhost";
     public static final String CONNECT_HUB = "connectHub";
     public static final String DISCONNECT_HUB = "disconnectHub";
+    public static final String DISCONNECT_HUB_LINE = DISCONNECT_HUB + " 1";
     private int hubPort = 6907;
 
     public CoreScenariosHub() {}
@@ -24,34 +25,33 @@ public class CoreScenariosHub {
      * Generates command list for starting the hub.
      * @return the command list as a string
      */
-    public final String hubHostCommandList() {
+    public final String hubHostCommand() {
         return START_HUB + " " + ipHub + " " + hubPort
                 + System.lineSeparator();
     }
-
 
     /**
      * Generates command list for a peer to connect to the hub before the other peer.
      * @return the command list as a string
      */
-    public String hubCoreAConnectWithoutWait() {
-            return CONNECT_HUB + " " + ipHub + " " + hubPort
-                    + System.lineSeparator();
-    }
+    public String hubCoreCommands(int order) {
+        if (order > 2 || order < 1)
+                throw new IllegalArgumentException("Order must be 1 or 2.");
 
-    /**
-     * Generates command list for a peer to connect to the hub after the other peer, including a wait time.
-     * @return the command list as a string
-     */
-    public String hubCoreAWaitAndConnect() {
-        return CommandListToFile.WAIT
+        String peerPrimary = CONNECT_HUB + " " + ipHub + " " + hubPort
+                + System.lineSeparator();
+
+        String peerSecondary = CommandListToFile.WAIT
                 + " " + 500
                 + System.lineSeparator()
-                + hubCoreAConnectWithoutWait();
+                + peerPrimary;
+
+        return order == 1 ? peerPrimary : peerSecondary;
     }
 
     public String disconnectFromHub() {
-        return DISCONNECT_HUB + " 1"
+        return CommandListToFile.WAIT + " " + 500
+                + DISCONNECT_HUB_LINE
                 + System.lineSeparator();
     }
 
@@ -59,88 +59,91 @@ public class CoreScenariosHub {
         return DISCONNECT_HUB + " " + hubIndex
                 + System.lineSeparator();
     }
-}
 
-    /*
-    public String hubACommandList(int index, char peer) {
-        if (index == 1) {
-            if (peer == 'a' || peer == 'A') {
-                return aSendMessageCommands(index);
-            } else if (peer == 'b' || peer == 'B') {
-                return receiveMessageCommands();
-            }
-        } else if (index == 2) {
-            if (peer == 'a' || peer == 'A') {
-                return receiveMessageCommands();
-            }
-            if (peer == 'b' || peer == 'B') {
-                return aSendMessageCommands(index);
-            }
-        }
-        throw new IllegalArgumentException();
+    public String hubACommands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+
+        String peerSending = hubCoreCommands(order)
+                    + CommandListToFile.SEND_MESSAGE + "HUB_A" + " " + "sn/char";
+
+        return order == 1 ? peerSending : hubCoreCommands(order);
     }
 
-    public String hubBCommandList(int index, char peer) {
-        if (index == 1) {
-            if (peer == 'a' || peer == 'A') {
-                return bSendMessageCommands(index);
-            } else if (peer == 'b' || peer == 'B') {
-                return receiveMessageCommands();
-            }
-        } else if (index == 2) {
-            if (peer == 'a' || peer == 'A') {
-                return receiveMessageCommands();
-            } else if (peer == 'b' || peer == 'B') {
-                return bSendMessageCommands(index);
-            }
-        }
-        throw new IllegalArgumentException();
-    }
+    public String hubB1Commands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
 
-    private String aSendMessageCommands(int index) {
-        return hubCoreAConnectorCommandList(1)
-                + CommandListToFile.SEND_MESSAGE + "HUB_A" + index + " " + "sn/char";
-    }
-
-
-
-    private String bSendMessageCommands(int index) {
-        return CommandListToFile.SEND_MESSAGE + "HUB_B" + index + " " + "sn/char"
+        String peerSending = CommandListToFile.SEND_MESSAGE + "HUB_B1" + " " + "sn/char"
                 + System.lineSeparator()
-                + hubCoreAConnectorCommandList(1)
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
+                + hubCoreCommands(order);
+
+        return order == 1 ? peerSending : hubCoreCommands(order);
     }
 
-    private String receiveMessageCommands() {
-        return hubCoreAConnectorCommandList(2) +
-                CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
-                + System.lineSeparator()
-                + CommandListToFile.LIST_MESSAGES;
+    public String hubB2Commands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+
+        String peerSending = CommandListToFile.SEND_MESSAGE + "HUB_B2" + " " + "sn/char"
+                + hubCoreCommands(2);
+
+        return order == 1 ? peerSending : hubCoreCommands(1);
     }
-}
 
-    //think AGAIN!!!
-//    public void hubCoreScenarioWriter(int order) {
-//        if (order > 2 || order < 1) {
-//            throw new IllegalArgumentException();
-//        }
-//        try {
-//            if (order == 1) {
-//                FileUtils.writeToFile(new FileOutputStream("/hubCore1PeerA.txt"),
-//                        hubCoreAConnectorCommandList(1));
-//                FileUtils.writeToFile(new FileOutputStream("/hubCore1PeerB.txt"),
-//                        hubCoreAConnectorCommandList(2));
-//            }
-//            else {
-//                FileUtils.writeToFile(new FileOutputStream("/hubCore2PeerA.txt"),
-//                        hubCoreAConnectorCommandList(2));
-//                FileUtils.writeToFile(new FileOutputStream("/hubCore2PeerB.txt"),
-//                        hubCoreAConnectorCommandList(1));
-//            }
-//        } catch (IOException e) {
-//            System.err.println(e.getMessage());
-//        }
-//    }
-//}
-
+    /**
+     * Generates command list for a peer to disconnect from the hub after sending a message.
      */
+    public String hubDisA1Commands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+
+        String peerSending = hubCoreCommands(order)
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + "HUB_DisA1" + " " + "sn/char";
+
+        String peerReceiving = hubCoreCommands(order)
+                + disconnectFromHub();
+
+        return order == 1 ? peerSending : peerReceiving;
+    }
+
+    /**
+     * Generates command list for a peer to disconnect from the hub after sending a message and the other peer to send a message.
+     * @param order in which the peer connects to the hub; 1 or 2
+     * @return the command list as a string
+     */
+    public String hubDisA2Commands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+        String peerSender = hubCoreCommands(order);
+
+        String peerReceiver = hubCoreCommands(order)
+                + disconnectFromHub()
+                + CommandListToFile.SEND_MESSAGE + "HUB_DisA2" + " " + "sn/char";
+
+        return order == 1 ? peerSender : peerReceiver;
+    }
+
+    /**
+     * Generates command list for both peers to connect to the hub, one immediately disconnects after and the other sends a message.
+     * @param order
+     * @return
+     */
+    public String hubDisBCommands(int order) {
+        if (order > 2 || order < 1)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+
+        String peerSending = hubCoreCommands(order)
+                + disconnectFromHub();
+
+        String peerReceiving = hubCoreCommands(order)
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + "HUB_DisB" + " " + "sn/char";
+
+        return order == 2 ? peerSending : peerReceiving;
+    }
+
+}
