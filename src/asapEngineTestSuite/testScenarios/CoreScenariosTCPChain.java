@@ -1,11 +1,6 @@
 package asapEngineTestSuite.testScenarios;
 
 import asapEngineTestSuite.utils.CommandListToFile;
-import asapEngineTestSuite.utils.fileUtils.FileUtils;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class CoreScenariosTCPChain {
 
@@ -27,7 +22,7 @@ public class CoreScenariosTCPChain {
                + System.lineSeparator()
                + CommandListToFile.CONNECT_TCP + "FILLER_IP" + PORT_NUMBER
                + System.lineSeparator()
-               + CommandListToFile.SEND_MESSAGE + " " + "TCPChain_CoreA1" + "sn/char"
+               + CommandListToFile.SEND_MESSAGE + " " + "TCPChain_CoreA1" + " sn/char"
                +  System.lineSeparator()
                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                + System.lineSeparator()
@@ -35,32 +30,50 @@ public class CoreScenariosTCPChain {
                + System.lineSeparator();
     }
 
-    public void writeCoreAToFile(int order) {
-        try {
-            if (order == 1) {
-                FileUtils.writeToFile(new FileOutputStream("/PeerA_CA1.txt"), coreASendingPeer());
-                FileUtils.writeToFile(new FileOutputStream("/PeerB_CA1.txt"), coreARecevingPeer());
-            } else {
-                FileUtils.writeToFile(new FileOutputStream("/PeerB_CA2.txt"), coreASendingPeer());
-                FileUtils.writeToFile(new FileOutputStream("/PeerA_CA2.txt"), coreARecevingPeer());
-            }
-        } catch (IOException e) {
-                System.err.println(e.getMessage());
+    public String[] coreACommandLists(int peerOrder) throws IllegalArgumentException {
+        validation(peerOrder);
+        String[] commandLists = new String[2];
+        if (peerOrder == 1) {
+                commandLists[0] = coreASendingPeer();
+                commandLists[1] = coreARecevingPeer();
+        } else {
+                commandLists[0] = coreARecevingPeer();
+                commandLists[1] = coreASendingPeer();
         }
+        return commandLists;
     }
 
+    private static void validation(int peerOrder) {
+        if (peerOrder < 1 || peerOrder > 2)
+            throw new IllegalArgumentException("Order must be 1 or 2.");
+    }
+
+
     private String coreBSendingPeer() {
-        return CommandListToFile.SEND_MESSAGE + " " + "TCPChain_CoreB1" + "sn/char"
+        return CommandListToFile.SEND_MESSAGE + " " + "TCPChain_CoreB1" + " sn/char"
                 +  System.lineSeparator()
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
-                + CommandListToFile.CONNECT_TCP + "FILLER_IP" + PORT_NUMBER
+                + CommandListToFile.CONNECT_TCP + " FILLER_IP " + PORT_NUMBER
                 + System.lineSeparator();
     }
 
     private String coreBReceivingPeer() {
         return OPEN_PORT_LINE
                 + System.lineSeparator();
+    }
+
+    public String[] coreBCommandLists(int peerOrder) {
+        validation(peerOrder);
+        String[] commandLists = new String[2];
+        if (peerOrder == 1) {
+                commandLists[0] = coreBSendingPeer();
+                commandLists[1] = coreBReceivingPeer();
+        } else {
+                commandLists[0] = coreBReceivingPeer();
+                commandLists[1] = coreBSendingPeer();
+        }
+        return commandLists;
     }
 
 
