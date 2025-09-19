@@ -1,12 +1,5 @@
 package asapEngineTestSuite.testScenarios;
 
-import com.sun.source.doctree.EscapeTree;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 public class CombinedScenarios {
 
 	/**
@@ -35,14 +28,14 @@ public class CombinedScenarios {
 		return commands;
 	}
 
-	public static void main(String[] args) {
-		CoreScenariosTCPChain coreScenariosTCPChain = new CoreScenariosTCPChain();
-		String[] testcommands = combineScenarios(coreScenariosTCPChain.coreACommandLists(1), coreScenariosTCPChain.coreBCommandLists(1), coreScenariosTCPChain.coreACommandLists(1));
-		System.out.println(testcommands[1]);
-		System.out.println(
-		);
-
-		System.out.println(testcommands[0]);
-	}
+//	public static void main(String[] args) {
+//		CoreScenariosTCPChain coreScenariosTCPChain = new CoreScenariosTCPChain();
+//		String[] testcommands = combineScenarios(coreScenariosTCPChain.coreACommandLists(1), coreScenariosTCPChain.coreBCommandLists(1), coreScenariosTCPChain.coreACommandLists(1));
+//		System.out.println(testcommands[1]);
+//		System.out.println(
+//		);
+//
+//		System.out.println(testcommands[0]);
+//	}
 
 }

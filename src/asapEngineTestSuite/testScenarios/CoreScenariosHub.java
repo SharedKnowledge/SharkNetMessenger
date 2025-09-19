@@ -74,7 +74,7 @@ public class CoreScenariosHub {
      * @throws IllegalArgumentException if the order is not 1 or 2
      */
     public String[] hubA1Commands() throws IllegalArgumentException {
-        String commands[] = new String[2];
+        String[] commands = new String[2];
         commands[0] = hubCoreCommands(1)
                     + CommandListToFile.SEND_MESSAGE + "HUB_A" + " " + "sn/char";
         commands[1] = hubCoreCommands(2);
@@ -82,7 +82,7 @@ public class CoreScenariosHub {
     }
 
     public String[] hubA2Commands() throws IllegalArgumentException {
-        String commands[] = new String[2];
+        String[] commands = new String[2];
         commands[0] = hubCoreCommands(2)
                     + CommandListToFile.SEND_MESSAGE + "HUB_A2" + " " + "sn/char";
         commands[1] = hubCoreCommands(1);
@@ -136,7 +136,6 @@ public class CoreScenariosHub {
 
     /**
      * Generates command list for a peer to disconnect from the hub after sending a message and the other peer to send a message.
-     * @param order in which the peer connects to the hub; 1 or 2
      * @return the command list as a string
      */
     public String[] hubDisA2Commands() throws IllegalArgumentException {
