@@ -62,10 +62,10 @@ public class CoreScenariosHub {
                 + System.lineSeparator();
     }
 
-    private String disconnectFromHub(int hubIndex) {
-        return DISCONNECT_HUB + " " + hubIndex
-                + System.lineSeparator();
-    }
+//    private String disconnectFromHub(int hubIndex) {
+//        return DISCONNECT_HUB + " " + hubIndex
+//                + System.lineSeparator();
+//    }
 
     /**
      * Generates command lists for the scenario in which the peers connect to the hub and one sends a message.
@@ -178,5 +178,4 @@ public class CoreScenariosHub {
                     + CommandListToFile.SEND_MESSAGE + "HUB_DisB2" + " " + "sn/char";
         return commands;
     }
-
 }

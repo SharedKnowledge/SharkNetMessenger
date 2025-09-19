@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ScenarioTCPStar extends TestComponents {
 	public static final ScenarioIndex SCENARIO_INDEX = ScenarioIndex.TCP_STAR;
 
-	private final String printSuccess = "Scenario: TCP Star commands generated." ;
+//	private static final String printSuccess = "Scenario: TCP Star commands generated." ;
 
 	/**
 	 * The TCP port used by peer1 to listen for incoming connections.

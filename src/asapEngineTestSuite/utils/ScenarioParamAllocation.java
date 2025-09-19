@@ -29,7 +29,7 @@ public class ScenarioParamAllocation {
 	private String fileSizeUnit = DEFAULT_FILE_SIZE_UNIT;
 	private ScenarioIndex scenarioIndex = DEFAULT_SCENARIO_INDEX;
 	private String hostIPAddress = CommandListToFile.DEFAULT_HOST_ADDRESS;
-	private long fileSize = parseLong(DEFAULT_FILE_SIZE);
+	private long fileSize = 1024 * 2; // 200 kB in bytes
 
 	/**
 	 * Default constructor that initializes the utils.ScenarioParamAllocation object with default values.

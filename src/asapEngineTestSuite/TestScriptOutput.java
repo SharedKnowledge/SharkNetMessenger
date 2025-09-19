@@ -32,7 +32,7 @@ public class TestScriptOutput {
 	/**
 	 * The current scenario index. Set to 0 by default.
 	 */
-	protected static int scenarioIndex = DEFAULT_SCENARIO_INDEX.ordinal();
+	public static int scenarioIndex = DEFAULT_SCENARIO_INDEX.ordinal();
 
 	/**
 	 * Main method to run the SkriptGenerator.
