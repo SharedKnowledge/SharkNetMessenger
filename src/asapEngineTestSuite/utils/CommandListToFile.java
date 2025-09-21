@@ -19,6 +19,7 @@ public class CommandListToFile {
 	public static final String EXIT = "exit";
 	public static final String LIST_MESSAGES = "lsMessages";
 	public static final String WAIT = "wait";
+	public static final String CLOSE_ENCOUNTER = "closeEncounter";
 
 	public static final String DEFAULT_HOST_ADDRESS = "localhost"; //change this to the host address
 

@@ -10,6 +10,7 @@ public class CoreScenariosTCPChain {
     public static final String TCPCHAIN_CORE_A_1 = "TCPChain_CoreA1";
     public static final String TCPCHAIN_CORE_B_1 = "TCPChain_CoreB1";
     public static final String SN_CHAR = " sn/char";
+    public static final String CLOSE_ENCOUNTER_1 = CommandListToFile.CLOSE_ENCOUNTER + " 1" + System.lineSeparator();
 
     private String coreARecevingPeer() {
         return OPEN_PORT_LINE
@@ -67,6 +68,11 @@ public class CoreScenariosTCPChain {
                 + System.lineSeparator();
     }
 
+    /**
+     *
+     * @param peerOrder the order of peers in which they establish the connection. (1: Peer A connects first, 2: B connects first)
+     * @return the command lists required for the Scenario Core B.
+     */
     public String[] coreBCommandLists(int peerOrder) {
         validation(peerOrder);
         String[] commandLists = new String[2];
@@ -80,12 +86,23 @@ public class CoreScenariosTCPChain {
         return commandLists;
     }
 
-    //TODO
-    public String[] coreADisconnectSCommandLists() {
-            String[] commandLists = new String[2];
-
-            return commandLists;
+    /**
+     * Adds the closeEncounter command to one of the command lists.
+     * @param commandLists the command lists to execute the scenario.
+     * @param peer A or B (case-insensitive)
+     * @return the array with the modified command lists.
+     */
+    public static String[] appendCommandListWithCloseEncounter(String[] commandLists, char peer) throws NullPointerException, IllegalArgumentException {
+        if (commandLists == null)
+            throw new NullPointerException();
+        if (peer == 'a' || peer == 'A') {
+            commandLists[0] += CLOSE_ENCOUNTER_1;
+        }
+        if (peer == 'b' || peer == 'B') {
+            commandLists[1] = CLOSE_ENCOUNTER_1;
+        }
+        else throw new IllegalArgumentException();
+        return commandLists;
     }
-
 
 }
