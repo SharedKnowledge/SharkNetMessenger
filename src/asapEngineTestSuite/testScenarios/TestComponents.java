@@ -19,10 +19,6 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 		commandListToFile = clf;
 	}
 
-	public CommandListToFile getCommandListToFile() {
-		return commandListToFile;
-	}
-
 	public abstract int getScenarioIndex();
 
 	/**
@@ -115,12 +111,12 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 
 	protected String generateTestScenarioCommands(int peerIndex) throws IllegalArgumentException
 	{
-		int peerCount = commandListToFile.getScenarioParamAllocation().getPeerCount();
+		int peerCount = commandListToFile.getPeerCount();
 		if (peerIndex < 1 || peerIndex > peerCount) {
 			throw new IllegalArgumentException("Invalid peer index: " + peerIndex);
 		}
 		// a waiting period in milliseconds
-		String peerSpecificFileNameToBeSent = peerIndex + "_" + this.commandListToFile.getScenarioParamAllocation().getFileNameToBeSent();
+		String peerSpecificFileNameToBeSent = peerIndex + "_" + this.commandListToFile.getFilenameToBeSent();
 		//this block consists of the common commands for all peers.
 		StringBuilder scenarioScript = new StringBuilder();
 		if (peerIndex == peerCount) {

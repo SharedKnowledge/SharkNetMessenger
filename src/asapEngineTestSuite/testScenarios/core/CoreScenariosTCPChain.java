@@ -1,4 +1,4 @@
-package asapEngineTestSuite.testScenarios;
+package asapEngineTestSuite.testScenarios.core;
 
 import asapEngineTestSuite.utils.CommandListToFile;
 

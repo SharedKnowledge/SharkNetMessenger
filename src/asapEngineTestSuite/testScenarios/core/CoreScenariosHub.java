@@ -1,4 +1,4 @@
-package asapEngineTestSuite.testScenarios;
+package asapEngineTestSuite.testScenarios.core;
 import asapEngineTestSuite.utils.CommandListToFile;
 
 public class CoreScenariosHub {
@@ -61,11 +61,6 @@ public class CoreScenariosHub {
                 + DISCONNECT_HUB_LINE
                 + System.lineSeparator();
     }
-
-//    private String disconnectFromHub(int hubIndex) {
-//        return DISCONNECT_HUB + " " + hubIndex
-//                + System.lineSeparator();
-//    }
 
     /**
      * Generates command lists for the scenario in which the peers connect to the hub and one sends a message.
@@ -166,7 +161,6 @@ public class CoreScenariosHub {
     }
 
     /**
-     * Generates command list for both peers to connect to the hub TODO
      * @return the command list as a string array
      */
     public String[] hubDisB2Commands() {

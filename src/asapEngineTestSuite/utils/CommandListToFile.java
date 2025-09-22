@@ -1,7 +1,5 @@
 package asapEngineTestSuite.utils;
 
-import asapEngineTestSuite.testScenarios.ScenarioTCPChain;
-import asapEngineTestSuite.testScenarios.ScenarioTCPStar;
 import asapEngineTestSuite.utils.fileUtils.FileUtils;
 
 import java.io.*;
@@ -61,11 +59,8 @@ public class CommandListToFile {
 		return scenarioParamAllocation.getPeerCount();
 	}
 
-	/**
-	 * Returns the object that stores the test parameters and their assigning methods.
-	 */
-	public ScenarioParamAllocation getScenarioParamAllocation() {
-		return scenarioParamAllocation;
+	public String getFilenameToBeSent() {
+		return this.scenarioParamAllocation.getFileNameToBeSent();
 	}
 
 	/**
@@ -100,38 +95,38 @@ public class CommandListToFile {
 		}
 	}
 
-	/**
-	 * Writes the scenario specific peer command list to files.
-	 *
-	 * @param peerCount the number of peers
-	 * @throws IOException if an I/O error occurs
-	 */
-	public void runScenarioPrinter(int peerCount, String hostAdress) throws IOException, IllegalArgumentException {
-		if (peerCount < 1) {
-			throw new IllegalArgumentException("peer count cannot be 0");
-		}
-		for (int i = 1; i <= peerCount; i++) {
-			File file = new File("runScenario" + i + ".txt");
-
-			if (this.getScenarioParamAllocation().getScenarioIndex() == 0) {
-
-				ScenarioTCPStar scenarioTCPStar = new ScenarioTCPStar(this);
-
-				FileUtils.writeToFile(new FileOutputStream(file.getName()),
-					scenarioTCPStar.generateRunScenarioCommands(i, hostAdress));
-
-			} else if (this.getScenarioParamAllocation().getScenarioIndex() == 1) {
-
-				ScenarioTCPChain scenarioTCPChain = new ScenarioTCPChain(this);
-
-				FileUtils.writeToFile(new FileOutputStream(file.getName()),
-					scenarioTCPChain.generateRunScenarioCommands(i, hostAdress));
-			}
-			if (file.exists())
-				System.out.println("File created: " + file.getName());
-		}
-
-	}
+//	/**
+//	 * Writes the scenario specific peer command list to files.
+//	 *
+//	 * @param peerCount the number of peers
+//	 * @throws IOException if an I/O error occurs
+//	 */
+//	public void runScenarioPrinter(int peerCount, String hostAdress) throws IOException, IllegalArgumentException {
+//		if (peerCount < 1) {
+//			throw new IllegalArgumentException("peer count cannot be 0");
+//		}
+//		for (int i = 1; i <= peerCount; i++) {
+//			File file = new File("runScenario" + i + ".txt");
+//
+//			if (this.getScenarioParamAllocation().getScenarioIndex() == 0) {
+//
+//				ScenarioTCPStar scenarioTCPStar = new ScenarioTCPStar(this);
+//
+//				FileUtils.writeToFile(new FileOutputStream(file.getName()),
+//					scenarioTCPStar.generateRunScenarioCommands(i, hostAdress));
+//
+//			} else if (this.getScenarioParamAllocation().getScenarioIndex() == 1) {
+//
+//				ScenarioTCPChain scenarioTCPChain = new ScenarioTCPChain(this);
+//
+//				FileUtils.writeToFile(new FileOutputStream(file.getName()),
+//					scenarioTCPChain.generateRunScenarioCommands(i, hostAdress));
+//			}
+//			if (file.exists())
+//				System.out.println("File created: " + file.getName());
+//		}
+//
+//	}
 
 
 	public void receiveCommandsToFile(String hostIPAddress) {
