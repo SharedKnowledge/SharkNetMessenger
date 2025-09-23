@@ -6,26 +6,17 @@ package asapEngineTestSuite.testScenarios;
 public class CombinedScenarios {
 
 	/**
-	 * This method appends scenarios to generate combined scenarios.
+	 * This method appends 2 scenarios to generate combined scenarios.
 	 *
-	 * @param commandLists core scenarios to combine
+	 * @param firstCommandList core scenarios to combine
 	 * @return an array of scenarios for the peers to execute
 	 */
-	public static String[] combineCoreScenarios(String[]... commandLists) {
-
+	public static String[] combineCoreScenarios(String[] firstCommandList, String[] secondCommandList) {
 		String[] commands = new String[2];
-		commands[0] = commandLists[0][0];
-		commands[1] = commandLists[0][1];
 
-		for (String[] s : commandLists) {
-			insertLinebreak(s, 0);
-			commands[0] += s[0];
-		}
+		commands[0] = firstCommandList[0] += secondCommandList[0];
+		commands[1] = firstCommandList[1] += secondCommandList[1];
 
-		for (String[] s : commandLists) {
-			insertLinebreak(s, 1);
-			commands[1] += s[1];
-		}
 		return commands;
 	}
 

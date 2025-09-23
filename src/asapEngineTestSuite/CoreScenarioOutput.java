@@ -73,28 +73,33 @@ public class CoreScenarioOutput {
 			//----------------------------------------//
 
 			System.out.println("1.1 Combined TCP Chain scenarios");
+			System.out.println("CoreA1_Dis:");
 			Files.createDirectories(Path.of("CoreA1_Dis"));
-			String[] coreA1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA1, 'a');
-			coreA1Dis = combineCoreScenarios(coreA1Dis, coreA1);
+			String[] coreA1_copy = tcpChainScenario.coreACommandLists(1);
+			String[] coreA1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA1_copy, 'a');
+			coreA1Dis = combineCoreScenarios(coreA1Dis, tcpChainScenario.coreACommandLists(1));
 			finalizeAndWriteToFile(coreA1Dis, "CoreA1_Dis/CoreA1_Dis_");
 			//----------------------------------------//
 
 
 			Files.createDirectories(Path.of("CoreA2_Dis"));
-			String[] coreA2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA2, 'b');
+			System.out.println("CoreA2_Dis:");
+			String[] coreA2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreACommandLists(2), 'b');
 			coreA2Dis = combineCoreScenarios(coreA2Dis, coreA2);
 			finalizeAndWriteToFile(coreA2Dis, "CoreA2_Dis/CoreA2_Dis_");
 
 
 			//----------------------------------------//
 			Files.createDirectories(Path.of("CoreB1_Dis"));
-			String[] coreB1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreB1, 'a');
+			System.out.println("CoreB1_Dis:");
+			String[] coreB1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(1), 'a');
 			coreB1Dis = combineCoreScenarios(coreB1Dis, coreB1);
 			finalizeAndWriteToFile(coreB1Dis, "CoreB1_Dis/CoreB1_Dis_");
 			//----------------------------------------//
 
 			Files.createDirectories(Path.of("CoreB2_Dis"));
-			String[] coreB2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreB2, 'b');
+			System.out.println("CoreB2_Dis:");
+			String[] coreB2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(2), 'b');
 			coreB2Dis = combineCoreScenarios(coreB2Dis, coreB2);
 			finalizeAndWriteToFile(coreB2Dis, "CoreB2_Dis/CoreB2_Dis_");
 
