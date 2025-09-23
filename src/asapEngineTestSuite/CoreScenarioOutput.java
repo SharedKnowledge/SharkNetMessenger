@@ -2,7 +2,6 @@ package asapEngineTestSuite;
 
 import asapEngineTestSuite.testScenarios.core.CoreScenariosHub;
 import asapEngineTestSuite.testScenarios.core.CoreScenariosTCPChain;
-import asapEngineTestSuite.utils.CommandListFinalizer;
 import asapEngineTestSuite.utils.fileUtils.FileUtils;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,13 +9,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static asapEngineTestSuite.testScenarios.CombinedScenarios.combineCoreScenarios;
+import static asapEngineTestSuite.utils.CommandListFinalizer.finalizeCommandList;
 
 public class CoreScenarioOutput {
 
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peer) {
 		try {
-				commandList = CommandListFinalizer.finalizeCommandList(commandList);
-				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
+			commandList = finalizeCommandList(commandList);
+			FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	private static void finalizeAndWriteToFile(String commandList, String fileName, char peer, int wait) {
+		try {
+			commandList = finalizeCommandList(commandList, wait);
+			FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
@@ -26,7 +34,7 @@ public class CoreScenarioOutput {
 		try {
 			char peer = 'A';
 			for (String s : commandLists) {
-				String string = CommandListFinalizer.finalizeCommandList(s);
+				String string = finalizeCommandList(s);
 				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), string);
 				peer++;
 			}
@@ -34,6 +42,7 @@ public class CoreScenarioOutput {
 			System.out.println(e.getMessage());
 		}
 	}
+
 
 	public static void main(String[] args) {
 
@@ -48,7 +57,7 @@ public class CoreScenarioOutput {
 			System.out.println("CoreA1:");
 			Files.createDirectories(Path.of("CoreA1"));
 			String[] coreA1 = tcpChainScenario.coreACommandLists(1);
-			finalizeAndWriteToFile(coreA1, "CoreA1/CoreA1_");
+			finalizeAndWriteToFile(coreA1, "CoreA1/CoreA1_" );
 
 			//----------------------------------------//
 
@@ -62,7 +71,9 @@ public class CoreScenarioOutput {
 			System.out.println("CoreB1:");
 			Files.createDirectories(Path.of("CoreB1"));
 			String[] coreB1 = tcpChainScenario.coreBCommandLists(1);
-			finalizeAndWriteToFile(coreB1, "CoreB1/CoreB1_");
+			finalizeAndWriteToFile(coreB1[0], "CoreB1/CoreB1_", 'A');
+			finalizeAndWriteToFile(coreB1[1], "CoreB1/CoreB1_", 'B', 6000);
+
 			//----------------------------------------//
 
 			System.out.println("CoreB2:");
@@ -77,8 +88,10 @@ public class CoreScenarioOutput {
 			Files.createDirectories(Path.of("CoreA1_Dis"));
 			String[] coreA1_copy = tcpChainScenario.coreACommandLists(1);
 			String[] coreA1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA1_copy, 'a');
-			coreA1Dis = combineCoreScenarios(coreA1Dis, tcpChainScenario.coreACommandLists(1));
+			coreA1Dis = combineCoreScenarios(coreA1Dis, coreA1_copy);
 			finalizeAndWriteToFile(coreA1Dis, "CoreA1_Dis/CoreA1_Dis_");
+
+
 			//----------------------------------------//
 
 
@@ -90,11 +103,14 @@ public class CoreScenarioOutput {
 
 
 			//----------------------------------------//
+
+
 			Files.createDirectories(Path.of("CoreB1_Dis"));
 			System.out.println("CoreB1_Dis:");
 			String[] coreB1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(1), 'a');
 			coreB1Dis = combineCoreScenarios(coreB1Dis, coreB1);
 			finalizeAndWriteToFile(coreB1Dis, "CoreB1_Dis/CoreB1_Dis_");
+
 			//----------------------------------------//
 
 			Files.createDirectories(Path.of("CoreB2_Dis"));
@@ -143,7 +159,8 @@ public class CoreScenarioOutput {
 			Files.createDirectories(Path.of("HubCoreB1"));
 			FileUtils.writeToFile(new FileOutputStream("HubCoreB1/HubHost.txt"), hubHost);
 			commands = hubScenario.hubB1Commands();
-			finalizeAndWriteToFile(commands, "HubCoreB1/HubCoreB1_");
+			finalizeAndWriteToFile(commands[0], "HubCoreB1/HubCoreB1_", 'A');
+			finalizeAndWriteToFile(commands[1], "HubCoreB1/HubCoreB1_", 'B', 6000);
 
 			//----------------------------------------//
 
@@ -151,7 +168,8 @@ public class CoreScenarioOutput {
 			Files.createDirectories(Path.of("HubCoreB2"));
 			FileUtils.writeToFile(new FileOutputStream("HubCoreB2/HubHost.txt"), hubHost);
 			commands = hubScenario.hubB2Commands();
-			finalizeAndWriteToFile(commands, "HubCoreB2/HubCoreB2_");
+			finalizeAndWriteToFile(commands[0], "HubCoreB2/HubCoreB2_", 'A', 6000);
+			finalizeAndWriteToFile(commands[1], "HubCoreB2/HubCoreB2_", 'B');
 
 			//----------------------------------------//
 
@@ -175,8 +193,8 @@ public class CoreScenarioOutput {
 			Files.createDirectories(Path.of("HubCoreDisB1"));
 			FileUtils.writeToFile(new FileOutputStream("HubCoreDisB1/HubHost.txt"), hubHost);
 			commands = hubScenario.hubDisB1Commands();
-			finalizeAndWriteToFile(commands, "HubCoreDisB1/HubCoreDisB1_");
-
+			finalizeAndWriteToFile(commands[1], "HubCoreDisB1/HubCoreDisB1_", 'B', 6000);
+			finalizeAndWriteToFile(commands[0], "HubCoreDisB1/HubCoreDisB1_", 'A');
 			//----------------------------------------//
 
 			System.out.println("HubCoreDisB2:");
