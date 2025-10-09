@@ -11,32 +11,84 @@ import java.nio.file.Path;
 import static asapEngineTestSuite.testScenarios.CombinedScenarios.combineCoreScenarios;
 import static asapEngineTestSuite.utils.CommandListFinalizer.finalizeCommandList;
 
-public class CoreScenarioOutput {
+public class  CoreScenarioOutput {
 
-	private static void finalizeAndWriteToFile(String commandList, String fileName, char peer) {
+	//add new directory for the whole set up to go into?
+
+	/**
+	 * Directory name for the TCP Chain core scenarios
+	 */
+	static final String TCP_CHAIN_DIR = "tcpChain/";
+	/**
+	 * Directory name for Hub core scenarios
+	 */
+	static final String HUB_DIR = "hub/";
+
+	static final String HUB = "Hub";
+
+
+	/**
+	 * Core Scenario Names
+	 */
+	public static final String CORE_A1 = "CoreA1";
+	public static final String CORE_A2 = "CoreA2";
+
+	public static final String CORE_B1 = "CoreB1";
+	public static final String CORE_B2 = "CoreB2";
+
+	public static final String HUB_CORE_1 = HUB + "Core1";
+	public static final String HUB_CORE_2 = HUB + "Core2";
+
+	public static final String PEER = "Peer";
+
+	private static final String DISCONNECT = "Dis";
+
+
+	public static final String CORE_A1_DIS = CORE_A1 + "_" + DISCONNECT;
+	public static final String CORE_A2_DIS = CORE_A2 + "_" + DISCONNECT;
+	public static final String CORE_B1_DIS = CORE_B1 + "_" + DISCONNECT;
+	public static final String CORE_B2_DIS = CORE_B2 + "_" + DISCONNECT;
+
+	public static final String HUB_HOST_TXT = "HubHost.txt";
+
+	public static final String HUB_CORE_A1 = HUB + CORE_A1;
+	public static final String HUB_CORE_A2 = HUB + CORE_A2;
+	public static final String HUB_CORE_B1 = HUB + CORE_B1;
+	public static final String HUB_CORE_B2 = HUB + CORE_B2;
+	public static final String HUB_CORE_DIS_A1 = HUB + CORE_A1_DIS;
+	public static final String HUB_CORE_DIS_A2 = HUB + CORE_A2_DIS;
+	public static final String HUB_CORE_DIS_B2 = HUB + CORE_B2_DIS;
+	private static final String HUB_CORE_DIS_B1 = HUB + CORE_B1_DIS;
+
+
+	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex) {
 		try {
 			commandList = finalizeCommandList(commandList);
-			FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
+			FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), commandList);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	private static void finalizeAndWriteToFile(String commandList, String fileName, char peer, int wait) {
+	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex, int wait) {
 		try {
 			commandList = finalizeCommandList(commandList, wait);
-			FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), commandList);
+			FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), commandList);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public static String generateDirectoryName(String scenarioType, String scenarioName) {
+		return scenarioType + "/" + scenarioName + "_";
 	}
 
 	private static void finalizeAndWriteToFile(String[] commandLists, String fileName) {
 		try {
-			char peer = 'A';
+			char peerIndex = 'A';
 			for (String s : commandLists) {
 				String string = finalizeCommandList(s);
-				FileUtils.writeToFile(new FileOutputStream(fileName + "Peer" +  peer + ".txt"), string);
-				peer++;
+				FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), string);
+				peerIndex++;
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -45,6 +97,7 @@ public class CoreScenarioOutput {
 
 
 	public static void main(String[] args) {
+		String filepath;
 
 		CoreScenariosTCPChain tcpChainScenario = new CoreScenariosTCPChain();
 		CoreScenariosHub hubScenario = new CoreScenariosHub();
@@ -52,156 +105,154 @@ public class CoreScenarioOutput {
 		System.out.println("Core Scenarios for ASAP Engine Test Suite");
 
 		try {
-			System.out.println("1. TCP Chain Scenarios");
+			Files.createDirectories(Path.of(TCP_CHAIN_DIR));
 			//----------------------------------------//
-			System.out.println("CoreA1:");
-			Files.createDirectories(Path.of("CoreA1"));
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_A1);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreA1 = tcpChainScenario.coreACommandLists(1);
-			finalizeAndWriteToFile(coreA1, "CoreA1/CoreA1_" );
+			finalizeAndWriteToFile(coreA1, filepath + '/' + CORE_A1 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("CoreA2:");
-			Files.createDirectories(Path.of("CoreA2"));
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_A2);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreA2 = tcpChainScenario.coreACommandLists(2);
-			finalizeAndWriteToFile(coreA2, "CoreA2/CoreA2_");
+			finalizeAndWriteToFile(coreA2, filepath + '/' + CORE_A2 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("CoreB1:");
-			Files.createDirectories(Path.of("CoreB1"));
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B1);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreB1 = tcpChainScenario.coreBCommandLists(1);
-			finalizeAndWriteToFile(coreB1[0], "CoreB1/CoreB1_", 'A');
-			finalizeAndWriteToFile(coreB1[1], "CoreB1/CoreB1_", 'B', 6000);
+			finalizeAndWriteToFile(coreB1[0], filepath + '/' + CORE_B1 + '_', 'A');
+			finalizeAndWriteToFile(coreB1[1], filepath + '/' + CORE_B1 + '_', 'B', 6000);
 
 			//----------------------------------------//
 
-			System.out.println("CoreB2:");
-			Files.createDirectories(Path.of("CoreB2"));
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B2);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreB2 = tcpChainScenario.coreBCommandLists(2);
-			finalizeAndWriteToFile(coreB2, "CoreB2/CoreB2_");
+			finalizeAndWriteToFile(coreB2, filepath + '/' + CORE_B2 + '_');
 
 			//----------------------------------------//
 
 			System.out.println("1.1 Combined TCP Chain scenarios");
-			System.out.println("CoreA1_Dis:");
-			Files.createDirectories(Path.of("CoreA1_Dis"));
+			filepath  = generateDirectoryName(TCP_CHAIN_DIR, CORE_A1_DIS);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreA1_copy = tcpChainScenario.coreACommandLists(1);
 			String[] coreA1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA1_copy, 'a');
 			coreA1Dis = combineCoreScenarios(coreA1Dis, coreA1_copy);
-			finalizeAndWriteToFile(coreA1Dis, "CoreA1_Dis/CoreA1_Dis_");
-
+			finalizeAndWriteToFile(coreA1Dis, filepath + "/CoreA1_Dis_");
 
 			//----------------------------------------//
 
-
-			Files.createDirectories(Path.of("CoreA2_Dis"));
-			System.out.println("CoreA2_Dis:");
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_A2_DIS);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreA2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreACommandLists(2), 'b');
 			coreA2Dis = combineCoreScenarios(coreA2Dis, coreA2);
-			finalizeAndWriteToFile(coreA2Dis, "CoreA2_Dis/CoreA2_Dis_");
-
+			finalizeAndWriteToFile(coreA2Dis, filepath + '/' + CORE_A2_DIS + '_');
 
 			//----------------------------------------//
 
-
-			Files.createDirectories(Path.of("CoreB1_Dis"));
-			System.out.println("CoreB1_Dis:");
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B1_DIS);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreB1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(1), 'a');
 			coreB1Dis = combineCoreScenarios(coreB1Dis, coreB1);
-			finalizeAndWriteToFile(coreB1Dis, "CoreB1_Dis/CoreB1_Dis_");
+			finalizeAndWriteToFile(coreB1Dis, filepath + '/' + CORE_B1_DIS + '_');
 
 			//----------------------------------------//
 
-			Files.createDirectories(Path.of("CoreB2_Dis"));
-			System.out.println("CoreB2_Dis:");
+			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B2_DIS);
+			Files.createDirectories(Path.of(filepath));
 			String[] coreB2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(2), 'b');
 			coreB2Dis = combineCoreScenarios(coreB2Dis, coreB2);
-			finalizeAndWriteToFile(coreB2Dis, "CoreB2_Dis/CoreB2_Dis_");
+			finalizeAndWriteToFile(coreB2Dis, filepath + CORE_B2_DIS + '/' + CORE_B2_DIS + '_');
 
 
 			System.out.println("2. Hub Core Scenarios");
 			String hubHost = hubScenario.hubHostCommand();
+			
+			Files.createDirectories(Path.of(HUB_DIR));
 
-			System.out.println("HubCore1:");
-			Files.createDirectories(Path.of("HubCore1"));
-			FileUtils.writeToFile(new FileOutputStream("HubCore1/HubHost.txt"), hubHost);
-			finalizeAndWriteToFile(hubScenario.hubCoreCommands(1), "HubCore1/HubCore1_", 'A');
-			finalizeAndWriteToFile(hubScenario.hubCoreCommands(2), "HubCore1/HubCore1_", 'B');
-
-			//----------------------------------------//
-
-			System.out.println("HubCore2:");
-			Files.createDirectories(Path.of("HubCore2"));
-			FileUtils.writeToFile(new FileOutputStream("HubCore2/HubHost.txt"), hubHost);
-			finalizeAndWriteToFile(hubScenario.hubCoreCommands(2), "HubCore2/HubCore2_", 'A');
-			finalizeAndWriteToFile(hubScenario.hubCoreCommands(1), "HubCore2/HubCore2_", 'B');
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_1);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
+			finalizeAndWriteToFile(hubScenario.hubCoreCommands(1), filepath + '/' + HUB_CORE_1 + '_', 'A');
+			finalizeAndWriteToFile(hubScenario.hubCoreCommands(2), filepath + '/' + HUB_CORE_1 + '_', 'B');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreA1:");
-			Files.createDirectories(Path.of("HubCoreA1"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreA1/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_2);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
+			finalizeAndWriteToFile(hubScenario.hubCoreCommands(2), filepath + '/' + HUB_CORE_2 + '_', 'A');
+			finalizeAndWriteToFile(hubScenario.hubCoreCommands(1), filepath + '/' + HUB_CORE_2 + '_', 'B');
+
+			//----------------------------------------//
+
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_A1);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			String[] commands = hubScenario.hubA1Commands();
-			finalizeAndWriteToFile(commands, "HubCoreA1/HubCoreA1_");
+			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_A1 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreA2:");
-			Files.createDirectories(Path.of("HubCoreA2"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreA2/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_A2);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubA2Commands();
-			finalizeAndWriteToFile(commands, "HubCoreA2/HubCoreA2_");
+			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_A2 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreB1:");
-			Files.createDirectories(Path.of("HubCoreB1"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreB1/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_B1);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubB1Commands();
-			finalizeAndWriteToFile(commands[0], "HubCoreB1/HubCoreB1_", 'A');
-			finalizeAndWriteToFile(commands[1], "HubCoreB1/HubCoreB1_", 'B', 6000);
+			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_B1 + '_', 'A');
+			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_B1 + '_', 'B', 6000);
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreB2:");
-			Files.createDirectories(Path.of("HubCoreB2"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreB2/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_B2);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubB2Commands();
-			finalizeAndWriteToFile(commands[0], "HubCoreB2/HubCoreB2_", 'A', 6000);
-			finalizeAndWriteToFile(commands[1], "HubCoreB2/HubCoreB2_", 'B');
+			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_B2 + '_', 'A', 6000);
+			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_B2 + '_', 'B');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreDisA1:");
-			Files.createDirectories(Path.of("HubCoreDisA1"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreDisA1/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_DIS_A1);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisA1Commands();
-			finalizeAndWriteToFile(commands, "HubCoreDisA1/HubCoreDisA1_");
+			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_DIS_A1 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreDisA2:");
-			Files.createDirectories(Path.of("HubCoreDisA2"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreDisA2/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_DIS_A2);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisA2Commands();
-			finalizeAndWriteToFile(commands, "HubCoreDisA2/HubCoreDisA2_");
+			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_DIS_A2 + '_');
 
 			//----------------------------------------//
 
-			System.out.println("HubCoreDisB1:");
-			Files.createDirectories(Path.of("HubCoreDisB1"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreDisB1/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_DIS_B1);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisB1Commands();
-			finalizeAndWriteToFile(commands[1], "HubCoreDisB1/HubCoreDisB1_", 'B', 6000);
-			finalizeAndWriteToFile(commands[0], "HubCoreDisB1/HubCoreDisB1_", 'A');
+			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_DIS_B1 + '_', 'B', 6000);
+			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_DIS_B1 + '_', 'A');
 			//----------------------------------------//
 
-			System.out.println("HubCoreDisB2:");
-			Files.createDirectories(Path.of("HubCoreDisB2"));
-			FileUtils.writeToFile(new FileOutputStream("HubCoreDisB2/HubHost.txt"), hubHost);
+			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_DIS_B2);
+			Files.createDirectories(Path.of(filepath));
+			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisB2Commands();
-			finalizeAndWriteToFile(commands, "HubCoreDisB2/HubCoreDisB2_");
+			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_DIS_B2 + '_');
 
 			System.out.println("Core Scenarios generation completed.");
 		} catch (IOException e) {
