@@ -4,7 +4,6 @@ import asapEngineTestSuite.utils.CommandListToFile;
 public class CoreScenariosHub {
 
     public static final String START_HUB = "startHub";
-    private String ipHub = "localhost";
     public static final String CONNECT_HUB = "connectHub";
     public static final String DISCONNECT_HUB = "disconnectHub";
     public static final String DISCONNECT_HUB_LINE = DISCONNECT_HUB + " 1";
@@ -17,7 +16,6 @@ public class CoreScenariosHub {
      * Constructor for CoreScenariosHub.
      */
     public CoreScenariosHub(int hubStartingPort, String hubIPAddress) {
-        this.ipHub = hubIPAddress;
         this.hubPort = hubStartingPort;
     }
 
@@ -31,8 +29,7 @@ public class CoreScenariosHub {
      * @return the command list as a string
      */
     public final String hubHostCommand() {
-        return START_HUB + " " + ipHub + " " + hubPort
-                + System.lineSeparator();
+        return START_HUB + " " + hubPort + System.lineSeparator();
     }
 
     /**
@@ -42,7 +39,7 @@ public class CoreScenariosHub {
     public String hubCoreCommands(int order) throws IllegalArgumentException {
         validateOrder(order);
 
-        String peerPrimary = CONNECT_HUB + " " + ipHub + " " + hubPort
+        String peerPrimary = CONNECT_HUB + " " + "FILLER_IP" + " " + hubPort
                 + System.lineSeparator();
 
         if (order == 1) {

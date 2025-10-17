@@ -43,6 +43,7 @@ public class  CoreScenarioOutput {
 
 	private static final String DISCONNECT = "Dis";
 
+	private Path outfile = Path.of(".");
 
 	public static final String CORE_A1_DIS = CORE_A1 + "_" + DISCONNECT;
 	public static final String CORE_A2_DIS = CORE_A2 + "_" + DISCONNECT;
@@ -63,32 +64,69 @@ public class  CoreScenarioOutput {
 
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex) {
 		try {
+			Path outFile = extractTargetFileNames(fileName, peerIndex);
+
 			commandList = finalizeCommandList(commandList);
-			FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), commandList);
+			try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+				FileUtils.writeToFile(fos,commandList);
+			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex, int wait) {
 		try {
+			Path outFile = extractTargetFileNames(fileName, peerIndex);
+
 			commandList = finalizeCommandList(commandList, wait);
-			FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), commandList);
+
+			try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+				FileUtils.writeToFile(fos,commandList);
+			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
+	private static Path extractTargetFileNames(String fileName, char peerIndex) throws IOException {
+		Path filepath = Path.of(fileName);
+		Path parentDir = filepath.getParent();
+		if (parentDir == null)
+			parentDir = Path.of(".");
+		Path peerDir = parentDir.resolve(PEER + peerIndex);
+		Files.createDirectories(peerDir);
+
+		String basename = filepath.getFileName().toString();
+
+		return peerDir.resolve(basename + PEER + peerIndex + ".txt");
+	}
+
 	public static String generateDirectoryName(String scenarioType, String scenarioName) {
 		return scenarioType + "/" + scenarioName + "_";
 	}
 
 	private static void finalizeAndWriteToFile(String[] commandLists, String fileName) {
 		try {
+			Path filepath = Path.of(fileName);
+			Path parentDir = filepath.getParent();
+			if (parentDir != null) {
+				Files.createDirectories(Path.of("."));
+			}
+			String basename = filepath.getFileName().toString();
 			char peerIndex = 'A';
 			for (String s : commandLists) {
-				String string = finalizeCommandList(s);
-				FileUtils.writeToFile(new FileOutputStream(fileName + PEER +  peerIndex + ".txt"), string);
-				peerIndex++;
+				if (parentDir != null) {
+					Path peerDir = parentDir.resolve(PEER + peerIndex);
+					Files.createDirectories(peerDir);
+
+					String string = finalizeCommandList(s);
+					Path outFile = peerDir.resolve(basename + PEER + peerIndex + ".txt");
+
+					try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+						FileUtils.writeToFile(fos, string);
+					}
+					peerIndex++;
+				}
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -166,11 +204,11 @@ public class  CoreScenarioOutput {
 			Files.createDirectories(Path.of(filepath));
 			String[] coreB2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(2), 'b');
 			coreB2Dis = combineCoreScenarios(coreB2Dis, coreB2);
-			finalizeAndWriteToFile(coreB2Dis, filepath + CORE_B2_DIS + '/' + CORE_B2_DIS + '_');
+			finalizeAndWriteToFile(coreB2Dis, filepath + '/' + CORE_B2_DIS + '_');
 
 
 			System.out.println("2. Hub Core Scenarios");
-			String hubHost = hubScenario.hubHostCommand();
+			String hubHost = finalizeCommandList(hubScenario.hubHostCommand(), 30000);
 			
 			Files.createDirectories(Path.of(HUB_DIR));
 
