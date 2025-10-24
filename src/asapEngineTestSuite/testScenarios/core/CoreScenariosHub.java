@@ -137,7 +137,8 @@ public class CoreScenariosHub {
         commands[1] = CommandListToFile.WAIT + " " + 1000
                     + hubCoreCommands(2)
                     + disconnectFromHub()
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2;
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
+                    + System.lineSeparator();
         return commands;
     }
 
