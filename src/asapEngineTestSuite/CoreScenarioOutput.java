@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 import static asapEngineTestSuite.testScenarios.CombinedScenarios.combineCoreScenarios;
 import static asapEngineTestSuite.utils.CommandListFinalizer.finalizeCommandList;
@@ -119,7 +120,7 @@ public class  CoreScenarioOutput {
 					Path peerDir = parentDir.resolve(PEER + peerIndex);
 					Files.createDirectories(peerDir);
 
-					String string = finalizeCommandList(s);
+					String string = finalizeCommandList(s, 5000);
 					Path outFile = peerDir.resolve(basename + PEER + peerIndex + ".txt");
 
 					try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
@@ -177,35 +178,29 @@ public class  CoreScenarioOutput {
 			System.out.println("1.1 Combined TCP Chain scenarios");
 			filepath  = generateDirectoryName(TCP_CHAIN_DIR, CORE_A1_DIS);
 			Files.createDirectories(Path.of(filepath));
-			String[] coreA1_copy = tcpChainScenario.coreACommandLists(1);
-			String[] coreA1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(coreA1_copy, 'a');
-			coreA1Dis = combineCoreScenarios(coreA1Dis, coreA1_copy);
+			String[] coreA1Dis = tcpChainScenario.coreADisCommandLists(1);
 			finalizeAndWriteToFile(coreA1Dis, filepath + "/CoreA1_Dis_");
 
 			//----------------------------------------//
 
 			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_A2_DIS);
 			Files.createDirectories(Path.of(filepath));
-			String[] coreA2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreACommandLists(2), 'b');
-			coreA2Dis = combineCoreScenarios(coreA2Dis, coreA2);
+			String[] coreA2Dis = tcpChainScenario.coreADisCommandLists(2);
 			finalizeAndWriteToFile(coreA2Dis, filepath + '/' + CORE_A2_DIS + '_');
 
 			//----------------------------------------//
 
 			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B1_DIS);
 			Files.createDirectories(Path.of(filepath));
-			String[] coreB1Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(1), 'a');
-			coreB1Dis = combineCoreScenarios(coreB1Dis, coreB1);
+			String[] coreB1Dis = tcpChainScenario.coreBDisCommandLists(1);
 			finalizeAndWriteToFile(coreB1Dis, filepath + '/' + CORE_B1_DIS + '_');
 
 			//----------------------------------------//
 
 			filepath = generateDirectoryName(TCP_CHAIN_DIR, CORE_B2_DIS);
 			Files.createDirectories(Path.of(filepath));
-			String[] coreB2Dis = CoreScenariosTCPChain.appendCommandListWithCloseEncounter(tcpChainScenario.coreBCommandLists(2), 'b');
-			coreB2Dis = combineCoreScenarios(coreB2Dis, coreB2);
+			String[] coreB2Dis = tcpChainScenario.coreBDisCommandLists(2);
 			finalizeAndWriteToFile(coreB2Dis, filepath + '/' + CORE_B2_DIS + '_');
-
 
 			System.out.println("2. Hub Core Scenarios");
 			String hubHost = finalizeCommandList(hubScenario.hubHostCommand(), 30000);
@@ -267,6 +262,7 @@ public class  CoreScenarioOutput {
 			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisA1Commands();
 			finalizeAndWriteToFile(commands, filepath + '/' + HUB_CORE_DIS_A1 + '_');
+
 
 			//----------------------------------------//
 

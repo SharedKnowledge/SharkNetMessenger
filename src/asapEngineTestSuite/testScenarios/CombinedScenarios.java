@@ -1,5 +1,7 @@
 package asapEngineTestSuite.testScenarios;
 
+import java.util.Arrays;
+
 /**
  * This class has a single method which can be used to combine core scenarios.
  */
@@ -13,6 +15,7 @@ public class CombinedScenarios {
 	 */
 	public static String[] combineCoreScenarios(String[] firstCommandList, String[] secondCommandList) {
 		String[] commands = new String[2];
+
 
 		commands[0] = firstCommandList[0] += secondCommandList[0];
 		commands[1] = firstCommandList[1] += secondCommandList[1];

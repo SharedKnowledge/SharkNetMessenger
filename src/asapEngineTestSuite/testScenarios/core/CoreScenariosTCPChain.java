@@ -23,9 +23,10 @@ public class CoreScenariosTCPChain {
     private String coreARecevingPeer() {
         return openPortLine
                 + System.lineSeparator()
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 4
                 + System.lineSeparator();
     }
+
 
     private String coreASendingPeer(int peerOrder) {
         if (peerOrder != 1 && peerOrder != 2)
@@ -35,6 +36,8 @@ public class CoreScenariosTCPChain {
                + System.lineSeparator()
                + CommandListToFile.CONNECT_TCP + FILLER_IP + randomPort
                + System.lineSeparator()
+               + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                 + System.lineSeparator()
                + CommandListToFile.SEND_MESSAGE + " " + TCPCHAIN_CORE_A + peerOrder + SN_CHARACTERS
                +  System.lineSeparator();
     }
@@ -71,6 +74,8 @@ public class CoreScenariosTCPChain {
 
     private String coreBReceivingPeer() {
         return openPortLine
+                + System.lineSeparator()
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 5
                 + System.lineSeparator();
     }
 
@@ -88,6 +93,45 @@ public class CoreScenariosTCPChain {
         } else {
                 commandLists[0] = coreBReceivingPeer();
                 commandLists[1] = coreBSendingPeer(2);
+        }
+        return commandLists;
+    }
+
+    public String[] coreADisCommandLists(int peerOrder) {
+        validation(peerOrder);
+        String[] commandLists = new String[2];
+
+        if (peerOrder == 1) {
+            commandLists[0] = coreACommandLists(1)[0]
+                    + CLOSE_ENCOUNTER_1
+                    + CommandListToFile.WAIT + " " + 500
+                    + coreASendingPeer(1);
+            commandLists[1] = coreACommandLists(1)[1];
+        } else {
+            commandLists[0] = coreACommandLists(2)[0];
+            commandLists[1] = coreACommandLists(2)[1]
+                    + CLOSE_ENCOUNTER_1
+                    + CommandListToFile.WAIT + " " + 500
+                    + coreASendingPeer(2);
+        }
+        return commandLists;
+    }
+
+    public String[] coreBDisCommandLists(int peerOrder) {
+        validation(peerOrder);
+
+        String[] commandLists = new String[2];
+
+        if (peerOrder == 1) {
+            commandLists[0] = coreBCommandLists(1)[0]
+                    + CLOSE_ENCOUNTER_1
+                    + coreBSendingPeer(1);
+            commandLists[1] = coreBCommandLists(1)[1];
+        } else {
+            commandLists[0] = coreBCommandLists(2)[0];
+            commandLists[1] = coreBCommandLists(2)[1]
+                    + CLOSE_ENCOUNTER_1
+                    + coreBSendingPeer(2);
         }
         return commandLists;
     }
@@ -111,5 +155,7 @@ public class CoreScenariosTCPChain {
         }
         return commandLists;
     }
+
+
 
 }
