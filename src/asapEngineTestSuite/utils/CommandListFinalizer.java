@@ -30,7 +30,6 @@ public class CommandListFinalizer {
 		String wait = CommandListToFile.WAIT;
 
 		return commands
-			+ System.lineSeparator()
 			+ wait + " " + waitMs
 			+ System.lineSeparator()
 			+ lsMessages
