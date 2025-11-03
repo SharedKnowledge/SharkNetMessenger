@@ -39,7 +39,8 @@ public class CoreScenariosHub {
     public String hubCoreCommands(int order) throws IllegalArgumentException {
         validateOrder(order);
 
-        String peerPrimary = CommandListToFile.WAIT + " " + 2000  + System.lineSeparator() // DO NOT TOUCH
+        String peerPrimary = CommandListToFile.WAIT + " " + 2000
+                + System.lineSeparator() // DO NOT TOUCH
                 + CONNECT_HUB + " " + "FILLER_IP" + " " + hubPort
                 + System.lineSeparator()
                 + CommandListToFile.WAIT + " " + 2000
@@ -62,10 +63,7 @@ public class CoreScenariosHub {
     }
 
     private String disconnectFromHub() {
-        return CommandListToFile.WAIT + " " + 600
-                + System.lineSeparator()
-                + DISCONNECT_HUB_LINE
-                + System.lineSeparator();
+        return DISCONNECT_HUB_LINE + System.lineSeparator();
     }
 
     /**
@@ -129,16 +127,17 @@ public class CoreScenariosHub {
     public String[] hubDisA1Commands() {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(1)
-		    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME / 2
-		    + System.lineSeparator()
-		    + CommandListToFile.SEND_MESSAGE + " HUB_DisA1" + " " + "sn/characters"
-                    + System.lineSeparator()
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
-        commands[1] = CommandListToFile.WAIT + " " + 1000
-                    + hubCoreCommands(2)
-                    + disconnectFromHub()
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
-                    + System.lineSeparator();
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + " HUB_DisA1" + " " + "sn/characters"
+                + System.lineSeparator()
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 4
+                + System.lineSeparator();
+
+        commands[1] = hubCoreCommands(2)
+                + disconnectFromHub()
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 4
+                + System.lineSeparator();
         return commands;
     }
 
@@ -150,12 +149,12 @@ public class CoreScenariosHub {
         String[] commands = new String[2];
             //PeerA
 		commands[0] = hubCoreCommands(1)
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                        + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                         + System.lineSeparator();
             //PeerB
             commands[1] = hubCoreCommands(2)
                     + disconnectFromHub()
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME / 2
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
                     + System.lineSeparator()
                     + CommandListToFile.SEND_MESSAGE + " HUB_DisA2" + " " + "sn/characters"
                     + System.lineSeparator();
@@ -193,6 +192,8 @@ public class CoreScenariosHub {
                     + System.lineSeparator();
             commands[1] = hubCoreCommands(2)
                     + disconnectFromHub()
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
+                    + System.lineSeparator()
                     + CommandListToFile.SEND_MESSAGE + " HUB_DisB2" + " " + "sn/characters"
                     + System.lineSeparator();
         return commands;

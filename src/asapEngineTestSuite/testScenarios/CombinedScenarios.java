@@ -3,8 +3,10 @@ package asapEngineTestSuite.testScenarios;
 import java.util.Arrays;
 
 /**
+ *
  * This class has a single method which can be used to combine core scenarios.
  */
+@Deprecated
 public class CombinedScenarios {
 
 	/**

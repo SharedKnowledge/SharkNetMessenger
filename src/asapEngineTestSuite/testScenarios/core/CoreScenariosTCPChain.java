@@ -5,15 +5,9 @@ import asapEngineTestSuite.utils.CommandListToFile;
 public class CoreScenariosTCPChain {
 
 
-    private int randomPortGen() {
-        int min = 4000;
-        int max = 9900;
-	    return min + (int) (Math.random() * ((max - min) + 1));
-    }
+    int portNr = 4444;
 
-    int randomPort = randomPortGen();
-
-    private final String openPortLine = CommandListToFile.OPEN_TCP + " " + randomPort;
+    private final String openPortLine = CommandListToFile.OPEN_TCP + " " + portNr;
     public static final String FILLER_IP = " FILLER_IP ";
     public static final String TCPCHAIN_CORE_A = "TCPChain_CoreA";
     public static final String TCPCHAIN_CORE_B = "TCPChain_CoreB";
@@ -23,7 +17,7 @@ public class CoreScenariosTCPChain {
     private String coreARecevingPeer() {
         return openPortLine
                 + System.lineSeparator()
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 4
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 6
                 + System.lineSeparator();
     }
 
@@ -34,7 +28,7 @@ public class CoreScenariosTCPChain {
        return CommandListToFile
                .WAIT + " " + CommandListToFile.WAIT_TIME
                + System.lineSeparator()
-               + CommandListToFile.CONNECT_TCP + FILLER_IP + randomPort
+               + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                + System.lineSeparator()
                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                  + System.lineSeparator()
@@ -64,18 +58,21 @@ public class CoreScenariosTCPChain {
     private String coreBSendingPeer(int peerOrder) {
         if (peerOrder != 1 && peerOrder != 2)
             throw new IllegalArgumentException();
-        return CommandListToFile.SEND_MESSAGE + " " + TCPCHAIN_CORE_B + peerOrder + SN_CHARACTERS
+        return  CommandListToFile
+                .WAIT + " " + CommandListToFile.WAIT_TIME / 3
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + " " + TCPCHAIN_CORE_B + peerOrder + SN_CHARACTERS
                 +  System.lineSeparator()
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
-                + CommandListToFile.CONNECT_TCP + FILLER_IP + randomPort
+                + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                 + System.lineSeparator();
     }
 
     private String coreBReceivingPeer() {
         return openPortLine
                 + System.lineSeparator()
-                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 5
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 6
                 + System.lineSeparator();
     }
 
@@ -104,14 +101,16 @@ public class CoreScenariosTCPChain {
         if (peerOrder == 1) {
             commandLists[0] = coreACommandLists(1)[0]
                     + CLOSE_ENCOUNTER_1
-                    + CommandListToFile.WAIT + " " + 500
+                    + CommandListToFile.WAIT + " " + 3000
+                    + System.lineSeparator()
                     + coreASendingPeer(1);
             commandLists[1] = coreACommandLists(1)[1];
         } else {
             commandLists[0] = coreACommandLists(2)[0];
             commandLists[1] = coreACommandLists(2)[1]
                     + CLOSE_ENCOUNTER_1
-                    + CommandListToFile.WAIT + " " + 500
+                    + CommandListToFile.WAIT + " " + 3000
+                    + System.lineSeparator()
                     + coreASendingPeer(2);
         }
         return commandLists;
@@ -125,13 +124,19 @@ public class CoreScenariosTCPChain {
         if (peerOrder == 1) {
             commandLists[0] = coreBCommandLists(1)[0]
                     + CLOSE_ENCOUNTER_1
-                    + coreBSendingPeer(1);
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + System.lineSeparator()
+                    + coreBSendingPeer(1)
+                    + System.lineSeparator()
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
             commandLists[1] = coreBCommandLists(1)[1];
         } else {
             commandLists[0] = coreBCommandLists(2)[0];
             commandLists[1] = coreBCommandLists(2)[1]
                     + CLOSE_ENCOUNTER_1
-                    + coreBSendingPeer(2);
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + coreBSendingPeer(2)
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
         }
         return commandLists;
     }

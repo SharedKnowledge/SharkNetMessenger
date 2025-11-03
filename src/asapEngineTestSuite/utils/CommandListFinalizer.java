@@ -15,6 +15,7 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandList(String commands) {
 		return commands
+			+ System.lineSeparator()
 			+ lsMessages
 			+ System.lineSeparator()
 			+ exit;
@@ -29,6 +30,7 @@ public class CommandListFinalizer {
 		String wait = CommandListToFile.WAIT;
 
 		return commands
+			+ System.lineSeparator()
 			+ wait + " " + waitMs
 			+ System.lineSeparator()
 			+ lsMessages

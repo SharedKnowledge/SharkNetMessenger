@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
-import static asapEngineTestSuite.testScenarios.CombinedScenarios.combineCoreScenarios;
 import static asapEngineTestSuite.utils.CommandListFinalizer.finalizeCommandList;
 
 public class  CoreScenarioOutput {
@@ -164,7 +163,7 @@ public class  CoreScenarioOutput {
 			Files.createDirectories(Path.of(filepath));
 			String[] coreB1 = tcpChainScenario.coreBCommandLists(1);
 			finalizeAndWriteToFile(coreB1[0], filepath + '/' + CORE_B1 + '_', 'A');
-			finalizeAndWriteToFile(coreB1[1], filepath + '/' + CORE_B1 + '_', 'B', 6000);
+			finalizeAndWriteToFile(coreB1[1], filepath + '/' + CORE_B1 + '_', 'B');
 
 			//----------------------------------------//
 
@@ -203,7 +202,7 @@ public class  CoreScenarioOutput {
 			finalizeAndWriteToFile(coreB2Dis, filepath + '/' + CORE_B2_DIS + '_');
 
 			System.out.println("2. Hub Core Scenarios");
-			String hubHost = finalizeCommandList(hubScenario.hubHostCommand(), 30000);
+			String hubHost = finalizeCommandList(hubScenario.hubHostCommand(), 60000);
 			
 			Files.createDirectories(Path.of(HUB_DIR));
 
@@ -243,7 +242,7 @@ public class  CoreScenarioOutput {
 			Files.createDirectories(Path.of(filepath));
 			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubB1Commands();
-			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_B1 + '_', 'A');
+			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_B1 + '_', 'A', 6000);
 			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_B1 + '_', 'B', 6000);
 
 			//----------------------------------------//
@@ -253,7 +252,7 @@ public class  CoreScenarioOutput {
 			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubB2Commands();
 			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_B2 + '_', 'A', 6000);
-			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_B2 + '_', 'B');
+			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_B2 + '_', 'B', 6000);
 
 			//----------------------------------------//
 
@@ -279,7 +278,7 @@ public class  CoreScenarioOutput {
 			FileUtils.writeToFile(new FileOutputStream(filepath + '/' + HUB_HOST_TXT), hubHost);
 			commands = hubScenario.hubDisB1Commands();
 			finalizeAndWriteToFile(commands[1], filepath + '/' + HUB_CORE_DIS_B1 + '_', 'B', 6000);
-			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_DIS_B1 + '_', 'A');
+			finalizeAndWriteToFile(commands[0], filepath + '/' + HUB_CORE_DIS_B1 + '_', 'A', 6000);
 			//----------------------------------------//
 
 			filepath = generateDirectoryName(HUB_DIR, HUB_CORE_DIS_B2);
