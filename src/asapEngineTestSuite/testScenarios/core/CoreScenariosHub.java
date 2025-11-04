@@ -75,7 +75,7 @@ public class CoreScenariosHub {
     public String[] hubA1Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(1)
-                    + CommandListToFile.SEND_MESSAGE + " HUB_A" + " " + "sn/characters"
+                    + CommandListToFile.SEND_MESSAGE + " HUBCoreA1_" + " " + "sn/characters"
                     + System.lineSeparator();
         commands[1] = hubCoreCommands(2);
         return commands;
@@ -84,7 +84,7 @@ public class CoreScenariosHub {
     public String[] hubA2Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(2)
-                    + CommandListToFile.SEND_MESSAGE + " HUB_A2" + " " + "sn/characters"
+                    + CommandListToFile.SEND_MESSAGE + " HUBCoreA2_" + " " + "sn/characters"
         + System.lineSeparator();
         commands[1] = hubCoreCommands(1);
         return commands;
@@ -98,7 +98,7 @@ public class CoreScenariosHub {
      */
     public String[] hubB1Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
-		commands[0] = CommandListToFile.SEND_MESSAGE + " HUB_B1" + " " + "sn/characters"
+		commands[0] = CommandListToFile.SEND_MESSAGE + " HUBCoreB1_" + " " + "sn/characters"
 		    + System.lineSeparator()
 		    + hubCoreCommands(1);
        commands[1] = hubCoreCommands(2);
@@ -112,7 +112,7 @@ public class CoreScenariosHub {
      */
     public String[] hubB2Commands() {
         String[] commands = new String[2];
-        commands[0] = CommandListToFile.SEND_MESSAGE + " HUB_B2" + " " + "sn/characters"
+        commands[0] = CommandListToFile.SEND_MESSAGE + " HUBCoreB2_" + " " + "sn/characters"
                 + System.lineSeparator()
                 + hubCoreCommands(2);
 
@@ -129,7 +129,7 @@ public class CoreScenariosHub {
         commands[0] = hubCoreCommands(1)
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
-                + CommandListToFile.SEND_MESSAGE + " HUB_DisA1" + " " + "sn/characters"
+                + CommandListToFile.SEND_MESSAGE + " HUBCoreA1_Dis_" + " " + "sn/characters"
                 + System.lineSeparator()
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 4
                 + System.lineSeparator();
@@ -156,7 +156,7 @@ public class CoreScenariosHub {
                     + disconnectFromHub()
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
                     + System.lineSeparator()
-                    + CommandListToFile.SEND_MESSAGE + " HUB_DisA2" + " " + "sn/characters"
+                    + CommandListToFile.SEND_MESSAGE + " HUBCoreA2_Dis_" + " " + "sn/characters"
                     + System.lineSeparator();
         return commands;
     }
@@ -177,7 +177,7 @@ public class CoreScenariosHub {
         commands[1] = hubCoreCommands(1)
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
-                + CommandListToFile.SEND_MESSAGE + " HUB_DisB1" + " sn/characters"
+                + CommandListToFile.SEND_MESSAGE + " HUBCoreB1_Dis_" + " sn/characters"
                 + System.lineSeparator();
         return commands;
     }
@@ -194,7 +194,7 @@ public class CoreScenariosHub {
                     + disconnectFromHub()
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
                     + System.lineSeparator()
-                    + CommandListToFile.SEND_MESSAGE + " HUB_DisB2" + " " + "sn/characters"
+                    + CommandListToFile.SEND_MESSAGE + " HUBCoreB2_Dis" + " " + "sn/characters"
                     + System.lineSeparator();
         return commands;
     }

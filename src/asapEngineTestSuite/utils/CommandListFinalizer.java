@@ -36,4 +36,18 @@ public class CommandListFinalizer {
 			+ System.lineSeparator()
 			+ exit;
 	}
+
+	/**
+	 * Finalises the command list for a hub host by appending commands to stop the hub and exit.
+	 * @param commands the initial command list
+	 * @return the complete command list as a string
+	 */
+	public static String finalizeCommandListHubHost(String commands, int waitMs) {
+		return commands
+			+ CommandListToFile.WAIT + " " + waitMs
+			+ System.lineSeparator()
+			+ "stopHub 6907"
+			+ System.lineSeparator()
+			+ exit;
+	}
 }
