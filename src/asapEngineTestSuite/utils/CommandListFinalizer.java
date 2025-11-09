@@ -15,7 +15,6 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandList(String commands) {
 		return commands
-			+ System.lineSeparator()
 			+ lsMessages
 			+ System.lineSeparator()
 			+ exit;

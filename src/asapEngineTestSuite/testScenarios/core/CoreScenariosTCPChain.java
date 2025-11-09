@@ -127,16 +127,18 @@ public class CoreScenariosTCPChain {
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                     + System.lineSeparator()
                     + coreBSendingPeer(1)
-                    + System.lineSeparator()
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + System.lineSeparator();
             commandLists[1] = coreBCommandLists(1)[1];
         } else {
             commandLists[0] = coreBCommandLists(2)[0];
             commandLists[1] = coreBCommandLists(2)[1]
                     + CLOSE_ENCOUNTER_1
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + System.lineSeparator()
                     + coreBSendingPeer(2)
-                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME;
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + System.lineSeparator();
         }
         return commandLists;
     }

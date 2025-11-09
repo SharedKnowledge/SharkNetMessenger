@@ -189,12 +189,15 @@ public class CoreScenariosHub {
         String[] commands = new String[2];
             commands[0] = hubCoreCommands(1)
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                    + System.lineSeparator()
+                    + DISCONNECT_HUB_LINE + System.lineSeparator()
+                    + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME / 2
+                    + System.lineSeparator()
+                    + CommandListToFile.SEND_MESSAGE + " HUBCoreB2_Dis" + " " + "sn/characters"
                     + System.lineSeparator();
             commands[1] = hubCoreCommands(2)
                     + disconnectFromHub()
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME * 2
-                    + System.lineSeparator()
-                    + CommandListToFile.SEND_MESSAGE + " HUBCoreB2_Dis" + " " + "sn/characters"
                     + System.lineSeparator();
         return commands;
     }
