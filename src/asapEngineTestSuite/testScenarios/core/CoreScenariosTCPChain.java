@@ -1,5 +1,6 @@
 package asapEngineTestSuite.testScenarios.core;
 
+import asapEngineTestSuite.CoreScenarioOutput;
 import asapEngineTestSuite.utils.CommandListToFile;
 
 public class CoreScenariosTCPChain {
@@ -9,8 +10,6 @@ public class CoreScenariosTCPChain {
 
     private final String openPortLine = CommandListToFile.OPEN_TCP + " " + portNr;
     public static final String FILLER_IP = " FILLER_IP ";
-    public static final String TCPCHAIN_CORE_A = "TCPChain_CoreA";
-    public static final String TCPCHAIN_CORE_B = "TCPChain_CoreB";
     public static final String SN_CHARACTERS = " sn/characters";
     public static final String CLOSE_ENCOUNTER_1 = CommandListToFile.CLOSE_ENCOUNTER + " 1" + System.lineSeparator();
 
@@ -32,7 +31,7 @@ public class CoreScenariosTCPChain {
                + System.lineSeparator()
                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                  + System.lineSeparator()
-               + CommandListToFile.SEND_MESSAGE + " " + TCPCHAIN_CORE_A + peerOrder + SN_CHARACTERS
+               + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + SN_CHARACTERS
                +  System.lineSeparator();
     }
 
@@ -61,7 +60,7 @@ public class CoreScenariosTCPChain {
         return  CommandListToFile
                 .WAIT + " " + CommandListToFile.WAIT_TIME / 3
                 + System.lineSeparator()
-                + CommandListToFile.SEND_MESSAGE + " " + TCPCHAIN_CORE_B + peerOrder + SN_CHARACTERS
+                + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerOrder + SN_CHARACTERS
                 +  System.lineSeparator()
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
