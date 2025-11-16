@@ -1,0 +1,31 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-16 19:47:27.186: created a new asap peer id for PeerB: PeerB_0lbYJ2v0000ap2
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:47:29.382: wait 2000 ms ...
+2025-11-16 19:47:31.387: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:47:31.412: wait 6000 ms ...
+2025-11-16 19:47:37.416: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:47:37.489: wait 5000 ms ...
+2025-11-16 19:47:37.498: 
+new encounter to PeerA_FkbYJ2v0000022 via internet
+2025-11-16 19:47:37.499: 
+Peer PeerA_FkbYJ2v0000022 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-11-16 19:47:42.491: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:47:42.502: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-16 19:47:42.506: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreB2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 19:47:31.391
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_0lbYJ2v0000ap2): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

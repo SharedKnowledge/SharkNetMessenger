@@ -1,0 +1,4 @@
+openTCP 4444
+wait 36000
+lsMessages
+exit

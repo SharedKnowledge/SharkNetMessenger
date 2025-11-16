@@ -1,0 +1,6 @@
+wait 2000
+sendMessage TCPChainCoreB1 sn/characters
+wait 6000
+connectTCP localhost 4444
+lsMessages
+exit

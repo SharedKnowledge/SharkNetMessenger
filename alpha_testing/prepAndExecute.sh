@@ -7,9 +7,10 @@ ip="${1:-localhost}"
 TEST_ENV_NAME="${TEST_ENV_NAME:-macAlone}"
 
 export TEST_ROOT="$SCRIPT_DIR"
-> "$TEST_ROOT/eval.txt"
 
-> "$TEST_ROOT/errorlog.txt"
+touch "$TEST_ROOT/eval.txt"
+touch "$TEST_ROOT/errorlog.txt"
+
 java -jar "$SCRIPT_DIR/scriptgenerator.jar"
 
 mkdir -p "$TEST_ROOT/testRuns" 2>/dev/null || true
@@ -93,7 +94,6 @@ for f in "$SCRIPT_DIR"/*/; do
         ) 2>/dev/null || true
       fi
 
-    
       hub_target="$export_dir/hub/$export_name"
       if [[ -f "$g/hubHostsnmLog.txt" ]]; then
         mkdir -p "$hub_target" 2>/dev/null || true
@@ -160,13 +160,12 @@ for f in "$SCRIPT_DIR"/*/; do
             target="$hub_target/$bname"
           fi
           if [[ ! -d "$(dirname "$target")" ]]; then
-          cp -a "$af" "$target" 2>/dev/null || true
+            cp -a "$af" "$target" 2>/dev/null || true
           fi
           cp -p "$af" "$target" 2>/dev/null || true
         done < <(find "$g" -type f -name 'asapLogs*.txt' -print0 2>/dev/null)
       fi
 
-    
       if [[ -f "$export_dir/eval_local.txt" ]]; then
         if grep -Fiq "FAIL" "$export_dir/eval_local.txt" 2>/dev/null; then
           dest="$TEST_ROOT/testRunsFailed/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
@@ -179,44 +178,46 @@ for f in "$SCRIPT_DIR"/*/; do
     done
   fi
 
+  # ---- corrected tcpchain block starts here ----
   if [[ "$dirbase_lc" == "tcpchain" ]]; then
     for g in "$f"*/; do
-      echo "Processing directory: $g"
       [[ -d "$g" ]] || continue
+      echo "Processing directory: $g"
       cp -a "$SCRIPT_DIR/runTCPCoreScenario.sh" "$g"
       cp -a "$SCRIPT_DIR/SharkNetMessengerCLI.jar" "$g"
       chmod +x "$g/runTCPCoreScenario.sh" || true
       (cd "$g" && ./runTCPCoreScenario.sh "$ip")
-  export_name="$(basename "$g")"
-  export_name="${export_name%_}"
-  export_dir="$TEST_ROOT/testRuns/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
-  mkdir -p "$export_dir" "$export_dir/PeerA" "$export_dir/PeerB"
 
-  cmd_zip="$export_dir/command_lists.zip"
-  files_to_zip=()
-  if [[ -f "$g/PeerA/${export_name}_PeerA.txt" ]]; then
-    files_to_zip+=("$g/PeerA/${export_name}_PeerA.txt")
-  fi
-  if [[ -f "$g/PeerB/${export_name}_PeerB.txt" ]]; then
-    files_to_zip+=("$g/PeerB/${export_name}_PeerB.txt")
-  fi
-  if [[ ${#files_to_zip[@]} -gt 0 ]]; then
-    (cd "$SCRIPT_DIR" || exit 0
-      for p in "${files_to_zip[@]}"; do
-        rel="${p#$SCRIPT_DIR/}"
-        if [[ -f "$SCRIPT_DIR/$rel" ]]; then
-          zip -q "$cmd_zip" "$rel" 2>/dev/null || true
-        fi
-      done
-    ) 2>/dev/null || true
-  fi
+      export_name="$(basename "$g")"
+      export_name="${export_name%_}"
+      export_dir="$TEST_ROOT/testRuns/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
+      mkdir -p "$export_dir" "$export_dir/PeerA" "$export_dir/PeerB" 2>/dev/null || true
 
-  if [[ -f "$g/PeerA/${export_name}_PeerA.txt" ]]; then
-    mkdir -p "$export_dir/PeerA" 2>/dev/null || true
-  fi
-  if [[ -f "$g/PeerB/${export_name}_PeerB.txt" ]]; then
-    mkdir -p "$export_dir/PeerB" 2>/dev/null || true
-  fi
+      cmd_zip="$export_dir/command_lists.zip"
+      files_to_zip=()
+      if [[ -f "$g/PeerA/${export_name}_PeerA.txt" ]]; then
+        files_to_zip+=("$g/PeerA/${export_name}_PeerA.txt")
+      fi
+      if [[ -f "$g/PeerB/${export_name}_PeerB.txt" ]]; then
+        files_to_zip+=("$g/PeerB/${export_name}_PeerB.txt")
+      fi
+      if [[ ${#files_to_zip[@]} -gt 0 ]]; then
+        (cd "$SCRIPT_DIR" || exit 0
+          for p in "${files_to_zip[@]}"; do
+            rel="${p#$SCRIPT_DIR/}"
+            if [[ -f "$SCRIPT_DIR/$rel" ]]; then
+              zip -q "$cmd_zip" "$rel" 2>/dev/null || true
+            fi
+          done
+        ) 2>/dev/null || true
+      fi
+
+      if [[ -f "$g/PeerA/${export_name}_PeerA.txt" ]]; then
+        mkdir -p "$export_dir/PeerA" 2>/dev/null || true
+      fi
+      if [[ -f "$g/PeerB/${export_name}_PeerB.txt" ]]; then
+        mkdir -p "$export_dir/PeerB" 2>/dev/null || true
+      fi
 
       if [[ -s "$g/eval_local.txt" ]]; then
         cp "$g/eval_local.txt" "$export_dir/eval_local.txt" 2>/dev/null || true
@@ -249,10 +250,7 @@ for f in "$SCRIPT_DIR"/*/; do
         cp "$g/PeerB/errorlogPeerB.txt" "$export_dir/PeerB/errorlogPeerB.txt" 2>/dev/null || true
       fi
 
-
       if command -v find >/dev/null 2>&1; then
-        # Route asap logs by filename into PeerA/PeerB if applicable to avoid placing
-        # peer logs under the hub subtree.
         while IFS= read -r -d '' af; do
           [[ -f "$af" ]] || continue
           relpath="${af#$g}"
@@ -268,7 +266,7 @@ for f in "$SCRIPT_DIR"/*/; do
           cp -p "$af" "$target" 2>/dev/null || true
         done < <(find "$g" -type f -name 'asapLogs*.txt' -print0 2>/dev/null)
       fi
-     
+
       if [[ -f "$export_dir/eval_local.txt" ]]; then
         if grep -Fiq "FAIL" "$export_dir/eval_local.txt" 2>/dev/null; then
           dest="$TEST_ROOT/testRunsFailed/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
@@ -280,6 +278,8 @@ for f in "$SCRIPT_DIR"/*/; do
       echo "$g"
     done
   fi
+  # ---- corrected tcpchain block ends here ----
+
 done
 wait
 

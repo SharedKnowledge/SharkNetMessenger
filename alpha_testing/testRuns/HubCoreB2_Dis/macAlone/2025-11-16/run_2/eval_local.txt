@@ -1,0 +1,5 @@
+DEBUG: folderName=HubCoreB2_Dis name_lc=hubcoreb2_dis containsDis=yes allowEncounter=no countA=2 countB=3
+HubCoreB2_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreB2_Dis
+PeerB: pass: Message sent/received successfully.

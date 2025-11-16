@@ -1,0 +1,67 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-16 20:04:45.725: asap peer id for PeerB is PeerB_jVmYJ2v0000NJF
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 20:04:46.071: wait 36000 ms ...
+2025-11-16 20:04:52.112: 
+new encounter to PeerA_qVmYJ2v00009GE via internet
+2025-11-16 20:04:52.113: 
+Peer PeerA_qVmYJ2v00009GE has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-11-16 20:04:52.162: 2messages received in channel sn://universal
+2025-11-16 20:04:52.173: 3messages received in channel sn://universal
+2025-11-16 20:04:58.254: 4messages received in channel sn://universal
+2025-11-16 20:04:58.257: 
+encounter closed: PeerA_qVmYJ2v00009GE | connection: internet | started: 2025-11-16 20:04:52.113 | closed: 2025-11-16 20:04:58.256
+
+2025-11-16 20:05:22.071: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 20:05:22.072: wait 5000 ms ...
+2025-11-16 20:05:27.076: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 20:05:27.090: name: sharkNet | uri: sn://universal | #messages: 4 | age: unknown
+2025-11-16 20:05:27.096: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreA1'
+sender: PeerA_qVmYJ2v00009GE | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 19:48:24.742
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_qVmYJ2v00009GE | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreA1'
+sender: PeerA_qVmYJ2v00009GE | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 19:48:24.742
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_qVmYJ2v00009GE | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreA1'
+sender: PeerA_qVmYJ2v00009GE | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 19:48:39.784
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_qVmYJ2v00009GE | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreA1'
+sender: PeerA_qVmYJ2v00009GE | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 20:04:58.113
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_qVmYJ2v00009GE | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

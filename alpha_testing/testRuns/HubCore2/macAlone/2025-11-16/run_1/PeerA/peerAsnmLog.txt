@@ -1,0 +1,46 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-16 19:52:12.859: created a new asap peer id for PeerA: PeerA_DEnZJ2v00003sK
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:15.866: wait 500 ms ...
+2025-11-16 19:52:16.374: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:16.374: wait 2000 ms ...
+2025-11-16 19:52:18.375: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:18.388: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-16 19:52:18.391: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:18.392: wait 2000 ms ...
+2025-11-16 19:52:18.465: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-16 19:52:18.473: 
+remembered hub description
+
+2025-11-16 19:52:19.366: 
+new encounter to PeerB_9FnZJ2v000015z via hub
+2025-11-16 19:52:20.400: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:20.401: wait 1000 ms ...
+2025-11-16 19:52:20.494: 
+encounter closed: PeerB_9FnZJ2v000015z | connection: hub | started: 2025-11-16 19:52:19.366 | closed: 2025-11-16 19:52:20.493
+
+2025-11-16 19:52:21.406: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:21.408: 
+no open encounter in the moment
+
+encounter list:
+PeerB_9FnZJ2v000015z | connection: hub | started: 2025-11-16 19:52:19.366 | closed: 2025-11-16 19:52:20.493
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:21.409: wait 500 ms ...
+2025-11-16 19:52:21.918: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:52:21.927: no messages in channel 0
+
+Enter a (comma separated) command (list) and press ENTER > 

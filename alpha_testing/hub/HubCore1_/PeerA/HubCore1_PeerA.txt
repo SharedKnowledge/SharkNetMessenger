@@ -1,0 +1,7 @@
+wait 2000
+connectHub localhost 6907
+wait 2000
+wait 1000
+lsEncounter
+lsMessages
+exit

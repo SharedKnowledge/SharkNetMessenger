@@ -1,0 +1,11 @@
+wait 500
+wait 2000
+connectHub localhost 6907
+wait 2000
+wait 1000
+lsEncounter
+wait 500
+sendMessage HUBCoreA2_ sn/characters
+wait 5000
+lsMessages
+exit

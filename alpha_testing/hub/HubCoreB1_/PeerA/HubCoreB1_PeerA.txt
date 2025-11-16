@@ -1,0 +1,9 @@
+sendMessage HUBCoreB1_ sn/characters
+wait 2000
+connectHub localhost 6907
+wait 2000
+wait 1000
+lsEncounter
+wait 6000
+lsMessages
+exit

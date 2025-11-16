@@ -1,0 +1,12 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome Hub
+2025-11-16 20:15:48.709: asap peer id for Hub is Hub_Qvg1K2v0000cDU
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 20:15:49.255: start hub on port: 6907 | creates new connections: true | connections max idle (in sec): 60
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 20:15:49.470: wait 60000 ms ...
+2025-11-16 20:16:49.471: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 

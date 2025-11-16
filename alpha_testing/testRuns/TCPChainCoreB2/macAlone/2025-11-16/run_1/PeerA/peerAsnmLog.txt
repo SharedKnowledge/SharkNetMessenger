@@ -1,0 +1,35 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-16 19:47:27.146: created a new asap peer id for PeerA: PeerA_FkbYJ2v0000022
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:47:28.868: wait 36000 ms ...
+2025-11-16 19:47:37.491: 
+new encounter to PeerB_0lbYJ2v0000ap2 via internet
+2025-11-16 19:47:37.493: 
+Peer PeerB_0lbYJ2v0000ap2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-11-16 19:47:37.552: 1messages received in channel sn://universal
+2025-11-16 19:47:42.854: 
+encounter closed: PeerB_0lbYJ2v0000ap2 | connection: internet | started: 2025-11-16 19:47:37.492 | closed: 2025-11-16 19:47:42.854
+
+2025-11-16 19:48:04.871: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:48:04.873: wait 5000 ms ...
+2025-11-16 19:48:09.904: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-16 19:48:09.917: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-16 19:48:09.923: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreB2'
+sender: PeerB_0lbYJ2v0000ap2 | recipients: ANY_SHARKNET_PEER | time: 2025-11-16 19:47:31.391
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_0lbYJ2v0000ap2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

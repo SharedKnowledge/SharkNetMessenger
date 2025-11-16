@@ -1,0 +1,180 @@
+TCPChainCoreA1
+DEBUG: folderName=TCPChainCoreA1 name_lc=tcpchaincorea1 containsDis=no countA=1 countB=1
+PeerA: pass: Message sent/received successfully.
+TCPChainCoreA1
+PeerB: pass: Message sent/received successfully.
+TCPChainCoreA2
+DEBUG: folderName=TCPChainCoreA2 name_lc=tcpchaincorea2 containsDis=no countA=1 countB=1
+PeerA: pass: Message sent/received successfully.
+TCPChainCoreA2
+PeerB: pass: Message sent/received successfully.
+TCPChainCoreB1
+DEBUG: folderName=TCPChainCoreB1 name_lc=tcpchaincoreb1 containsDis=no countA=1 countB=0
+PeerA: pass: Message sent/received successfully.
+TCPChainCoreB1
+PeerB: fail
+TCPChainCoreB2
+DEBUG: folderName=TCPChainCoreB2 name_lc=tcpchaincoreb2 containsDis=no countA=1 countB=1
+PeerA: pass: Message sent/received successfully.
+TCPChainCoreB2
+PeerB: pass: Message sent/received successfully.
+TCPCoreA1_Dis
+DEBUG: folderName=TCPCoreA1_Dis name_lc=tcpcorea1_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreA1_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreA2_Dis
+DEBUG: folderName=TCPCoreA2_Dis name_lc=tcpcorea2_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreA2_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreB1_Dis
+DEBUG: folderName=TCPCoreB1_Dis name_lc=tcpcoreb1_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreB1_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreB2_Dis
+DEBUG: folderName=TCPCoreB2_Dis name_lc=tcpcoreb2_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreB2_Dis
+PeerB: fail: One or both messages failed.
+DEBUG: folderName=HubCore1 name_lc=hubcore1 containsDis=no allowEncounter=yes countA=0 countB=0
+HubCore1
+PeerA: pass: Open encounter established.
+HubCore1
+PeerB: pass: Open encounter established.
+DEBUG: folderName=HubCore2 name_lc=hubcore2 containsDis=no allowEncounter=yes countA=0 countB=0
+HubCore2
+PeerA: pass: Open encounter established.
+HubCore2
+PeerB: pass: Open encounter established.
+DEBUG: folderName=HubCoreA1 name_lc=hubcorea1 containsDis=no allowEncounter=no countA=1 countB=1
+HubCoreA1
+PeerA: pass: Message sent/received successfully.
+HubCoreA1
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA1_Dis name_lc=hubcorea1_dis containsDis=yes allowEncounter=no countA=1 countB=1
+HubCoreA1_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreA1_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA2 name_lc=hubcorea2 containsDis=no allowEncounter=no countA=1 countB=1
+HubCoreA2
+PeerA: pass: Message sent/received successfully.
+HubCoreA2
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA2_Dis name_lc=hubcorea2_dis containsDis=yes allowEncounter=no countA=0 countB=1
+HubCoreA2_Dis
+PeerA: fail
+HubCoreA2_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB1 name_lc=hubcoreb1 containsDis=no allowEncounter=no countA=1 countB=1
+HubCoreB1
+PeerA: pass: Message sent/received successfully.
+HubCoreB1
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB1_Dis name_lc=hubcoreb1_dis containsDis=yes allowEncounter=no countA=1 countB=1
+HubCoreB1_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreB1_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB2 name_lc=hubcoreb2 containsDis=no allowEncounter=no countA=1 countB=1
+HubCoreB2
+PeerA: pass: Message sent/received successfully.
+HubCoreB2
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB2_Dis name_lc=hubcoreb2_dis containsDis=yes allowEncounter=no countA=1 countB=1
+HubCoreB2_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreB2_Dis
+PeerB: pass: Message sent/received successfully.
+TCPChainCoreA1
+DEBUG: folderName=TCPChainCoreA1 name_lc=tcpchaincorea1 containsDis=no countA=2 countB=3
+PeerA: pass: Both messages sent/received successfully.
+TCPChainCoreA1
+PeerB: pass: Both messages sent/received successfully.
+TCPChainCoreA2
+DEBUG: folderName=TCPChainCoreA2 name_lc=tcpchaincorea2 containsDis=no countA=3 countB=2
+PeerA: pass: Both messages sent/received successfully.
+TCPChainCoreA2
+PeerB: pass: Both messages sent/received successfully.
+TCPChainCoreB1
+DEBUG: folderName=TCPChainCoreB1 name_lc=tcpchaincoreb1 containsDis=no countA=2 countB=2
+PeerA: pass: Both messages sent/received successfully.
+TCPChainCoreB1
+PeerB: pass: Both messages sent/received successfully.
+TCPChainCoreB2
+DEBUG: folderName=TCPChainCoreB2 name_lc=tcpchaincoreb2 containsDis=no countA=2 countB=2
+PeerA: pass: Both messages sent/received successfully.
+TCPChainCoreB2
+PeerB: pass: Both messages sent/received successfully.
+TCPCoreA1_Dis
+DEBUG: folderName=TCPCoreA1_Dis name_lc=tcpcorea1_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreA1_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreA2_Dis
+DEBUG: folderName=TCPCoreA2_Dis name_lc=tcpcorea2_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreA2_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreB1_Dis
+DEBUG: folderName=TCPCoreB1_Dis name_lc=tcpcoreb1_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreB1_Dis
+PeerB: fail: One or both messages failed.
+TCPCoreB2_Dis
+DEBUG: folderName=TCPCoreB2_Dis name_lc=tcpcoreb2_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreB2_Dis
+PeerB: fail: One or both messages failed.
+DEBUG: folderName=HubCore1 name_lc=hubcore1 containsDis=no allowEncounter=yes countA=0 countB=0
+HubCore1
+PeerA: pass: Open encounter established.
+HubCore1
+PeerB: pass: Open encounter established.
+DEBUG: folderName=HubCore2 name_lc=hubcore2 containsDis=no allowEncounter=yes countA=0 countB=0
+HubCore2
+PeerA: pass: Open encounter established.
+HubCore2
+PeerB: pass: Open encounter established.
+DEBUG: folderName=HubCoreA1 name_lc=hubcorea1 containsDis=no allowEncounter=no countA=2 countB=3
+HubCoreA1
+PeerA: pass: Message sent/received successfully.
+HubCoreA1
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA1_Dis name_lc=hubcorea1_dis containsDis=yes allowEncounter=no countA=2 countB=3
+HubCoreA1_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreA1_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA2 name_lc=hubcorea2 containsDis=no allowEncounter=no countA=2 countB=3
+HubCoreA2
+PeerA: pass: Message sent/received successfully.
+HubCoreA2
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreA2_Dis name_lc=hubcorea2_dis containsDis=yes allowEncounter=no countA=1 countB=2
+HubCoreA2_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreA2_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB1 name_lc=hubcoreb1 containsDis=no allowEncounter=no countA=2 countB=2
+HubCoreB1
+PeerA: pass: Message sent/received successfully.
+HubCoreB1
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB1_Dis name_lc=hubcoreb1_dis containsDis=yes allowEncounter=no countA=3 countB=2
+HubCoreB1_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreB1_Dis
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB2 name_lc=hubcoreb2 containsDis=no allowEncounter=no countA=2 countB=2
+HubCoreB2
+PeerA: pass: Message sent/received successfully.
+HubCoreB2
+PeerB: pass: Message sent/received successfully.
+DEBUG: folderName=HubCoreB2_Dis name_lc=hubcoreb2_dis containsDis=yes allowEncounter=no countA=2 countB=3
+HubCoreB2_Dis
+PeerA: pass: Message sent/received successfully.
+HubCoreB2_Dis
+PeerB: pass: Message sent/received successfully.
