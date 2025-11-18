@@ -1,4 +1,5 @@
 openTCP 4444
 wait 36000
+wait 5000
 lsMessages
 exit
