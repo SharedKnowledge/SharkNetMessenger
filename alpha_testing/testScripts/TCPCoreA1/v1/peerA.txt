@@ -1,0 +1,7 @@
+wait 6000
+connectTCP FILLER_IP 4444
+wait 6000
+sendMessage TCPChain_CoreA1 sn/characters
+wait 5000
+lsMessages
+exit
