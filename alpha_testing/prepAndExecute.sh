@@ -278,7 +278,6 @@ for f in "$SCRIPT_DIR"/*/; do
       echo "$g"
     done
   fi
-  # ---- corrected tcpchain block ends here ----
 
 done
 wait
