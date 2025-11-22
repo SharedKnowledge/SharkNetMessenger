@@ -1,0 +1,5 @@
+DEBUG: folderName=HubCore1 name_lc=hubcore1 containsDis=no allowEncounter=yes countA=0 countB=0
+HubCore1
+PeerA: pass: Open encounter established.
+HubCore1
+PeerB: pass: Open encounter established.
