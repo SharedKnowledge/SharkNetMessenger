@@ -1,0 +1,9 @@
+2025-11-19 14:27:09.950: new connection but no connection type?? there is no connection to peer PeerB_Fr5d03v0000Jau
+2025-11-19 14:27:15.984: cannot parse content type: 
+Arguments invalid for command: sendMessage
+2025-11-19 14:27:16.005: encounter terminated but no record - that's unexpected: PeerB_Fr5d03v0000Jau
+Exception in thread "Thread-10" java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "logs" is null
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterTerminated(SharkNetMessengerApp.java:492)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:254)
+2025-11-19 14:27:31.036: cannot parse content type: 
+Arguments invalid for command: sendMessage

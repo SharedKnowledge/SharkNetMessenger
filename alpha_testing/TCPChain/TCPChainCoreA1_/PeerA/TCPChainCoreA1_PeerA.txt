@@ -1,7 +1,0 @@
-wait 6000
-connectTCP localhost 4444
-wait 6000
-sendMessage TCPChainCoreA1 sn/characters
-wait 5000
-lsMessages
-exit

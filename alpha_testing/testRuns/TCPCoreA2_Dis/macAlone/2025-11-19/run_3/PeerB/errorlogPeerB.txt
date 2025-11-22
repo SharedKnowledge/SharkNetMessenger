@@ -1,0 +1,7 @@
+Exception in thread "Thread-1" java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "idA" is null
+	at net.sharksystem.asap.utils.PeerIDHelper.sameID(PeerIDHelper.java:7)
+	at net.sharksystem.asap.ASAPEncounterManagerImpl.asapConnectionStarted(ASAPEncounterManagerImpl.java:330)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.setEncounteredPeer(ASAPSessionImpl.java:81)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.run(ASAPSessionImpl.java:272)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-11-19 14:20:24.221: new connection but no connection type?? there is no connection to peer PeerA_Ucob03v0000OTF

@@ -1,0 +1,63 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 11:21:04.424: created a new asap peer id for PeerB: PeerB_99hsZ2v00004Ru
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:08.190: wait 500 ms ...
+2025-11-19 11:21:08.691: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:08.691: wait 2000 ms ...
+2025-11-19 11:21:10.692: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:10.708: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 11:21:10.710: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:10.711: wait 2000 ms ...
+2025-11-19 11:21:10.775: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 11:21:10.781: 
+remembered hub description
+
+2025-11-19 11:21:12.046: 
+new encounter to PeerA_89hsZ2v0000Sv2 via hub
+2025-11-19 11:21:12.104: 1messages received in channel sn://universal
+2025-11-19 11:21:12.716: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:12.717: wait 1000 ms ...
+2025-11-19 11:21:13.717: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:13.718: 
+open encounter
+1: PeerA_89hsZ2v0000Sv2
+
+encounter list:
+PeerA_89hsZ2v0000Sv2 | connection: hub | started: 2025-11-19 11:21:12.047 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:13.719: wait 500 ms ...
+2025-11-19 11:21:14.219: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:14.220: wait 6000 ms ...
+2025-11-19 11:21:19.184: 
+encounter closed: PeerA_89hsZ2v0000Sv2 | connection: hub | started: 2025-11-19 11:21:12.047 | closed: 2025-11-19 11:21:19.183
+
+2025-11-19 11:21:20.222: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:21:20.236: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 11:21:20.241: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBCoreB1_'
+sender: PeerA_89hsZ2v0000Sv2 | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 11:21:07.665
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_89hsZ2v0000Sv2 | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

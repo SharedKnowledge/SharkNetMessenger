@@ -1,0 +1,38 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 11:07:46.396: created a new asap peer id for PeerB: PeerB_eyVoZ2v0000hv2
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:48.200: wait 2000 ms ...
+2025-11-19 11:07:50.207: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:50.226: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 11:07:50.229: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:50.230: wait 2000 ms ...
+2025-11-19 11:07:50.314: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 11:07:50.318: 
+remembered hub description
+
+2025-11-19 11:07:52.233: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:52.233: wait 1000 ms ...
+2025-11-19 11:07:52.483: 
+new encounter to PeerA_jyVoZ2v0000bcS via hub
+2025-11-19 11:07:53.240: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:53.243: 
+open encounter
+1: PeerA_jyVoZ2v0000bcS
+
+encounter list:
+PeerA_jyVoZ2v0000bcS | connection: hub | started: 2025-11-19 11:07:52.484 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:07:53.254: no messages in channel 0
+
+Enter a (comma separated) command (list) and press ENTER > 

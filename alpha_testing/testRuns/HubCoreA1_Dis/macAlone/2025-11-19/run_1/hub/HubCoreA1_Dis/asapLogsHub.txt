@@ -1,0 +1,145 @@
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format SharkCredentials
+SharkPeerFS: added component that supports format ASAPSharkCertificates
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format shark/messenger
+ASAPInternalPeerFS: setting up ASAPEngine based on sub folders in ./Hub
+ASAPInternalPeerFS: set up: SharkCredentials in folder ./Hub/SharkCredentials
+ASAPInternalPeerFS: set up: ASAPSharkCertificates in folder ./Hub/ASAPSharkCertificates
+ASAPInternalPeerFS: set up: shark/messenger in folder ./Hub/shark%2Fmessenger
+ASAPPeerFS: activate online messages on that peer
+ASAPEngineFS(owner: Hub_qrJjZ2v0000Vwl | oldestEra: 0 | era: 0 | routing: true): (SharkCredentials) created new online message sender
+ASAPEngineFS(owner: Hub_qrJjZ2v0000Vwl | oldestEra: 0 | era: 0 | routing: true): (ASAPSharkCertificates) created new online message sender
+ASAPEngineFS(owner: Hub_qrJjZ2v0000Vwl | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) created new online message sender
+SharkPeerFS: cannot read hub description - ok, maybe there are non
+InMemoASAPKeyStore: create new keypair since requested but missing
+InMemoASAPKeyStore: create key pair
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+ASAPInternalChunkFS: meta file does not exist / set up: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreA1_Dis_/./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreA1_Dis_/./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreA1_Dis_/./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: Hub_qrJjZ2v0000Vwl | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPInternalChunkFS: meta file does already exists: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreA1_Dis_/./Hub/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+SharkPeerFS: shark system started
+ASAPHubManagerImpl(Hub_qrJjZ2v0000Vwl): hub manager thread started
+ASAPHubManagerImpl(Hub_qrJjZ2v0000Vwl): start a new sync round
+ASAPHubManagerImpl(Hub_qrJjZ2v0000Vwl): wait before next round (in ms): 600000
+ASAPTCPHub: started on port: 6907
+ASAPTCPHub: new TCP connection - launch hub connector session
+MultipleTCPChannelsConnectorHubSideImpl: connector thread running
+ConnectorThread(hub no peer yet|hubProtocol): connector engine started with MultipleTCPChannelsConnectorHubSideImpl
+ConnectorThread(hub no peer yet|hubProtocol): read hub register
+MultipleTCPChannelsConnectorHubSideImpl(hub no peer yet|hubProtocol): received register from peer side - tell hub (peer can create TCP = true)
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): send hub status to PeerA_DrJjZ2v0000mxo
+ASAPTCPHub: peer registered - now: [hub PeerA_DrJjZ2v0000mxo|hubProtocol]
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): read hub status RQ
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): read hub status RQ
+ASAPTCPHub: new TCP connection - launch hub connector session
+MultipleTCPChannelsConnectorHubSideImpl: connector thread running
+ConnectorThread(hub no peer yet|hubProtocol): connector engine started with MultipleTCPChannelsConnectorHubSideImpl
+ConnectorThread(hub no peer yet|hubProtocol): read hub register
+MultipleTCPChannelsConnectorHubSideImpl(hub no peer yet|hubProtocol): received register from peer side - tell hub (peer can create TCP = true)
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): send hub status to PeerB_1rJjZ2v0000sxe
+ASAPTCPHub: peer registered - now: [hub PeerA_DrJjZ2v0000mxo|hubProtocol, hub PeerB_1rJjZ2v0000sxe|hubProtocol]
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): read hub status RQ
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): read hub status RQ
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): read hub status RQ
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): read hub connect peer RQ
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): received connection RQ from peer side - tell hub
+ASAPTCPHub: received connection request (PeerA_DrJjZ2v0000mxo -> PeerB_1rJjZ2v0000sxe)
+ASAPTCPHub: got connector for PeerB_1rJjZ2v0000sxe
+ASAPTCPHub: create connection request (PeerA_DrJjZ2v0000mxo -> PeerB_1rJjZ2v0000sxe)
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): connection request: PeerA_DrJjZ2v0000mxo --> PeerB_1rJjZ2v0000sxe
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): process pending connection request; #entries in list: 1
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): list: 
+sourceId: PeerA_DrJjZ2v0000mxo | targetId: PeerB_1rJjZ2v0000sxe | until: 2025-12-01 00:33:54.872 | newConnection: true
+NewConnectionCreator: start server socket / timeout (ms): 1000000000
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): ask my peer to connect to targetPeerID = PeerA_DrJjZ2v0000mxo with port: 59983
+NewConnectionCreator: new connection initiated from peer side (PeerB_1rJjZ2v0000sxe --> PeerA_DrJjZ2v0000mxo)
+NewConnectionCreator: call listener: MultipleTCPChannelsConnectorHubSideImpl
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): newConnectionCreated: PeerB_1rJjZ2v0000sxe --> PeerA_DrJjZ2v0000mxo
+ASAPTCPHub: start data session PeerB_1rJjZ2v0000sxe -> PeerA_DrJjZ2v0000mxo
+ASAPTCPHub: createDataConnection
+ASAPTCPHub: found connector, it can establish new connections PeerA_DrJjZ2v0000mxo
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): create new connection called
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): ask my peer to connect to targetPeerID = PeerB_1rJjZ2v0000sxe with port: 59985
+NewConnectionCreator: start server socket / timeout (ms): 1000
+NewConnectionCreator: new connection initiated from peer side (PeerA_DrJjZ2v0000mxo --> PeerB_1rJjZ2v0000sxe)
+NewConnectionCreator: call listener: ASAPTCPHub
+ASAPTCPHub: got notified: new connection created: PeerA_DrJjZ2v0000mxo --> PeerB_1rJjZ2v0000sxe
+ASAPTCPHub: connection created called
+ASAPTCPHub: found fitting data session in list
+ASAPTCPHub: create data link
+ASAPTCPHub: send ready byte to each peer
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): start read/write loop
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): start read/write loop
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): read hub status RQ
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): read hub connect peer RQ
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): received connection RQ from peer side - tell hub
+ASAPTCPHub: received connection request (PeerB_1rJjZ2v0000sxe -> PeerA_DrJjZ2v0000mxo)
+ASAPTCPHub: got connector for PeerA_DrJjZ2v0000mxo
+ASAPTCPHub: create connection request (PeerB_1rJjZ2v0000sxe -> PeerA_DrJjZ2v0000mxo)
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): connection request: PeerB_1rJjZ2v0000sxe --> PeerA_DrJjZ2v0000mxo
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): process pending connection request; #entries in list: 1
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): list: 
+sourceId: PeerB_1rJjZ2v0000sxe | targetId: PeerA_DrJjZ2v0000mxo | until: 2025-12-01 00:33:54.956 | newConnection: true
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): ask my peer to connect to targetPeerID = PeerB_1rJjZ2v0000sxe with port: 59987
+NewConnectionCreator: start server socket / timeout (ms): 1000000000
+NewConnectionCreator: new connection initiated from peer side (PeerA_DrJjZ2v0000mxo --> PeerB_1rJjZ2v0000sxe)
+NewConnectionCreator: call listener: MultipleTCPChannelsConnectorHubSideImpl
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): newConnectionCreated: PeerA_DrJjZ2v0000mxo --> PeerB_1rJjZ2v0000sxe
+ASAPTCPHub: start data session PeerA_DrJjZ2v0000mxo -> PeerB_1rJjZ2v0000sxe
+ASAPTCPHub: createDataConnection
+ASAPTCPHub: found connector, it can establish new connections PeerB_1rJjZ2v0000sxe
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): create new connection called
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): ask my peer to connect to targetPeerID = PeerA_DrJjZ2v0000mxo with port: 59989
+NewConnectionCreator: start server socket / timeout (ms): 1000
+NewConnectionCreator: new connection initiated from peer side (PeerB_1rJjZ2v0000sxe --> PeerA_DrJjZ2v0000mxo)
+NewConnectionCreator: call listener: ASAPTCPHub
+ASAPTCPHub: got notified: new connection created: PeerB_1rJjZ2v0000sxe --> PeerA_DrJjZ2v0000mxo
+ASAPTCPHub: connection created called
+ASAPTCPHub: found fitting data session in list
+ASAPTCPHub: create data link
+ASAPTCPHub: send ready byte to each peer
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): start read/write loop
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): start read/write loop
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): try closing linked streams: PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): end linked streams connection: PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): ioException - most probably connection closed: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): try closing linked streams: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): end linked streams connection: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): read hub unregister
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): received unregister from peer side - tell hub
+ASAPTCPHub: peer unregistered - now: [hub PeerA_DrJjZ2v0000mxo|hubProtocol]
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): try closing linked streams: PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): connection lost - no recovery expected
+ConnectorThread(hub PeerB_1rJjZ2v0000sxe|hubProtocol): hub session ended
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerB_1rJjZ2v0000sxe|hubProtocol): connector thread ended
+ASAPTCPHub: peer unregistered - now: [hub PeerA_DrJjZ2v0000mxo|hubProtocol]
+StreamLink(PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe): end linked streams connection: PeerA_DrJjZ2v0000mxo ==> PeerB_1rJjZ2v0000sxe
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): ioException - most probably connection closed: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): try closing linked streams: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+StreamLink(PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo): end linked streams connection: PeerB_1rJjZ2v0000sxe ==> PeerA_DrJjZ2v0000mxo
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): connection lost - no recovery expected
+ConnectorThread(hub PeerA_DrJjZ2v0000mxo|hubProtocol): hub session ended
+MultipleTCPChannelsConnectorHubSideImpl(hub PeerA_DrJjZ2v0000mxo|hubProtocol): connector thread ended
+ASAPTCPHub: peer unregistered - now: []
+ASAPTCPHub: exception when going to accept TCP connections - fatal, give up: Socket closed

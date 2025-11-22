@@ -1,0 +1,22 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-19 14:29:25.949: created a new asap peer id for PeerA: PeerA_hcHd03v0000RjB
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:29:27.943: wait 36000 ms ...
+2025-11-19 14:29:35.576: 
+new encounter to PeerB_YbHd03v0000x22 via internet
+2025-11-19 14:29:35.578: 
+Peer PeerB_YbHd03v0000x22 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-11-19 14:29:35.610: 
+encounter closed: PeerB_YbHd03v0000x22 | connection: internet | started: 2025-11-19 14:29:35.578 | closed: 2025-11-19 14:29:35.609
+
+2025-11-19 14:30:03.948: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:30:03.949: wait 5000 ms ...
+2025-11-19 14:30:08.950: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:30:08.960: no messages in channel 0
+
+Enter a (comma separated) command (list) and press ENTER > 

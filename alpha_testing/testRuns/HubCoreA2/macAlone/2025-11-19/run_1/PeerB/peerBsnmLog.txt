@@ -1,0 +1,52 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 10:48:12.220: created a new asap peer id for PeerB: PeerB_T40kZ2v00003QZ
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:13.920: wait 2000 ms ...
+2025-11-19 10:48:15.925: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:15.944: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 10:48:15.946: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:15.947: wait 2000 ms ...
+2025-11-19 10:48:16.026: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 10:48:16.029: 
+remembered hub description
+
+2025-11-19 10:48:17.948: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:17.949: wait 1000 ms ...
+2025-11-19 10:48:18.951: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:18.951: 
+no open encounter in the moment
+
+encounter list empty
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:18.952: wait 5000 ms ...
+2025-11-19 10:48:20.296: 
+new encounter to PeerA_650kZ2v0000bwi via hub
+2025-11-19 10:48:21.588: 1messages received in channel sn://universal
+2025-11-19 10:48:23.952: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:48:23.968: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 10:48:23.973: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBCoreA2_'
+sender: PeerA_650kZ2v0000bwi | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 10:48:21.512
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_650kZ2v0000bwi | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

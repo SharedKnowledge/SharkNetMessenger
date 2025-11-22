@@ -1,9 +1,0 @@
-wait 2000
-connectHub localhost 6907
-wait 2000
-wait 1000
-lsEncounter
-sendMessage HUBCoreA1_ sn/characters
-wait 5000
-lsMessages
-exit

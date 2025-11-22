@@ -1,0 +1,10 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 14:20:16.314: created a new asap peer id for PeerB: PeerB_qdob03v0000MaY
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:20:18.154: wait 6000 ms ...
+2025-11-19 14:20:24.158: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:20:24.233: wait 6000 ms ...

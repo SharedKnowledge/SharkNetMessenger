@@ -1,0 +1,11 @@
+exception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:34)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:91)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:46)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:72)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:319)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:197)

@@ -1,0 +1,5 @@
+TCPCoreA1_Dis
+DEBUG: folderName=TCPCoreA1_Dis name_lc=tcpcorea1_dis containsDis=yes countA=0 countB=0
+PeerA: fail: One or both messages failed.
+TCPCoreA1_Dis
+PeerB: fail: One or both messages failed.

@@ -1,0 +1,52 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 14:33:36.252: created a new asap peer id for PeerB: PeerB_NeKe03v0000Gol
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:40.178: wait 500 ms ...
+2025-11-19 14:33:40.683: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:40.685: wait 2000 ms ...
+2025-11-19 14:33:42.685: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:42.772: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 14:33:42.789: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:42.790: wait 2000 ms ...
+2025-11-19 14:33:42.989: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 14:33:42.996: 
+remembered hub description
+
+2025-11-19 14:33:44.478: 
+new encounter to PeerA_XjKe03v0000F3r via hub
+2025-11-19 14:33:44.792: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:44.793: wait 1000 ms ...
+2025-11-19 14:33:45.797: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:45.798: 
+open encounter
+1: PeerA_XjKe03v0000F3r
+
+encounter list:
+PeerA_XjKe03v0000F3r | connection: hub | started: 2025-11-19 14:33:44.479 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:45.799: wait 500 ms ...
+2025-11-19 14:33:46.303: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:46.306: ..done
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:33:46.309: wait 24000 ms ...
+2025-11-19 14:34:10.315: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:34:10.317: wait 5000 ms ...
+2025-11-19 14:34:15.320: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:34:15.347: no messages in channel 0
+
+Enter a (comma separated) command (list) and press ENTER > 

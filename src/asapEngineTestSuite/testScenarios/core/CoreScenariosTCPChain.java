@@ -35,6 +35,20 @@ public class CoreScenariosTCPChain {
                +  System.lineSeparator();
     }
 
+    private String coreADisSendingPeer(int peerOrder) {
+        if (peerOrder != 1 && peerOrder != 2)
+            throw new IllegalArgumentException();
+        return CommandListToFile
+                .WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+                + System.lineSeparator()
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + "_Dis " +  SN_CHARACTERS
+                +  System.lineSeparator();
+    }
+
     public String[] coreACommandLists(int peerOrder) throws IllegalArgumentException {
         validation(peerOrder);
             String[] commandLists = new String[2];
@@ -44,6 +58,19 @@ public class CoreScenariosTCPChain {
         } else {
                 commandLists[0] = coreARecevingPeer();
                 commandLists[1] = coreASendingPeer(2);
+        }
+        return commandLists;
+    }
+
+    public String[] coreADisCommands(int peerOrder) throws IllegalArgumentException {
+        validation(peerOrder);
+        String[] commandLists = new String[2];
+        if (peerOrder == 1) {
+            commandLists[0] = coreADisSendingPeer(1);
+            commandLists[1] = coreARecevingPeer();
+        } else {
+            commandLists[0] = coreARecevingPeer();
+            commandLists[1] = coreADisSendingPeer(2);
         }
         return commandLists;
     }
@@ -61,6 +88,20 @@ public class CoreScenariosTCPChain {
                 .WAIT + " " + CommandListToFile.WAIT_TIME / 3
                 + System.lineSeparator()
                 + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerOrder + SN_CHARACTERS
+                +  System.lineSeparator()
+                + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
+                + System.lineSeparator()
+                + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+                + System.lineSeparator();
+    }
+
+    private String coreBDisSendingPeer(int peerOrder) {
+        if (peerOrder != 1 && peerOrder != 2)
+            throw new IllegalArgumentException();
+        return  CommandListToFile
+                .WAIT + " " + CommandListToFile.WAIT_TIME / 3
+                + System.lineSeparator()
+                + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerOrder + "_Dis " + SN_CHARACTERS
                 +  System.lineSeparator()
                 + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                 + System.lineSeparator()
@@ -93,24 +134,37 @@ public class CoreScenariosTCPChain {
         return commandLists;
     }
 
+    public String[] coreBDisCommands(int peerOrder) {
+        validation(peerOrder);
+        String[] commandLists = new String[2];
+        if (peerOrder == 1) {
+            commandLists[0] = coreBDisSendingPeer(1);
+            commandLists[1] = coreBReceivingPeer();
+        } else {
+            commandLists[0] = coreBReceivingPeer();
+            commandLists[1] = coreBDisSendingPeer(2);
+        }
+        return commandLists;
+    }
+
     public String[] coreADisCommandLists(int peerOrder) {
         validation(peerOrder);
         String[] commandLists = new String[2];
 
         if (peerOrder == 1) {
-            commandLists[0] = coreACommandLists(1)[0]
+            commandLists[0] = coreADisCommands(1)[0]
                     + CLOSE_ENCOUNTER_1
                     + CommandListToFile.WAIT + " " + 3000
                     + System.lineSeparator()
-                    + coreASendingPeer(1);
-            commandLists[1] = coreACommandLists(1)[1];
+                    + coreADisSendingPeer(1);
+            commandLists[1] = coreADisCommands(1)[1];
         } else {
-            commandLists[0] = coreACommandLists(2)[0];
-            commandLists[1] = coreACommandLists(2)[1]
+            commandLists[0] = coreADisCommands(2)[0];
+            commandLists[1] = coreADisCommands(2)[1]
                     + CLOSE_ENCOUNTER_1
                     + CommandListToFile.WAIT + " " + 3000
                     + System.lineSeparator()
-                    + coreASendingPeer(2);
+                    + coreADisSendingPeer(2);
         }
         return commandLists;
     }
@@ -121,17 +175,17 @@ public class CoreScenariosTCPChain {
         String[] commandLists = new String[2];
 
         if (peerOrder == 1) {
-            commandLists[0] = coreBCommandLists(1)[0]
+            commandLists[0] = coreBDisCommands(1)[0]
                     + CLOSE_ENCOUNTER_1
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                     + System.lineSeparator()
                     + coreBSendingPeer(1)
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                     + System.lineSeparator();
-            commandLists[1] = coreBCommandLists(1)[1];
+            commandLists[1] = coreBDisCommands(1)[1];
         } else {
-            commandLists[0] = coreBCommandLists(2)[0];
-            commandLists[1] = coreBCommandLists(2)[1]
+            commandLists[0] = coreBDisCommands(2)[0];
+            commandLists[1] = coreBDisCommands(2)[1]
                     + CLOSE_ENCOUNTER_1
                     + CommandListToFile.WAIT + " " + CommandListToFile.WAIT_TIME
                     + System.lineSeparator()
@@ -148,6 +202,7 @@ public class CoreScenariosTCPChain {
      * @param peer A or B (case-insensitive)
      * @return the array with the modified command lists.
      */
+    @Deprecated
     public static String[] appendCommandListWithCloseEncounter(String[] commandLists, char peer) throws NullPointerException, IllegalArgumentException {
         if (commandLists == null)
             throw new NullPointerException();

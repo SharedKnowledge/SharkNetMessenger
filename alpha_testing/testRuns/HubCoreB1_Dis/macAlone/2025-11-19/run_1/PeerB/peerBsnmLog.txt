@@ -1,0 +1,53 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 10:51:27.293: created a new asap peer id for PeerB: PeerB_sQOkZ2v0000kv2
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:30.316: wait 2000 ms ...
+2025-11-19 10:51:32.318: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:32.333: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 10:51:32.335: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:32.336: wait 2000 ms ...
+2025-11-19 10:51:32.419: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 10:51:32.422: 
+remembered hub description
+
+2025-11-19 10:51:34.338: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:34.339: wait 1000 ms ...
+2025-11-19 10:51:34.580: 
+new encounter to PeerA_oQOkZ2v0000zBN via hub
+2025-11-19 10:51:35.339: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:35.341: 
+open encounter
+1: PeerA_oQOkZ2v0000zBN
+
+encounter list:
+PeerA_oQOkZ2v0000zBN | connection: hub | started: 2025-11-19 10:51:34.582 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:35.341: wait 6000 ms ...
+2025-11-19 10:51:41.342: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:41.382: wait 6000 ms ...
+2025-11-19 10:51:47.382: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 10:51:47.402: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 10:51:47.406: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBCoreB1_Dis_'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 10:51:41.354
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_sQOkZ2v0000kv2): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

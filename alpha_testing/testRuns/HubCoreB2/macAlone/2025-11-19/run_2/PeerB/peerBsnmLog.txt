@@ -1,0 +1,54 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 11:54:18.041: created a new asap peer id for PeerB: PeerB_UMDAZ2v0000AUa
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:19.729: wait 2000 ms ...
+2025-11-19 11:54:21.734: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:21.747: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 11:54:21.755: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:21.755: wait 2000 ms ...
+2025-11-19 11:54:21.814: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 11:54:21.818: 
+remembered hub description
+
+2025-11-19 11:54:23.761: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:23.762: wait 1000 ms ...
+2025-11-19 11:54:23.983: 
+new encounter to PeerA_rMDAZ2v0000rYe via hub
+2025-11-19 11:54:24.043: 1messages received in channel sn://universal
+2025-11-19 11:54:24.767: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:24.768: 
+open encounter
+1: PeerA_rMDAZ2v0000rYe
+
+encounter list:
+PeerA_rMDAZ2v0000rYe | connection: hub | started: 2025-11-19 11:54:23.986 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:54:24.768: wait 6000 ms ...
+2025-11-19 12:30:04.311: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 12:30:04.328: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 12:30:04.334: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBCoreB2_'
+sender: PeerA_rMDAZ2v0000rYe | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 11:54:19.659
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_rMDAZ2v0000rYe | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

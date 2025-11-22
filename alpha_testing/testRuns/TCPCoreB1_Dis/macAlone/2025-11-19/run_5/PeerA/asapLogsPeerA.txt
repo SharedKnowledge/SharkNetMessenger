@@ -1,0 +1,183 @@
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format SharkCredentials
+SharkPeerFS: added component that supports format ASAPSharkCertificates
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format shark/messenger
+ASAPInternalPeerFS: setting up ASAPEngine based on sub folders in ./PeerA
+ASAPInternalPeerFS: set up: SharkCredentials in folder ./PeerA/SharkCredentials
+ASAPInternalPeerFS: set up: ASAPSharkCertificates in folder ./PeerA/ASAPSharkCertificates
+ASAPInternalPeerFS: set up: shark/messenger in folder ./PeerA/shark%2Fmessenger
+ASAPPeerFS: activate online messages on that peer
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): (SharkCredentials) created new online message sender
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): (ASAPSharkCertificates) created new online message sender
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) created new online message sender
+SharkPeerFS: cannot read hub description - ok, maybe there are non
+InMemoASAPKeyStore: create new keypair since requested but missing
+InMemoASAPKeyStore: create key pair
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+SharkPeerFS: shark system started
+ASAPHubManagerImpl(PeerA_Q8ud03v0000kVK): hub manager thread started
+ASAPHubManagerImpl(PeerA_Q8ud03v0000kVK): start a new sync round
+ASAPHubManagerImpl(PeerA_Q8ud03v0000kVK): wait before next round (in ms): 600000
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): decide whether to pursue this new encounter: StreamPair (session: no ID | endpoint: PeerB_Z3ud03v0000MmZ)
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): should connect to PeerB_Z3ud03v0000MmZ ?
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): PeerB_Z3ud03v0000MmZ not on deny list
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): PeerB_Z3ud03v0000MmZ no parallel open connection
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): device/peer not in encounteredDevices - add 2025-11-19 14:28:50.885
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): remember streamPair: StreamPair (session: no ID | endpoint: PeerB_Z3ud03v0000MmZ)
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): remember encounter: PeerB_Z3ud03v0000MmZ
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): call asap peer to handle connection
+ASAPSessionImpl(constructor): is: SocketInputStream | os: SocketOutputStream
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_Q8ud03v0000kVK): handleConnection
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_Q8ud03v0000kVK): launched new asapConnection thread, total number is now: 1
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): asap peers is handling session: PeerA_Q8ud03v0000kVK <--> <unkown yet> | type: internet | encrypted: false | sign: false
+ASAPInternalPeerFS: start sending interest for apps/formats
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: SharkCredentials
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: ASAPSharkCertificates
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: shark/messenger
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPSessionImpl(to: unknown yet): start reading
+SharkNetMessengerApp: connected to: localhost on port: 4444
+ASAPSessionImpl(to: unknown yet): back from reading
+ASAPSessionImpl(to: unknown yet): read valid pdu, remember meeting this peer and going to process pdu
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_Q8ud03v0000kVK): asap connection started, got a peername: PeerB_Z3ud03v0000MmZ
+ASAPInternalPeerFS: #online peers: 1 | PeerB_Z3ud03v0000MmZ
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerB_Z3ud03v0000MmZ
+SharkPKIComponentImpl(PeerA_Q8ud03v0000kVK): notified about changes in peer list: [PeerB_Z3ud03v0000MmZ]
+ASAPStorageBasedCertificates: readCertificatesFromStorage oldestEra/thisEra: 0 | 0
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPStorageBasedCertificates: readReceivedCertificates
+ASAPStorageBasedCertificates: look for chunk storage...
+ASAPStorageBasedCertificates: ...got it: owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true
+ASAPStorageBasedCertificates: got sender list: []
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPStorageBasedCertificates: got ownerCertificateChannel
+ASAPStorageBasedCertificates: created address
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): new ASAP encounter: PeerA_Q8ud03v0000kVK <--> PeerB_Z3ud03v0000MmZ | type: internet | encrypted: false | sign: false
+: encounter started
+ASAPPDUExecutor(to: PeerB_Z3ud03v0000MmZ): to: PeerB_Z3ud03v0000MmZASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/SharkCredentials
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerB_Z3ud03v0000MmZ): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_Z3ud03v0000MmZ): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerB_Z3ud03v0000MmZ | app: SharkCredentials | uri:null
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): asap pdu executor release locks
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): start reading
+ASAPSerialization: caught IOException during readByte(): SocketException: Socket closed
+ASAPPDUReader(to: PeerB_Z3ud03v0000MmZ): IOException when reading from stream
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): back from reading
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): connection broken
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): close input stream
+ASAPSessionImpl(to: PeerB_Z3ud03v0000MmZ): problem when reading from stream (close asap session and stream):  | issued by: SocketException: Socket closed
+>>>>>>>>>>>>> stack trace:
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.ensureOpenAndConnected(NioSocketImpl.java:163)
+	at java.base/sun.nio.ch.NioSocketImpl.beginRead(NioSocketImpl.java:226)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:294)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1108)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1095)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1089)
+	at net.sharksystem.asap.utils.ASAPSerialization.readByte(ASAPSerialization.java:230)
+	at net.sharksystem.asap.protocol.ASAP_Modem_Impl.readPDU(ASAP_Modem_Impl.java:209)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUReader.run(ASAPSessionImpl.java:523)
+<<<<<<<<<<<< stack trace
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_Q8ud03v0000kVK): asapConnection terminated; was connected to: PeerB_Z3ud03v0000MmZ
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: no (more) peers: 
+ASAPInternalPeerFS: getOnlinePeers called | no (more) peers: 
+SharkPKIComponentImpl(PeerA_Q8ud03v0000kVK): notified about changes in peer list: []
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS(BREAK 1): ConcurrentModification
+SharkPeerFS: notifyAboutEncounter
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): encounter terminated: PeerA_Q8ud03v0000kVK <--> PeerB_Z3ud03v0000MmZ | type: internet | encrypted: false | sign: false
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_Q8ud03v0000kVK): thread terminated - number of running threads is now: 0
+: encounter closed
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) online message sender already running
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): content changed - save status
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): send online message...
+ASAPInternalPeerFS: getOnlinePeers called | no (more) peers: 
+ASAPOnlineMessageSenderEngineSide: no online peers
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): message written to local storage - but could not write to open asap connection: no online peers
+ASAPEngineFS(owner: PeerA_Q8ud03v0000kVK | oldestEra: 0 | era: 0 | routing: true): ... done sending online message
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): decide whether to pursue this new encounter: StreamPair (session: no ID | endpoint: PeerB_Z3ud03v0000MmZ)
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): should connect to PeerB_Z3ud03v0000MmZ ?
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): PeerB_Z3ud03v0000MmZ not on deny list
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): PeerB_Z3ud03v0000MmZ no parallel open connection
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): this.waitBeforeReconnect == 60000
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): 
+2025-11-19 14:29:05.106 == now
+2025-11-19 14:28:05.106 == should reconnect if met before that moment
+2025-11-19 14:28:50.886 == last encounter
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): device/peer (PeerB_Z3ud03v0000MmZ) in encounteredDevices list?
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): should not connect - recently met: PeerB_Z3ud03v0000MmZ
+ASAPEncounterManagerImpl(PeerA_Q8ud03v0000kVK): close connection (on deny list or in cool down)
+SharkNetMessengerApp: connected to: localhost on port: 4444
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta

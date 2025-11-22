@@ -1,0 +1,47 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 11:04:29.327: created a new asap peer id for PeerB: PeerB_Qh6oZ2v0000NFK
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:31.121: wait 6000 ms ...
+2025-11-19 11:04:37.122: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:37.174: wait 6000 ms ...
+2025-11-19 11:04:37.191: 
+new encounter to PeerA_Rh6oZ2v0000ZYV via internet
+2025-11-19 11:04:37.192: 
+Peer PeerA_Rh6oZ2v0000ZYV has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-11-19 11:04:43.177: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:43.203: close encounter with PeerA_Rh6oZ2v0000ZYV
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:43.209: wait 3000 ms ...
+2025-11-19 11:04:43.220: 
+encounter closed: PeerA_Rh6oZ2v0000ZYV | connection: internet | started: 2025-11-19 11:04:37.192 | closed: 2025-11-19 11:04:43.220
+
+2025-11-19 11:04:46.211: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:46.212: wait 6000 ms ...
+2025-11-19 11:04:52.212: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:52.216: wait 6000 ms ...
+2025-11-19 11:04:58.216: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:04:58.223: wait 5000 ms ...
+2025-11-19 11:05:03.223: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 11:05:03.241: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 11:05:03.244: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'TCPChainCoreA2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 11:04:43.181
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_Qh6oZ2v0000NFK): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

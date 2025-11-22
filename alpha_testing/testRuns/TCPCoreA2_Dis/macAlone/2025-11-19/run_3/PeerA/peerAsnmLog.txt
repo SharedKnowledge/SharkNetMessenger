@@ -1,0 +1,11 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-19 14:20:16.277: created a new asap peer id for PeerA: PeerA_Ucob03v0000OTF
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:20:18.705: wait 36000 ms ...
+2025-11-19 14:20:24.219: 
+new encounter to PeerB_qdob03v0000MaY via internet
+2025-11-19 14:20:24.220: 
+Peer PeerB_qdob03v0000MaY has not yet issued a certificate for you. You are connected now. A good time to ask for one?

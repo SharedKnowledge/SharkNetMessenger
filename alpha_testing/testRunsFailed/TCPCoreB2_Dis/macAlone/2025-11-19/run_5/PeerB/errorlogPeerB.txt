@@ -1,0 +1,2 @@
+2025-11-19 14:29:29.457: cannot parse content type: 
+Arguments invalid for command: sendMessage

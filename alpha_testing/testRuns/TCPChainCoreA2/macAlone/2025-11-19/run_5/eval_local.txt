@@ -1,0 +1,5 @@
+TCPChainCoreA2
+DEBUG: folderName=TCPChainCoreA2 name_lc=tcpchaincorea2 containsDis=no countA=1 countB=1
+PeerA: pass: Message sent/received successfully.
+TCPChainCoreA2
+PeerB: pass: Message sent/received successfully.

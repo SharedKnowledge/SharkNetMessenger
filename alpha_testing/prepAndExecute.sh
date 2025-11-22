@@ -6,6 +6,9 @@ ip="${1:-localhost}"
 # overridden by exporting TEST_ENV_NAME in the environment before running
 TEST_ENV_NAME="${TEST_ENV_NAME:-macAlone}"
 
+# remove leftover scenario dirs from previous runs
+rm -rf "$SCRIPT_DIR/hub" "$SCRIPT_DIR/TCPChain" 2>/dev/null || true
+
 export TEST_ROOT="$SCRIPT_DIR"
 
 touch "$TEST_ROOT/eval.txt"
@@ -297,3 +300,5 @@ else
 fi
 
 echo "All scenarios executed. Check eval.txt files for results. Check errorlog.txt for any errors."
+
+rm -rf "$SCRIPT_DIR/hub" "$SCRIPT_DIR/TCPChain" 2>/dev/null || true

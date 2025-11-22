@@ -1,4 +1,0 @@
-startHub 6907
-wait 60000
-stopHub 6907
-exit

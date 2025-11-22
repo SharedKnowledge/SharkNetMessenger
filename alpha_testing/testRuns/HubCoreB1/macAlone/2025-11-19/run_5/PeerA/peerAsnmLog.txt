@@ -1,0 +1,50 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-19 14:36:54.472: created a new asap peer id for PeerA: PeerA_wRzf03v0000Jup
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:01.896: wait 2000 ms ...
+2025-11-19 14:37:03.901: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:03.918: connect to hub on localhost, port 6907, createNewChannel: true
+2025-11-19 14:37:03.922: try to connect
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:03.922: wait 2000 ms ...
+2025-11-19 14:37:04.016: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02025-11-19 14:37:04.020: 
+remembered hub description
+
+2025-11-19 14:37:05.889: 
+new encounter to PeerB_PQzf03v0000Lcx via hub
+2025-11-19 14:37:05.926: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:05.926: wait 1000 ms ...
+2025-11-19 14:37:06.927: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:06.933: 
+open encounter
+1: PeerB_PQzf03v0000Lcx
+
+encounter list:
+PeerB_PQzf03v0000Lcx | connection: hub | started: 2025-11-19 14:37:05.890 | open
+time before reconnect (in ms):
+60000
+deny list:
+[]
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:06.934: wait 6000 ms ...
+2025-11-19 14:37:12.938: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:37:12.982: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-11-19 14:37:13.011: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBCoreB1_'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-11-19 14:37:01.784
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_wRzf03v0000Jup): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+
+Enter a (comma separated) command (list) and press ENTER > 

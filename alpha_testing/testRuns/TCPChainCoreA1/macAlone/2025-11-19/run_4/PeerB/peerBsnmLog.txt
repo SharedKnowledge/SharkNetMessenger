@@ -1,0 +1,8 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-11-19 14:20:34.366: created a new asap peer id for PeerB: PeerB_rUsb03v0000OfS
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > Error: Address already in use
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:20:37.675: wait 36000 ms ...

@@ -1,0 +1,68 @@
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPChainCoreB1_/: errorlogPeerB.txt ====\nexception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:34)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:91)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:46)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:72)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:319)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:197)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA1_Dis_/: errorlogPeerA.txt ====\n2025-11-19 11:04:13.748: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA2_Dis_/: errorlogPeerB.txt ====\n2025-11-19 11:04:58.222: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/: errorlogPeerA.txt ====\n2025-11-19 11:05:17.211: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB2_Dis_/: errorlogPeerB.txt ====\n2025-11-19 11:06:01.881: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+ ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreB2_Dis_/: errorlogPeerB.txt ==== \n2025-11-19 14:04:19.567: new connection but no connection type?? there is no connection to peer PeerA_Fzg703v0000XYT
+2025-11-19 14:04:32.165: encounter terminated but no record - that's unexpected: PeerA_Fzg703v0000XYT
+Exception in thread "Thread-19" java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "logs" is null
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterTerminated(SharkNetMessengerApp.java:492)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:254)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA1_Dis_/: errorlogPeerA.txt ====\n2025-11-19 14:19:59.626: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA2_Dis_/: errorlogPeerB.txt ====\nException in thread "Thread-1" java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "idA" is null
+	at net.sharksystem.asap.utils.PeerIDHelper.sameID(PeerIDHelper.java:7)
+	at net.sharksystem.asap.ASAPEncounterManagerImpl.asapConnectionStarted(ASAPEncounterManagerImpl.java:330)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.setEncounteredPeer(ASAPSessionImpl.java:81)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.run(ASAPSessionImpl.java:272)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2025-11-19 14:20:24.221: new connection but no connection type?? there is no connection to peer PeerA_Ucob03v0000OTF
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA1_Dis_/: errorlogPeerA.txt ====\n2025-11-19 14:27:09.950: new connection but no connection type?? there is no connection to peer PeerB_Fr5d03v0000Jau
+2025-11-19 14:27:15.984: cannot parse content type: 
+Arguments invalid for command: sendMessage
+2025-11-19 14:27:16.005: encounter terminated but no record - that's unexpected: PeerB_Fr5d03v0000Jau
+Exception in thread "Thread-10" java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "logs" is null
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterTerminated(SharkNetMessengerApp.java:492)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:254)
+2025-11-19 14:27:31.036: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreA2_Dis_/: errorlogPeerB.txt ====\n2025-11-19 14:28:03.913: cannot parse content type: 
+Arguments invalid for command: sendMessage
+2025-11-19 14:28:18.935: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB1_Dis_/: errorlogPeerA.txt ====\n2025-11-19 14:28:44.809: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/TCPChain/TCPCoreB2_Dis_/: errorlogPeerB.txt ====\n2025-11-19 14:29:29.457: cannot parse content type: 
+Arguments invalid for command: sendMessage
+
+ ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/alpha_testing/hub/HubCoreA1_Dis_/: errorlogPeerA.txt ==== \nException in thread "Thread-15" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null
+	at net.sharksystem.asap.engine.ASAPOnlineMessageSenderEngineSide.sendStoredMessages(ASAPOnlineMessageSenderEngineSide.java:132)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.sendOnlineMessages(ASAPSessionImpl.java:171)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.access$200(ASAPSessionImpl.java:17)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$OnlineMessageSenderThread.run(ASAPSessionImpl.java:182)

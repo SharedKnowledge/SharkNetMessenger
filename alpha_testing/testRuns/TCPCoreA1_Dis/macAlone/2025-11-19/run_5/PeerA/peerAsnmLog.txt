@@ -1,0 +1,32 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-11-19 14:27:00.815: created a new asap peer id for PeerA: PeerA_Er5d03v0000ymq
+type 'help' to see the list of commands
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:03.602: wait 6000 ms ...
+2025-11-19 14:27:09.604: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:09.978: wait 6000 ms ...
+2025-11-19 14:27:15.983: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:15.986: close encounter with PeerB_Fr5d03v0000Jau
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:15.996: wait 3000 ms ...
+2025-11-19 14:27:19.002: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:19.003: wait 6000 ms ...
+2025-11-19 14:27:25.006: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:25.027: wait 6000 ms ...
+2025-11-19 14:27:31.035: resume
+
+Enter a (comma separated) command (list) and press ENTER > 
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:31.037: wait 5000 ms ...
+2025-11-19 14:27:36.039: resume
+
+Enter a (comma separated) command (list) and press ENTER > 2025-11-19 14:27:36.060: no messages in channel 0
+
+Enter a (comma separated) command (list) and press ENTER > 
