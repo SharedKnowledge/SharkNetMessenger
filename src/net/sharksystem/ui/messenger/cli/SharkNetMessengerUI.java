@@ -13,6 +13,7 @@ import java.util.*;
 public class SharkNetMessengerUI {
 
     private static final String UNDERLINE = "---------\n";
+    private static final String COMMAND_SEPARATOR = ";";
     private static boolean isInteractive = false;
 
     private final Map<String, UICommand> commands = new HashMap<>();
@@ -285,12 +286,24 @@ public class SharkNetMessengerUI {
     public void runCommandLoop() {
         boolean running = true;
         String commandsBuffer = null;
+        if(!this.parsedCommands.isEmpty()) {
+            boolean roundOne = true;
+            for(String command : this.parsedCommands) {
+                if (roundOne) {
+                    roundOne = false;
+                    commandsBuffer = command;
+                } else {
+                    commandsBuffer += ";";
+                    commandsBuffer += command;
+                }
+            }
+        }
         while (running) {
             try {
                 String userInputString;
                 if(commandsBuffer == null) {
                     this.outStream.println();
-                    this.outStream.print("Enter a (comma separated) command (list) and press ENTER > ");
+                    this.outStream.print("Enter a (semicolon separated) command (list) and press ENTER > ");
 
                     userInputString = this.bufferedReader.readLine();
                 } else {
@@ -305,11 +318,11 @@ public class SharkNetMessengerUI {
                     System.exit(1);
                 }
 
-                int indexComma = userInputString.indexOf(",");
-                if(indexComma != -1) {
-                    commandsBuffer = userInputString.substring(indexComma+1).trim();
+                int indexSeparator = userInputString.indexOf(COMMAND_SEPARATOR);
+                if(indexSeparator != -1) {
+                    commandsBuffer = userInputString.substring(indexSeparator+1).trim();
                     if(commandsBuffer.length() == 0) commandsBuffer = null;
-                    userInputString = userInputString.substring(0, indexComma);
+                    userInputString = userInputString.substring(0, indexSeparator);
                 } else {
                     commandsBuffer = null;
                 }

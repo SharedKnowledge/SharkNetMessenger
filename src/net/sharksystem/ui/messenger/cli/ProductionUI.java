@@ -44,25 +44,35 @@ public class ProductionUI {
     public static final String PEERNAME_KEY = "peername";
     public static final String SYNC_WITH_OTHERS_IN_SECONDS_KEY = "syncWithOthersInSeconds";
 
+    SharkNetMessengerUI smUI;
+
     public static void main(String[] args) throws SharkException, IOException {
+        ProductionUI cli = new ProductionUI(args);
+        cli.startCLI();
+    }
+
+    public void startCLI() {
+        System.out.println("type 'help' to see the list of commands");
+        smUI.runCommandLoop();
+    }
+
+    public ProductionUI(String[] args) throws SharkException, IOException {
         String peerName = null;
         int syncWithOthersInSeconds = ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS;
         ExtraData sessionSettings = new ExtraDataFS("./" + SETTINGSFILENAME);
         boolean isBack = false;
 
+        String batchCommands = "";
 
         /**
          * possible arguments
          * peerName
          */
         switch(args.length) {
-            case 0:
-                break;
-            case 1:
-                peerName = args[0];
-                break;
+            case 3:
+                // batch commands expected
+                batchCommands = args[2];
             case 2:
-                peerName = args[0];
                 try {
                     syncWithOthersInSeconds = Integer.parseInt(args[1]);
                 }
@@ -71,6 +81,9 @@ public class ProductionUI {
                             "/ meant to be an integer telling how many seconds to wait for syncing with hubs"
                             + re.getLocalizedMessage());
                 }
+            case 1:
+                peerName = args[0];
+            case 0:
                 break;
             default:
                 System.out.println("possible arguments: ");
@@ -83,7 +96,7 @@ public class ProductionUI {
         System.out.println("Welcome to SharkNetMessenger version 0.1");
         if(peerName == null) {
             try {
-            byte[] storedPeerNameBytes = sessionSettings.getExtra(PEERNAME_KEY);
+                byte[] storedPeerNameBytes = sessionSettings.getExtra(PEERNAME_KEY);
                 // we have a peer name
                 peerName = new String(storedPeerNameBytes);
                 isBack = true;
@@ -119,7 +132,7 @@ public class ProductionUI {
         if(isBack) System.out.println("Welcome back " + peerName);
         else System.out.println("Welcome " + peerName);
 
-        SharkNetMessengerUI smUI = new SharkNetMessengerUI("", System.in, System.out, System.err);
+        this.smUI = new SharkNetMessengerUI(batchCommands, System.in, System.out, System.err);
         SharkNetMessengerApp sharkMessengerApp =
                 new SharkNetMessengerApp(peerName, syncWithOthersInSeconds, System.out, System.err);
 
@@ -192,8 +205,5 @@ public class ProductionUI {
         smUI.addCommand(new UICommandStopHub(sharkMessengerApp, smUI, "stopHub", true));
         smUI.addCommand(new UICommandListHub(sharkMessengerApp, smUI, "lsHubs", false));
 
-
-        System.out.println("type 'help' to see the list of commands");
-        smUI.runCommandLoop();
     }
 }

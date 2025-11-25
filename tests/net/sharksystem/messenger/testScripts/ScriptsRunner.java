@@ -1,6 +1,7 @@
 package net.sharksystem.messenger.testScripts;
 
 import net.sharksystem.SharkException;
+import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.ProductionUI;
 import org.junit.jupiter.api.Test;
 
@@ -29,27 +30,27 @@ public class ScriptsRunner {
         String peerName;
         String testName;
         String script;
+        ProductionUI ui;
 
         ScriptRunnerThread(String peerName, String testName, String script) {
             this.peerName = getFriendlyPeerName(peerName);
             this.testName = testName;
             this.script = script;
-        }
 
-        public void run() {
-            ByteArrayOutputStream commandStream = new ByteArrayOutputStream();
             try {
-                commandStream.write(script.getBytes());
-                ByteArrayInputStream commandInStream = new ByteArrayInputStream(commandStream.toByteArray());
-                System.setIn(commandInStream);
-
-                System.out.println("start CLI with " + peerName + "_" + testName);
-                ProductionUI.main(new String[]{peerName + "_" + testName});
-                System.out.println("done with CLI with " + peerName + "_" + testName);
+                String[] args = new String[3];
+                args[0] = this.peerName + "_" + this.testName;
+                args[1] = String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS);
+                args[2] = this.script;
+                this.ui = new ProductionUI(args);
             } catch (IOException | SharkException e) {
                 System.err.println("failed: " + testName);
                 e.printStackTrace();
             }
+        }
+
+        public void run() {
+            this.ui.startCLI();
         }
     }
 
@@ -72,12 +73,11 @@ public class ScriptsRunner {
                 }
                 // run scripts
                 System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                System.out.print("Launch test " + testCase);
+                System.out.println("Launch test " + testCase);
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 for(Thread testRunner : scriptRunner) {
                     testRunner.start();
                 }
-                System.out.println(": " + scriptRunner.size() + "threads started");
-                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 for(Thread testRunner : scriptRunner) {
                     try {
                         testRunner.join();
