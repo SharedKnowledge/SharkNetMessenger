@@ -13,46 +13,27 @@ import java.util.List;
 import java.util.Map;
 
 public class ScriptsRunner {
-    private static String getFriendlyPeerName(String peerName) {
-        if(peerName.length() != 1) return peerName; // already friendly - hopefully
-
-        switch (peerName) {
-            case "A": return "Alice";
-            case "B": return "Bob";
-            case "C": return "Clara";
-            case "D": return "David";
-            case "E": return "Eve";
-            default: return peerName;
-        }
+    // testname and names of involved parties
+    private static Map<String, String[]> version1Tests = new HashMap();
+    {
+        version1Tests.put("CS", new String[]{"A","B"});
     }
 
-    private class ScriptRunnerThread extends Thread {
-        String peerName;
-        String testName;
-        String script;
-        ProductionUI ui;
-
-        ScriptRunnerThread(String peerName, String testName, String script) {
-            this.peerName = getFriendlyPeerName(peerName);
-            this.testName = testName;
-            this.script = script;
-
-            try {
-                String[] args = new String[3];
-                args[0] = this.peerName + "_" + this.testName;
-                args[1] = String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS);
-                args[2] = this.script;
-                this.ui = new ProductionUI(args);
-            } catch (IOException | SharkException e) {
-                System.err.println("failed: " + testName);
-                e.printStackTrace();
-            }
-        }
-
-        public void run() {
-            this.ui.startCLI();
-        }
+    // assume scripts come as member
+    private String getScript(String scriptName) throws NoSuchFieldException, IllegalAccessException {
+        Field declaredField = this.getClass().getDeclaredField(scriptName);
+        return (String) declaredField.get(this);
     }
+
+    // Basics - always includes two parties
+//    CS, CS1k, CS100k, CS100M, SC, SC1k, SC100k, SC100M
+    String CS_A = "sendMessage HiItsAlice; exit;";
+    String CS_B = "sendMessage HiItsBob; exit;";
+
+    // Complex
+    // Chain4_1k, ChainLT4_1k, Star4_1k
+    // Hub
+    // Hub3_1k, Hub3_100k, Hub3_100M, HubStalling_1s, HubStalling_1min, HubStalling_10min
 
     @Test
     public void runScripts() {
@@ -66,10 +47,7 @@ public class ScriptsRunner {
                 List<ScriptRunnerThread> scriptRunner = new ArrayList<>();
                 for(String party : parties) {
                     scriptName = testCase + "_" + party;
-                    Field declaredField = this.getClass().getDeclaredField(scriptName);
-                    //declaredField.setAccessible(true);
-                    String script = (String) declaredField.get(this);
-                    scriptRunner.add(new ScriptRunnerThread(party, testCase, script));
+                    scriptRunner.add(new ScriptRunnerThread(party, testCase, this.getScript(scriptName)));
                 }
                 // run scripts
                 System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -102,20 +80,44 @@ public class ScriptsRunner {
         }
     }
 
-    // testname - names of involved parties
-    private static Map<String, String[]> version1Tests = new HashMap();
-    {
-        version1Tests.put("CS", new String[]{"A","B"});
+    private class ScriptRunnerThread extends Thread {
+        String peerName;
+        String testName;
+        String script;
+        ProductionUI ui;
+
+        ScriptRunnerThread(String peerName, String testName, String script) {
+            this.peerName = getFriendlyPeerName(peerName);
+            this.testName = testName;
+            this.script = script;
+
+            try {
+                String[] args = new String[3];
+                args[0] = this.peerName + "_" + this.testName;
+                args[1] = String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS);
+                args[2] = this.script;
+                this.ui = new ProductionUI(args);
+            } catch (IOException | SharkException e) {
+                System.err.println("failed: " + testName);
+                e.printStackTrace();
+            }
+        }
+
+        public void run() {
+            this.ui.startCLI();
+        }
     }
 
+    private static String getFriendlyPeerName(String peerName) {
+        if(peerName.length() != 1) return peerName; // already friendly - hopefully
 
-    // Basics - always includes two parties
-//    CS, CS1k, CS100k, CS100M, SC, SC1k, SC100k, SC100M
-    static String CS_A = "sendMessage HiItsAlice; exit;";
-    static String CS_B = "sendMessage HiItsBob; exit;";
-
-    // Complex
-    // Chain4_1k, ChainLT4_1k, Star4_1k
-    // Hub
-    // Hub3_1k, Hub3_100k, Hub3_100M, HubStalling_1s, HubStalling_1min, HubStalling_10min
+        switch (peerName) {
+            case "A": return "Alice";
+            case "B": return "Bob";
+            case "C": return "Clara";
+            case "D": return "David";
+            case "E": return "Eve";
+            default: return peerName;
+        }
+    }
 }
