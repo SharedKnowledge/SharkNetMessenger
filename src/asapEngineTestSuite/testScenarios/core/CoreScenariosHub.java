@@ -19,7 +19,7 @@ public class CoreScenariosHub {
         this.hubPort = hubStartingPort;
     }
 
-    private static void validateOrder(int order) {
+    private static void validateOrder(int order) throws IllegalArgumentException {
         if (order > 2 || order < 1)
             throw new IllegalArgumentException("Order must be 1 or 2.");
     }
