@@ -13,16 +13,16 @@ import java.util.List;
 import java.util.Map;
 
 public class ScriptsRunner {
-    // testname and names of involved parties
-    private static Map<String, String[]> version1Tests = new HashMap();
-    {
-        version1Tests.put("CS", new String[]{"A","B"});
-    }
-
     // assume scripts come as member
     private String getScript(String scriptName) throws NoSuchFieldException, IllegalAccessException {
         Field declaredField = this.getClass().getDeclaredField(scriptName);
         return (String) declaredField.get(this);
+    }
+
+    // testname and names of involved parties
+    private static Map<String, String[]> version1Tests = new HashMap();
+    {
+        version1Tests.put("CS", new String[]{"A","B"});
     }
 
     // Basics - always includes two parties
