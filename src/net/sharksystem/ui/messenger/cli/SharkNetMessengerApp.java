@@ -37,6 +37,7 @@ import java.util.*;
  * that provides access to any component that is part of this application
  */
 public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, NewHubConnectedListener {
+    public static final CharSequence TEST_BLOCK_RELEASE_CHANNEL = "snm://block_release";
     private static final CharSequence PEER_ID_KEY = "peerIDKey";
     private final SharkPeerFS sharkPeerFS;
 
@@ -52,6 +53,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     private final String peerDataFolderName;
     private final ExtraData appSettings;
     private final String peerName;
+    private final SNMMessageReceivedListener snmMessengerReceivedListener;
     private PrintStream outStream;
     private PrintStream errStream;
     private CharSequence peerID;
@@ -116,7 +118,9 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
         // get component to add listener
         this.messengerComponent = (SharkNetMessengerComponent) this.sharkPeerFS.
                 getComponent(SharkNetMessengerComponent.class);
-        this.messengerComponent.addSharkMessagesReceivedListener(new MessageReceivedListener(this));
+
+        this.snmMessengerReceivedListener = new SNMMessageReceivedListener(this);
+        this.messengerComponent.addSharkMessagesReceivedListener(this.snmMessengerReceivedListener);
 
         // get component to add listener
         this.pkiComponent = (SharkPKIComponent) this.sharkPeerFS.getComponent(SharkPKIComponent.class);
@@ -232,6 +236,36 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
                     this.hubReconnect +
                     "\n";
             return sb;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    //                                       test support                                      //
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    private List<String> receivedLabels = new ArrayList<>(); // init with empty list
+    private List<Thread> blockedThreads = new ArrayList<>();
+    public void block(String label) {
+        // check if already released
+        while(true) {
+            for(String receivedLabel : this.receivedLabels) {
+                if(receivedLabel.equalsIgnoreCase(label)) {
+                    return; // block release
+                }
+
+                try {
+                    this.blockedThreads.add(Thread.currentThread());
+                    Thread.sleep(Long.MAX_VALUE);
+                } catch (InterruptedException e) {
+                    // new message received - try again
+                }
+            }
+        }
+    }
+
+    void releaseReceived(List<String> newLabelList) {
+        this.receivedLabels = newLabelList;
+        for(Thread blockedThread : this.blockedThreads) {
+            blockedThread.interrupt();
         }
     }
 
