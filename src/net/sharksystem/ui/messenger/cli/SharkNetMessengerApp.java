@@ -4,6 +4,7 @@ import net.sharksystem.SharkException;
 import net.sharksystem.SharkPeer;
 import net.sharksystem.SharkPeerEncounterChangedListener;
 import net.sharksystem.SharkPeerFS;
+import net.sharksystem.app.messenger.*;
 import net.sharksystem.asap.*;
 import net.sharksystem.asap.apps.TCPServerSocketAcceptor;
 import net.sharksystem.asap.crypto.ASAPKeyStore;
@@ -18,12 +19,11 @@ import net.sharksystem.hub.HubConnectionManager;
 import net.sharksystem.hub.HubConnectionManagerImpl;
 import net.sharksystem.hub.NewHubConnectedListener;
 import net.sharksystem.hub.hubside.ASAPTCPHub;
-import net.sharksystem.app.messenger.SharkNetMessengerComponent;
-import net.sharksystem.app.messenger.SharkNetMessengerComponentFactory;
 import net.sharksystem.hub.peerside.HubConnectorDescription;
 import net.sharksystem.pki.*;
 import net.sharksystem.ui.messenger.cli.commands.hubaccess.HubDescriptionPrinter;
 import net.sharksystem.utils.Log;
+import net.sharksystem.utils.SerializationHelper;
 import net.sharksystem.utils.streams.StreamPairImpl;
 
 import java.io.IOException;
@@ -242,30 +242,48 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     /////////////////////////////////////////////////////////////////////////////////////////////
     //                                       test support                                      //
     /////////////////////////////////////////////////////////////////////////////////////////////
-    private List<String> receivedLabels = new ArrayList<>(); // init with empty list
-    private List<Thread> blockedThreads = new ArrayList<>();
+    private Set<String> receivedLabels = new HashSet<>(); // more instances of the same label has no specific semantics
+    private List<Thread> blockedThreads = new ArrayList<>(); // a thread can wait for more labels - useful or not
     public void block(String label) {
         // check if already released
         while(true) {
             for(String receivedLabel : this.receivedLabels) {
-                if(receivedLabel.equalsIgnoreCase(label)) {
-                    return; // block release
+                if (receivedLabel.equalsIgnoreCase(label)) {
+                    return; // block released
                 }
-
-                try {
-                    this.blockedThreads.add(Thread.currentThread());
-                    Thread.sleep(Long.MAX_VALUE);
-                } catch (InterruptedException e) {
-                    // new message received - try again
-                }
+            }
+            try {
+                this.blockedThreads.add(Thread.currentThread());
+                Thread.sleep(Long.MAX_VALUE);
+            } catch (InterruptedException e) {
+                // new message received - try again
             }
         }
     }
 
-    void releaseReceived(List<String> newLabelList) {
-        this.receivedLabels = newLabelList;
-        for(Thread blockedThread : this.blockedThreads) {
-            blockedThread.interrupt();
+    void releaseReceived(CharSequence releaseChannelURI) {
+        Set<String> newReceivedLabels = new HashSet<>();
+        try {
+            SharkNetMessengerChannel releaseChannel =
+                    this.getSharkMessengerComponent().getChannel(releaseChannelURI);
+
+            SharkNetMessageList messages = releaseChannel.getMessages();
+            for(int i = 0; i < messages.size(); i++) {
+                SharkNetMessage sharkMessage = messages.getSharkMessage(i, true);
+                byte[] content = sharkMessage.getContent();
+                CharSequence releaseLabel = SerializationHelper.bytes2characterSequence(content);
+                newReceivedLabels.add(releaseLabel.toString());
+            }
+            // replace old with new list
+            this.receivedLabels = newReceivedLabels;
+
+            // let's check waiting threads again
+            for(Thread blockedThread : this.blockedThreads) {
+                blockedThread.interrupt();
+            }
+        } catch (SharkNetMessengerException | IOException | ASAPException e) {
+            this.tellUIError("problems reading message in channel " + releaseChannelURI);
+            this.tellUIError(e.getLocalizedMessage());
         }
     }
 

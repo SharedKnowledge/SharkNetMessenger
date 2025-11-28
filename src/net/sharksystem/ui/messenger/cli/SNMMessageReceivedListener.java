@@ -28,16 +28,16 @@ public class SNMMessageReceivedListener extends SharkNetMessengerAppListener imp
 
             // if release label received
             if(uri.toString().equalsIgnoreCase(SharkNetMessengerApp.TEST_BLOCK_RELEASE_CHANNEL.toString())) {
-                List<String> releaseLabels = new ArrayList<>();
-                for(int i = 0; i < messages.size(); i++) {
-                    SharkNetMessage sharkMessage = messages.getSharkMessage(i, true);
-                    CharSequence csLabel = SerializationHelper.bytes2characterSequence(sharkMessage.getContent());
-                    releaseLabels.add(csLabel.toString());
-                }
-                this.sharkMessengerApp.releaseReceived(releaseLabels);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        SNMMessageReceivedListener.
+                                this.sharkMessengerApp.
+                                releaseReceived(SharkNetMessengerApp.TEST_BLOCK_RELEASE_CHANNEL);
+                    }
+                }).start();
             }
-
-        } catch (SharkNetMessengerException | IOException | ASAPException e) {
+        } catch (SharkNetMessengerException | IOException e) {
             this.sharkMessengerApp.tellUIError("exception when receiving messages:" + e.getLocalizedMessage());
         }
     }

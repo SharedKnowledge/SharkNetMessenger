@@ -86,10 +86,16 @@ public class UICommandCreateChannel extends UICommand {
             this.channelUri = this.channelUriArgument.getValue();
         }
 
-        if(!channelNameArgument.tryParse(arguments.get(1))) {
-            this.getSharkMessengerApp().tellUI("no channel name, take default (none).");
+        if(arguments.size()> 1) {
+            if(!channelNameArgument.tryParse(arguments.get(1))) {
+                this.getSharkMessengerApp().tellUI("no channel name, take default (none).");
+            }
         } else {
             this.channelName = this.channelNameArgument.getValue();
+        }
+
+        if(arguments.size()> 2) {
+            // TODO parse channel age
         }
 
         this.getSharkMessengerApp().

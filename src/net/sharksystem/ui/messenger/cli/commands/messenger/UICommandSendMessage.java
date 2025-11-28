@@ -118,7 +118,7 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
             messenger.sendSharkMessage(effectiveFormat,
                     contentBytes, channelURI, receiverID, this.sign, this.encrypt);
         } catch (SharkException | IOException e) {
-            this.printErrorMessage(e.getLocalizedMessage());
+            this.getSharkMessengerApp().tellUIError(e.getLocalizedMessage());
         }
     }
 
@@ -134,19 +134,20 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
 
         String sb = "send SNMessage [content, contentType (" +
                 SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE +
-                "), " +
+                ")" +
+
+                // channel
+                ", channel index (1)" +
 
                 // signing
-                "sign (true)" +
+                ", sign (true)" +
 
                 // encryption
                 ", receiverName (" +
                 SharkNetMessage.ANY_SHARKNET_PEER +
-                "), " +
+                ")" +
                 ", encrypt (false)" +
 
-                // channel
-                ", channel index (1)" +
                 "]";
         return sb;
     }
@@ -183,10 +184,20 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
             }
         }
 
-        // sign
+        // channel index
         if(arguments.size() > 2) {
-            if(!this.signArgument.tryParse(arguments.get(2))) {
-                this.getSharkMessengerApp().tellUIError("cannot parse sign(true/false): " + arguments.get(2));
+            if(!this.channelIndexArgument.tryParse(arguments.get(2))) {
+                this.getSharkMessengerApp().tellUIError("cannot parse channel index: " + arguments.get(2));
+                return false;
+            } else {
+                this.channelIndex = this.channelIndexArgument.getValue();
+            }
+        }
+
+        // sign
+        if(arguments.size() > 3) {
+            if(!this.signArgument.tryParse(arguments.get(3))) {
+                this.getSharkMessengerApp().tellUIError("cannot parse sign(true/false): " + arguments.get(3));
                 return false;
             } else {
                 this.sign = this.signArgument.getValue();
@@ -194,9 +205,9 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
         }
 
         // receiver
-        if(arguments.size() > 3) {
-            if (!this.receiverArgument.tryParse(arguments.get(3))) {
-                this.getSharkMessengerApp().tellUIError("cannot parse receiver peer name: " + arguments.get(3));
+        if(arguments.size() > 4) {
+            if (!this.receiverArgument.tryParse(arguments.get(4))) {
+                this.getSharkMessengerApp().tellUIError("cannot parse receiver peer name: " + arguments.get(4));
                 return false;
             } else {
                 this.receiverName = this.receiverArgument.getValue();
@@ -205,21 +216,11 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
 
         // encrypt
         if(arguments.size() > 4) {
-            if(!this.encryptArgument.tryParse(arguments.get(4))) {
-                this.getSharkMessengerApp().tellUIError("cannot parse encrypt(true/false): " + arguments.get(4));
+            if(!this.encryptArgument.tryParse(arguments.get(5))) {
+                this.getSharkMessengerApp().tellUIError("cannot parse encrypt(true/false): " + arguments.get(5));
                 return false;
             } else {
                 this.encrypt = this.encryptArgument.getValue();
-            }
-        }
-
-        // channel index
-        if(arguments.size() > 5) {
-            if(!this.channelIndexArgument.tryParse(arguments.get(5))) {
-                this.getSharkMessengerApp().tellUIError("cannot parse channel index: " + arguments.get(5));
-                return false;
-            } else {
-                this.channelIndex = this.channelIndexArgument.getValue();
             }
         }
 

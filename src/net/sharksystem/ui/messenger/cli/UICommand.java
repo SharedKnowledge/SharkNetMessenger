@@ -146,6 +146,6 @@ public abstract class UICommand {
     }
 
     protected void printErrorMessage(String message) {
-        this.getPrintStream().println("Error: " + message);
+        this.getSharkMessengerApp().tellUIError("Error: " + message);
     }
 }

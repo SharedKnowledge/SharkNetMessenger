@@ -55,7 +55,7 @@ public class SharkNetMessengerComponentImpl extends SharkNetMessagesReceivedList
                                  CharSequence receiver, boolean sign,
                                  boolean encrypt) throws IOException, SharkNetMessengerException {
         HashSet<CharSequence> set = new HashSet<>();
-        set.add(receiver);
+        if(receiver != null) set.add(receiver);
         this.sendSharkMessage(contentType, content, uri, set, sign, encrypt);
     }
 

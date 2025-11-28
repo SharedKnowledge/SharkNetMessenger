@@ -23,21 +23,24 @@ public class UICommandRelease extends AbstractCommandWithSingleString {
     protected void execute() throws Exception {
         try {
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
-            byte[] contentBytes = null;
 
-            String effectiveFormat = SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE;
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ASAPSerialization.writeCharSequenceParameter(this.getStringArgument(), baos);
-            contentBytes = baos.toByteArray();
+            byte[] contentBytes = baos.toByteArray();
 
             // send message
-            messenger.sendSharkMessage(effectiveFormat,
-                    contentBytes, SharkNetMessengerApp.TEST_BLOCK_RELEASE_CHANNEL, (CharSequence)null,
-                    false, false);
+            messenger.sendSharkMessage(
+                    SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE, // label is a string
+                    contentBytes, SharkNetMessengerApp.TEST_BLOCK_RELEASE_CHANNEL, // specific channel
+                    (CharSequence) null, // no specific receiver
+                    false, // no signing
+                    false // no encryption
+            );
             this.getSharkMessengerApp().tellUI("release block send: " + this.getStringArgument());
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
-        }    }
+        }
+    }
 
     @Override
     public String getDescription() {

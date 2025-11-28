@@ -24,6 +24,7 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
     @Override
     public void execute() throws Exception {
         try {
+            int userChannelIndex = this.getIntegerArgument(); // we start with 1 in UI and 0 inside
             int channelIndex = this.getIntegerArgument() - 1; // we start with 1 in UI and 0 inside
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
             SharkNetMessengerChannel channel = null;
@@ -31,12 +32,12 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
                 channel = messenger.getChannel(channelIndex);
             }
             catch (SharkException se) {
-                this.getSharkMessengerApp().tellUI("there is no channel at all (yet)");
+                this.getSharkMessengerApp().tellUI("there is no channel index " + userChannelIndex);
                 return;
             }
             SharkNetMessageList messages = channel.getMessages();
             if(messages == null || messages.size() <1) {
-                this.getSharkMessengerApp().tellUI("no messages in channel " + channelIndex);
+                this.getSharkMessengerApp().tellUI("no messages in channel " + userChannelIndex);
                 return;
             }
             ChannelPrinter channelPrinter = new ChannelPrinter();
@@ -53,6 +54,6 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
 
     @Override
     public String getDescription() {
-        return "List messages in channel (index default: universal channel.";
+        return "List messages in channel (index default: 1)";
     }
 }

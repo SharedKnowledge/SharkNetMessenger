@@ -186,4 +186,37 @@ public class SharkMessageASAPSerializationTests {
         // should not be that long
         Assertions.assertTrue(diff < 100);
     }
+
+    @Test
+    public void serializationTestSignedNoRecipients() throws SharkException, IOException {
+        InMemoASAPKeyStore keyStorageAlice = new InMemoASAPKeyStore(ALICE_ID);
+        InMemoASAPKeyStore keyStorageBob = new InMemoASAPKeyStore(BOB_ID);
+        keyStorageBob.addKeyPair(ALICE_ID, keyStorageAlice.getKeyPair()); // Bob knows Alice
+
+        // create Message
+        byte[] asapMessage = InMemoSharkNetMessage.serializeMessage(
+                SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE,
+                this.serializeCSMessage(MESSAGE), ALICE_ID, (CharSequence)null, false, false, keyStorageAlice);
+        // remember when this message was created
+        long now = System.currentTimeMillis();
+
+        // parse
+        InMemoSharkNetMessage sharkNetMessage =
+                InMemoSharkNetMessage.parseMessage(asapMessage, new ArrayList<>(), keyStorageBob);
+
+        Assertions.assertEquals(SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE, sharkNetMessage.getContentType());
+        Assertions.assertEquals(MESSAGE, this.deserializeCSContent(sharkNetMessage.getContent()));
+        // expect ANY_SNM_PEER as receiver
+        Assertions.assertEquals(1, sharkNetMessage.getRecipients().size());
+        Assertions.assertEquals(ALICE_ID, sharkNetMessage.getSender());
+        Assertions.assertFalse(sharkNetMessage.verified());
+        Assertions.assertFalse(sharkNetMessage.encrypted());
+
+        // check timestamp
+        long creationTime = sharkNetMessage.getCreationTime();
+        long diff = now - creationTime;
+        System.out.println("diff == " + diff);
+        // should not be that long
+        Assertions.assertTrue(diff < 100);
+    }
 }
