@@ -1,6 +1,10 @@
 package net.sharksystem.messenger.testScripts;
 
 public class ScratchTestCases {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                       block / release implementation tests                                   //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     private static final String BLOCK_RELEASE =
             "lsMessages;mkChannel snm://block_release;lsChannels;sendMessage A1 sn/characters 2;lsMessages 2";
     private static final String BLOCK_RELEASE_A =

@@ -189,6 +189,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandMarkStep(sharkMessengerApp, smUI, "markstep", true));
         smUI.addCommand(new UICommandBlock(sharkMessengerApp, smUI, "block", true));
         smUI.addCommand(new UICommandRelease(sharkMessengerApp, smUI, "release", true));
+        smUI.addCommand(new UICommandExistsMessage(sharkMessengerApp, smUI, "exists (NYI - TODO)", true));
 
         // hub access
         smUI.addCommand(new UICommandConnectHub(sharkMessengerApp, smUI, "connectHub", true));
