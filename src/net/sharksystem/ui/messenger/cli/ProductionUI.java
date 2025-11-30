@@ -134,7 +134,33 @@ public class ProductionUI {
 
         this.smUI = new SharkNetMessengerUI(batchCommands, System.in, System.out, System.err);
         SharkNetMessengerApp sharkMessengerApp =
-                new SharkNetMessengerApp(peerName, syncWithOthersInSeconds, System.out, System.err);
+//                new SharkNetMessengerApp(peerName, syncWithOthersInSeconds, System.out, System.err);
+
+           // use test support in this CLI - use base class in any other SNM View like Web, Android etc.
+           new SharkNetMessengerAppSupportingDistributedTesting(
+                   peerName, syncWithOthersInSeconds, System.out, System.err);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //                              commands for test supporting views only                               //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Tests - do not use those commands in other implementation beside test support environment
+        SharkNetMessengerAppSupportingDistributedTesting snmTestSupport =
+                (SharkNetMessengerAppSupportingDistributedTesting) sharkMessengerApp;
+        smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, "block", false));
+        smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
+        smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, "release", false));
+
+        smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));
+        smUI.addCommand(new UICommandShowLog(sharkMessengerApp, smUI, "showLog", false));
+        smUI.addCommand(new UICommandClearLog(sharkMessengerApp, smUI, "clearLog", false));
+        smUI.addCommand(new UICommandWait(sharkMessengerApp, smUI, "wait", false));
+        smUI.addCommand(new UICommandEcho(sharkMessengerApp, smUI, "echo", false));
+        smUI.addCommand(new UICommandMarkStep(sharkMessengerApp, smUI, "markstep", false));
+        smUI.addCommand(new UICommandExistsMessage(sharkMessengerApp, smUI, "exists (NYI - TODO)", false));
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //                                 commands for any SNM view implementation                           //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // basics
         smUI.addCommand(new UICommandExit(sharkMessengerApp, smUI, "exit", true));
@@ -179,17 +205,6 @@ public class ProductionUI {
         smUI.addCommand(new UICommandSendCredentialMessage(sharkMessengerApp, smUI, "sendCredential", true));
         smUI.addCommand(new UICommandAcceptCredential(sharkMessengerApp, smUI, "acceptCredential", true));
         smUI.addCommand(new UICommandRefuseCredential(sharkMessengerApp, smUI, "refuseCredential", true));
-
-        // Tests
-        smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));
-        smUI.addCommand(new UICommandShowLog(sharkMessengerApp, smUI, "showLog", false));
-        smUI.addCommand(new UICommandClearLog(sharkMessengerApp, smUI, "clearLog", false));
-        smUI.addCommand(new UICommandWait(sharkMessengerApp, smUI, "wait", true));
-        smUI.addCommand(new UICommandEcho(sharkMessengerApp, smUI, "echo", true));
-        smUI.addCommand(new UICommandMarkStep(sharkMessengerApp, smUI, "markstep", true));
-        smUI.addCommand(new UICommandBlock(sharkMessengerApp, smUI, "block", true));
-        smUI.addCommand(new UICommandRelease(sharkMessengerApp, smUI, "release", true));
-        smUI.addCommand(new UICommandExistsMessage(sharkMessengerApp, smUI, "exists (NYI - TODO)", true));
 
         // hub access
         smUI.addCommand(new UICommandConnectHub(sharkMessengerApp, smUI, "connectHub", true));

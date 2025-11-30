@@ -44,7 +44,7 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
             this.getSharkMessengerApp().tellUI(ChannelPrinter.getChannelDescription(channel));
 
             this.getSharkMessengerApp().tellUI(
-                    channelPrinter.getMessagesASString(
+                    channelPrinter.getMessagesASString(this.getSharkMessengerApp(),
                             this.getSharkMessengerApp().getSharkPKIComponent(),
                             channel.getURI().toString(), messages));
         } catch (SharkException | IOException e) {

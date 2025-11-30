@@ -7,6 +7,7 @@ import net.sharksystem.asap.ASAPHop;
 import net.sharksystem.asap.ASAPSecurityException;
 import net.sharksystem.asap.persons.PersonValues;
 import net.sharksystem.asap.utils.DateTimeHelper;
+import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.commands.pki.PKIUtils;
 import net.sharksystem.pki.SharkPKIComponent;
 import net.sharksystem.utils.SerializationHelper;
@@ -72,7 +73,8 @@ public class ChannelPrinter {
         else return "no";
     }
 
-    public String getMessagesASString(SharkPKIComponent pki, String channelUri, SharkNetMessageList messages)
+    public String getMessagesASString(SharkNetMessengerApp snmApp, SharkPKIComponent pki,
+                          String channelUri, SharkNetMessageList messages)
             throws IOException, SharkNetMessengerException, ASAPException {
 
         StringBuilder sb = new StringBuilder();
@@ -89,7 +91,7 @@ public class ChannelPrinter {
                 sb.append(i+1);
                 sb.append(" ---------------------------------------------------------------------------------\n");
                 SharkNetMessage message = messages.getSharkMessage(i, true);
-                sb.append(this.getMessageDetails(pki, message));
+                sb.append(this.getMessageDetails(snmApp, pki, message));
                 sb.append("\n/#");
                 sb.append(i+1);
                 sb.append(" --------------------------------------------------------------------------------\n");
@@ -98,7 +100,7 @@ public class ChannelPrinter {
         return sb.toString();
     }
 
-    public String getMessageDetails(SharkPKIComponent pki, SharkNetMessage message)
+    public String getMessageDetails(SharkNetMessengerApp snmApp, SharkPKIComponent pki, SharkNetMessage message)
             throws IOException, ASAPException {
         StringBuilder sb = new StringBuilder();
 
@@ -152,8 +154,12 @@ public class ChannelPrinter {
                 sb.append("\n");
             }
         } else {
-            sb.append("no parser for this type, cannot parse those byte: ");
+            // unknown format
+            sb.append("msg: \"");
+            sb.append(snmApp.produceStringForMessage(contentType, content));
+            sb.append("\", len: ");
             sb.append(contentType.length());
+            sb.append(" byte(s): ");
             sb.append("\n");
         }
 

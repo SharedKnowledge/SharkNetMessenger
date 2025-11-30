@@ -37,7 +37,6 @@ import java.util.*;
  * that provides access to any component that is part of this application
  */
 public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, NewHubConnectedListener {
-    public static final CharSequence TEST_BLOCK_RELEASE_CHANNEL = "snm://block_release";
     private static final CharSequence PEER_ID_KEY = "peerIDKey";
     private final SharkPeerFS sharkPeerFS;
 
@@ -209,6 +208,10 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
         return this.settings;
     }
 
+    public String produceStringForMessage(CharSequence contentType, byte[] content) {
+        return "unknown content";
+    }
+
     private class Settings implements SharkNetMessengerSettings {
         private boolean rememberNewHubConnections = true;
         private boolean hubReconnect = true;
@@ -236,54 +239,6 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
                     this.hubReconnect +
                     "\n";
             return sb;
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    //                                       test support                                      //
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    private Set<String> receivedLabels = new HashSet<>(); // more instances of the same label has no specific semantics
-    private List<Thread> blockedThreads = new ArrayList<>(); // a thread can wait for more labels - useful or not
-    public void block(String label) {
-        // check if already released
-        while(true) {
-            for(String receivedLabel : this.receivedLabels) {
-                if (receivedLabel.equalsIgnoreCase(label)) {
-                    return; // block released
-                }
-            }
-            try {
-                this.blockedThreads.add(Thread.currentThread());
-                Thread.sleep(Long.MAX_VALUE);
-            } catch (InterruptedException e) {
-                // new message received - try again
-            }
-        }
-    }
-
-    void releaseReceived(CharSequence releaseChannelURI) {
-        Set<String> newReceivedLabels = new HashSet<>();
-        try {
-            SharkNetMessengerChannel releaseChannel =
-                    this.getSharkMessengerComponent().getChannel(releaseChannelURI);
-
-            SharkNetMessageList messages = releaseChannel.getMessages();
-            for(int i = 0; i < messages.size(); i++) {
-                SharkNetMessage sharkMessage = messages.getSharkMessage(i, true);
-                byte[] content = sharkMessage.getContent();
-                CharSequence releaseLabel = SerializationHelper.bytes2characterSequence(content);
-                newReceivedLabels.add(releaseLabel.toString());
-            }
-            // replace old with new list
-            this.receivedLabels = newReceivedLabels;
-
-            // let's check waiting threads again
-            for(Thread blockedThread : this.blockedThreads) {
-                blockedThread.interrupt();
-            }
-        } catch (SharkNetMessengerException | IOException | ASAPException e) {
-            this.tellUIError("problems reading message in channel " + releaseChannelURI);
-            this.tellUIError(e.getLocalizedMessage());
         }
     }
 

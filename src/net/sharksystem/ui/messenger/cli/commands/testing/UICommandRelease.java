@@ -7,6 +7,7 @@ import net.sharksystem.app.messenger.SharkNetMessengerComponent;
 import net.sharksystem.asap.ASAPException;
 import net.sharksystem.asap.utils.ASAPSerialization;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
+import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandWithSingleInteger;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandWithSingleString;
@@ -15,8 +16,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class UICommandRelease extends AbstractCommandWithSingleString {
-    public UICommandRelease(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
+    SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;
+
+    public UICommandRelease(SharkNetMessengerAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
         super(sharkMessengerApp, smUI, wait, b);
+
+        // need test support
+        this.snmTestSupport = sharkMessengerApp;
     }
 
     @Override
@@ -31,12 +37,12 @@ public class UICommandRelease extends AbstractCommandWithSingleString {
             // send message
             messenger.sendSharkMessage(
                     SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE, // label is a string
-                    contentBytes, SharkNetMessengerApp.TEST_BLOCK_RELEASE_CHANNEL, // specific channel
+                    contentBytes, SharkNetMessengerAppSupportingDistributedTesting.TEST_BLOCK_RELEASE_CHANNEL, // specific channel
                     (CharSequence) null, // no specific receiver
                     false, // no signing
                     false // no encryption
             );
-            this.getSharkMessengerApp().tellUI("release block send: " + this.getStringArgument());
+            this.getSharkMessengerApp().tellUI("release block sent: " + this.getStringArgument());
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }
