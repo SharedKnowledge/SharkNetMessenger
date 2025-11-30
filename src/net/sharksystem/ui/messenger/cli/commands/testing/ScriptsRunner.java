@@ -1,9 +1,8 @@
-package net.sharksystem.messenger.testScripts;
+package net.sharksystem.ui.messenger.cli.commands.testing;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.ProductionUI;
-import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -12,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Run a script with in a fresh CLI thread.
+ */
 public class ScriptsRunner {
     // assume scripts come as member
     private String getScript(String scriptName) throws NoSuchFieldException, IllegalAccessException {
@@ -35,7 +37,6 @@ public class ScriptsRunner {
     // Hub
     // Hub3_1k, Hub3_100k, Hub3_100M, HubStalling_1s, HubStalling_1min, HubStalling_10min
 
-    @Test
     public void runScripts() {
         String scriptName = null;
         for(String testCase : version1Tests.keySet()) {
