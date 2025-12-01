@@ -148,8 +148,9 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 this.orchestratedTestsInLaunch.add(
                         this.orchestratedTestsWaiting.get(testEnsemble.waitingTestIndex));
 
-                // TODO - does not work - why?
-                this.orchestratedTestsWaiting.remove(testEnsemble.waitingTestIndex);
+                // we need an int - Integer would not work since it is interpreted as key object rather index value
+                int index2Remove = testEnsemble.waitingTestIndex;
+                this.orchestratedTestsWaiting.remove(index2Remove);
 
                 // make peers unavailable
                 for(int i = 0; i < testEnsemble.peerIPAddresses.length; i++) {
