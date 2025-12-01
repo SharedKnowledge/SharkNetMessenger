@@ -7,18 +7,18 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class ScriptRQMessage {
+public class PeerHostingEnvironmentDescription {
     public final String ipAddress;
     public final String osName;
     public final String osVersion;
 
-    ScriptRQMessage(String ipAddress, String osName, String osVersion) {
+    PeerHostingEnvironmentDescription(String ipAddress, String osName, String osVersion) {
         this.ipAddress = ipAddress;
         this.osName = osName;
         this.osVersion = osVersion;
     }
 
-    public ScriptRQMessage(byte[] serializedMessage) throws IOException, ASAPException {
+    public PeerHostingEnvironmentDescription(byte[] serializedMessage) throws IOException, ASAPException {
         ByteArrayInputStream bais = new ByteArrayInputStream(serializedMessage);
 
         this.ipAddress = ASAPSerialization.readCharSequenceParameter(bais);

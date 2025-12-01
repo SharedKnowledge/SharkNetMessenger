@@ -149,6 +149,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, "block", false));
         smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
         smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, "release", false));
+        smUI.addCommand(new UICommandOrchestrateTest(snmTestSupport, smUI, "orchestrateTest", false));
 
         smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));
         smUI.addCommand(new UICommandShowLog(sharkMessengerApp, smUI, "showLog", false));

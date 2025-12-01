@@ -1,7 +1,6 @@
 package net.sharksystem.ui.messenger.cli.commands.testing;
 
 import net.sharksystem.SharkException;
-import net.sharksystem.app.messenger.SharkNetMessage;
 import net.sharksystem.app.messenger.SharkNetMessengerComponent;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
@@ -29,7 +28,7 @@ public class UICommandScriptRQ extends AbstractCommandNoParameter {
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
 
             // collect information
-            ScriptRQMessage scriptRQMessage = new ScriptRQMessage(
+            PeerHostingEnvironmentDescription scriptRQMessage = new PeerHostingEnvironmentDescription(
                     InetAddress.getLocalHost().getHostAddress(), // IP Adresse
                     System.getProperty("os.name"), // os name
                     System.getProperty("os.version") // os version
