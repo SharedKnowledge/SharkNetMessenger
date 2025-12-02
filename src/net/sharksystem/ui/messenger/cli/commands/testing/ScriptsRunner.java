@@ -1,10 +1,5 @@
 package net.sharksystem.ui.messenger.cli.commands.testing;
 
-import net.sharksystem.SharkException;
-import net.sharksystem.hub.peerside.ASAPHubManager;
-import net.sharksystem.ui.messenger.cli.ProductionUI;
-
-import java.io.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,47 +73,6 @@ public class ScriptsRunner {
                 System.err.println("ERROR missing script: " + scriptName + "cannot execute test " + testCase);
                 continue;
             }
-        }
-    }
-
-    private class ScriptRunnerThread extends Thread {
-        String peerName;
-        String testName;
-        String script;
-        ProductionUI ui;
-
-        ScriptRunnerThread(String peerName, String testName, String script) {
-            this.peerName = getFriendlyPeerName(peerName);
-            this.testName = testName;
-            this.script = script;
-
-            try {
-                String[] args = new String[3];
-                args[0] = this.peerName + "_" + this.testName;
-                args[1] = String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS);
-                args[2] = this.script;
-                this.ui = new ProductionUI(args);
-            } catch (IOException | SharkException e) {
-                System.err.println("failed: " + testName);
-                e.printStackTrace();
-            }
-        }
-
-        public void run() {
-            this.ui.startCLI();
-        }
-    }
-
-    private static String getFriendlyPeerName(String peerName) {
-        if(peerName.length() != 1) return peerName; // already friendly - hopefully
-
-        switch (peerName) {
-            case "A": return "Alice";
-            case "B": return "Bob";
-            case "C": return "Clara";
-            case "D": return "David";
-            case "E": return "Eve";
-            default: return peerName;
         }
     }
 }

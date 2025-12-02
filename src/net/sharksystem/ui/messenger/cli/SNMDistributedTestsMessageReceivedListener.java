@@ -33,6 +33,16 @@ public class SNMDistributedTestsMessageReceivedListener implements SharkNetMessa
                 }
             }).start();
         }
+        else if(uri.toString().equalsIgnoreCase(
+                SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL.toString())) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
+                            testScriptReceived(SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL);
+                }
+            }).start();
+        }
     }
 
 }

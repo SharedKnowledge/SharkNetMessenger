@@ -31,6 +31,7 @@ import net.sharksystem.fs.ExtraData;
 import net.sharksystem.fs.ExtraDataFS;
 import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.commands.hubaccess.*;
+import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
 import net.sharksystem.utils.Log;
 
 /**
@@ -146,9 +147,9 @@ public class ProductionUI {
         // Tests - do not use those commands in other implementation beside test support environment
         SharkNetMessengerAppSupportingDistributedTesting snmTestSupport =
                 (SharkNetMessengerAppSupportingDistributedTesting) sharkMessengerApp;
-        smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, "block", false));
+        smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, TestLanguageCompiler.CLI_BLOCK, false));
         smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
-        smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, "release", false));
+        smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, TestLanguageCompiler.CLI_RELEASE, false));
         smUI.addCommand(new UICommandOrchestrateTest(snmTestSupport, smUI, "orchestrateTest", false));
 
         smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));

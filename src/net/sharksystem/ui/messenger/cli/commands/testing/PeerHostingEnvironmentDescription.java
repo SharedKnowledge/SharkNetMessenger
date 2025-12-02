@@ -6,11 +6,22 @@ import net.sharksystem.asap.utils.ASAPSerialization;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class PeerHostingEnvironmentDescription {
     public final String ipAddress;
     public final String osName;
     public final String osVersion;
+
+    /** produce a description of this actual environment */
+    public PeerHostingEnvironmentDescription() throws UnknownHostException {
+        this(
+            InetAddress.getLocalHost().getHostAddress(), // IP Adresse
+            System.getProperty("os.name"), // os name
+            System.getProperty("os.version") // os version
+        );
+    }
 
     PeerHostingEnvironmentDescription(String ipAddress, String osName, String osVersion) {
         this.ipAddress = ipAddress;

@@ -16,9 +16,10 @@ public class TestLanguageCompiler {
 
     public static final String CLI_OPEN_TCP = "openTCP";
     public static final String CLI_CONNECT_TCP = "connectTCP";
-    private static final String CLI_BLOCK = "block";
-    private static final String CLI_RELEASE = "release";
-    private static final String CLI_EXIT = "exit";
+    public static final String CLI_BLOCK = "block";
+    public static final String CLI_RELEASE = "release";
+    public static final String CLI_EXIT = "exit";
+    public static final String CLI_WAIT = "wait";
 
     /**
      * sentence -> command SEPARATOR command

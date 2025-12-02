@@ -28,14 +28,9 @@ public class UICommandScriptRQ extends AbstractCommandNoParameter {
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
 
             // collect information
-            PeerHostingEnvironmentDescription scriptRQMessage = new PeerHostingEnvironmentDescription(
-                    InetAddress.getLocalHost().getHostAddress(), // IP Adresse
-                    System.getProperty("os.name"), // os name
-                    System.getProperty("os.version") // os version
-            );
+            PeerHostingEnvironmentDescription scriptRQMessage = new PeerHostingEnvironmentDescription();
 
-
-            // send message
+           // send message
             messenger.sendSharkMessage(
                     SharkNetMessengerAppSupportingDistributedTesting.PEER_HOST_DESCRIPTION_FORMAT,
                     scriptRQMessage.getMessageBytes(),
