@@ -29,7 +29,7 @@ public class SNMDistributedTestsMessageReceivedListener implements SharkNetMessa
                 @Override
                 public void run() {
                     SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
-                            scriptRQReceived(SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL);
+                            receivedScriptRQ(SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL);
                 }
             }).start();
         }
@@ -39,7 +39,7 @@ public class SNMDistributedTestsMessageReceivedListener implements SharkNetMessa
                 @Override
                 public void run() {
                     SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
-                            testScriptReceived(SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL);
+                            receivedTestScript(SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL);
                 }
             }).start();
         }

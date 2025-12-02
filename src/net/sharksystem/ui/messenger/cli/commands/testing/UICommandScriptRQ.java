@@ -7,7 +7,6 @@ import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandNoParameter;
 
 import java.io.IOException;
-import java.net.InetAddress;
 
 public class UICommandScriptRQ extends AbstractCommandNoParameter {
     SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;

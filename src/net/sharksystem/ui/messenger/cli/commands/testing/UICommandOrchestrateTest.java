@@ -1,6 +1,5 @@
 package net.sharksystem.ui.messenger.cli.commands.testing;
 
-import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.commands.helper.AbstractCommandWithSingleString;
@@ -23,15 +22,14 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         * script for each peer
          */
 
-        // Alice: orchestrateTest dummy; openTCP 9999
-        // dann Bob: connectTCP localhost 9999; scriptRQ
+        // Orchestrator: orchestrateTest dummy; openTCP 9999
+        // dann Peers: connectTCP localhost 9999; scriptRQ
 
-        String script1_0 =  "connectTCP localhost 9999;release A1;wait 5000;lsMessages;exit";
-        String script1_1 = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;exit";
+        String script1_0 =  "connectTCP localhost 9999;release A1;wait 5000;lsMessages;";
+        String script1_1 = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;";
 
-        String script0_0 =  "sendMessage HiFromTest;wait 1000;lsMessages;exit";
-        String script0_1 =  "sendMessage HiFromTest;wait 1000;lsMessages;exit";
-
+        String script0_0 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
+        String script0_1 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
 
         //List<PeerHostingEnvironmentDescription> requiredPeerEnvironment = new ArrayList<>();
         List<String> scripts = new ArrayList<>();
