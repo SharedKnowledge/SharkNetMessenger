@@ -11,13 +11,15 @@ public class TestScriptDescription {
     public final String ipAddress;
     public final int peerIndex;
     public final String script;
-    public int testNumber;
+    public final int testNumber;
+    public final String peerID;
 
-    public TestScriptDescription(String ipAddress, int peerIndex, String script, int testNumber) {
+    public TestScriptDescription(String ipAddress, int peerIndex, String script, int testNumber, String peerID) {
         this.ipAddress = ipAddress;
         this.peerIndex = peerIndex;
         this.script = script;
         this.testNumber = testNumber;
+        this.peerID = peerID;
     }
 
     public TestScriptDescription(byte[] serialisedMessage) throws IOException, ASAPException {
@@ -27,6 +29,7 @@ public class TestScriptDescription {
         this.peerIndex = ASAPSerialization.readIntegerParameter(bais);
         this.script = ASAPSerialization.readCharSequenceParameter(bais);
         this.testNumber = ASAPSerialization.readIntegerParameter(bais);
+        this.peerID = ASAPSerialization.readCharSequenceParameter(bais);
     }
 
     public byte[] getMessageBytes() throws IOException {
@@ -36,11 +39,13 @@ public class TestScriptDescription {
         ASAPSerialization.writeIntegerParameter(this.peerIndex, baos);
         ASAPSerialization.writeCharSequenceParameter(this.script, baos);
         ASAPSerialization.writeIntegerParameter(this.testNumber, baos);
+        ASAPSerialization.writeCharSequenceParameter(this.peerID, baos);
 
         return baos.toByteArray();
     }
 
     public String toString() {
-        return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex + " | script: " + this.script;
+        return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex
+                + " | peerID: " + this.peerID + " | script: " + this.script;
     }
 }

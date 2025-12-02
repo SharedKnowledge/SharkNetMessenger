@@ -27,23 +27,11 @@ public class UICommandScriptRQ extends AbstractCommandNoParameter {
         try {
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
 
-            // collect information
-            PeerHostingEnvironmentDescription scriptRQMessage = new PeerHostingEnvironmentDescription();
+            this.snmTestSupport.becomeTestPeer();
 
-           // send message
-            messenger.sendSharkMessage(
-                    SharkNetMessengerAppSupportingDistributedTesting.PEER_HOST_DESCRIPTION_FORMAT,
-                    scriptRQMessage.getMessageBytes(),
-                    SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL, // specific channel
-                    (CharSequence) null, // no specific receiver
-                    false, // no signing
-                    false // no encryption
-            );
-            this.getSharkMessengerApp().tellUI("script request sent: " + scriptRQMessage);
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }
-
     }
 
     @Override

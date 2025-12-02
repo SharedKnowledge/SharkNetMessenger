@@ -13,20 +13,27 @@ public class PeerHostingEnvironmentDescription {
     public final String ipAddress;
     public final String osName;
     public final String osVersion;
+    public final String peerID;
 
     /** produce a description of this actual environment */
-    public PeerHostingEnvironmentDescription() throws UnknownHostException {
+    public PeerHostingEnvironmentDescription(String peerID) throws UnknownHostException {
         this(
             InetAddress.getLocalHost().getHostAddress(), // IP Adresse
             System.getProperty("os.name"), // os name
-            System.getProperty("os.version") // os version
+            System.getProperty("os.version"), // os version
+            peerID
         );
     }
 
-    PeerHostingEnvironmentDescription(String ipAddress, String osName, String osVersion) {
+    public PeerHostingEnvironmentDescription(String ipAddress, String osName, String osVersion, String peerID) {
+        if(ipAddress == null) ipAddress = "";
         this.ipAddress = ipAddress;
+        if(osName == null) osName = "";
         this.osName = osName;
+        if(osVersion == null) osVersion = "";
         this.osVersion = osVersion;
+        if(peerID == null) peerID = "";
+        this.peerID = peerID;
     }
 
     public PeerHostingEnvironmentDescription(byte[] serializedMessage) throws IOException, ASAPException {
@@ -35,19 +42,22 @@ public class PeerHostingEnvironmentDescription {
         this.ipAddress = ASAPSerialization.readCharSequenceParameter(bais);
         this.osName = ASAPSerialization.readCharSequenceParameter(bais);
         this.osVersion = ASAPSerialization.readCharSequenceParameter(bais);
+        this.peerID = ASAPSerialization.readCharSequenceParameter(bais);
     }
 
-    byte[] getMessageBytes() throws IOException {
+    public byte[] getMessageBytes() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         ASAPSerialization.writeCharSequenceParameter(this.ipAddress, baos);
         ASAPSerialization.writeCharSequenceParameter(this.osName, baos);
         ASAPSerialization.writeCharSequenceParameter(this.osVersion, baos);
+        ASAPSerialization.writeCharSequenceParameter(this.peerID, baos);
 
         return baos.toByteArray();
     }
 
     public String toString() {
-        return "ip: " + this.ipAddress + " | os: " + this.osName + " | version: " + this.osVersion;
+        return "ip: " + this.ipAddress + " | os: " + this.osName + " | version: "
+                + this.osVersion + " | name: " + this.peerID;
     }
 }

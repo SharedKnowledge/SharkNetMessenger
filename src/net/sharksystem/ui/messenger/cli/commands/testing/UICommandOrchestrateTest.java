@@ -26,16 +26,23 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         // Alice: orchestrateTest dummy; openTCP 9999
         // dann Bob: connectTCP localhost 9999; scriptRQ
 
-        List<PeerHostingEnvironmentDescription> requiredPeerEnvironment = new ArrayList<>();
+        String script1_0 =  "connectTCP localhost 9999;release A1;wait 5000;lsMessages;exit";
+        String script1_1 = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;exit";
+
+        String script0_0 =  "sendMessage HiFromTest;wait 1000;lsMessages;exit";
+        String script0_1 =  "sendMessage HiFromTest;wait 1000;lsMessages;exit";
+
+
+        //List<PeerHostingEnvironmentDescription> requiredPeerEnvironment = new ArrayList<>();
         List<String> scripts = new ArrayList<>();
 
         // fill with example data
         this.getSharkMessengerApp().tellUI("use sample data - todo: fill with real data");
         // anything will do
-        requiredPeerEnvironment.add(new PeerHostingEnvironmentDescription(null, null, null));
-        scripts.add("markstep RUN_TEST_:)");
+        scripts.add(script0_0);
+        scripts.add(script0_1);
 
-        this.snmTestSupport.orchestrateTest(requiredPeerEnvironment, scripts);
+        this.snmTestSupport.orchestrateTest(scripts);
 
         this.getSharkMessengerApp().tellUI("test is to be orchestrated");
     }
