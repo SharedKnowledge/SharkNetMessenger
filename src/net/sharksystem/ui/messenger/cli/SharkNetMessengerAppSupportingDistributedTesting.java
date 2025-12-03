@@ -221,6 +221,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     public void receivedScriptRQ(CharSequence scriptRQChannel) {
         if(!this.beTestOrchestrator) {
             this.tellUI("script request received - ignore - not a test orchestrator");
+            return;
         } else {
             this.tellUI("script request received - try to stage a test");
         }

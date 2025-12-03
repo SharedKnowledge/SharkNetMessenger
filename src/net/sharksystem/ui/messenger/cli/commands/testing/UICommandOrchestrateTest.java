@@ -22,12 +22,19 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         * script for each peer
          */
 
+        /**
+         * what works - independent tests - no interaction between test peers
+         * Test with one peer... test is executed - results are persistent in test peer
+         * Test with two peers... no script is executed, Clara even claims not to be able to stage a test.
+         */
+
         // Orchestrator: orchestrateTest dummy; openTCP 9999
         // dann Peers: connectTCP localhost 9999; scriptRQ
 
         String script1_0 =  "connectTCP localhost 9999;release A1;wait 5000;lsMessages;";
         String script1_1 = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;";
 
+        // works: 2025.12.03
         String script0_0 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
         String script0_1 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
 
