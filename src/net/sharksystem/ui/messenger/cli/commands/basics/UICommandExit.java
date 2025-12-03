@@ -17,7 +17,9 @@ public class UICommandExit extends AbstractCommandNoParameter {
     @Override
     public void execute() throws Exception {
         //this.printTODOReimplement();
-        System.exit(1);
+        this.getSharkMessengerApp().tellUI("end CLI for peer " +
+            this.getSharkMessengerApp().getSharkPeer().getPeerID());
+        System.exit(0);
     }
 
     @Override

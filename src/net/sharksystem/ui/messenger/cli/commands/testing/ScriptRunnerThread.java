@@ -30,7 +30,7 @@ public class ScriptRunnerThread extends Thread {
     }
 
     public void run() {
-        this.ui.startCLI();
+        this.ui.startCLI(peerName);
     }
 
     public static String getFriendlyPeerName(String peerName) {

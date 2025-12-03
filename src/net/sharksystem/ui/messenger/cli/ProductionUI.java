@@ -49,12 +49,15 @@ public class ProductionUI {
 
     public static void main(String[] args) throws SharkException, IOException {
         ProductionUI cli = new ProductionUI(args);
-        cli.startCLI();
+        String peerName = "no peer name defined as parameter";
+        if(args != null && args.length > 0) peerName = args[0];
+        cli.startCLI(peerName);
     }
 
-    public void startCLI() {
+    public void startCLI(String peerName) {
         System.out.println("type 'help' to see the list of commands");
         smUI.runCommandLoop();
+        System.out.println("end CLI for " + peerName);
     }
 
     public ProductionUI(String[] args) throws SharkException, IOException {

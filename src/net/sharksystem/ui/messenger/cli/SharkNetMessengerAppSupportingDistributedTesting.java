@@ -408,7 +408,21 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 effectiveScripts[peerIndex] = sb.toString() + this.test2run.scripts.get(peerIndex) + scriptEnd_Exit;
             }
 
-            // send script to each peer
+            // run orchestrator script first - wait to collect logs
+            ScriptRunnerThread scriptRunnerThread =
+                    new ScriptRunnerThread(ORCHESTRATOR_PEER_NAME,
+                            Integer.toString(this.testNumber), orchestratorScript);
+            SharkNetMessengerAppSupportingDistributedTesting.this.tellUI(
+                    "running script as peer " + ORCHESTRATOR_PEER_NAME + ": " + orchestratorScript);
+            scriptRunnerThread.start();
+
+            // now - send script to each peer
+
+            // to avoid even the slightest chance of a race condition - make a little break;
+            try { Thread.sleep(1000); } catch (InterruptedException e) {}
+
+            SharkNetMessengerAppSupportingDistributedTesting.this.tellUI("sending test scripts to peers");
+
             try {
                 for (int i = 0; i < this.test2run.peerEnvironment.size(); i++) {
                     PeerHostingEnvironmentDescription peerEnvironment = this.test2run.peerEnvironment.get(i);
@@ -432,14 +446,6 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
 
                     SharkNetMessengerAppSupportingDistributedTesting.this.
                             tellUI("test scripts sent to " + peerEnvironment.ipAddress);
-
-                    // run orchestrator script - wait to collect logs
-                    ScriptRunnerThread scriptRunnerThread =
-                            new ScriptRunnerThread(ORCHESTRATOR_PEER_NAME,
-                                    Integer.toString(this.testNumber), orchestratorScript);
-                    SharkNetMessengerAppSupportingDistributedTesting.this.tellUI(
-                            "running script as peer " + ORCHESTRATOR_PEER_NAME + ": " + orchestratorScript);
-                    scriptRunnerThread.start();
                 }
             }
             catch(IOException | SharkNetMessengerException ioe) {
