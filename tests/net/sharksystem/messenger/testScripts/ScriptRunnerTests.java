@@ -3,11 +3,12 @@ package net.sharksystem.messenger.testScripts;
 import net.sharksystem.SharkException;
 import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.ProductionUI;
-import net.sharksystem.ui.messenger.cli.commands.testing.ScriptRunnerProcess;
+import net.sharksystem.ui.messenger.cli.commands.testing.ScriptRunnerProcess_RuntimeExec;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScriptRunnerTests {
     @Test
@@ -30,10 +31,48 @@ public class ScriptRunnerTests {
 
     @Test
     public void testTestRunnerRuntimeExec() throws IOException {
-        ScriptRunnerProcess srp =
-                new ScriptRunnerProcess("Alice", "test1", "sendMessage msgInTest");
+        ScriptRunnerProcess_RuntimeExec srp =
+                new ScriptRunnerProcess_RuntimeExec("Alice", "test1", "sendMessage msgInTest");
 
         srp.start();
+    }
+
+    @Test
+    public void pbTest() throws IOException {
+        ProcessBuilder pb =
+                new ProcessBuilder("java", "-version");
+        File log = new File("log");
+        pb.redirectErrorStream(true);
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
+        pb.start();
+    }
+
+    @Test
+    public void pbTestRealWorks1() throws IOException {
+        ProcessBuilder pb =
+                new ProcessBuilder("java", "-jar", "SharkNetMessengerCLI.jar", "Bob", "6000", "sendMessage Hi;exit");
+        File log = new File("logBob");
+        pb.redirectErrorStream(true);
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
+        pb.start();
+    }
+
+    @Test
+    public void pbTestReal() throws IOException {
+        List<String> args = new ArrayList<>();
+        args.add("java");
+        args.add("-jar");
+        args.add("SharkNetMessengerCLI.jar");
+        args.add("Bob");
+        args.add("6000");
+        args.add("sendMessage Hi;exit");
+        ProcessBuilder pb = new ProcessBuilder(args);
+
+            File log = new File("logBob");
+
+        pb.redirectErrorStream(true);
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
+        pb.start();
     }
 
     @Test
@@ -54,6 +93,10 @@ public class ScriptRunnerTests {
          */
         File workingDir = null; // works with Windows
 
-        Runtime.getRuntime().exec(command, env, workingDir);
+        Process subProcess = Runtime.getRuntime().exec(command, env, workingDir);
+        InputStream inputStream = subProcess.getInputStream();// reader connected to stdout of subprocess
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        String temp = br.readLine();
+        while( temp != null ) System.out.println(temp);
     }
 }

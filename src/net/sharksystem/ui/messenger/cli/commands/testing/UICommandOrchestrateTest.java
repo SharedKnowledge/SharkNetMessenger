@@ -24,37 +24,28 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
 
          // what works - independent tests - no interaction between test peers
         // 2025-12-03 with thread variant
-        //
+        // 2025-12-05 works with process builder
         String script0_A =  "sendMessage HiFromTest;wait 1000;lsMessages;";
         String script0_B =  "sendMessage HiFromTest;wait 1000;lsMessages;";
-
-        // Orchestrator: orchestrateTest dummy; openTCP 6907
-        // dann Peers: connectTCP localhost 6907; scriptRQ
-
-        // testing - seems orchestrator does not receive peerSettled release messages - it does sometimes, though.
-        // Race condition - no doubt. S***.
-        // check locks - getting even weirder - to test peer names are generated twice?
-        // There is nothing but a good mystery :)
-        // what the difference to scenario 0? no additional TCP connections(?)
 
         // going to launch new processes rather new threads: orchestrator (not yet); test peers (not yet)
         String script1_A =  "wait 5000;connectTCP localhost 9999;release A1;wait 5000;lsMessages;";
         String script1_B = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;";
 
-        /* effective scripts
-        // message sent but not received but at least scenario runs - it is a race condition causing the problem above.
-        o: openTCP 1984;block peerSettled_0_0;block peerSettled_0_1;release launchTest_0;;exit;
-        a: connectTCP 192.168.0.116 1984;release peerSettled_0_0;block launchTest_0;wait 1000;wait 5000;connectTCP localhost 9999;release A1;wait 5000;lsMessages;;exit;
-        b: connectTCP 192.168.0.116 1984;release peerSettled_0_1;block launchTest_0;wait 1000;openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;;exit;
-         */
-
         //List<PeerHostingEnvironmentDescription> requiredPeerEnvironment = new ArrayList<>();
         List<String> scripts = new ArrayList<>();
+
+        // Orchestrator: orchestrateTest dummy; openTCP 6907
+        // dann Peers: connectTCP localhost 6907; scriptRQ
 
         // fill with example data
         this.getSharkMessengerApp().tellUI("use sample data - todo: fill with real data");
         // anything will do
+        /*
         scripts.add(script0_A);
+        scripts.add(script0_B);
+         */
+        scripts.add(script1_A);
         scripts.add(script1_B);
 
         this.snmTestSupport.orchestrateTest(scripts);
