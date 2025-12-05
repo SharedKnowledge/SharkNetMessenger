@@ -13,7 +13,7 @@ public class ScriptRunnerThread extends Thread {
     ProductionUI ui;
 
     public ScriptRunnerThread(String peerName, String testName, String script) {
-        this.peerName = ScriptRunnerThread.getFriendlyPeerName(peerName);
+        this.peerName = Helper.getFriendlyPeerName(peerName);
         this.testName = testName;
         this.script = script;
 
@@ -31,28 +31,5 @@ public class ScriptRunnerThread extends Thread {
 
     public void run() {
         this.ui.startCLI(peerName);
-    }
-
-    public static String getFriendlyPeerName(String peerName) {
-        if(peerName.length() != 1) return peerName; // already friendly - hopefully
-
-        switch (peerName) {
-            case "0":
-            case "A":
-                return "Alice";
-            case "1":
-            case "B":
-                return "Bob";
-            case "2":
-            case "C":
-                return "Clara";
-            case "3":
-            case "D":
-                return "David";
-            case "4":
-            case "E":
-                return "Eve";
-            default: return peerName;
-        }
     }
 }

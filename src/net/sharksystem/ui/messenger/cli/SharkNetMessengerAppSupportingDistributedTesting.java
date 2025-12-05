@@ -6,9 +6,7 @@ import net.sharksystem.app.messenger.SharkNetMessageList;
 import net.sharksystem.app.messenger.SharkNetMessengerChannel;
 import net.sharksystem.app.messenger.SharkNetMessengerException;
 import net.sharksystem.asap.ASAPException;
-import net.sharksystem.ui.messenger.cli.commands.testing.PeerHostingEnvironmentDescription;
-import net.sharksystem.ui.messenger.cli.commands.testing.ScriptRunnerThread;
-import net.sharksystem.ui.messenger.cli.commands.testing.TestScriptDescription;
+import net.sharksystem.ui.messenger.cli.commands.testing.*;
 import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
 import net.sharksystem.utils.SerializationHelper;
 
@@ -70,18 +68,23 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     private List<Thread> blockedThreads = new ArrayList<>(); // a thread can wait for more labels - useful or not
     public void block(String label) {
         // check if already released
+        this.tellUI("looking for release label " + label);
         while(true) {
             for(String receivedLabel : this.receivedLabels) {
                 if (receivedLabel.equalsIgnoreCase(label)) {
+                    this.tellUI("release label received: " + label);
                     return; // block released
                 }
             }
             try {
                 this.blockedThreads.add(Thread.currentThread());
+                this.tellUI("threads sleeps and waits for release label " + label);
                 Thread.sleep(Long.MAX_VALUE);
             } catch (InterruptedException e) {
                 // new message received - try again
             }
+            this.tellUI("threads woke up - check if release label arrived " + label);
+            this.blockedThreads.remove(Thread.currentThread());
         }
     }
 
@@ -156,11 +159,19 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 // for me?
                 if(testScriptDescription.peerID.equalsIgnoreCase(this.getSharkPeer().getPeerID().toString())) {
                     this.tellUI("test script received - prepare script runner" + testScriptDescription);
+
+                    /*
                     // produce test running thread
                     new ScriptRunnerThread(
                         Integer.toString(testScriptDescription.peerIndex),
                         Integer.toString(testScriptDescription.testNumber),
                         testScriptDescription.script).start();
+                     */
+                    // produce test running process
+                    new ScriptRunnerProcess(
+                            Integer.toString(testScriptDescription.peerIndex),
+                            Integer.toString(testScriptDescription.testNumber),
+                            testScriptDescription.script).start();
                     this.tellUI("running script: " + testScriptDescription.script);
                 } else {
                     this.tellUI("test script received, not for me though. Index: " + scriptIndex);
@@ -409,12 +420,26 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             }
 
             // run orchestrator script first - wait to collect logs
+            try {
+                ScriptRunnerProcess scriptRunnerProcess =
+                        scriptRunnerProcess = new ScriptRunnerProcess(ORCHESTRATOR_PEER_NAME,
+                        Integer.toString(this.testNumber), orchestratorScript);
+                scriptRunnerProcess.start();
+            } catch (IOException e) {
+                SharkNetMessengerAppSupportingDistributedTesting.
+                        this.tellUIError("could not start orchestrator process / don't send scripts to peers: "
+                        + e.getStackTrace());
+                return;
+            }
+
+            /*
             ScriptRunnerThread scriptRunnerThread =
                     new ScriptRunnerThread(ORCHESTRATOR_PEER_NAME,
                             Integer.toString(this.testNumber), orchestratorScript);
             SharkNetMessengerAppSupportingDistributedTesting.this.tellUI(
                     "running script as peer " + ORCHESTRATOR_PEER_NAME + ": " + orchestratorScript);
             scriptRunnerThread.start();
+             */
 
             // now - send script to each peer
 

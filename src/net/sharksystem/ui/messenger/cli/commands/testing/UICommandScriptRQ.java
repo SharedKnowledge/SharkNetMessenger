@@ -27,6 +27,7 @@ public class UICommandScriptRQ extends AbstractCommandNoParameter {
             SharkNetMessengerComponent messenger = this.getSharkMessengerApp().getSharkMessengerComponent();
 
             this.snmTestSupport.becomeTestPeer();
+            this.getSharkMessengerApp().tellUI("published script request");
 
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());

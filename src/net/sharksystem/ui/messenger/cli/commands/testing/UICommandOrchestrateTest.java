@@ -23,9 +23,10 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
          */
 
          // what works - independent tests - no interaction between test peers
-        // 2025-12-03
-        String script0_0 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
-        String script0_1 =  "sendMessage HiFromTest;wait 1000;lsMessages;";
+        // 2025-12-03 with thread variant
+        //
+        String script0_A =  "sendMessage HiFromTest;wait 1000;lsMessages;";
+        String script0_B =  "sendMessage HiFromTest;wait 1000;lsMessages;";
 
         // Orchestrator: orchestrateTest dummy; openTCP 6907
         // dann Peers: connectTCP localhost 6907; scriptRQ
@@ -35,6 +36,8 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         // check locks - getting even weirder - to test peer names are generated twice?
         // There is nothing but a good mystery :)
         // what the difference to scenario 0? no additional TCP connections(?)
+
+        // going to launch new processes rather new threads: orchestrator (not yet); test peers (not yet)
         String script1_A =  "wait 5000;connectTCP localhost 9999;release A1;wait 5000;lsMessages;";
         String script1_B = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;";
 
@@ -51,7 +54,7 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         // fill with example data
         this.getSharkMessengerApp().tellUI("use sample data - todo: fill with real data");
         // anything will do
-        scripts.add(script1_A);
+        scripts.add(script0_A);
         scripts.add(script1_B);
 
         this.snmTestSupport.orchestrateTest(scripts);

@@ -200,7 +200,7 @@ public class SharkNetMessengerComponentImpl extends SharkNetMessagesReceivedList
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////
-    //                                     act on received messages                            //
+    //                                 act on received asap messages                           //
     /////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
