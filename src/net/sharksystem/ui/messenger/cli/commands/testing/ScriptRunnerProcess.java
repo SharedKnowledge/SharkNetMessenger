@@ -10,19 +10,21 @@ import java.util.List;
 
 public class ScriptRunnerProcess {
     private final ProcessBuilder pb;
-    private String command;
 
     public ScriptRunnerProcess(String peerName, String testName, String script) throws IOException {
         // produce command line to launch a new SNM CLI
         peerName = Helper.getFriendlyPeerName(peerName);
+        peerName = peerName + "_" + testName;
+
+        Log.writeLog(this, "building process: " + peerName + " | " + script);
 
         List<String> args = new ArrayList<>();
         args.add("java");
         args.add("-jar");
         args.add(Helper.SNM_CLI_JAR_FILENAME);
-        args.add(peerName + "_" + testName);
+        args.add(peerName);
         args.add(String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS));
-        args.add("sendMessage Hi;exit");
+        args.add(script);
         this.pb = new ProcessBuilder(args);
 
         File log = new File(peerName + "_uiOutErr.txt");

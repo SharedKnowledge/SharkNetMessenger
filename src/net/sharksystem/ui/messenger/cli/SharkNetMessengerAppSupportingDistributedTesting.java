@@ -8,6 +8,7 @@ import net.sharksystem.app.messenger.SharkNetMessengerException;
 import net.sharksystem.asap.ASAPException;
 import net.sharksystem.ui.messenger.cli.commands.testing.*;
 import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
+import net.sharksystem.utils.Log;
 import net.sharksystem.utils.SerializationHelper;
 
 import java.io.IOException;
@@ -136,9 +137,11 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 false // no encryption
         );
         this.tellUI("script request sent: " + scriptRQMessage);
+        Log.writeLog(this, "script request sent: " + scriptRQMessage);
     }
 
     private int lastReceivedScriptIndex = -1;
+    private List<TestScriptDescription> handledScripts = new ArrayList<>();
     // peers willing to execute test script sent its environment description
     public void receivedTestScript(CharSequence testScriptChannel) {
         if(!this.beTestPeer) {
@@ -149,7 +152,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         try {
             SharkNetMessageList scriptMessages =
                     this.getSharkMessengerComponent().getChannel(testScriptChannel).getMessages();
-            for (int scriptIndex = this.lastScriptRQIndex + 1; scriptIndex < scriptMessages.size(); scriptIndex++) {
+            for (int scriptIndex = this.lastReceivedScriptIndex + 1; scriptIndex < scriptMessages.size(); scriptIndex++) {
                 this.lastReceivedScriptIndex = scriptIndex; // update each round - before possible exceptions
 
                 SharkNetMessage testSharkMessage = scriptMessages.getSharkMessage(scriptIndex, false);
@@ -159,6 +162,23 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 // for me?
                 if(testScriptDescription.peerID.equalsIgnoreCase(this.getSharkPeer().getPeerID().toString())) {
                     this.tellUI("test script received - prepare script runner" + testScriptDescription);
+                    Log.writeLog(this, "test script addressed to me received: " + testScriptDescription);
+
+                    // this is script is for - alright. Is it a copy?
+                    boolean copy = false;
+                    for(TestScriptDescription oldScript : this.handledScripts) {
+                        Log.writeLog(this, "copy? " + testScriptDescription + " | " + oldScript);
+                        if(TestScriptDescription.same(oldScript, testScriptDescription)) {
+                            copy = true;
+                            break;
+                        }
+                    }
+                    if(copy) {
+                        String log = "received copy of an already handled test case, ignore: " + testScriptDescription;
+                        Log.writeLog(this, log);
+                        this.tellUI(log);
+                        continue;
+                    }
 
                     /*
                     // produce test running thread
@@ -173,12 +193,17 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                             Integer.toString(testScriptDescription.testNumber),
                             testScriptDescription.script).start();
                     this.tellUI("running script: " + testScriptDescription.script);
+                    Log.writeLog(this, "script running, remember to avoid redo it: " + testScriptDescription);
+                    this.handledScripts.add(testScriptDescription);
                 } else {
-                    this.tellUI("test script received, not for me though. Index: " + scriptIndex);
+                    this.tellUI("test script received, not for me though. Index: " + testScriptDescription);
+                    Log.writeLog(this, "test script received, not for me: " + testScriptDescription);
                 }
             }
         } catch (IOException | SharkException e) {
-            this.tellUIError("problems handling test script received channel: " + e.getLocalizedMessage());
+            String log = "problems handling test script received channel: " + e.getLocalizedMessage();
+            this.tellUIError(log);
+            Log.writeLogErr(this, log);
         }
     }
 
@@ -234,6 +259,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             this.tellUI("script request received - ignore - not a test orchestrator");
             return;
         } else {
+            Log.writeLog(this, "script request received - try to stage a test");
             this.tellUI("script request received - try to stage a test");
         }
         // add information of this new volunteer and see if we have enough participant for one new test
@@ -250,12 +276,16 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
 
                     // add or replace information
                     this.availablePeers.put(peerHostDescription.peerID, peerHostDescription);
+                    String log = "added volunteering peer: " + peerHostDescription;
+                    this.tellUI(log);
+                    Log.writeLog(this, log);
 
                     // try to set up a test(s).
                     this.stageTests();
                 }
             } catch (SharkNetMessengerException | IOException | ASAPException e) {
                 this.tellUIError("problems handling script RQ channel: " + e.getLocalizedMessage());
+                Log.writeLogErr(this, "problems handling script RQ channel: " + e.getLocalizedMessage());
             }
         }
     }
@@ -266,6 +296,9 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         do {
             testEnsemble = this.findFittingPeers();
             if (testEnsemble != null) {
+                String log = "found enough peers for a new test run: test#" + testEnsemble.waitingTestIndex;
+                this.tellUI(log);
+                Log.writeLog(this, log);
                 // we found an ensemble to run a test
                 OrchestratedTest waitingTest = this.orchestratedTestsWaiting.get(testEnsemble.waitingTestIndex);
                 // add actual test ensemble
@@ -292,9 +325,11 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         if(!this.orchestratedTestsReady.isEmpty()) {
             // launch tests
             this.tellUI("test staged .. going to launch");
+            Log.writeLog(this, "test(s) staged .. going to launch");
             this.launchTests();
         } else {
             this.tellUI("couldn't stage a test - not enough peers");
+            Log.writeLog(this, "couldn't stage a test - not enough peers");
         }
     }
 
@@ -313,10 +348,14 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         public static final String ORCHESTRATOR_PEER_NAME = "orchest";
         public static final String LAUNCH_TEST_TAG_PREAMBLE = "launchTest_";
         public final static int FINAL_WAIT_PERIODE_BEFORE_LAUNCH = 1000;
+        public final static int MAX_TEST_DURATION_IN_MILLIS = 10000;
 
         private static String scriptStartOrchestrator_SyncWithPeers = null;
         private static String scriptStartPeer_SyncWithOrchestator = null;
         private static String scriptEnd_Exit = null;
+        private static String scriptSetTimeBomb =
+                TestLanguageCompiler.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
+                        + MAX_TEST_DURATION_IN_MILLIS + TestLanguageCompiler.LANGUAGE_SEPARATOR;
 
         OrchestratedTestLauncher(OrchestratedTest test2run) throws UnknownHostException {
             this.test2run = test2run;
@@ -390,6 +429,10 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             String[] effectiveScripts = new String[this.test2run.scripts.size()];
             for(int peerIndex = 0; peerIndex < this.test2run.scripts.size(); peerIndex++) {
                 sb = new StringBuilder();
+                // set time bomb to avoid orphan processes
+                SharkNetMessengerAppSupportingDistributedTesting.
+                        this.tellUI("WARNING: set timeBock in each peer script. Adopt this code for longer lasting test scenarios. <<<< WARNING");
+                sb.append(scriptSetTimeBomb);
                 // add open connection to orchestrator
                 sb.append(scriptStartPeer_SyncWithOrchestator);
 
@@ -420,15 +463,16 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             }
 
             // run orchestrator script first - wait to collect logs
+            Log.writeLog(this, "launching orchestrator: ");
             try {
                 ScriptRunnerProcess scriptRunnerProcess =
                         scriptRunnerProcess = new ScriptRunnerProcess(ORCHESTRATOR_PEER_NAME,
                         Integer.toString(this.testNumber), orchestratorScript);
                 scriptRunnerProcess.start();
             } catch (IOException e) {
-                SharkNetMessengerAppSupportingDistributedTesting.
-                        this.tellUIError("could not start orchestrator process / don't send scripts to peers: "
-                        + e.getStackTrace());
+                String log = "could not start orchestrator process / don't send scripts to peers: " + e.getStackTrace();
+                SharkNetMessengerAppSupportingDistributedTesting.this.tellUIError(log);
+                Log.writeLogErr(this, log);
                 return;
             }
 
@@ -447,6 +491,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             try { Thread.sleep(1000); } catch (InterruptedException e) {}
 
             SharkNetMessengerAppSupportingDistributedTesting.this.tellUI("sending test scripts to peers");
+            Log.writeLog(this, "sending test scripts to peers");
 
             try {
                 for (int i = 0; i < this.test2run.peerEnvironment.size(); i++) {
@@ -468,9 +513,13 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                             false, // no signing
                             false // no encryption
                     );
+                    Log.writeLog(this, "sent script: ip | test# | script"
+                            + peerEnvironment.peerID + " | "
+                            + this.testNumber + " | "
+                            + effectiveScripts[i]);
 
                     SharkNetMessengerAppSupportingDistributedTesting.this.
-                            tellUI("test scripts sent to " + peerEnvironment.ipAddress);
+                            tellUI("test scripts sent to " + peerEnvironment.peerID + "@" + peerEnvironment.ipAddress);
                 }
             }
             catch(IOException | SharkNetMessengerException ioe) {
@@ -487,7 +536,6 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         while(!this.orchestratedTestsReady.isEmpty()) {
             OrchestratedTest readyTest = this.orchestratedTestsReady.remove(0);
             OrchestratedTestLauncher readyTestLauncher = new OrchestratedTestLauncher(readyTest);
-
             readyTestLauncher.start();
         }
     }

@@ -45,6 +45,7 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         scripts.add(script0_A);
         scripts.add(script0_B);
          */
+
         scripts.add(script1_A);
         scripts.add(script1_B);
 

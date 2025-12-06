@@ -14,6 +14,13 @@ public class TestScriptDescription {
     public final int testNumber;
     public final String peerID;
 
+    public static boolean same(TestScriptDescription a, TestScriptDescription b) {
+        return a.testNumber == b.testNumber
+                && a.peerIndex == b.peerIndex
+                && a.ipAddress.equalsIgnoreCase(b.ipAddress)
+                && a.peerID.equalsIgnoreCase(b.peerID);
+    }
+
     public TestScriptDescription(String ipAddress, int peerIndex, String script, int testNumber, String peerID) {
         this.ipAddress = ipAddress;
         this.peerIndex = peerIndex;
@@ -46,6 +53,8 @@ public class TestScriptDescription {
 
     public String toString() {
         return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex
-                + " | peerID: " + this.peerID + " | script: " + this.script;
+                + " | peerID: " + this.peerID
+                + " | test#: " + this.testNumber
+                + " | script: " + this.script;
     }
 }
