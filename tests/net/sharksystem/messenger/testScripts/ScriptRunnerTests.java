@@ -7,6 +7,7 @@ import net.sharksystem.ui.messenger.cli.commands.testing.ScriptRunnerProcess_Run
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,39 @@ public class ScriptRunnerTests {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testGetAvailablePort() throws IOException {
+        int port = 1000;
+        ServerSocket srvSocket = null;
+        ServerSocket srvSocket1 = new ServerSocket(1000);
+        ServerSocket srvSocket2 = new ServerSocket(1001);
+
+        while(srvSocket == null && port < 65535) {
+            try {
+                srvSocket = new ServerSocket(port);
+            } catch (IOException e) {
+                System.out.println("taken: " + port);
+            }
+            port++;
+        }
+        srvSocket.close();
+        System.out.println(srvSocket);
+    }
+
+
+    private ServerSocket getServerSocket(int port) {
+        try {
+            ServerSocket srv = new ServerSocket(port);
+            srv.close();
+            // srv.accept();
+            return srv;
+        } catch (IOException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+        return null;
+    }
+
 
     @Test
     public void testTestRunnerRuntimeExec() throws IOException {

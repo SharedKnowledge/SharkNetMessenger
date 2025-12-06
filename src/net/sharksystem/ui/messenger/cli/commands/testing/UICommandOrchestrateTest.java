@@ -29,8 +29,8 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         String script0_B =  "sendMessage HiFromTest;wait 1000;lsMessages;";
 
         // going to launch new processes rather new threads: orchestrator (not yet); test peers (not yet)
-        String script1_A =  "wait 5000;connectTCP localhost 9999;release A1;wait 5000;lsMessages;";
-        String script1_B = "openTCP 9999;block A1;sendMessage HiFromBob;wait 5000;";
+        String script1_A =  "wait 2000;connectTCP localhost 9999;release A1;wait 1000;lsMessages;";
+        String script1_B = "openTCP 9999;block A1;sendMessage HiFromBob;";
 
         //List<PeerHostingEnvironmentDescription> requiredPeerEnvironment = new ArrayList<>();
         List<String> scripts = new ArrayList<>();

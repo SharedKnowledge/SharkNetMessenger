@@ -13,6 +13,7 @@ import net.sharksystem.utils.SerializationHelper;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.ServerSocket;
 import java.net.UnknownHostException;
 import java.util.*;
 
@@ -144,66 +145,72 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     private List<TestScriptDescription> handledScripts = new ArrayList<>();
     // peers willing to execute test script sent its environment description
     public void receivedTestScript(CharSequence testScriptChannel) {
-        if(!this.beTestPeer) {
-            this.tellUI("test script received but no tester peer - ignored");
-            return;
-        }
-        // add information of this new volunteer and see if we have enough participant for one new test
-        try {
-            SharkNetMessageList scriptMessages =
-                    this.getSharkMessengerComponent().getChannel(testScriptChannel).getMessages();
-            for (int scriptIndex = this.lastReceivedScriptIndex + 1; scriptIndex < scriptMessages.size(); scriptIndex++) {
-                this.lastReceivedScriptIndex = scriptIndex; // update each round - before possible exceptions
+        // less likely but more than one script could be received
+        synchronized (SharkNetMessengerAppSupportingDistributedTesting.this) {
+            if (!this.beTestPeer) {
+                this.tellUI("test script received but no tester peer - ignored");
+                return;
+            }
+            // add information of this new volunteer and see if we have enough participant for one new test
+            try {
+                SharkNetMessageList scriptMessages =
+                        this.getSharkMessengerComponent().getChannel(testScriptChannel).getMessages();
+                for (int scriptIndex = this.lastReceivedScriptIndex + 1; scriptIndex < scriptMessages.size(); scriptIndex++) {
+                    this.lastReceivedScriptIndex = scriptIndex; // update each round - before possible exceptions
 
-                SharkNetMessage testSharkMessage = scriptMessages.getSharkMessage(scriptIndex, false);
-                TestScriptDescription testScriptDescription =
-                        new TestScriptDescription(testSharkMessage.getContent());
+                    SharkNetMessage testSharkMessage = scriptMessages.getSharkMessage(scriptIndex, false);
+                    TestScriptDescription testScriptDescription =
+                            new TestScriptDescription(testSharkMessage.getContent());
 
-                // for me?
-                if(testScriptDescription.peerID.equalsIgnoreCase(this.getSharkPeer().getPeerID().toString())) {
-                    this.tellUI("test script received - prepare script runner" + testScriptDescription);
-                    Log.writeLog(this, "test script addressed to me received: " + testScriptDescription);
+                    // for me?
+                    if (testScriptDescription.peerID.equalsIgnoreCase(this.getSharkPeer().getPeerID().toString())) {
+                        this.tellUI("test script received - prepare script runner" + testScriptDescription);
+                        Log.writeLog(this, "test script addressed to me received: " + testScriptDescription);
 
-                    // this is script is for - alright. Is it a copy?
-                    boolean copy = false;
-                    for(TestScriptDescription oldScript : this.handledScripts) {
-                        Log.writeLog(this, "copy? " + testScriptDescription + " | " + oldScript);
-                        if(TestScriptDescription.same(oldScript, testScriptDescription)) {
-                            copy = true;
-                            break;
+                        // this is script is for - alright. Is it a copy?
+                        boolean copy = false;
+                        for (TestScriptDescription oldScript : this.handledScripts) {
+                            Log.writeLog(this, "copy? " + testScriptDescription + " | " + oldScript);
+                            if (TestScriptDescription.same(oldScript, testScriptDescription)) {
+                                copy = true;
+                                break;
+                            }
                         }
-                    }
-                    if(copy) {
-                        String log = "received copy of an already handled test case, ignore: " + testScriptDescription;
-                        Log.writeLog(this, log);
-                        this.tellUI(log);
-                        continue;
-                    }
+                        if (copy) {
+                            String log = "received copy of an already handled test case, ignore: " + testScriptDescription;
+                            Log.writeLog(this, log);
+                            this.tellUI(log);
+                            continue;
+                        }
 
-                    /*
-                    // produce test running thread
-                    new ScriptRunnerThread(
-                        Integer.toString(testScriptDescription.peerIndex),
-                        Integer.toString(testScriptDescription.testNumber),
-                        testScriptDescription.script).start();
-                     */
-                    // produce test running process
-                    new ScriptRunnerProcess(
+                        /*
+                        // produce test running thread
+                        new ScriptRunnerThread(
                             Integer.toString(testScriptDescription.peerIndex),
                             Integer.toString(testScriptDescription.testNumber),
                             testScriptDescription.script).start();
-                    this.tellUI("running script: " + testScriptDescription.script);
-                    Log.writeLog(this, "script running, remember to avoid redo it: " + testScriptDescription);
-                    this.handledScripts.add(testScriptDescription);
-                } else {
-                    this.tellUI("test script received, not for me though. Index: " + testScriptDescription);
-                    Log.writeLog(this, "test script received, not for me: " + testScriptDescription);
+                         */
+                        // produce test running process
+                        new ScriptRunnerProcess(
+                                Integer.toString(testScriptDescription.peerIndex),
+                                Integer.toString(testScriptDescription.testNumber),
+                                testScriptDescription.script).start();
+                        this.tellUI("running script: " + testScriptDescription.script);
+                        Log.writeLog(this, "script running, remember to avoid redo it: " + testScriptDescription);
+                        this.handledScripts.add(testScriptDescription);
+                    }
+                    /*
+                    else {
+                        this.tellUI("test script received, not for me though.");
+                        Log.writeLog(this, "test script received, not for me: " + testScriptDescription);
+                    }
+                     */
                 }
+            } catch (IOException | SharkException e) {
+                String log = "problems handling test script received channel: " + e.getLocalizedMessage();
+                this.tellUIError(log);
+                Log.writeLogErr(this, log);
             }
-        } catch (IOException | SharkException e) {
-            String log = "problems handling test script received channel: " + e.getLocalizedMessage();
-            this.tellUIError(log);
-            Log.writeLogErr(this, log);
         }
     }
 
@@ -255,37 +262,39 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     private int lastScriptRQIndex = -1;
     // peers willing to execute test script sent its environment description
     public void receivedScriptRQ(CharSequence scriptRQChannel) {
-        if(!this.beTestOrchestrator) {
-            this.tellUI("script request received - ignore - not a test orchestrator");
-            return;
-        } else {
-            Log.writeLog(this, "script request received - try to stage a test");
-            this.tellUI("script request received - try to stage a test");
-        }
-        // add information of this new volunteer and see if we have enough participant for one new test
-        synchronized (this) {
-            try {
-                SharkNetMessageList rqMessages =
-                        this.getSharkMessengerComponent().getChannel(scriptRQChannel).getMessages();
-                for (int rqIndex = this.lastScriptRQIndex + 1; rqIndex < rqMessages.size(); rqIndex++) {
-                    this.lastScriptRQIndex = rqIndex; // update each round - before possible exceptions
+        synchronized (SharkNetMessengerAppSupportingDistributedTesting.this) {
+            if (!this.beTestOrchestrator) {
+                this.tellUI("script request received - ignore - not a test orchestrator");
+                return;
+            } else {
+                Log.writeLog(this, "script request received - try to stage a test");
+                this.tellUI("script request received - try to stage a test");
+            }
+            // add information of this new volunteer and see if we have enough participant for one new test
+            synchronized (this) {
+                try {
+                    SharkNetMessageList rqMessages =
+                            this.getSharkMessengerComponent().getChannel(scriptRQChannel).getMessages();
+                    for (int rqIndex = this.lastScriptRQIndex + 1; rqIndex < rqMessages.size(); rqIndex++) {
+                        this.lastScriptRQIndex = rqIndex; // update each round - before possible exceptions
 
-                    SharkNetMessage rqSharkMessage = rqMessages.getSharkMessage(rqIndex, false);
-                    PeerHostingEnvironmentDescription peerHostDescription =
-                            new PeerHostingEnvironmentDescription(rqSharkMessage.getContent());
+                        SharkNetMessage rqSharkMessage = rqMessages.getSharkMessage(rqIndex, false);
+                        PeerHostingEnvironmentDescription peerHostDescription =
+                                new PeerHostingEnvironmentDescription(rqSharkMessage.getContent());
 
-                    // add or replace information
-                    this.availablePeers.put(peerHostDescription.peerID, peerHostDescription);
-                    String log = "added volunteering peer: " + peerHostDescription;
-                    this.tellUI(log);
-                    Log.writeLog(this, log);
+                        // add or replace information
+                        this.availablePeers.put(peerHostDescription.peerID, peerHostDescription);
+                        String log = "added volunteering peer: " + peerHostDescription;
+                        this.tellUI(log);
+                        Log.writeLog(this, log);
 
-                    // try to set up a test(s).
-                    this.stageTests();
+                        // try to set up a test(s).
+                        this.stageTests();
+                    }
+                } catch (SharkNetMessengerException | IOException | ASAPException e) {
+                    this.tellUIError("problems handling script RQ channel: " + e.getLocalizedMessage());
+                    Log.writeLogErr(this, "problems handling script RQ channel: " + e.getLocalizedMessage());
                 }
-            } catch (SharkNetMessengerException | IOException | ASAPException e) {
-                this.tellUIError("problems handling script RQ channel: " + e.getLocalizedMessage());
-                Log.writeLogErr(this, "problems handling script RQ channel: " + e.getLocalizedMessage());
             }
         }
     }
@@ -340,15 +349,13 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
      * Test performed - results are received by test orchestrator
      * */
     private class OrchestratedTestLauncher extends Thread {
-        public static int nextTestNumber = 0;
-        public int testNumber = 0;
         final OrchestratedTest test2run;
-        public static final int ORCHESTRATOR_PORT = 1984;
+        public static final int FIRST_ORCHESTRATOR_PORT = 1000;
         public static final String SETTLED_TAG_PREAMBLE = "peerSettled_";
         public static final String ORCHESTRATOR_PEER_NAME = "orchest";
         public static final String LAUNCH_TEST_TAG_PREAMBLE = "launchTest_";
         public final static int FINAL_WAIT_PERIODE_BEFORE_LAUNCH = 1000;
-        public final static int MAX_TEST_DURATION_IN_MILLIS = 10000;
+        public final static int MAX_TEST_DURATION_IN_MILLIS = 1000*60*2; // 2minutes
 
         private static String scriptStartOrchestrator_SyncWithPeers = null;
         private static String scriptStartPeer_SyncWithOrchestator = null;
@@ -357,17 +364,51 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 TestLanguageCompiler.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
                         + MAX_TEST_DURATION_IN_MILLIS + TestLanguageCompiler.LANGUAGE_SEPARATOR;
 
+        public static int nextTestNumber = 0;
+        public int testNumber = 0;
+
+        // sync with other orchestrated tests
+        private static synchronized int getAvailablePortNumber() {
+            int port = FIRST_ORCHESTRATOR_PORT;
+
+            ServerSocket srvSocket = null;
+            while(srvSocket == null && port < 65535) {
+                try {
+                    srvSocket = new ServerSocket(port);
+                    // got a port - close port - will be opened again in a few millis
+                    srvSocket.close();
+                    return port;
+                } catch (IOException e) {
+                    // taken
+                }
+                port++;
+            }
+
+            if(srvSocket == null) {
+                System.err.println("your system uses any thinkable orchestratorPort - amazing - give up");
+                Log.writeLogErr(SharkNetMessengerAppSupportingDistributedTesting.OrchestratedTestLauncher.class,
+                        "not a single orchestratorPort available on this system - hard to imagine - give up");
+                System.exit(1);
+            }
+            // never reach this point
+            return -1;
+        }
+
         OrchestratedTestLauncher(OrchestratedTest test2run) throws UnknownHostException {
             this.test2run = test2run;
             synchronized (OrchestratedTestLauncher.class) {
                 this.testNumber = nextTestNumber++;
             }
+
+            // find available orchestratorPort
+            int portNumber4ThisTest = getAvailablePortNumber();
+
             // init class member
             if(OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(TestLanguageCompiler.CLI_OPEN_TCP);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
-                sb.append(ORCHESTRATOR_PORT);
+                sb.append(portNumber4ThisTest);
                 sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
                 OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers = sb.toString();
             }
@@ -378,7 +419,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 sb.append(SharkNetMessengerAppSupportingDistributedTesting.this.getLocalIPAddress());
                 sb.append(TestLanguageCompiler.CLI_SPACE);
-                sb.append(ORCHESTRATOR_PORT);
+                sb.append(portNumber4ThisTest);
                 sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
                 OrchestratedTestLauncher.scriptStartPeer_SyncWithOrchestator = sb.toString();
             }
@@ -401,6 +442,11 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
 
             // produce orchestrator script - sync and collect data
             StringBuilder sb = new StringBuilder();
+            SharkNetMessengerAppSupportingDistributedTesting.
+                    this.tellUI("WARNING: set timeBomb for orchestrator peer. Adopt this code for longer lasting test scenarios. <<<< WARNING");
+            sb.append(TestLanguageCompiler.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
+                    + MAX_TEST_DURATION_IN_MILLIS*10 + TestLanguageCompiler.LANGUAGE_SEPARATOR);
+
             sb.append(OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers);
             // wait for each peer to settle
             for(int peerIndex = 0; peerIndex < this.test2run.scripts.size(); peerIndex++) {
@@ -431,7 +477,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 sb = new StringBuilder();
                 // set time bomb to avoid orphan processes
                 SharkNetMessengerAppSupportingDistributedTesting.
-                        this.tellUI("WARNING: set timeBock in each peer script. Adopt this code for longer lasting test scenarios. <<<< WARNING");
+                        this.tellUI("WARNING: set timeBomb in each peer script. Adopt this code for longer lasting test scenarios. <<<< WARNING");
                 sb.append(scriptSetTimeBomb);
                 // add open connection to orchestrator
                 sb.append(scriptStartPeer_SyncWithOrchestator);
