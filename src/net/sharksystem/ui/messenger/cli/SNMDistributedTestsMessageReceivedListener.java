@@ -25,13 +25,9 @@ public class SNMDistributedTestsMessageReceivedListener implements SharkNetMessa
         }
         else if(uri.toString().equalsIgnoreCase(
                 SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL.toString())) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
-                            scriptRQReceived(SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL);
-                }
-            }).start();
+            // no need for a thread - is already created in asap core
+            SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
+                    receivedScriptRQ(SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL);
         }
         else if(uri.toString().equalsIgnoreCase(
                 SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL.toString())) {
@@ -39,7 +35,7 @@ public class SNMDistributedTestsMessageReceivedListener implements SharkNetMessa
                 @Override
                 public void run() {
                     SNMDistributedTestsMessageReceivedListener.this.sharkMessengerAppTestingVersion.
-                            testScriptReceived(SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL);
+                            receivedTestScript(SharkNetMessengerAppSupportingDistributedTesting.TEST_SCRIPT_CHANNEL);
                 }
             }).start();
         }

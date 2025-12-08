@@ -42,7 +42,7 @@ public class UICommandRelease extends AbstractCommandWithSingleString {
                     false, // no signing
                     false // no encryption
             );
-            this.getSharkMessengerApp().tellUI("release block sent: " + this.getStringArgument());
+            this.getSharkMessengerApp().tellUI("release sent: " + this.getStringArgument());
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }

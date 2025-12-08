@@ -49,12 +49,15 @@ public class ProductionUI {
 
     public static void main(String[] args) throws SharkException, IOException {
         ProductionUI cli = new ProductionUI(args);
-        cli.startCLI();
+        String peerName = "no peer name defined as parameter";
+        if(args != null && args.length > 0) peerName = args[0];
+        cli.startCLI(peerName);
     }
 
-    public void startCLI() {
+    public void startCLI(String peerName) {
         System.out.println("type 'help' to see the list of commands");
         smUI.runCommandLoop();
+        System.out.println("end CLI for " + peerName);
     }
 
     public ProductionUI(String[] args) throws SharkException, IOException {
@@ -151,6 +154,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
         smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, TestLanguageCompiler.CLI_RELEASE, false));
         smUI.addCommand(new UICommandOrchestrateTest(snmTestSupport, smUI, "orchestrateTest", false));
+        smUI.addCommand(new UICommandTimeBomb(snmTestSupport, smUI, TestLanguageCompiler.CLI_TIME_BOMB, false));
 
         smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));
         smUI.addCommand(new UICommandShowLog(sharkMessengerApp, smUI, "showLog", false));

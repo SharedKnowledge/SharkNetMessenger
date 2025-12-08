@@ -20,6 +20,7 @@ public class TestLanguageCompiler {
     public static final String CLI_RELEASE = "release";
     public static final String CLI_EXIT = "exit";
     public static final String CLI_WAIT = "wait";
+    public static final String CLI_TIME_BOMB = "timeBomb";
 
     /**
      * sentence -> command SEPARATOR command

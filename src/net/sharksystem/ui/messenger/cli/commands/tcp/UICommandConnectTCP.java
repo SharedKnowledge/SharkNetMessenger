@@ -62,6 +62,8 @@ public class UICommandConnectTCP extends UICommand {
     protected void execute() throws Exception {
         try {
             this.getSharkMessengerApp().connectTCP(this.hostName.getValue(), this.portNumber.getValue());
+            this.getSharkMessengerApp().tellUI("connected to "
+                    + this.hostName.getValue() + ":" + this.portNumber.getValue());
         } catch (IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }

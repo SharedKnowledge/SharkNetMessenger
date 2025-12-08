@@ -10,9 +10,15 @@ public class UICommandWait extends AbstractCommandWithSingleInteger {
     }
 
     @Override
-    protected void execute() throws Exception {
+    protected void execute() {
         this.getSharkMessengerApp().tellUI("wait " + this.getIntegerArgument() + " ms ...");
-        Thread.sleep(this.getIntegerArgument());
+
+        try {
+            Thread.sleep(this.getIntegerArgument());
+        } catch (InterruptedException e) {
+            this.getSharkMessengerApp().tellUIError("wait received interrupt - that shouldn't happen");
+            e.printStackTrace();
+        }
         this.getSharkMessengerApp().tellUI("resume");
     }
 

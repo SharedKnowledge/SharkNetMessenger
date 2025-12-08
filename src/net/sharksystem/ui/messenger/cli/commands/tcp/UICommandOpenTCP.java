@@ -20,6 +20,7 @@ public class UICommandOpenTCP extends AbstractCommandWithSingleInteger {
     protected void execute() throws Exception {
         try {
             this.getSharkMessengerApp().openTCPConnection(this.getIntegerArgument());
+            this.getSharkMessengerApp().tellUI("TCP port opened: " + this.getIntegerArgument());
         } catch (IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }

@@ -117,6 +117,7 @@ public class UICommandSendMessage extends UICommandProduceChannelListBefore {
             // send message
             messenger.sendSharkMessage(effectiveFormat,
                     contentBytes, channelURI, receiverID, this.sign, this.encrypt);
+            this.getSharkMessengerApp().tellUI("message sent");
         } catch (SharkException | IOException e) {
             this.getSharkMessengerApp().tellUIError(e.getLocalizedMessage());
         }
