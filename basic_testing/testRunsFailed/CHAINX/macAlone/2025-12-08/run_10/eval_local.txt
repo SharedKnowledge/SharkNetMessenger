@@ -1,0 +1,7 @@
+CHAINX
+PeerA: fail
+PeerB: fail
+PeerC: fail
+PeerD: fail
+CHAINX
+FAIL: One or more peers failed

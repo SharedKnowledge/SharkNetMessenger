@@ -10,10 +10,10 @@ mkdir META-INF/
 echo Manifest-Version: 1.0 > META-INF/MANIFEST.MF
 echo Main-Class: net.sharksystem.ui.messenger.cli.ProductionUI >> META-INF/MANIFEST.MF
 echo Created-By: Shared Knowledge >> META-INF/MANIFEST.MF
-cp -r ../out/production/SharkMessenger/* .
+cp -r ../out/production/SharkNetMessenger/* .
 jar cmvf META-INF/MANIFEST.MF SharkNetMessengerCLI.jar *
 cd ..
-mv tempLibBuildFolder/SharkNetMessengerCLI.jar .
+mv tempLibBuildFolder/SharkMessengerCLI.jar .
 rm -r tempLibBuildFolder/
 mkdir playground
 mkdir __bugfixing

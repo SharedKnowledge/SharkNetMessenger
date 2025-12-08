@@ -1,0 +1,86 @@
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/basic/SC_: errorlogPeerA.txt ====\nexception caught: Cannot invoke "String.length()" because "str" is null
+java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:356)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:330)
+	at net.sharksystem.asap.engine.ASAPMementoFS.save(ASAPMementoFS.java:53)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:179)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:110)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getExistingASAPEngineFS(ASAPEngineFS.java:70)
+	at net.sharksystem.asap.engine.ASAPInternalPeerFS.getASAPEngine(ASAPInternalPeerFS.java:277)
+	at net.sharksystem.asap.ASAPInternalPeerWrapper.getASAPStorage(ASAPInternalPeerWrapper.java:59)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.getChannelUris(SharkNetMessengerComponentImpl.java:170)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.getChannel(SharkNetMessengerComponentImpl.java:124)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:32)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogA.txt ====\nException in thread "Thread-15" java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "idA" is null
+	at net.sharksystem.asap.utils.PeerIDHelper.sameID(PeerIDHelper.java:7)
+	at net.sharksystem.asap.ASAPEncounterManagerImpl.getConnectionType(ASAPEncounterManagerImpl.java:450)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterStarted(SharkNetMessengerApp.java:443)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:250)
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogB.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogB.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogB.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+2025-12-08 00:26:36.289: exception when receiving messages:message source must not have different formats: ASAP_ANY_FORMAT != shark/messenger
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nfailed to parse string value
+Arguments invalid for command: block
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogA.txt ====\nArguments invalid for command: markstep
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/complex/CHAINX_: errorlogC.txt ====\nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /home/cemre/IdeaProjects/SharkNetMessenger/basic_testing/basic/SC_: errorlogB.txt ====\nexception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:34)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:93)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:47)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

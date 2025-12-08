@@ -1,0 +1,71 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-12-08 00:24:24.452: created a new asap peer id for PeerA: PeerA_QzWSJ4v00001TD
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 00:24:25.496: block and wait for release P1
+2025-12-08 00:24:26.038: 
+new encounter to PeerB_UzWSJ4v0000Lex via internet
+2025-12-08 00:24:26.039: 
+Peer PeerB_UzWSJ4v0000Lex has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:24:26.170: 
+new encounter to PeerD_KzWSJ4v0000ESa via internet
+2025-12-08 00:24:26.174: 
+Peer PeerD_KzWSJ4v0000ESa has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:24:26.278: 
+new encounter to PeerC_NzWSJ4v0000sv2 via internet
+2025-12-08 00:24:26.278: 
+new encounter to PeerB_UzWSJ4v0000Lex via internet
+2025-12-08 00:24:26.279: 
+Peer PeerC_NzWSJ4v0000sv2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:24:26.279: 
+new encounter to PeerD_KzWSJ4v0000ESa via internet
+2025-12-08 00:24:26.279: 
+Peer PeerB_UzWSJ4v0000Lex has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:24:26.279: 
+Peer PeerD_KzWSJ4v0000ESa has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:24:26.557: 1messages received in channel snm://block_release
+2025-12-08 00:24:26.560: block released P1
+2025-12-08 00:24:26.560: block and wait for release P2
+2025-12-08 00:24:26.645: 2messages received in channel snm://block_release
+2025-12-08 00:24:26.756: 3messages received in channel snm://block_release
+2025-12-08 00:24:26.769: block released P2
+2025-12-08 00:24:26.769: block and wait for release P3
+2025-12-08 00:24:26.769: block released P3
+2025-12-08 00:24:26.770: wait 5000 ms ...
+2025-12-08 00:24:31.770: resume
+2025-12-08 00:24:31.781: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 00:24:31.782: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_KzWSJ4v0000ESa | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:24:26.634
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_KzWSJ4v0000ESa | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_UzWSJ4v0000Lex | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:24:26.533
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_UzWSJ4v0000Lex | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_NzWSJ4v0000sv2 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:24:26.743
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_NzWSJ4v0000sv2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+

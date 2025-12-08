@@ -2,7 +2,7 @@
 set -e
 
 # output directory for the generated jar
-OUT_DIR=alpha_testing
+OUT_DIR=basic_testing
 
 # clean + build
 rm -rf bin

@@ -1,0 +1,5 @@
+SC
+DEBUG: folderName=SC name_lc=sc containsDis=no countA=2 countB=3
+PeerA: pass: Both messages sent/received successfully.
+SC
+PeerB: pass: Both messages sent/received successfully.

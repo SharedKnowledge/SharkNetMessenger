@@ -1,0 +1,34 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-12-08 13:10:31.160: created a new asap peer id for PeerB: PeerB_rCOZM4v0000Lcn
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 13:10:32.158: block and wait for release SC
+2025-12-08 13:10:32.855: 
+new encounter to PeerA_jCOZM4v0000gTY via internet
+2025-12-08 13:10:32.856: 
+Peer PeerA_jCOZM4v0000gTY has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:10:32.877: 1messages received in channel snm://block_release
+2025-12-08 13:10:32.882: block released SC
+2025-12-08 13:10:32.882: 1messages received in channel sn://universal
+2025-12-08 13:10:32.883: wait 500 ms ...
+2025-12-08 13:10:32.885: 
+encounter closed: PeerA_jCOZM4v0000gTY | connection: internet | started: 2025-12-08 13:10:32.856 | closed: 2025-12-08 13:10:32.884
+
+2025-12-08 13:10:33.383: resume
+2025-12-08 13:10:33.394: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2025-12-08 13:10:33.396: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC'
+sender: PeerA_jCOZM4v0000gTY | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:10:32.819
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_jCOZM4v0000gTY | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2025-12-08 13:10:33.399: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown

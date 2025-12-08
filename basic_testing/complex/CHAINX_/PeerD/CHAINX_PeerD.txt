@@ -1,0 +1,1 @@
+wait 4000;connectTCP FILLER_IP 4446;wait 3000;echo connectTCP;release P3;wait 3000;lsMessages 2;lsMessages 1;exit;

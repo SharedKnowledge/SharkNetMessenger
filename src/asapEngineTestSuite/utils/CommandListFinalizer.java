@@ -7,6 +7,7 @@ public class CommandListFinalizer {
 
 	private static final String lsMessages = CommandListToFile.LIST_MESSAGES;
 	private static final String exit = CommandListToFile.EXIT;
+	private static final String CLI_SEPARATOR = ";";
 
 
 	/**
@@ -15,9 +16,12 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandList(String commands) {
 		return commands
-			+ lsMessages
-			+ System.lineSeparator()
-			+ exit;
+                + lsMessages + " " + 2
+                +CLI_SEPARATOR
+                + lsMessages + " " + 1
+                + CLI_SEPARATOR
+                + exit
+                + CLI_SEPARATOR;
 	}
 
 	/**
@@ -29,11 +33,14 @@ public class CommandListFinalizer {
 		String wait = CommandListToFile.WAIT;
 
 		return commands
-			+ wait + " " + waitMs
-			+ System.lineSeparator()
-			+ lsMessages
-			+ System.lineSeparator()
-			+ exit;
+                + wait + " " + waitMs
+                + CLI_SEPARATOR
+                + lsMessages + " " + 2
+                + CLI_SEPARATOR
+                + lsMessages + " " + 1
+                + CLI_SEPARATOR
+                + exit
+                + CLI_SEPARATOR;
 	}
 
 	/**
@@ -43,10 +50,11 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandListHubHost(String commands, int waitMs) {
 		return commands
-			+ CommandListToFile.WAIT + " " + waitMs
-			+ System.lineSeparator()
-			+ "stopHub 6907"
-			+ System.lineSeparator()
-			+ exit;
+                + CommandListToFile.WAIT + " " + waitMs
+                + CLI_SEPARATOR
+                + "stopHub 6907"
+                + CLI_SEPARATOR
+                + exit
+                + CLI_SEPARATOR;
 	}
 }

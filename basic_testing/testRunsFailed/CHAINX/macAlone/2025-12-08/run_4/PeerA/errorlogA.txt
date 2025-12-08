@@ -1,0 +1,5 @@
+Exception in thread "Thread-15" java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "idA" is null
+	at net.sharksystem.asap.utils.PeerIDHelper.sameID(PeerIDHelper.java:7)
+	at net.sharksystem.asap.ASAPEncounterManagerImpl.getConnectionType(ASAPEncounterManagerImpl.java:450)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterStarted(SharkNetMessengerApp.java:443)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:250)

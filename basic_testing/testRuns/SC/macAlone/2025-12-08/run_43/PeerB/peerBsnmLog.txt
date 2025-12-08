@@ -1,0 +1,46 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-12-08 13:13:18.545: created a new asap peer id for PeerB: PeerB_caw0N4v0000mhw
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 13:13:19.066: block and wait for release SC
+2025-12-08 13:13:20.557: 
+new encounter to PeerA_5aw0N4v0000342 via internet
+2025-12-08 13:13:20.558: 
+Peer PeerA_5aw0N4v0000342 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:13:20.577: 1messages received in channel snm://block_release
+2025-12-08 13:13:20.581: block released SC
+2025-12-08 13:13:20.581: wait 500 ms ...
+2025-12-08 13:13:20.584: 1messages received in channel sn://universal
+2025-12-08 13:13:20.845: 
+encounter closed: PeerA_5aw0N4v0000342 | connection: internet | started: 2025-12-08 13:13:20.557 | closed: 2025-12-08 13:13:20.845
+
+2025-12-08 13:13:21.081: resume
+2025-12-08 13:13:21.091: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2025-12-08 13:13:21.092: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC'
+sender: PeerA_5aw0N4v0000342 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:13:20.516
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_5aw0N4v0000342 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2025-12-08 13:13:21.096: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-12-08 13:13:21.098: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler.txt (1024 bytes) | saved to disc
+sender: PeerA_5aw0N4v0000342 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:13:19.971
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_5aw0N4v0000342 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

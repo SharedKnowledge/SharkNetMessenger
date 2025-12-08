@@ -1,0 +1,1 @@
+openTCP 4445;echo openTCP;wait 1000;connectTCP FILLER_IP 4444;wait 1000;echo connectTCP;release P1;block P2;wait 1000;lsMessages 2;lsMessages 1;exit;

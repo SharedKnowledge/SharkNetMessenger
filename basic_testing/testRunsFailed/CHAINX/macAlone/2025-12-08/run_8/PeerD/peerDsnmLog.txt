@@ -1,0 +1,33 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerD
+2025-12-08 00:20:29.735: created a new asap peer id for PeerD: PeerD_7wXRJ4v0000xd3
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 00:20:31.082: wait 500 ms ...
+2025-12-08 00:20:31.583: resume
+2025-12-08 00:20:31.598: wait 500 ms ...
+2025-12-08 00:20:31.599: 
+new encounter to PeerA_TvXRJ4v0000DyG via internet
+2025-12-08 00:20:31.600: 
+Peer PeerA_TvXRJ4v0000DyG has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:20:31.709: 1messages received in channel sn://universal
+2025-12-08 00:20:32.098: resume
+2025-12-08 00:20:32.108: release block sent: P3
+2025-12-08 00:20:32.108: wait 500 ms ...
+2025-12-08 00:20:32.609: resume
+2025-12-08 00:20:32.609: wait 5000 ms ...
+2025-12-08 00:20:37.462: 
+encounter closed: PeerA_TvXRJ4v0000DyG | connection: internet | started: 2025-12-08 00:20:31.600 | closed: 2025-12-08 00:20:37.461
+
+2025-12-08 00:20:37.610: resume
+2025-12-08 00:20:37.619: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2025-12-08 00:20:37.621: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:20:32.100
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

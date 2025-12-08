@@ -1,0 +1,69 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-12-08 09:43:36.710: created a new asap peer id for PeerA: PeerA_l3J9M4v0000ZBQ
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 09:43:37.554: wait 1000 ms ...
+2025-12-08 09:43:38.554: resume
+2025-12-08 09:43:38.582: sendMessage
+2025-12-08 09:43:38.583: block and wait for release P1
+2025-12-08 09:43:46.504: 
+new encounter to PeerB_i3J9M4v0000bC8 via internet
+2025-12-08 09:43:46.505: 
+Peer PeerB_i3J9M4v0000bC8 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 09:43:46.602: 2messages received in channel snm://block_release
+2025-12-08 09:43:46.602: 2messages received in channel snm://block_release
+2025-12-08 09:43:47.506: 3messages received in channel snm://block_release
+2025-12-08 09:43:47.509: block released P1
+2025-12-08 09:43:47.510: wait 8000 ms ...
+2025-12-08 09:43:50.854: 
+encounter closed: PeerB_i3J9M4v0000bC8 | connection: internet | started: 2025-12-08 09:43:46.504 | closed: 2025-12-08 09:43:50.853
+
+2025-12-08 09:43:55.510: resume
+2025-12-08 09:43:55.527: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 09:43:55.528: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_i3J9M4v0000bC8 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 09:43:47.496
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_i3J9M4v0000bC8 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_h3J9M4v0000fWN | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 09:43:45.466
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_h3J9M4v0000fWN | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerB_i3J9M4v0000bC8 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_v3J9M4v0000Su2 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 09:43:43.430
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_v3J9M4v0000Su2 | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerC_h3J9M4v0000fWN | P2P security: encrypted: no | verified: no | via: TCP
+2: sender: PeerB_i3J9M4v0000bC8 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+
+2025-12-08 09:43:55.532: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-12-08 09:43:55.534: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 09:43:38.565
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_l3J9M4v0000ZBQ): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

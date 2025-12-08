@@ -1,0 +1,18 @@
+exception caught: Cannot invoke "String.length()" because "str" is null
+java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:356)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:330)
+	at net.sharksystem.asap.engine.ASAPMementoFS.save(ASAPMementoFS.java:53)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:179)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:110)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getExistingASAPEngineFS(ASAPEngineFS.java:70)
+	at net.sharksystem.asap.engine.ASAPInternalPeerFS.getASAPEngine(ASAPInternalPeerFS.java:277)
+	at net.sharksystem.asap.ASAPInternalPeerWrapper.getASAPStorage(ASAPInternalPeerWrapper.java:59)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.getChannelUris(SharkNetMessengerComponentImpl.java:170)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.getChannel(SharkNetMessengerComponentImpl.java:124)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:32)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

@@ -1,0 +1,1 @@
+wait 500;sendMessage FILLER_FILENAME sn/file 1;wait 500;connectTCP FILLER_IP 4444;release SC;lsMessages 2;lsMessages 1;exit;
