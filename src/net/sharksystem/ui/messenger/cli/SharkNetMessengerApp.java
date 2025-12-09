@@ -21,9 +21,8 @@ import net.sharksystem.hub.NewHubConnectedListener;
 import net.sharksystem.hub.hubside.ASAPTCPHub;
 import net.sharksystem.hub.peerside.HubConnectorDescription;
 import net.sharksystem.pki.*;
-import net.sharksystem.ui.messenger.cli.commands.hubaccess.HubDescriptionPrinter;
+import net.sharksystem.app.messenger.commands.hubaccess.HubDescriptionPrinter;
 import net.sharksystem.utils.Log;
-import net.sharksystem.utils.SerializationHelper;
 import net.sharksystem.utils.streams.StreamPairImpl;
 
 import java.io.IOException;

@@ -1,6 +1,6 @@
 package net.sharksystem.ui.messenger.cli;
 
-import net.sharksystem.ui.messenger.cli.commandarguments.UICommandQuestionnaire;
+import net.sharksystem.app.messenger.commands.commandarguments.UICommandQuestionnaire;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -124,6 +124,15 @@ public abstract class UICommand {
      * @throws Exception Any exception that might be thrown.
      */
     protected abstract void execute() throws Exception;
+
+    /**
+     * This method includes the logic of the command.
+     * @param produceCLIOutput shall UI output be produce beside JSON
+     * @throws Exception Any exception that might be thrown.
+     */
+    public String executeReturnJSON(boolean produceCLIOutput) throws Exception {
+        return "{ status: \"error\", error: \"not yet implemented\" }";
+    }
 
     /**
      * @return The string which identifies this command and can be entered by the user to execute it.

@@ -3,7 +3,7 @@ package net.sharksystem.messenger.testScripts;
 import net.sharksystem.SharkException;
 import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.ProductionUI;
-import net.sharksystem.ui.messenger.cli.commands.testing.ScriptRunnerProcess_RuntimeExec;
+import net.sharksystem.app.messenger.commands.testing.ScriptRunnerProcess_RuntimeExec;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;

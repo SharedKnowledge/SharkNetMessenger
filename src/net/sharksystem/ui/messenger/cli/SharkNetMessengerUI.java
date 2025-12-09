@@ -1,7 +1,7 @@
 package net.sharksystem.ui.messenger.cli;
 
-import net.sharksystem.ui.messenger.cli.commandarguments.UICommandQuestion;
-import net.sharksystem.ui.messenger.cli.commandarguments.UICommandQuestionnaire;
+import net.sharksystem.app.messenger.commands.commandarguments.UICommandQuestion;
+import net.sharksystem.app.messenger.commands.commandarguments.UICommandQuestionnaire;
 
 import java.io.*;
 import java.util.*;

@@ -1,5 +1,7 @@
 package net.sharksystem.ui.messenger.cli.testlanguage;
 
+import net.sharksystem.app.messenger.commands.CommandNames;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +15,6 @@ public class TestLanguageCompiler {
     public static final char CLI_SEPARATOR = ';';
 
     public static final String DEFAULT_PORT = "6907";
-
-    public static final String CLI_OPEN_TCP = "openTCP";
-    public static final String CLI_CONNECT_TCP = "connectTCP";
-    public static final String CLI_BLOCK = "block";
-    public static final String CLI_RELEASE = "release";
-    public static final String CLI_EXIT = "exit";
-    public static final String CLI_WAIT = "wait";
-    public static final String CLI_TIME_BOMB = "timeBomb";
 
     /**
      * sentence -> command SEPARATOR command
@@ -55,7 +49,7 @@ public class TestLanguageCompiler {
         for(String peerName : peerScripts.keySet()) {
             StringBuilder sb = peerScripts.get(peerName);
             sb.append(CLI_SEPARATOR);
-            sb.append(CLI_EXIT);
+            sb.append(CommandNames.CLI_EXIT);
             sb.append(CLI_SEPARATOR);
             scripts.put(peerName, sb.toString());
         }
@@ -72,27 +66,27 @@ public class TestLanguageCompiler {
 
         // A:
         // open prot
-        scriptBuilderA.append(CLI_OPEN_TCP);
+        scriptBuilderA.append(CommandNames.CLI_OPEN_TCP);
         scriptBuilderA.append(CLI_SPACE);
         scriptBuilderA.append(DEFAULT_PORT);
         scriptBuilderA.append(CLI_SEPARATOR);
 
         // wait until b connected
-        scriptBuilderA.append(CLI_BLOCK);
+        scriptBuilderA.append(CommandNames.CLI_BLOCK);
         scriptBuilderA.append(CLI_SPACE);
         String synchronisationPointName = this.getNewSynchronisationPoint();
         scriptBuilderA.append(synchronisationPointName);
         scriptBuilderA.append(CLI_SEPARATOR);
 
         // B:
-        scriptBuilderB.append(CLI_CONNECT_TCP);
+        scriptBuilderB.append(CommandNames.CLI_CONNECT_TCP);
         scriptBuilderB.append(CLI_SPACE);
         scriptBuilderB.append("localhost"); // TODO
         scriptBuilderB.append(CLI_SPACE);
         scriptBuilderB.append(DEFAULT_PORT);
         scriptBuilderB.append(CLI_SEPARATOR);
 
-        scriptBuilderB.append(CLI_RELEASE);
+        scriptBuilderB.append(CommandNames.CLI_RELEASE);
         scriptBuilderB.append(CLI_SPACE);
         scriptBuilderB.append(synchronisationPointName);
         scriptBuilderB.append(CLI_SEPARATOR);

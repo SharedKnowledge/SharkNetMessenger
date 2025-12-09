@@ -5,8 +5,11 @@ import net.sharksystem.app.messenger.SharkNetMessage;
 import net.sharksystem.app.messenger.SharkNetMessageList;
 import net.sharksystem.app.messenger.SharkNetMessengerChannel;
 import net.sharksystem.app.messenger.SharkNetMessengerException;
+import net.sharksystem.app.messenger.commands.CommandNames;
+import net.sharksystem.app.messenger.commands.testing.PeerHostingEnvironmentDescription;
+import net.sharksystem.app.messenger.commands.testing.ScriptRunnerProcess;
+import net.sharksystem.app.messenger.commands.testing.TestScriptDescription;
 import net.sharksystem.asap.ASAPException;
-import net.sharksystem.ui.messenger.cli.commands.testing.*;
 import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
 import net.sharksystem.utils.Log;
 import net.sharksystem.utils.SerializationHelper;
@@ -361,7 +364,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
         private static String scriptStartPeer_SyncWithOrchestator = null;
         private static String scriptEnd_Exit = null;
         private static String scriptSetTimeBomb =
-                TestLanguageCompiler.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
+                CommandNames.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
                         + MAX_TEST_DURATION_IN_MILLIS + TestLanguageCompiler.LANGUAGE_SEPARATOR;
 
         public static int nextTestNumber = 0;
@@ -406,7 +409,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             // init class member
             if(OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(TestLanguageCompiler.CLI_OPEN_TCP);
+                sb.append(CommandNames.CLI_OPEN_TCP);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 sb.append(portNumber4ThisTest);
                 sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
@@ -415,7 +418,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
 
             if(OrchestratedTestLauncher.scriptStartPeer_SyncWithOrchestator == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(TestLanguageCompiler.CLI_CONNECT_TCP);
+                sb.append(CommandNames.CLI_CONNECT_TCP);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 sb.append(SharkNetMessengerAppSupportingDistributedTesting.this.getLocalIPAddress());
                 sb.append(TestLanguageCompiler.CLI_SPACE);
@@ -427,7 +430,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             if(OrchestratedTestLauncher.scriptEnd_Exit == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
-                sb.append(TestLanguageCompiler.CLI_EXIT);
+                sb.append(CommandNames.CLI_EXIT);
                 sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
                 OrchestratedTestLauncher.scriptEnd_Exit = sb.toString();
             }
@@ -444,13 +447,13 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             StringBuilder sb = new StringBuilder();
             SharkNetMessengerAppSupportingDistributedTesting.
                     this.tellUI("WARNING: set timeBomb for orchestrator peer. Adopt this code for longer lasting test scenarios. <<<< WARNING");
-            sb.append(TestLanguageCompiler.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
+            sb.append(CommandNames.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
                     + MAX_TEST_DURATION_IN_MILLIS*10 + TestLanguageCompiler.LANGUAGE_SEPARATOR);
 
             sb.append(OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers);
             // wait for each peer to settle
             for(int peerIndex = 0; peerIndex < this.test2run.scripts.size(); peerIndex++) {
-                sb.append(TestLanguageCompiler.CLI_BLOCK);
+                sb.append(CommandNames.CLI_BLOCK);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 // wait for peer until settled
                 sb.append(SETTLED_TAG_PREAMBLE);
@@ -458,7 +461,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 sb.append(TestLanguageCompiler.CLI_SEPARATOR);
             }
             // tell peers to start test
-            sb.append(TestLanguageCompiler.CLI_RELEASE);
+            sb.append(CommandNames.CLI_RELEASE);
             sb.append(TestLanguageCompiler.CLI_SPACE);
             // release tag - tell peers to start - handshake way 2
             sb.append(launchTag);
@@ -483,7 +486,7 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 sb.append(scriptStartPeer_SyncWithOrchestator);
 
                 // tell orchestrator settled:
-                sb.append(TestLanguageCompiler.CLI_RELEASE);
+                sb.append(CommandNames.CLI_RELEASE);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 // handshake way 1 - tell orchestrator settled
                 sb.append(SETTLED_TAG_PREAMBLE);
@@ -491,13 +494,13 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
                 // wait until orchestrator tells to launch test - handshake 2
-                sb.append(TestLanguageCompiler.CLI_BLOCK);
+                sb.append(CommandNames.CLI_BLOCK);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 sb.append(launchTag);
                 sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
                 // and better wait a moment
-                sb.append(TestLanguageCompiler.CLI_WAIT);
+                sb.append(CommandNames.CLI_WAIT);
                 sb.append(TestLanguageCompiler.CLI_SPACE);
                 sb.append(FINAL_WAIT_PERIODE_BEFORE_LAUNCH);
                 sb.append(TestLanguageCompiler.CLI_SEPARATOR);

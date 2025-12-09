@@ -6,32 +6,35 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 
 import net.sharksystem.SharkException;
-import net.sharksystem.ui.messenger.cli.commands.basics.*;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandCloseEncounter;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandDenyEncounter;
-import net.sharksystem.ui.messenger.cli.commands.encounter.UICommandListEncounter;
-import net.sharksystem.ui.messenger.cli.commands.external.UICommandDecryptFile;
-import net.sharksystem.ui.messenger.cli.commands.external.UICommandEncryptFile;
-import net.sharksystem.ui.messenger.cli.commands.external.UICommandProduceSignature;
-import net.sharksystem.ui.messenger.cli.commands.external.UICommandVerifySignedFile;
-import net.sharksystem.ui.messenger.cli.commands.hubmanagement.UICommandListHub;
-import net.sharksystem.ui.messenger.cli.commands.hubmanagement.UICommandStartHub;
-import net.sharksystem.ui.messenger.cli.commands.hubmanagement.UICommandStopHub;
-import net.sharksystem.ui.messenger.cli.commands.messenger.*;
-import net.sharksystem.ui.messenger.cli.commands.persons.UICommandListPersons;
-import net.sharksystem.ui.messenger.cli.commands.persons.UICommandRenamePerson;
-import net.sharksystem.ui.messenger.cli.commands.persons.UICommandSetSigningFailure;
-import net.sharksystem.ui.messenger.cli.commands.pki.*;
-import net.sharksystem.ui.messenger.cli.commands.testing.*;
-import net.sharksystem.ui.messenger.cli.commands.tcp.UICommandCloseTCP;
-import net.sharksystem.ui.messenger.cli.commands.tcp.UICommandConnectTCP;
-import net.sharksystem.ui.messenger.cli.commands.tcp.UICommandOpenTCP;
-import net.sharksystem.ui.messenger.cli.commands.tcp.UICommandShowOpenTCPPorts;
+import net.sharksystem.app.messenger.commands.CommandNames;
+import net.sharksystem.app.messenger.commands.basics.UICommandDestroyPeer;
+import net.sharksystem.app.messenger.commands.basics.UICommandExit;
+import net.sharksystem.app.messenger.commands.basics.UICommandHelp;
+import net.sharksystem.app.messenger.commands.basics.UICommandStatus;
+import net.sharksystem.app.messenger.commands.hubaccess.*;
+import net.sharksystem.app.messenger.commands.messenger.*;
+import net.sharksystem.app.messenger.commands.pki.*;
+import net.sharksystem.app.messenger.commands.testing.*;
+import net.sharksystem.app.messenger.commands.encounter.UICommandCloseEncounter;
+import net.sharksystem.app.messenger.commands.encounter.UICommandDenyEncounter;
+import net.sharksystem.app.messenger.commands.encounter.UICommandListEncounter;
+import net.sharksystem.app.messenger.commands.external.UICommandDecryptFile;
+import net.sharksystem.app.messenger.commands.external.UICommandEncryptFile;
+import net.sharksystem.app.messenger.commands.external.UICommandProduceSignature;
+import net.sharksystem.app.messenger.commands.external.UICommandVerifySignedFile;
+import net.sharksystem.app.messenger.commands.hubmanagement.UICommandListHub;
+import net.sharksystem.app.messenger.commands.hubmanagement.UICommandStartHub;
+import net.sharksystem.app.messenger.commands.hubmanagement.UICommandStopHub;
+import net.sharksystem.app.messenger.commands.persons.UICommandListPersons;
+import net.sharksystem.app.messenger.commands.persons.UICommandRenamePerson;
+import net.sharksystem.app.messenger.commands.persons.UICommandSetSigningFailure;
+import net.sharksystem.app.messenger.commands.tcp.UICommandCloseTCP;
+import net.sharksystem.app.messenger.commands.tcp.UICommandConnectTCP;
+import net.sharksystem.app.messenger.commands.tcp.UICommandOpenTCP;
+import net.sharksystem.app.messenger.commands.tcp.UICommandShowOpenTCPPorts;
 import net.sharksystem.fs.ExtraData;
 import net.sharksystem.fs.ExtraDataFS;
 import net.sharksystem.hub.peerside.ASAPHubManager;
-import net.sharksystem.ui.messenger.cli.commands.hubaccess.*;
-import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
 import net.sharksystem.utils.Log;
 
 /**
@@ -150,11 +153,11 @@ public class ProductionUI {
         // Tests - do not use those commands in other implementation beside test support environment
         SharkNetMessengerAppSupportingDistributedTesting snmTestSupport =
                 (SharkNetMessengerAppSupportingDistributedTesting) sharkMessengerApp;
-        smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, TestLanguageCompiler.CLI_BLOCK, false));
+        smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, CommandNames.CLI_BLOCK, false));
         smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
-        smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, TestLanguageCompiler.CLI_RELEASE, false));
+        smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, CommandNames.CLI_RELEASE, false));
         smUI.addCommand(new UICommandOrchestrateTest(snmTestSupport, smUI, "orchestrateTest", false));
-        smUI.addCommand(new UICommandTimeBomb(snmTestSupport, smUI, TestLanguageCompiler.CLI_TIME_BOMB, false));
+        smUI.addCommand(new UICommandTimeBomb(snmTestSupport, smUI, CommandNames.CLI_TIME_BOMB, false));
 
         smUI.addCommand(new UICommandSaveLog(sharkMessengerApp, smUI, "saveLog", false));
         smUI.addCommand(new UICommandShowLog(sharkMessengerApp, smUI, "showLog", false));
@@ -179,7 +182,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandCreateChannel(sharkMessengerApp, smUI, "mkChannel", true));
         smUI.addCommand(new UICommandRemoveChannelByIndex(sharkMessengerApp, smUI, "rmChannel", true));
         smUI.addCommand(new UICommandSendMessage(sharkMessengerApp, smUI, "sendMessage", true));
-        smUI.addCommand(new UICommandListMessages(sharkMessengerApp, smUI, "lsMessages", true));
+        smUI.addCommand(new UICommandListMessages(sharkMessengerApp, smUI, CommandNames.CLI_LIST_MESSAGES, true));
 
         // external io
         smUI.addCommand(new UICommandProduceSignature(sharkMessengerApp, smUI, "signFile", true));
