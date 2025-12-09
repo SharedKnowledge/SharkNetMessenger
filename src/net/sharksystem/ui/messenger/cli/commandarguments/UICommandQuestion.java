@@ -1,5 +1,6 @@
 package net.sharksystem.ui.messenger.cli.commandarguments;
 
+
 import net.sharksystem.utils.Log;
 
 /**

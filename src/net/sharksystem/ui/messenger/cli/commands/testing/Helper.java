@@ -9,19 +9,19 @@ class Helper {
         switch (peerName) {
             case "0":
             case "A":
-                return "Alice";
+                return "P1";
             case "1":
             case "B":
-                return "Bob";
+                return "P2";
             case "2":
             case "C":
-                return "Clara";
+                return "P3";
             case "3":
             case "D":
-                return "David";
+                return "P4";
             case "4":
             case "E":
-                return "Eve";
+                return "P5";
             default: return peerName;
         }
     }
