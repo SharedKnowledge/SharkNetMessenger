@@ -45,7 +45,6 @@ public class SNM_JSON_Builder {
     private static final String IDENTITY_ASSURANCE_KEY = "identityAssurance";
     private static final String HOPING_LIST_KEY = "hopingList";
 
-    private boolean payloadOpened = false;
     private boolean firstKey = true;
 
     StringBuilder sb = new StringBuilder();
