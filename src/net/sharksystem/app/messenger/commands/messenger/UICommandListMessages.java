@@ -25,12 +25,19 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
 
     @Override
     public void execute() throws Exception {
-        String debug = this.executeReturnJSON(true);// don't return anything
+        this.executeReturnJSON(true, false);
+        /*
+        String debug = this.executeReturnJSON(true, true);// don't return anything
         int i = 42;
+         */
     }
 
     @Override
-    public String executeReturnJSON(boolean produceUIOutput) throws Exception {
+    public String executeReturnJSON() throws Exception {
+        return this.executeReturnJSON(false, true);// don't return anything
+    }
+
+    public String executeReturnJSON(boolean produceUIOutput, boolean produceJSONOutput) throws Exception {
         SNM_JSON_Builder snmJsonBuilder = new SNM_JSON_Builder(CommandNames.CLI_LIST_MESSAGES);
 
         try {
@@ -60,10 +67,12 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
             if(produceUIOutput) this.getSharkMessengerApp().tellUI(ChannelPrinter.getChannelDescription(channel));
 
             // json
-            snmJsonBuilder.addMessages(
-                    this.getSharkMessengerApp(),
-                    this.getSharkMessengerApp().getSharkPKIComponent(),
-                    messages);
+            if(produceJSONOutput) {
+                snmJsonBuilder.addMessages(
+                        this.getSharkMessengerApp(),
+                        this.getSharkMessengerApp().getSharkPKIComponent(),
+                        messages);
+            }
 
             // CLI output
             if(produceUIOutput) this.getSharkMessengerApp().tellUI(
@@ -73,6 +82,9 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
         } catch (SharkException | IOException e) {
             this.printErrorMessage(e.getLocalizedMessage());
         }
+
+        if(!produceJSONOutput) return null;
+
         return snmJsonBuilder.getJsonString();
     }
 

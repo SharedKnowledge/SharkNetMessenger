@@ -127,10 +127,9 @@ public abstract class UICommand {
 
     /**
      * This method includes the logic of the command.
-     * @param produceCLIOutput shall UI output be produce beside JSON
      * @throws Exception Any exception that might be thrown.
      */
-    public String executeReturnJSON(boolean produceCLIOutput) throws Exception {
+    public String executeReturnJSON() throws Exception {
         return "{ status: \"error\", error: \"not yet implemented\" }";
     }
 
