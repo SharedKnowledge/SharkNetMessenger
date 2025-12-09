@@ -1,0 +1,5 @@
+SC
+PeerA: pass: Both messages sent/received successfully.
+PeerB: pass: Both messages sent/received successfully.
+SC
+PASS: All peers completed successfully

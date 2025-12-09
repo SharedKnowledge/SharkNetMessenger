@@ -1,0 +1,76 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2025-12-08 13:10:18.873: created a new asap peer id for PeerC: PeerC_eqLZM4v0000xm0
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 13:10:20.040: openTCP
+2025-12-08 13:10:20.040: wait 2000 ms ...
+2025-12-08 13:10:22.041: resume
+2025-12-08 13:10:22.056: wait 2000 ms ...
+2025-12-08 13:10:22.098: 
+new encounter to PeerB_kqLZM4v0000r22 via internet
+2025-12-08 13:10:22.099: 
+Peer PeerB_kqLZM4v0000r22 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:10:22.118: 1messages received in channel snm://block_release
+2025-12-08 13:10:22.124: 1messages received in channel sn://universal
+2025-12-08 13:10:23.832: 
+new encounter to PeerD_oqLZM4v0000bCx via internet
+2025-12-08 13:10:23.833: 
+Peer PeerD_oqLZM4v0000bCx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:10:24.056: resume
+2025-12-08 13:10:24.056: connectTCP
+2025-12-08 13:10:24.061: release block sent: P2
+2025-12-08 13:10:24.061: block and wait for release P3
+2025-12-08 13:10:25.422: 
+new encounter to PeerD_oqLZM4v0000bCx via internet
+2025-12-08 13:10:25.422: 
+Peer PeerD_oqLZM4v0000bCx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:10:26.805: 3messages received in channel snm://block_release
+2025-12-08 13:10:26.809: block released P3
+2025-12-08 13:10:26.809: wait 2000 ms ...
+2025-12-08 13:10:28.809: resume
+2025-12-08 13:10:28.822: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 13:10:28.823: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_kqLZM4v0000r22 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:10:22.039
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_kqLZM4v0000r22 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_oqLZM4v0000bCx | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:10:26.794
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_oqLZM4v0000bCx | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:10:24.057
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2025-12-08 13:10:28.828: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-12-08 13:10:28.830: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler.txt (1024 bytes) | saved to disc
+sender: PeerA_cqLZM4v0000U22 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:10:19.853
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_cqLZM4v0000U22 | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerB_kqLZM4v0000r22 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

@@ -1,0 +1,51 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2025-12-08 01:08:35.953: created a new asap peer id for PeerC: PeerC_2m44K4v0000OK7
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 01:08:37.038: block and wait for release P3
+2025-12-08 01:08:39.698: 
+new encounter to PeerD_5m44K4v00007Ow via internet
+2025-12-08 01:08:39.699: 
+Peer PeerD_5m44K4v00007Ow has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 01:08:40.721: 1messages received in channel snm://block_release
+2025-12-08 01:08:40.726: block released P3
+2025-12-08 01:08:40.727: wait 500 ms ...
+2025-12-08 01:08:41.228: resume
+2025-12-08 01:08:41.242: wait 500 ms ...
+2025-12-08 01:08:41.288: 
+new encounter to PeerB_0m44K4v0000bo2 via internet
+2025-12-08 01:08:41.288: 
+Peer PeerB_0m44K4v0000bo2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 01:08:41.546: 
+new encounter to PeerB_0m44K4v0000bo2 via internet
+2025-12-08 01:08:41.546: 
+Peer PeerB_0m44K4v0000bo2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 01:08:41.742: resume
+2025-12-08 01:08:41.742: wait 500 ms ...
+2025-12-08 01:08:42.243: resume
+2025-12-08 01:08:42.246: release block sent: P2
+2025-12-08 01:08:42.246: wait 1000 ms ...
+2025-12-08 01:08:43.246: resume
+2025-12-08 01:08:43.255: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2025-12-08 01:08:43.256: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_5m44K4v00007Ow | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 01:08:40.697
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_5m44K4v00007Ow | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 01:08:42.244
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2025-12-08 01:08:43.259: no messages in channel 1

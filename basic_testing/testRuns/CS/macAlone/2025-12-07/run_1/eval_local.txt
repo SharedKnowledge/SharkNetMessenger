@@ -1,0 +1,5 @@
+CS
+DEBUG: folderName=CS name_lc=cs containsDis=no countA=2 countB=3
+PeerA: pass: Both messages sent/received successfully.
+CS
+PeerB: pass: Both messages sent/received successfully.

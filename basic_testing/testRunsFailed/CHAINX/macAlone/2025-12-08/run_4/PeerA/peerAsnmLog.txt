@@ -1,0 +1,67 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-12-08 00:11:36.558: created a new asap peer id for PeerA: PeerA_vOIPJ4v0000gE2
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 00:11:38.325: block and wait for release P1
+2025-12-08 00:11:38.532: 
+new encounter to PeerB_rOIPJ4v0000yDg via internet
+2025-12-08 00:11:38.533: 
+Peer PeerB_rOIPJ4v0000yDg has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:11:38.610: 
+new encounter to PeerC_tOIPJ4v0000DF3 via internet
+2025-12-08 00:11:38.611: 
+new encounter to PeerB_rOIPJ4v0000yDg via internet
+2025-12-08 00:11:38.611: 
+Peer PeerC_tOIPJ4v0000DF3 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:11:38.611: 
+Peer PeerB_rOIPJ4v0000yDg has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:11:38.611: 
+new encounter to PeerD_AOIPJ4v0000WuE via internet
+2025-12-08 00:11:38.612: 
+Peer PeerD_AOIPJ4v0000WuE has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:11:39.052: 1messages received in channel snm://block_release
+2025-12-08 00:11:39.055: block released P1
+2025-12-08 00:11:39.055: block and wait for release P2
+2025-12-08 00:11:39.065: 2messages received in channel snm://block_release
+2025-12-08 00:11:39.095: 3messages received in channel snm://block_release
+2025-12-08 00:11:39.098: block released P2
+2025-12-08 00:11:39.098: block and wait for release P3
+2025-12-08 00:11:39.099: block released P3
+2025-12-08 00:11:39.099: wait 5000 ms ...
+2025-12-08 00:11:44.099: resume
+2025-12-08 00:11:44.113: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 00:11:44.114: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_AOIPJ4v0000WuE | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:11:39.056
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_AOIPJ4v0000WuE | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_rOIPJ4v0000yDg | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:11:39.029
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_rOIPJ4v0000yDg | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_tOIPJ4v0000DF3 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:11:39.077
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_tOIPJ4v0000DF3 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+

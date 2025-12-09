@@ -1,0 +1,74 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2025-12-08 00:37:05.730: created a new asap peer id for PeerB: PeerB_AC8WJ4v0000QC7
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 00:37:06.845: block and wait for release P2
+2025-12-08 00:37:08.515: 
+new encounter to PeerC_uC8WJ4v0000Znf via internet
+2025-12-08 00:37:08.516: 
+Peer PeerC_uC8WJ4v0000Znf has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:37:08.623: 1messages received in channel snm://block_release
+2025-12-08 00:37:09.030: 2messages received in channel snm://block_release
+2025-12-08 00:37:09.033: block released P2
+2025-12-08 00:37:09.034: wait 500 ms ...
+2025-12-08 00:37:09.534: resume
+2025-12-08 00:37:09.547: wait 500 ms ...
+2025-12-08 00:37:09.596: 
+new encounter to PeerA_tC8WJ4v0000yuG via internet
+2025-12-08 00:37:09.596: 
+Peer PeerA_tC8WJ4v0000yuG has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:37:09.612: 1messages received in channel sn://universal
+2025-12-08 00:37:10.048: resume
+2025-12-08 00:37:10.051: release block sent: P1
+2025-12-08 00:37:10.051: wait 1500 ms ...
+2025-12-08 00:37:10.352: 
+new encounter to PeerA_tC8WJ4v0000yuG via internet
+2025-12-08 00:37:10.352: 
+Peer PeerA_tC8WJ4v0000yuG has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:37:11.554: resume
+2025-12-08 00:37:11.586: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 00:37:11.588: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_IC8WJ4v0000i02 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:37:07.962
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_IC8WJ4v0000i02 | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerC_uC8WJ4v0000Znf | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_uC8WJ4v0000Znf | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:37:09.012
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_uC8WJ4v0000Znf | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:37:10.048
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2025-12-08 00:37:11.620: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-12-08 00:37:11.625: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler.txt (1024 bytes) | saved to disc
+sender: PeerA_tC8WJ4v0000yuG | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:37:06.876
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_tC8WJ4v0000yuG | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

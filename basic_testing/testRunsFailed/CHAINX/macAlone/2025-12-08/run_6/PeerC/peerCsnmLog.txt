@@ -1,0 +1,35 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2025-12-08 00:16:56.877: created a new asap peer id for PeerC: PeerC_X84RJ4v0000EUe
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 00:16:58.019: wait 500 ms ...
+2025-12-08 00:16:58.520: resume
+2025-12-08 00:16:58.521: wait 500 ms ...
+2025-12-08 00:16:59.021: resume
+2025-12-08 00:16:59.039: wait 500 ms ...
+2025-12-08 00:16:59.043: 
+new encounter to PeerA_M84RJ4v0000oLu via internet
+2025-12-08 00:16:59.045: 
+Peer PeerA_M84RJ4v0000oLu has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 00:16:59.147: 1messages received in channel sn://universal
+2025-12-08 00:16:59.540: resume
+2025-12-08 00:16:59.545: release block sent: P2
+2025-12-08 00:16:59.546: wait 1000 ms ...
+2025-12-08 00:17:00.546: resume
+2025-12-08 00:17:00.546: wait 5000 ms ...
+2025-12-08 00:17:04.918: 
+encounter closed: PeerA_M84RJ4v0000oLu | connection: internet | started: 2025-12-08 00:16:59.044 | closed: 2025-12-08 00:17:04.917
+
+2025-12-08 00:17:05.547: resume
+2025-12-08 00:17:05.561: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2025-12-08 00:17:05.562: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 00:16:59.542
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

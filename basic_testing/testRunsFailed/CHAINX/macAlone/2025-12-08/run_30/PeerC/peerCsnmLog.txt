@@ -1,0 +1,59 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2025-12-08 10:15:38.283: created a new asap peer id for PeerC: PeerC_sWMhM4v0000a22
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 10:15:38.997: wait 1000 ms ...
+2025-12-08 10:15:39.997: resume
+2025-12-08 10:15:40.012: block and wait for release P3
+2025-12-08 10:15:40.014: 
+new encounter to PeerB_uWMhM4v0000M68 via internet
+2025-12-08 10:15:40.015: 
+Peer PeerB_uWMhM4v0000M68 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 10:15:44.071: 
+new encounter to PeerD_pWMhM4v0000DQv via internet
+2025-12-08 10:15:44.072: 
+Peer PeerD_pWMhM4v0000DQv has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 10:15:45.059: 1messages received in channel snm://block_release
+2025-12-08 10:15:45.063: block released P3
+2025-12-08 10:15:45.064: wait 1000 ms ...
+2025-12-08 10:15:46.064: resume
+2025-12-08 10:15:46.069: release block sent: P2
+2025-12-08 10:15:46.069: wait 2000 ms ...
+2025-12-08 10:15:46.086: 
+new encounter to PeerB_uWMhM4v0000M68 via internet
+2025-12-08 10:15:46.087: 
+Peer PeerB_uWMhM4v0000M68 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 10:15:47.098: 3messages received in channel snm://block_release
+2025-12-08 10:15:47.109: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2025-12-08 10:15:47.111: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_pWMhM4v0000DQv | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 10:15:45.035
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_pWMhM4v0000DQv | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_uWMhM4v0000M68 | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 10:15:47.083
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_uWMhM4v0000M68 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 10:15:46.065
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2025-12-08 10:15:47.114: no messages in channel 1

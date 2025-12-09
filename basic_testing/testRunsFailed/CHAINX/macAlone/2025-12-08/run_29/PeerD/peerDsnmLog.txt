@@ -1,0 +1,41 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerD
+2025-12-08 10:08:21.422: created a new asap peer id for PeerD: PeerD_jiXfM4v0000GeB
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 10:08:22.219: wait 4000 ms ...
+2025-12-08 10:08:26.220: resume
+2025-12-08 10:08:26.220: wait 1000 ms ...
+2025-12-08 10:08:27.221: resume
+2025-12-08 10:08:27.242: wait 1000 ms ...
+2025-12-08 10:08:27.285: 
+new encounter to PeerC_7iXfM4v0000uxa via internet
+2025-12-08 10:08:27.286: 
+Peer PeerC_7iXfM4v0000uxa has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 10:08:28.242: resume
+2025-12-08 10:08:28.250: release block sent: P3
+2025-12-08 10:08:28.250: wait 4000 ms ...
+2025-12-08 10:08:30.316: 2messages received in channel snm://block_release
+2025-12-08 10:08:32.250: resume
+2025-12-08 10:08:32.260: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2025-12-08 10:08:32.261: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_7iXfM4v0000uxa | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 10:08:30.292
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_7iXfM4v0000uxa | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 10:08:28.244
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2025-12-08 10:08:32.263: no messages in channel 1

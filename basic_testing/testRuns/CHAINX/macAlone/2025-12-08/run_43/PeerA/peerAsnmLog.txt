@@ -1,0 +1,45 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2025-12-08 13:13:06.160: created a new asap peer id for PeerA: PeerA_tWs0N4v00004oN
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2025-12-08 13:13:07.251: openTCP
+2025-12-08 13:13:07.303: sendMessage
+2025-12-08 13:13:07.304: block and wait for release P1
+2025-12-08 13:13:08.417: 
+new encounter to PeerB_QWs0N4v0000FZl via internet
+2025-12-08 13:13:08.418: 
+Peer PeerB_QWs0N4v0000FZl has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2025-12-08 13:13:09.432: 1messages received in channel snm://block_release
+2025-12-08 13:13:09.434: block released P1
+2025-12-08 13:13:09.435: wait 500 ms ...
+2025-12-08 13:13:09.935: resume
+2025-12-08 13:13:09.936: wait 8000 ms ...
+2025-12-08 13:13:12.586: 
+encounter closed: PeerB_QWs0N4v0000FZl | connection: internet | started: 2025-12-08 13:13:08.417 | closed: 2025-12-08 13:13:12.585
+
+2025-12-08 13:13:17.936: resume
+2025-12-08 13:13:17.951: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2025-12-08 13:13:17.953: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_QWs0N4v0000FZl | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:13:09.414
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_QWs0N4v0000FZl | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2025-12-08 13:13:17.956: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2025-12-08 13:13:17.961: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2025-12-08 13:13:07.272
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_tWs0N4v00004oN): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
