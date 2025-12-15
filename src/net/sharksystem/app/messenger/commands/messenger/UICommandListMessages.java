@@ -32,7 +32,7 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
          */
     }
 
-    @Override
+    //@Override
     public String executeReturnJSON() throws Exception {
         return this.executeReturnJSON(false, true);// don't return anything
     }

@@ -126,12 +126,15 @@ public abstract class UICommand {
     protected abstract void execute() throws Exception;
 
     /**
+     * Was a bad idea - lets not walk that path
      * This method includes the logic of the command.
      * @throws Exception Any exception that might be thrown.
      */
+    /*
     public String executeReturnJSON() throws Exception {
         return "{ status: \"error\", error: \"not yet implemented\" }";
     }
+     */
 
     /**
      * @return The string which identifies this command and can be entered by the user to execute it.
