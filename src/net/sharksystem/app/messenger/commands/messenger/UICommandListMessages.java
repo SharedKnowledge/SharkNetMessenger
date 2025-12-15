@@ -2,7 +2,7 @@ package net.sharksystem.app.messenger.commands.messenger;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.app.messenger.commands.CommandNames;
-import net.sharksystem.app.messenger.commands.SNM_JSON_Builder;
+import net.sharksystem.utils.json.SNM_JSON_Builder;
 import net.sharksystem.app.messenger.commands.helper.AbstractCommandWithSingleInteger;
 import net.sharksystem.app.messenger.SharkNetMessageList;
 import net.sharksystem.app.messenger.SharkNetMessengerChannel;

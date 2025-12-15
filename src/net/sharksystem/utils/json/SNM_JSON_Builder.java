@@ -1,4 +1,4 @@
-package net.sharksystem.app.messenger.commands;
+package net.sharksystem.utils.json;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.app.messenger.*;
