@@ -3,7 +3,6 @@ package net.sharksystem.messenger.testScripts;
 import net.sharksystem.SharkException;
 import net.sharksystem.hub.peerside.ASAPHubManager;
 import net.sharksystem.ui.messenger.cli.ProductionUI;
-import net.sharksystem.app.messenger.commands.testing.ScriptRunnerProcess_RuntimeExec;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -60,15 +59,6 @@ public class ScriptRunnerTests {
             System.out.println(e.getLocalizedMessage());
         }
         return null;
-    }
-
-
-    @Test
-    public void testTestRunnerRuntimeExec() throws IOException {
-        ScriptRunnerProcess_RuntimeExec srp =
-                new ScriptRunnerProcess_RuntimeExec("Alice", "test1", "sendMessage msgInTest");
-
-        srp.start();
     }
 
     @Test

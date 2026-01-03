@@ -1,6 +1,7 @@
 package net.sharksystem.app.messenger.commands.testing;
 
-import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
+import net.sharksystem.ui.messenger.cli.distributedtesting.PeerHostingEnvironmentDescription;
+import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.app.messenger.commands.helper.AbstractCommandWithSingleString;
 import net.sharksystem.utils.json.JSONObject;
@@ -12,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
-    SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;
+    SNMAppSupportingDistributedTesting snmTestSupport;
 
-    public UICommandOrchestrateTest(SharkNetMessengerAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String echo, boolean b) {
+    public UICommandOrchestrateTest(SNMAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String echo, boolean b) {
         super(sharkMessengerApp, smUI, echo, b);
         this.snmTestSupport = sharkMessengerApp;
     }
@@ -114,6 +115,7 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         }
 
         // Orchestrator: orchestrateTest ..\csTestCase.txt; openTCP 6907
+        // Orchestrator: orchestrateTest ..\simpleTest.txt; openTCP 6907
         // dann Peers: connectTCP localhost 6907; scriptRQ
 
         /**

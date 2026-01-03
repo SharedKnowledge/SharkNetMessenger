@@ -1,13 +1,13 @@
 package net.sharksystem.app.messenger.commands.testing;
 
-import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
+import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.app.messenger.commands.helper.AbstractCommandWithSingleString;
 
 public class UICommandBlock extends AbstractCommandWithSingleString {
-    SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;
+    SNMAppSupportingDistributedTesting snmTestSupport;
 
-    public UICommandBlock(SharkNetMessengerAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
+    public UICommandBlock(SNMAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
         super(sharkMessengerApp, smUI, wait, b);
 
         // need test support

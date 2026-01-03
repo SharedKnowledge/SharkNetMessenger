@@ -4,7 +4,7 @@ import net.sharksystem.SharkException;
 import net.sharksystem.app.messenger.SharkNetMessage;
 import net.sharksystem.app.messenger.SharkNetMessengerComponent;
 import net.sharksystem.asap.utils.ASAPSerialization;
-import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
+import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.app.messenger.commands.helper.AbstractCommandWithSingleString;
 
@@ -12,9 +12,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class UICommandRelease extends AbstractCommandWithSingleString {
-    SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;
+    SNMAppSupportingDistributedTesting snmTestSupport;
 
-    public UICommandRelease(SharkNetMessengerAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
+    public UICommandRelease(SNMAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI smUI, String wait, boolean b) {
         super(sharkMessengerApp, smUI, wait, b);
 
         // need test support
@@ -33,7 +33,7 @@ public class UICommandRelease extends AbstractCommandWithSingleString {
             // send message
             messenger.sendSharkMessage(
                     SharkNetMessage.SN_CONTENT_TYPE_ASAP_CHARACTER_SEQUENCE, // label is a string
-                    contentBytes, SharkNetMessengerAppSupportingDistributedTesting.TEST_BLOCK_RELEASE_CHANNEL, // specific channel
+                    contentBytes, SNMAppSupportingDistributedTesting.TEST_BLOCK_RELEASE_CHANNEL, // specific channel
                     (CharSequence) null, // no specific receiver
                     false, // no signing
                     false // no encryption

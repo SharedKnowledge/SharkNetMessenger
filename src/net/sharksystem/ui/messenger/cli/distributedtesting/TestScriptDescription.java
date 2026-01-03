@@ -1,4 +1,4 @@
-package net.sharksystem.app.messenger.commands.testing;
+package net.sharksystem.ui.messenger.cli.distributedtesting;
 
 import net.sharksystem.asap.ASAPException;
 import net.sharksystem.asap.utils.ASAPSerialization;
@@ -7,25 +7,25 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class TestScriptDescription {
+class TestScriptDescription {
     public final String ipAddress;
     public final int peerIndex;
     public final String script;
-    public final int testNumber;
+    public final String testID;
     public final String peerID;
 
     public static boolean same(TestScriptDescription a, TestScriptDescription b) {
-        return a.testNumber == b.testNumber
-                && a.peerIndex == b.peerIndex
+        return a.peerIndex == b.peerIndex
                 && a.ipAddress.equalsIgnoreCase(b.ipAddress)
-                && a.peerID.equalsIgnoreCase(b.peerID);
+                && a.peerID.equalsIgnoreCase(b.peerID)
+                && a.testID.equalsIgnoreCase(b.testID);
     }
 
-    public TestScriptDescription(String ipAddress, int peerIndex, String script, int testNumber, String peerID) {
+    public TestScriptDescription(String ipAddress, int peerIndex, String script, String testID, String peerID) {
         this.ipAddress = ipAddress;
         this.peerIndex = peerIndex;
         this.script = script;
-        this.testNumber = testNumber;
+        this.testID = testID;
         this.peerID = peerID;
     }
 
@@ -35,7 +35,7 @@ public class TestScriptDescription {
         this.ipAddress = ASAPSerialization.readCharSequenceParameter(bais);
         this.peerIndex = ASAPSerialization.readIntegerParameter(bais);
         this.script = ASAPSerialization.readCharSequenceParameter(bais);
-        this.testNumber = ASAPSerialization.readIntegerParameter(bais);
+        this.testID = ASAPSerialization.readCharSequenceParameter(bais);
         this.peerID = ASAPSerialization.readCharSequenceParameter(bais);
     }
 
@@ -45,7 +45,7 @@ public class TestScriptDescription {
         ASAPSerialization.writeCharSequenceParameter(this.ipAddress, baos);
         ASAPSerialization.writeIntegerParameter(this.peerIndex, baos);
         ASAPSerialization.writeCharSequenceParameter(this.script, baos);
-        ASAPSerialization.writeIntegerParameter(this.testNumber, baos);
+        ASAPSerialization.writeCharSequenceParameter(this.testID, baos);
         ASAPSerialization.writeCharSequenceParameter(this.peerID, baos);
 
         return baos.toByteArray();
@@ -54,7 +54,7 @@ public class TestScriptDescription {
     public String toString() {
         return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex
                 + " | peerID: " + this.peerID
-                + " | test#: " + this.testNumber
+                + " | test#: " + this.testID
                 + " | script: " + this.script;
     }
 }

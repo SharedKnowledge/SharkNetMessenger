@@ -35,6 +35,7 @@ import net.sharksystem.app.messenger.commands.tcp.UICommandShowOpenTCPPorts;
 import net.sharksystem.fs.ExtraData;
 import net.sharksystem.fs.ExtraDataFS;
 import net.sharksystem.hub.peerside.ASAPHubManager;
+import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.utils.Log;
 
 /**
@@ -144,15 +145,15 @@ public class ProductionUI {
 //                new SharkNetMessengerApp(peerName, syncWithOthersInSeconds, System.out, System.err);
 
            // use test support in this CLI - use base class in any other SNM View like Web, Android etc.
-           new SharkNetMessengerAppSupportingDistributedTesting(
+           new SNMAppSupportingDistributedTesting(
                    peerName, syncWithOthersInSeconds, System.out, System.err);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         //                              commands for test supporting views only                               //
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Tests - do not use those commands in other implementation beside test support environment
-        SharkNetMessengerAppSupportingDistributedTesting snmTestSupport =
-                (SharkNetMessengerAppSupportingDistributedTesting) sharkMessengerApp;
+        SNMAppSupportingDistributedTesting snmTestSupport =
+                (SNMAppSupportingDistributedTesting) sharkMessengerApp;
         smUI.addCommand(new UICommandBlock(snmTestSupport, smUI, CommandNames.CLI_BLOCK, false));
         smUI.addCommand(new UICommandScriptRQ(snmTestSupport, smUI, "scriptRQ", false));
         smUI.addCommand(new UICommandRelease(snmTestSupport, smUI, CommandNames.CLI_RELEASE, false));

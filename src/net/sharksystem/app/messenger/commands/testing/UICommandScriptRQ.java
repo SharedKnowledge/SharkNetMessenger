@@ -2,16 +2,16 @@ package net.sharksystem.app.messenger.commands.testing;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.app.messenger.SharkNetMessengerComponent;
-import net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting;
+import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.app.messenger.commands.helper.AbstractCommandNoParameter;
 
 import java.io.IOException;
 
 public class UICommandScriptRQ extends AbstractCommandNoParameter {
-    SharkNetMessengerAppSupportingDistributedTesting snmTestSupport;
+    SNMAppSupportingDistributedTesting snmTestSupport;
 
-    public UICommandScriptRQ(SharkNetMessengerAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
+    public UICommandScriptRQ(SNMAppSupportingDistributedTesting sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
                              String identifier, boolean rememberCommand) {
         super(sharkMessengerApp, sharkMessengerUI, identifier, rememberCommand);
 
@@ -37,6 +37,6 @@ public class UICommandScriptRQ extends AbstractCommandNoParameter {
     @Override
     public String getDescription() {
         return "sends a request for test script into channel " +
-                SharkNetMessengerAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL;
+                SNMAppSupportingDistributedTesting.SCRIPT_RQ_CHANNEL;
     }
 }

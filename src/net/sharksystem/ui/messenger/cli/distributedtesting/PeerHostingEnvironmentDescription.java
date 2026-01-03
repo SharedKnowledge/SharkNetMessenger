@@ -1,4 +1,4 @@
-package net.sharksystem.app.messenger.commands.testing;
+package net.sharksystem.ui.messenger.cli.distributedtesting;
 
 import net.sharksystem.asap.ASAPException;
 import net.sharksystem.asap.utils.ASAPSerialization;
@@ -14,6 +14,34 @@ public class PeerHostingEnvironmentDescription {
     public final String osName;
     public final String osVersion;
     public final String peerID;
+
+    /**
+     * Matching means: osName and osVersion fit to each other. ipAddress and peerID is (not yet) of any concern
+     * @param requiredEnvironment demands
+     * @param availableEnvironment given
+     * @return matches or not
+     */
+    public static boolean match(PeerHostingEnvironmentDescription requiredEnvironment,
+                                PeerHostingEnvironmentDescription availableEnvironment) {
+        boolean match = true;
+
+        // os required? if so - does available environment match?
+        if (requiredEnvironment.osName != null && !requiredEnvironment.osName.isEmpty()) {
+            // yes os is demanded.
+            if (!requiredEnvironment.osName.equalsIgnoreCase(availableEnvironment.osName)) {
+                match = false;
+            }
+        }
+
+        // version required? if so - does available environment match?
+        if(match && requiredEnvironment.osVersion != null && !requiredEnvironment.osVersion.isEmpty()) {
+            if (!requiredEnvironment.osVersion.equalsIgnoreCase(availableEnvironment.osVersion)) {
+                match = false;
+            }
+        }
+
+        return match;
+    }
 
     /** produce a description of this actual environment */
     public PeerHostingEnvironmentDescription(String peerID) throws UnknownHostException {
