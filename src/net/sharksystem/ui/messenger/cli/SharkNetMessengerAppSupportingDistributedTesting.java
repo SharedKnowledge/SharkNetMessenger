@@ -6,6 +6,7 @@ import net.sharksystem.app.messenger.SharkNetMessageList;
 import net.sharksystem.app.messenger.SharkNetMessengerChannel;
 import net.sharksystem.app.messenger.SharkNetMessengerException;
 import net.sharksystem.app.messenger.commands.CommandNames;
+import net.sharksystem.app.messenger.commands.testing.OrchestrationScriptConstants;
 import net.sharksystem.app.messenger.commands.testing.PeerHostingEnvironmentDescription;
 import net.sharksystem.app.messenger.commands.testing.ScriptRunnerProcess;
 import net.sharksystem.app.messenger.commands.testing.TestScriptDescription;
@@ -226,9 +227,18 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     private class OrchestratedTest {
         List<PeerHostingEnvironmentDescription> peerEnvironment;
         List<String> scripts;
-        OrchestratedTest(List<PeerHostingEnvironmentDescription> requiredPeerEnvironment, List<String> scripts) {
+        int maxDurationInMilli;
+        String testName;
+
+        OrchestratedTest(
+            List<PeerHostingEnvironmentDescription> requiredPeerEnvironment,
+            List<String> scripts,
+            int maxDurationInMilli,
+            String testName) {
             this.peerEnvironment = requiredPeerEnvironment;
             this.scripts = scripts;
+            this.maxDurationInMilli = maxDurationInMilli;
+            this.testName = testName;
         }
     }
 
@@ -236,11 +246,9 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
     private List<OrchestratedTest> orchestratedTestsWaiting = new ArrayList<>();
     private List<OrchestratedTest> orchestratedTestsReady = new ArrayList<>();
 
-    public void orchestrateTest(List<String> scripts) {
-        this.orchestrateTest(null, scripts);
-    }
-
-    public void orchestrateTest(List<PeerHostingEnvironmentDescription> requiredPeerEnvironment, List<String> scripts) {
+    public void orchestrateTest(
+            List<PeerHostingEnvironmentDescription> requiredPeerEnvironment,
+            List<String> scripts, int maxDurationInMillis, String testname) {
         this.beTestOrchestrator = true;
         if(scripts == null || scripts.isEmpty()) {
             this.tellUIError("scripts must not be empty");
@@ -252,14 +260,15 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
             return;
         }
         if(requiredPeerEnvironment.size() < scripts.size()) {
-            this.tellUI("less peer requirements than scripts... will take any available peer");
+            this.tellUI("less peer requirements than scripts... will take any available peer for remaining scripts");
             while(requiredPeerEnvironment.size() < scripts.size()) {
                 requiredPeerEnvironment.add(
                         new PeerHostingEnvironmentDescription(null,null,null,null));
             }
         }
 
-        this.orchestratedTestsWaiting.add(new OrchestratedTest(requiredPeerEnvironment, scripts));
+        this.orchestratedTestsWaiting.add(
+                new OrchestratedTest(requiredPeerEnvironment, scripts, maxDurationInMillis, testname));
     }
 
     private int lastScriptRQIndex = -1;
@@ -316,7 +325,9 @@ public class SharkNetMessengerAppSupportingDistributedTesting extends SharkNetMe
                 // add actual test ensemble
                 OrchestratedTest readyTest = new OrchestratedTest(
                         testEnsemble.peerEnvironment, // replace requirements with actual available matching peer
-                        waitingTest.scripts // copy scripts
+                        waitingTest.scripts, // copy scripts
+                        waitingTest.maxDurationInMilli,
+                        waitingTest.testName
                 );
                 // new read test created
                 this.orchestratedTestsReady.add(readyTest);

@@ -33,6 +33,12 @@ public class JSONObject {
         this.value = value;
     }
 
+    private JSONObject(String key, JSONObject value) {
+        this.type = JSONValueType.KV_SET;
+        this.set = new HashMap<>();
+        this.set.put(key, value);
+    }
+
     public JSONObject getValue(String key) throws IOException {
         JSONObject jsonObject = null;
         if(this.set != null) {
@@ -50,6 +56,11 @@ public class JSONObject {
         return jsonObject;
     }
 
+    public String getValue() throws IOException {
+        if(this.value == null) throw new IOException("no value found");
+        return this.value;
+    }
+
     public JSONValueType getType() {
         return this.type;
     }
@@ -57,6 +68,17 @@ public class JSONObject {
     public void addElement(String key, JSONObject value) {
         if (this.set != null) this.set.put(key, value);
         else this.list.add(new JsonKVPair(key, value));
+    }
+
+    public List<JSONObject> getObjectsList() throws IOException {
+        if(this.list == null || this.list.isEmpty()) throw new IOException("no object list");
+        List<JSONObject> objectsList = new ArrayList<>();
+
+        for(JsonKVPair kvEntry : this.list) {
+            objectsList.add(kvEntry.value);
+        }
+
+        return objectsList;
     }
 
     public List<String> getStringValueList() throws IOException {
