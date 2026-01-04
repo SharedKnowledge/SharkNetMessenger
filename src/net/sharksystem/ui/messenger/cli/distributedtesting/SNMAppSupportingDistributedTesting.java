@@ -5,8 +5,10 @@ import net.sharksystem.app.messenger.SharkNetMessage;
 import net.sharksystem.app.messenger.SharkNetMessageList;
 import net.sharksystem.app.messenger.SharkNetMessengerChannel;
 import net.sharksystem.app.messenger.SharkNetMessengerException;
+import net.sharksystem.app.messenger.commands.CommandNames;
 import net.sharksystem.asap.ASAPException;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
+import net.sharksystem.ui.messenger.cli.testlanguage.TestLanguageCompiler;
 import net.sharksystem.utils.Log;
 import net.sharksystem.utils.SerializationHelper;
 
@@ -198,13 +200,57 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                             testScriptDescription.script).start();
                          */
                         // produce test running process
-                        new ScriptRunnerProcess(
-                                Integer.toString(testScriptDescription.peerIndex),
-                                testScriptDescription.testID,
-                                testScriptDescription.script).start();
-                        this.tellUI("running script: " + testScriptDescription.script);
+                        String testPeerName = Integer.toString(testScriptDescription.peerIndex)
+                                + "_" + testScriptDescription.testID;
+                        ScriptRunnerProcess testPeerRunner =
+                                new ScriptRunnerProcess(testPeerName, testScriptDescription.script);
+
+                        /// produce peer sending back logs
+                        StringBuilder sb = new StringBuilder();
+                        // timeBomb maxDurationInMillis*10;
+                        sb.append(CommandNames.CLI_TIME_BOMB);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(testScriptDescription.maxDurationInMillis * 10);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+                        // wait maxDurationInMillis*2;
+                        sb.append(CommandNames.CLI_WAIT);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(testScriptDescription.maxDurationInMillis * 2);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+                        // connectTCP oHost oPort;
+                        sb.append(CommandNames.CLI_CONNECT_TCP);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(testScriptDescription.orchestratorAddress);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(testScriptDescription.orchestratorPort);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+                        // sendMessage asapLogs<PeerName>.txt sn/file;
+                        sb.append(CommandNames.SEND_MESSAGE);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append("asapLogs").append(testPeerName).append(".txt");
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(SharkNetMessage.SN_CONTENT_TYPE_FILE);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+                        // sendMessage <PeerName>_uiOutErr sn/file;
+                        sb.append(CommandNames.SEND_MESSAGE);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(testPeerName).append(ScriptRunnerProcess.LOG_EXTENSION);
+                        sb.append(TestLanguageCompiler.CLI_SPACE);
+                        sb.append(SharkNetMessage.SN_CONTENT_TYPE_FILE);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+                        // exit
+                        sb.append(CommandNames.CLI_EXIT);
+                        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+
+                        String logsSenderScript = sb.toString();
+                        ScriptRunnerProcess logsSender =
+                                new ScriptRunnerProcess("SendLogsCanBeRemoved", logsSenderScript);
+
+                        // run test peer
+                        testPeerRunner.start();
                         Log.writeLog(this, "script running, remember to avoid redo it: " + testScriptDescription);
                         this.handledScripts.add(testScriptDescription);
+                        logsSender.start();
                     }
                     else {
                         this.tellUI("test script received, not for me though.");

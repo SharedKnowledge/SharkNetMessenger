@@ -70,6 +70,7 @@ public class SharkNetMessengerUI {
         if (isInteractive) {
             command.startCommandExecution();
         } else {
+//            System.out.println("------------- executing parameters -----------------\n" + cmd + "\n----------------------------");
             boolean executed = command.execute(cmd);
             if(!executed) {
                 this.errStream.println("Arguments invalid for command: " + commandIdentifier);

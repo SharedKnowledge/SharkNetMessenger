@@ -13,6 +13,9 @@ class TestScriptDescription {
     public final String script;
     public final String testID;
     public final String peerID;
+    public final String orchestratorAddress;
+    public final int orchestratorPort;
+    public final int maxDurationInMillis;
 
     public static boolean same(TestScriptDescription a, TestScriptDescription b) {
         return a.peerIndex == b.peerIndex
@@ -21,12 +24,16 @@ class TestScriptDescription {
                 && a.testID.equalsIgnoreCase(b.testID);
     }
 
-    public TestScriptDescription(String ipAddress, int peerIndex, String script, String testID, String peerID) {
+    public TestScriptDescription(String ipAddress, int peerIndex, String script, String testID, String peerID,
+             String orchestratorAddress, int orchestratorPort, int maxDurationInMillis) {
         this.ipAddress = ipAddress;
         this.peerIndex = peerIndex;
         this.script = script;
         this.testID = testID;
         this.peerID = peerID;
+        this.orchestratorAddress = orchestratorAddress;
+        this.orchestratorPort = orchestratorPort;
+        this.maxDurationInMillis = maxDurationInMillis;
     }
 
     public TestScriptDescription(byte[] serialisedMessage) throws IOException, ASAPException {
@@ -37,6 +44,9 @@ class TestScriptDescription {
         this.script = ASAPSerialization.readCharSequenceParameter(bais);
         this.testID = ASAPSerialization.readCharSequenceParameter(bais);
         this.peerID = ASAPSerialization.readCharSequenceParameter(bais);
+        this.orchestratorAddress = ASAPSerialization.readCharSequenceParameter(bais);
+        this.orchestratorPort = ASAPSerialization.readIntegerParameter(bais);
+        this.maxDurationInMillis = ASAPSerialization.readIntegerParameter(bais);
     }
 
     public byte[] getMessageBytes() throws IOException {
@@ -47,6 +57,9 @@ class TestScriptDescription {
         ASAPSerialization.writeCharSequenceParameter(this.script, baos);
         ASAPSerialization.writeCharSequenceParameter(this.testID, baos);
         ASAPSerialization.writeCharSequenceParameter(this.peerID, baos);
+        ASAPSerialization.writeCharSequenceParameter(this.orchestratorAddress, baos);
+        ASAPSerialization.writeIntegerParameter(this.orchestratorPort, baos);
+        ASAPSerialization.writeIntegerParameter(this.maxDurationInMillis, baos);
 
         return baos.toByteArray();
     }
@@ -55,6 +68,8 @@ class TestScriptDescription {
         return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex
                 + " | peerID: " + this.peerID
                 + " | test#: " + this.testID
-                + " | script: " + this.script;
+                + " | script: " + this.script
+                + " | o host: " + this.orchestratorAddress
+                + " | o port: " + this.orchestratorPort;
     }
 }

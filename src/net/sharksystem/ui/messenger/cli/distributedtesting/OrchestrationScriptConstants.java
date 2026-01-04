@@ -1,4 +1,4 @@
-package net.sharksystem.app.messenger.commands.testing;
+package net.sharksystem.ui.messenger.cli.distributedtesting;
 
 public abstract class OrchestrationScriptConstants {
     public static final String TESTNAME_NAME = "testname";

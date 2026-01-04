@@ -33,6 +33,7 @@ class OrchestratedTestLauncher extends Thread {
     private static String scriptSetTimeBomb;
 
     public static int nextTestNumber = 0;
+    private final int portNumber4ThisTest;
     public int testNumber = 0;
 
     private int maxTestDurationInMillis = MAX_TEST_DURATION_IN_MILLIS;
@@ -83,7 +84,7 @@ class OrchestratedTestLauncher extends Thread {
         }
 
         // find available orchestratorPort
-        int portNumber4ThisTest = getAvailablePortNumber();
+        this.portNumber4ThisTest = getAvailablePortNumber();
 
         ///// init scripts used for each test run
 
@@ -160,9 +161,20 @@ class OrchestratedTestLauncher extends Thread {
         sb.append(launchTag);
         sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-        // TODO collect results - will be a single lsMessages in the right channel.
+        /// / wait for results triple of max duration.
+        // wait max*3;
+        sb.append(CommandNames.CLI_WAIT);
+        sb.append(TestLanguageCompiler.CLI_SPACE);
+        sb.append(maxTestDurationInMillis * 3);
+        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-        // finish peer
+        ///  force CLI to write the log files
+        // lsMessages
+        sb.append(CommandNames.CLI_LIST_MESSAGES);
+        sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+
+       //// finish peer
+        // exit;
         sb.append(scriptEnd_Exit);
 
         //// orchestrator script produced
@@ -201,8 +213,6 @@ class OrchestratedTestLauncher extends Thread {
             sb.append(FINAL_WAIT_PERIODE_BEFORE_LAUNCH);
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-            // TODO send results - will be a couple of sendMessages with log files in the right channel.
-
             // add to peer script and finish with exit in case test developer forgot
             effectiveScripts[peerIndex] = sb.toString() + this.test2run.scripts.get(peerIndex) + scriptEnd_Exit;
         }
@@ -211,8 +221,8 @@ class OrchestratedTestLauncher extends Thread {
         Log.writeLog(this, "launching orchestrator: ");
         try {
             ScriptRunnerProcess scriptRunnerProcess =
-                    new ScriptRunnerProcess(ORCHESTRATOR_PEER_NAME,
-                            this.getTestID(), orchestratorScript);
+                    new ScriptRunnerProcess(
+                    ORCHESTRATOR_PEER_NAME + "_" + this.getTestID(), orchestratorScript);
             scriptRunnerProcess.start();
         } catch (IOException e) {
             String log = "could not start orchestrator process / don't send scripts to peers: " + e.getStackTrace();
@@ -248,7 +258,10 @@ class OrchestratedTestLauncher extends Thread {
                         i, // peerName
                         effectiveScripts[i], // testscript to run
                         this.getTestID(),
-                        peerEnvironment.peerID
+                        peerEnvironment.peerID,
+                        this.snmApp4DistributedTesting.getLocalIPAddress(),
+                        this.portNumber4ThisTest,
+                        this.maxTestDurationInMillis
                 );
 
                 // send message

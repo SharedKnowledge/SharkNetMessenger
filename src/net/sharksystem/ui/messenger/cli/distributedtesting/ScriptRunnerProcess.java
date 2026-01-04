@@ -10,11 +10,11 @@ import java.util.List;
 
 public class ScriptRunnerProcess {
     private final ProcessBuilder pb;
+    public static final String LOG_EXTENSION = "_uiOutErr.txt";
 
-    public ScriptRunnerProcess(String peerName, String testID, String script) throws IOException {
+    public ScriptRunnerProcess(String peerName, String script) throws IOException {
         // produce command line to launch a new SNM CLI
         peerName = getFriendlyPeerName(peerName);
-        peerName = peerName + "_" + testID;
 
         Log.writeLog(this, "building process: " + peerName + " | " + script);
 
@@ -25,9 +25,12 @@ public class ScriptRunnerProcess {
         args.add(peerName);
         args.add(String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS));
         args.add(script);
+
+        System.out.printf(">>>>>>>>>> START PROCESS: >>>>>>>>>>>>>>>>\n"
+                + args + "\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         this.pb = new ProcessBuilder(args);
 
-        File log = new File(peerName + "_uiOutErr.txt");
+        File log = new File(peerName + LOG_EXTENSION);
         this.pb.redirectErrorStream(true);
         this.pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
     }
