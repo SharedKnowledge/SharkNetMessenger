@@ -192,11 +192,18 @@ class OrchestratedTestLauncher extends Thread {
             sb.append(launchTag);
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
+            //// close encounter with orchestrator
+            // e.g. block launchTest_cs1_#0
+            sb.append(CommandNames.CLI_CLOSE_ENCOUNTER);
+            sb.append(TestLanguageCompiler.CLI_SPACE);
+            sb.append("1");
+            sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+
             //// write a readable log message
             // e.g. markstep
             sb.append(CommandNames.CLI_MARKSTEP);
             sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append("synchronized_startTest_").append(getTestID());
+            sb.append("startTest_").append(getTestID());
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
             // add actual script

@@ -48,7 +48,7 @@ public class UICommandListMessages extends AbstractCommandWithSingleInteger {
             try {
                 channel = messenger.getChannel(channelIndex);
             }
-            catch (SharkException se) {
+            catch (RuntimeException | SharkException se) {
                 String errorMessage = "there is no channel index " + userChannelIndex;
                 if(produceUIOutput) this.getSharkMessengerApp().tellUI(errorMessage);
                 snmJsonBuilder.error(errorMessage);

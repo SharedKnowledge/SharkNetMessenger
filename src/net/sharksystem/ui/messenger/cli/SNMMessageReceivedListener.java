@@ -16,7 +16,7 @@ public class SNMMessageReceivedListener extends SharkNetMessengerAppListener imp
         try {
             SharkNetMessageList messages = this.sharkMessengerApp.getSharkMessengerComponent().getChannel(uri).getMessages();
             String sb = messages.size() +
-                    "messages received in channel " +
+                    " message(s) received in channel " +
                     uri;
             this.sharkMessengerApp.tellUI(sb);
 

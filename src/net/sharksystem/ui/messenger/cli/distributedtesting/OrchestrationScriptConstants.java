@@ -8,4 +8,5 @@ public abstract class OrchestrationScriptConstants {
     public static final int DEFAULT_MAX_DURATION_IN_MS = 20*60*1000; // 20 minutes
     public static final String PEER_ENVIRONMENT_REQUIREMENTS_OS_NAME = "osName";
     public static final String PEER_ENVIRONMENT_REQUIREMENTS_OS_VERSION = "osVersion";
+    public static final int MIN_MAX_DURATION_IN_MS = 30000; // should at least run half a minute - empiric value
 }

@@ -199,7 +199,7 @@ public class ProductionUI {
 
         // encounter control
         smUI.addCommand(new UICommandListEncounter(sharkMessengerApp, smUI, "lsEncounter", false));
-        smUI.addCommand(new UICommandCloseEncounter(sharkMessengerApp, smUI, "closeEncounter", true));
+        smUI.addCommand(new UICommandCloseEncounter(sharkMessengerApp, smUI, CommandNames.CLI_CLOSE_ENCOUNTER, true));
         smUI.addCommand(new UICommandDenyEncounter(sharkMessengerApp, smUI, "denyEncounter", false));
 
         // Persons

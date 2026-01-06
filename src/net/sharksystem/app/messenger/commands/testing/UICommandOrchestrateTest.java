@@ -74,6 +74,12 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
                     testCaseDescription.getValue(OrchestrationScriptConstants.MAX_DURATION_IN_MS_NAME).getValue();
 
             maxDuration = Integer.parseInt(maxDurationString);
+
+            if(maxDuration < OrchestrationScriptConstants.MIN_MAX_DURATION_IN_MS) {
+                this.getSharkMessengerApp().tellUI("test should run at least (in ms) "
+                        + OrchestrationScriptConstants.MIN_MAX_DURATION_IN_MS + " / take that value instead" );
+                maxDuration = OrchestrationScriptConstants.MIN_MAX_DURATION_IN_MS;
+            }
         }
         catch(NumberFormatException | IOException e) {
             this.getSharkMessengerApp().tellUI("max duration not explicitly set - go with default");
@@ -117,11 +123,12 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         }
         catch(IOException e) {
             this.getSharkMessengerApp().tellUI(
-                    "not peer requirements at all - that's okay, any volunteering peer will be accepted");
+                    "no peer requirements at all - that's okay, any volunteering peer will be accepted");
         }
 
         // Orchestrator: orchestrateTest ..\csTestCase.txt; openTCP 6907
         // Orchestrator: orchestrateTest ..\simpleTest.txt; openTCP 6907
+        // Orchestrator: orchestrateTest ..\simpleTest2.txt; openTCP 6907
         // dann Peers: connectTCP localhost 6907; scriptRQ
 
         /**

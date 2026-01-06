@@ -11,4 +11,5 @@ public interface CommandNames {
     String CLI_LIST_MESSAGES = "lsMessages";
     String SEND_MESSAGE = "sendMessage";
     String CLI_MARKSTEP = "markstep";
+    String CLI_CLOSE_ENCOUNTER = "closeEncounter";
 }
