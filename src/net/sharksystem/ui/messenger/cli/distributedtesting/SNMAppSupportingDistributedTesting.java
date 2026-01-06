@@ -200,12 +200,15 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                             testScriptDescription.script).start();
                          */
                         // produce test running process
-                        String testPeerName = Integer.toString(testScriptDescription.peerIndex)
-                                + "_" + testScriptDescription.testID;
+                        String testPeerName =
+                                "TestPeer_"
+                                + Integer.toString(testScriptDescription.peerIndex)
+                                + "_Test_"
+                                + testScriptDescription.testID;
                         ScriptRunnerProcess testPeerRunner =
                                 new ScriptRunnerProcess(testPeerName, testScriptDescription.script);
 
-                        /// produce peer sending back logs
+                        /// produce peer sending back logs ////////////////////////////////////////////////////////
                         StringBuilder sb = new StringBuilder();
                         // timeBomb maxDurationInMillis*10;
                         sb.append(CommandNames.CLI_TIME_BOMB);
@@ -243,8 +246,11 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                         sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
                         String logsSenderScript = sb.toString();
+                        String senderName = "SendLogs_TestPeer_" + testScriptDescription.peerIndex + "_" + testScriptDescription.testID;
                         ScriptRunnerProcess logsSender =
-                                new ScriptRunnerProcess("SendLogsCanBeRemoved", logsSenderScript);
+                                new ScriptRunnerProcess(
+                                    senderName, // specific test name
+                                    logsSenderScript);
 
                         // run test peer
                         testPeerRunner.start();
@@ -257,7 +263,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                         Log.writeLog(this, "test script received, not for me: " + testScriptDescription);
                     }
                 }
-            } catch (IOException | SharkException e) {
+            } catch (Throwable e) {
                 String log = "problems handling test script received channel: " + e.getLocalizedMessage();
                 this.tellUIError(log);
                 Log.writeLogErr(this, log);

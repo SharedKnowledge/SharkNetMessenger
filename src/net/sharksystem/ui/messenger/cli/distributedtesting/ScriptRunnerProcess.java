@@ -26,7 +26,7 @@ public class ScriptRunnerProcess {
         args.add(String.valueOf(ASAPHubManager.DEFAULT_WAIT_INTERVAL_IN_SECONDS));
         args.add(script);
 
-        System.out.printf(">>>>>>>>>> START PROCESS: >>>>>>>>>>>>>>>>\n"
+        System.out.println(">>>>>>>>>> START PROCESS: >>>>>>>>>>>>>>>>\n"
                 + args + "\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         this.pb = new ProcessBuilder(args);
 

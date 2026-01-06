@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.UnknownHostException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * class that orchestrates one distributed test scenario
@@ -33,7 +32,7 @@ class OrchestratedTestLauncher extends Thread {
     public static int nextTestNumber = 0;
     private final int portNumber4ThisTest;
     private final String orchestratorScript;
-    private String[] effectiveScripts4Peers;
+    private String[] effectiveScripts;
     public int testNumber = 0;
 
     private int maxTestDurationInMillis = MAX_TEST_DURATION_IN_MILLIS;
@@ -147,18 +146,18 @@ class OrchestratedTestLauncher extends Thread {
 
         ////// produce test script each peer ////////////////////////////////////////////////////////////////////
         // substitute ip-address placeholder
-        this.effectiveScripts4Peers = new String[this.test2run.peerScripts.size()];
-        for(int effectiveIndex = 0; effectiveIndex < this.test2run.peerScripts.size(); effectiveIndex++) {
-            // peerScripts - peerName, script map.
-
-            this.effectiveScripts4Peers[effectiveIndex++] =
+        this.effectiveScripts = new String[this.test2run.peerScripts.size()];
+        int scriptsIndex = 0;
+        while(scriptsIndex < this.test2run.peerScripts.size()) {
+            this.effectiveScripts[scriptsIndex] =
                     this.substituteScriptPlaceHolder(
-                        this.test2run.peerScripts.get(effectiveIndex), // script
+                        this.test2run.peerScripts.get(scriptsIndex), // script
                         this.test2run.peerEnvironment // complete peer environment
                 );
+            scriptsIndex++;
         }
 
-        for (int peerIndex = 0; peerIndex < this.test2run.peerScripts.size(); peerIndex++) {
+        for (int peerIndex = 0; peerIndex < this.effectiveScripts.length; peerIndex++) {
             sb = new StringBuilder();
             //// set time bomb to avoid orphan processes - value is set in test case description file
             // e.g. timeBomb 120000;
@@ -193,17 +192,26 @@ class OrchestratedTestLauncher extends Thread {
             sb.append(launchTag);
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-            //// don't (it can hurt, though): and better wait a moment - won't hurt -
-            // wait 1000;
-            /*
-            sb.append(CommandNames.CLI_WAIT);
+            //// write a readable log message
+            // e.g. markstep
+            sb.append(CommandNames.CLI_MARKSTEP);
             sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(FINAL_WAIT_PERIODE_BEFORE_LAUNCH);
+            sb.append("synchronized_startTest_").append(getTestID());
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
-             */
+
+            // add actual script
+            sb.append(this.effectiveScripts[peerIndex]);
+            // e.g. markstep
+            sb.append(CommandNames.CLI_MARKSTEP);
+            sb.append(TestLanguageCompiler.CLI_SPACE);
+            sb.append("test_ended_").append(getTestID());
+            sb.append(TestLanguageCompiler.CLI_SEPARATOR);
+
+            // add exit;
+            sb.append(scriptEnd_Exit);
 
             // add to peer script and finish with exit in case test developer forgot
-            this.effectiveScripts4Peers[peerIndex] = sb.toString() + this.test2run.peerScripts.get(peerIndex) + scriptEnd_Exit;
+            this.effectiveScripts[peerIndex] = sb.toString();
         }
     }
 
@@ -240,7 +248,6 @@ class OrchestratedTestLauncher extends Thread {
          */
 
         //// now - send script to each peer
-
         // to avoid even the slightest chance of a race condition - make a little break;
         try {
             Thread.sleep(1000);
@@ -255,7 +262,7 @@ class OrchestratedTestLauncher extends Thread {
                 TestScriptDescription testScriptDescription = new TestScriptDescription(
                         peerEnvironment.toString(), // peer IP Address
                         i, // peerName
-                        effectiveScripts4Peers[i], // testscript to run
+                        this.effectiveScripts[i], // testscript to run
                         this.getTestID(),
                         peerEnvironment.peerID,
                         this.snmApp4DistributedTesting.getLocalIPAddress(),
@@ -275,7 +282,7 @@ class OrchestratedTestLauncher extends Thread {
                 Log.writeLog(this, "sent script: ip | test# | script"
                         + peerEnvironment.peerID + " | "
                         + this.testNumber + " | "
-                        + effectiveScripts4Peers[i]);
+                        + effectiveScripts[i]);
 
                 this.snmApp4DistributedTesting.
                         tellUI("test scripts sent to " + peerEnvironment.peerID + "@" + peerEnvironment.ipAddress);
@@ -308,14 +315,21 @@ class OrchestratedTestLauncher extends Thread {
 
             int peerIndex = -1;
             try {
-                Integer.parseInt(peerIndexString);
+                peerIndex = Integer.parseInt(peerIndexString);
             }
             catch(NumberFormatException e) {
                 throw new UnknownHostException("malformed placeholder (should be %IP_n% .. n is NOT a value) - give up");
             }
 
             // replace with actual ip-address
-            sb.append(peerEnvironments.get(peerIndex).ipAddress);
+            try {
+                PeerHostingEnvironmentDescription peerEnvironment = peerEnvironments.get(peerIndex);
+                sb.append(peerEnvironment.ipAddress);
+            }
+            catch(RuntimeException e) {
+                throw new UnknownHostException("exception when substituting ip address placeholder for peer "
+                        + peerIndexString + "\n" + e.getLocalizedMessage());
+            }
 
             // add rest of the script
             if(endTagIndex+1 < script.length()) {

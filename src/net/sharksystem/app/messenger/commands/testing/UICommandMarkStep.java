@@ -11,7 +11,7 @@ public class UICommandMarkStep extends AbstractCommandWithSingleString {
 
     @Override
     protected void execute() throws Exception {
-        String sb = "***********************************************************************\n" +
+        String sb = "\n***********************************************************************\n" +
                 "                   step: " +
                 this.getStringArgument() +
                 "\n" +

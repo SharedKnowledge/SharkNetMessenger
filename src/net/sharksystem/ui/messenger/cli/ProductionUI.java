@@ -165,7 +165,7 @@ public class ProductionUI {
         smUI.addCommand(new UICommandClearLog(sharkMessengerApp, smUI, "clearLog", false));
         smUI.addCommand(new UICommandWait(sharkMessengerApp, smUI, "wait", false));
         smUI.addCommand(new UICommandEcho(sharkMessengerApp, smUI, "echo", false));
-        smUI.addCommand(new UICommandMarkStep(sharkMessengerApp, smUI, "markstep", false));
+        smUI.addCommand(new UICommandMarkStep(sharkMessengerApp, smUI, CommandNames.CLI_MARKSTEP, false));
         smUI.addCommand(new UICommandExistsMessage(sharkMessengerApp, smUI, "exists (NYI - TODO)", false));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
