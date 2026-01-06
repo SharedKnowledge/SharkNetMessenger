@@ -16,6 +16,10 @@ public class TestLanguageCompiler {
 
     public static final String DEFAULT_PORT = "6907";
 
+    public static final String PLACEHOLDER_START_TAG = "%";
+    public static final String IP_ADDRESS_PLACEHOLDER_START_TAG = PLACEHOLDER_START_TAG + "IP_";
+    public static final String PLACEHOLDER_END_TAG = "%";
+
     /**
      * sentence -> command SEPARATOR command
      * command -> connectCommand | ...

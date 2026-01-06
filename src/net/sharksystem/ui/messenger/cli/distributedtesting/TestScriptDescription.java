@@ -66,10 +66,10 @@ class TestScriptDescription {
 
     public String toString() {
         return "ip: " + this.ipAddress + " | peerIndex: " + this.peerIndex
-                + " | peerID: " + this.peerID
-                + " | test#: " + this.testID
-                + " | script: " + this.script
-                + " | o host: " + this.orchestratorAddress
-                + " | o port: " + this.orchestratorPort;
+                + " | peerID-Launcher: " + this.peerID
+                + " | testID: " + this.testID
+                + " | max in ms: " + this.maxDurationInMillis
+                + " | o-host: " + this.orchestratorAddress
+                + " | o-port: " + this.orchestratorPort;
     }
 }

@@ -1,10 +1,7 @@
 package net.sharksystem.utils.json;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A json object is a key/value pair
@@ -102,6 +99,11 @@ public class JSONObject {
         }
 
         return stringList;
+    }
+
+    public Set<String> getKeys() throws IOException {
+        if(this.set == null) throw new IOException("object does have key/value pairs");
+        return this.set.keySet();
     }
 
     public class JsonKVPair {

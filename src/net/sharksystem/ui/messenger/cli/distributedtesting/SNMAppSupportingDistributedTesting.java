@@ -210,7 +210,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                         // timeBomb maxDurationInMillis*10;
                         sb.append(CommandNames.CLI_TIME_BOMB);
                         sb.append(TestLanguageCompiler.CLI_SPACE);
-                        sb.append(testScriptDescription.maxDurationInMillis * 10);
+                        sb.append(testScriptDescription.maxDurationInMillis * 5);
                         sb.append(TestLanguageCompiler.CLI_SEPARATOR);
                         // wait maxDurationInMillis*2;
                         sb.append(CommandNames.CLI_WAIT);
@@ -354,7 +354,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                 // add actual test ensemble
                 OrchestratedTest readyTest = new OrchestratedTest(
                         testEnsemble.peerEnvironment, // replace requirements with actual available matching peer
-                        waitingTest.scripts, // copy scripts
+                        waitingTest.peerScripts, // copy scripts
                         waitingTest.maxDurationInMilli,
                         waitingTest.testName
                 );
@@ -379,20 +379,17 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
             // launch tests
             this.tellUI("test staged .. going to launch");
             Log.writeLog(this, "test(s) staged .. going to launch");
-            this.launchTests();
+
+            while(!this.orchestratedTestsReady.isEmpty()) {
+                OrchestratedTest readyTest = this.orchestratedTestsReady.remove(0);
+                OrchestratedTestLauncher readyTestLauncher = new OrchestratedTestLauncher(this, readyTest);
+                readyTestLauncher.start();
+
+                // TODO wait for process to end - to re-schedule test peers.
+            }
         } else {
             this.tellUI("couldn't stage a test - not enough peers");
             Log.writeLog(this, "couldn't stage a test - not enough peers");
-        }
-    }
-
-    /** launch ready distributed test scenario */
-    private void launchTests() throws UnknownHostException {
-        this.tellUI("launchTests reached");
-        while(!this.orchestratedTestsReady.isEmpty()) {
-            OrchestratedTest readyTest = this.orchestratedTestsReady.remove(0);
-            OrchestratedTestLauncher readyTestLauncher = new OrchestratedTestLauncher(this, readyTest);
-            readyTestLauncher.start();
         }
     }
 

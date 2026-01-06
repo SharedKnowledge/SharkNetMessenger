@@ -11,7 +11,9 @@ import net.sharksystem.utils.json.JSONParser;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
     SNMAppSupportingDistributedTesting snmTestSupport;
@@ -40,14 +42,13 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
         String fileName = this.getStringArgument();
         JSONParser jsonParser = new JSONParser(new File(fileName));
 
-        // get all scripts - mandatory parameter
+        //////////////////////// SCRIPTS : orchestrateTest ..\csTestCase.txt
+        // get all scriptsObjects - mandatory parameter
         JSONObject testCaseDescription = jsonParser.getParsedDocument();
-        JSONObject scripts = testCaseDescription.getValue(OrchestrationScriptConstants.SCRIPTS_NAME);
-        List<String> scriptsList = scripts.getStringValueList();
-
-        if(scriptsList.isEmpty()) {
-            this.getSharkMessengerApp().tellUIError("scripts list must not be empty");
-            return;
+        JSONObject scriptsObjects = testCaseDescription.getValue(OrchestrationScriptConstants.SCRIPTS_NAME);
+        List<String> scripts = new ArrayList<>();
+        for(JSONObject scriptObject : scriptsObjects.getObjectsList()) {
+            scripts.add(scriptObject.getValue());
         }
 
         //////////////////////// TEST NAME
@@ -78,41 +79,45 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
             this.getSharkMessengerApp().tellUI("max duration not explicitly set - go with default");
         }
 
-        //////////////////////// PEER REQUIREMENTS
-        JSONObject peerRequirements =
-                testCaseDescription.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_NAME);
-
-        // read peer environment requirements
-        List<JSONObject> peerRequirementList = peerRequirements.getObjectsList();
-        if(peerRequirementList.size() > scriptsList.size()) {
-            this.getSharkMessengerApp().tellUIError("peer requirements list is longer than scripts list - give up");
-            return;
-        }
-
+        //////////////////////// PEER REQUIREMENTS - optional (also in length)
         List<PeerHostingEnvironmentDescription> peerRequirementsDescriptionList = new ArrayList<>();
 
-        for(JSONObject requirements : peerRequirementList) {
-            String osName = null;
-            String osVersion = null;
-            try {
-                JSONObject element =
-                        requirements.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_OS_NAME);
-                osName = element.getValue();
-            }
-            catch(IOException ioe) { /* no osName - that's okay */ }
-            try {
-                JSONObject element =
-                        requirements.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_OS_VERSION);
-                osVersion = element.getValue();
-            }
-            catch(IOException ioe) { /* no osVersion - that's okay */ }
+        try {
+            JSONObject peerRequirements =
+                    testCaseDescription.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_NAME);
 
-            if((osName == null || osName.isEmpty()) && (osVersion == null || osVersion.isEmpty())) {
-                this.getSharkMessengerApp().tellUI("at least one peer requirements description is present but does not contain any requirements - ignored");
-            } else {
-                peerRequirementsDescriptionList.add(
-                   new PeerHostingEnvironmentDescription(null, osName, osVersion, null));
+            // read peer environment requirements
+            List<JSONObject> peerRequirementList = peerRequirements.getObjectsList();
+            if (peerRequirementList.size() > scripts.size()) {
+                this.getSharkMessengerApp().tellUIError("peer requirements list is longer than scriptsObjects list - give up");
+                return;
             }
+
+            for (JSONObject requirements : peerRequirementList) {
+                String osName = null;
+                String osVersion = null;
+                try {
+                    JSONObject element =
+                            requirements.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_OS_NAME);
+                    osName = element.getValue();
+                } catch (IOException ioe) { /* no osName - that's okay */ }
+                try {
+                    JSONObject element =
+                            requirements.getValue(OrchestrationScriptConstants.PEER_ENVIRONMENT_REQUIREMENTS_OS_VERSION);
+                    osVersion = element.getValue();
+                } catch (IOException ioe) { /* no osVersion - that's okay */ }
+
+                if ((osName == null || osName.isEmpty()) && (osVersion == null || osVersion.isEmpty())) {
+                    this.getSharkMessengerApp().tellUI("at least one peer requirements description is present but does not contain any requirements - ignored");
+                } else {
+                    peerRequirementsDescriptionList.add(
+                            new PeerHostingEnvironmentDescription(null, osName, osVersion, null));
+                }
+            }
+        }
+        catch(IOException e) {
+            this.getSharkMessengerApp().tellUI(
+                    "not peer requirements at all - that's okay, any volunteering peer will be accepted");
         }
 
         // Orchestrator: orchestrateTest ..\csTestCase.txt; openTCP 6907
@@ -126,12 +131,12 @@ public class UICommandOrchestrateTest extends AbstractCommandWithSingleString {
          */
 
         this.getSharkMessengerApp().
-                tellUI("waiting for peers \n" + peerRequirementsDescriptionList + "\nto execute:\n" + scriptsList);
+                tellUI("waiting for peers \n" + peerRequirementsDescriptionList + "\nto execute:\n" + scripts);
 
         // fill with example data
         this.snmTestSupport.orchestrateTest(
                 peerRequirementsDescriptionList,
-                scriptsList,
+                scripts,
                 maxDuration,
                 testName);
     }

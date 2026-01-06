@@ -1,10 +1,11 @@
 package net.sharksystem.ui.messenger.cli.distributedtesting;
 
 import java.util.List;
+import java.util.Map;
 
 class OrchestratedTest {
     List<PeerHostingEnvironmentDescription> peerEnvironment;
-    List<String> scripts;
+    List<String> peerScripts;
     int maxDurationInMilli;
     String testName;
 
@@ -14,7 +15,7 @@ class OrchestratedTest {
             int maxDurationInMilli,
             String testName) {
         this.peerEnvironment = requiredPeerEnvironment;
-        this.scripts = scripts;
+        this.peerScripts = scripts;
         this.maxDurationInMilli = maxDurationInMilli;
         this.testName = testName;
     }
