@@ -19,3 +19,4 @@ md playground
 md __bugfixing
 copy SharkNetMessengerCLI.jar playground
 copy SharkNetMessengerCLI.jar __bugfixing
+copy SharkNetMessengerCLI.jar playground2

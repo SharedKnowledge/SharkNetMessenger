@@ -270,8 +270,7 @@ public class SharkNetMessengerApp implements SharkPeerEncounterChangedListener, 
     public void connectTCP(String host, int portNumber) throws IOException {
         if(host.equalsIgnoreCase("127.0.0.1") || host.equalsIgnoreCase("localhost")) {
             if(this.openSockets.containsKey(portNumber)) {
-                System.err.println("attempt to establish a connection to same process/peer refused");
-                return;
+                throw new IOException("attempt to establish a connection to same process/peer refused");
             }
         }
         Socket socket = new Socket(host, portNumber);

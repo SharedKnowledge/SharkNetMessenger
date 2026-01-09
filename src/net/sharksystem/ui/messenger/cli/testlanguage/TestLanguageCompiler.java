@@ -14,6 +14,11 @@ public class TestLanguageCompiler {
     public static final char CLI_SPACE = ' ';
     public static final char CLI_SEPARATOR = ';';
 
+    public static final int NR_CONNECTION_ATTEMPTS = 5;
+    public static final int WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS = 2000;
+    // was an attempt to work around a bug - not a good idea when we talk about an alpha version
+    public static final int HEAD_START_PEER_IN_MS = WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS;
+
     public static final String DEFAULT_PORT = "6907";
 
     public static final String PLACEHOLDER_START_TAG = "%";

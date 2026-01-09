@@ -91,10 +91,24 @@ class OrchestratedTestLauncher extends Thread {
         //////////////////// produce orchestrator script //////////////////////////////////////////////////////////////
         String launchTag = LAUNCH_TEST_TAG_PREAMBLE + this.getTestID();
 
-        // produce orchestrator script - sync and collect data
+        // add setup time to max duration:
+        /*
+        calculation: peer start is delayed. Each peer has multiple connection attempts including a wait period.
+        The whole max time increased by last peers additional time
+        startDelay*(#peers-1) + maxConnection time
+         */
+        int additionalTimeInMS =
+                TestLanguageCompiler.NR_CONNECTION_ATTEMPTS*TestLanguageCompiler.WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS;
+                        //+ TestLanguageCompiler.HEAD_START_PEER_IN_MS * this.test2run.peerScripts.size()-1;
+        this.maxTestDurationInMillis += additionalTimeInMS;
+
+        this.snmApp4DistributedTesting.tellUI(
+                "add test setup time (" + additionalTimeInMS + ") to max test duration which is now (in ms): "
+                + this.maxTestDurationInMillis);
+
         StringBuilder sb = new StringBuilder();
         this.snmApp4DistributedTesting.tellUI(
-                "note: orchestrator test runs 10 time as long as each peer (in ms): " + this.maxTestDurationInMillis);
+                "note: orchestrator test runs 10 time as long as each peer");
 
         // set timeBomb like timeBomb 1200000;
         sb.append(CommandNames.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
@@ -164,7 +178,16 @@ class OrchestratedTestLauncher extends Thread {
             sb.append(CommandNames.CLI_TIME_BOMB).append(TestLanguageCompiler.CLI_SPACE);
             sb.append(this.maxTestDurationInMillis).append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
 
-            // connect <orchestratorIP> <port>;
+            // head start
+            /*
+            if(peerIndex > 0) {
+                sb.append(CommandNames.CLI_WAIT).append(TestLanguageCompiler.CLI_SPACE);
+                sb.append(TestLanguageCompiler.HEAD_START_PEER_IN_MS * peerIndex);
+                sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            }
+             */
+
+            // connect <orchestratorIP> <port> <further parameters;
             sb.append(CommandNames.CLI_CONNECT_TCP);
             sb.append(TestLanguageCompiler.CLI_SPACE);
             try {
@@ -173,7 +196,10 @@ class OrchestratedTestLauncher extends Thread {
                 throw new RuntimeException(e);
             }
             sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(this.portNumber4ThisTest);
+            sb.append(this.portNumber4ThisTest).append(TestLanguageCompiler.CLI_SPACE);
+            sb.append(TestLanguageCompiler.NR_CONNECTION_ATTEMPTS).append(TestLanguageCompiler.CLI_SPACE);
+            sb.append(TestLanguageCompiler.WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS).append(TestLanguageCompiler.CLI_SPACE);
+            sb.append("true"); // block during attempts
             sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
 
             //// tell orchestrator settled

@@ -17,9 +17,11 @@ public class UICommandMarkStep extends AbstractCommandWithSingleString {
                 "\n" +
                 "***********************************************************************\n";
         this.getSharkMessengerApp().tellUI(sb);
+        /*
         int millis = 500;
         this.getSharkMessengerApp().tellUI("wait " + millis);
         Thread.sleep(millis);
+         */
     }
 
     @Override

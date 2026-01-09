@@ -92,6 +92,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
 
     void releaseReceived(CharSequence releaseChannelURI) {
         Set<String> newReceivedLabels = new HashSet<>();
+        System.out.println("DEBUG: release received; list before: " + this.receivedLabels);
         try {
             SharkNetMessengerChannel releaseChannel =
                     this.getSharkMessengerComponent().getChannel(releaseChannelURI);
@@ -105,6 +106,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
             }
             // replace old with new list
             this.receivedLabels = newReceivedLabels;
+            System.out.println("DEBUG: release received; list after: " + this.receivedLabels);
 
             // let's check waiting threads again
             for(Thread blockedThread : this.blockedThreads) {
@@ -192,18 +194,11 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                             continue;
                         }
 
-                        /*
-                        // produce test running thread
-                        new ScriptRunnerThread(
-                            Integer.toString(testScriptDescription.peerIndex),
-                            Integer.toString(testScriptDescription.testNumber),
-                            testScriptDescription.script).start();
-                         */
                         // produce test running process
                         String testPeerName =
                                 "TestPeer_"
                                 + Integer.toString(testScriptDescription.peerIndex)
-                                + "_Test_"
+                                + "_"
                                 + testScriptDescription.testID;
                         ScriptRunnerProcess testPeerRunner =
                                 new ScriptRunnerProcess(testPeerName, testScriptDescription.script);
@@ -246,7 +241,7 @@ public class SNMAppSupportingDistributedTesting extends SharkNetMessengerApp {
                         sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
                         String logsSenderScript = sb.toString();
-                        String senderName = "SendLogs_TestPeer_" + testScriptDescription.peerIndex + "_" + testScriptDescription.testID;
+                        String senderName = "SendTestLogs_Peer_" + testScriptDescription.peerIndex + "_" + testScriptDescription.testID;
                         ScriptRunnerProcess logsSender =
                                 new ScriptRunnerProcess(
                                     senderName, // specific test name
