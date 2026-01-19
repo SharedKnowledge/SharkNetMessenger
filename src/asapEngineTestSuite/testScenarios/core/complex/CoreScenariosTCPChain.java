@@ -40,7 +40,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
-//                + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + "_Dis " +  SN_CHARACTERS
+//              + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + "_Dis " +  SN_CHARACTERS
                 +  CLI_SEPARATOR;
     }
 
@@ -154,8 +154,43 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
 
     public String[] chainLTXcommands(String syncMarker, int peerCount) throws IllegalArgumentException {
         validation(syncMarker);
+        // Sa:1;Cab;Dab;Cbc;Dbc;Ccd;Dcd;Eb:1;Ec:1;Ed:1
+        int testDauer = WAIT_TIME * (peerCount);
 
-        //todo
-        return null;
+        String[] commandLists = new String[peerCount];
+
+        commandLists[0] = CommandListToFile.SEND_MESSAGE + FILLER_FILENAME + SN_FILE
+                + CLI_SEPARATOR
+                + "echo sendMessage"
+                + CLI_SEPARATOR
+                + openPortLine
+                + CLI_SEPARATOR
+                + "echo openTCP"
+                + CLI_SEPARATOR
+                + BLOCK + syncMarkerGenerator(1)
+                + CLI_SEPARATOR
+                + "closeEncounter 1"
+                + CLI_SEPARATOR
+                + "echo closeEncounter"
+                + CLI_SEPARATOR
+                + "exit";
+
+        for (int i = 1; i <= peerCount; i++) {
+            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * i
+                    + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+                    + CLI_SEPARATOR
+                    + "echo connectTCP"
+                    + CLI_SEPARATOR
+                    + RELEASE + syncMarkerGenerator(i)
+                    + CLI_SEPARATOR
+                    + CommandListToFile.LIST_MESSAGES
+                    + CLI_SEPARATOR
+
+        }
+
+        //C
+
+        //D
+        return commandLists;
     }
 }

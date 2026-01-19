@@ -8,7 +8,9 @@ import asapEngineTestSuite.utils.CommandListToFile;
  */
 public class CoreScenariosTCPStar extends CoreBasicEncounter {
 
-
+public String[][] starXCommands(int peerCount) {
+	//todo
+}
 
 
 }
