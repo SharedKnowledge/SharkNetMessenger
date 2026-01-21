@@ -3,6 +3,7 @@ package asapEngineTestSuite;
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
 import asapEngineTestSuite.testScenarios.core.CoreScenariosHub;
 import asapEngineTestSuite.testScenarios.core.complex.CoreScenariosTCPChain;
+import asapEngineTestSuite.testScenarios.core.complex.CoreScenariosTCPStar;
 import asapEngineTestSuite.utils.fileUtils.FileUtils;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,6 +50,8 @@ public class  CoreScenarioOutput {
 	private static final int DEFAULT_PEER_WAIT_MS = 1000;
     private static final String CHAINX = "CHAINX" ;
 	public static final String CHAINLTX = "CHAINLTX" ;
+	public static final String STARXCS = "STARXCS";
+	public static final String STARXSC = "STARXSC";
 
 	public static String tcpChainCore(String coreName) {
 		return CHAIN + coreName;
@@ -180,9 +183,26 @@ public class  CoreScenarioOutput {
 			//----------------------------------------//
 
 			filepath = concatenateDirectoryName(COMPLEX, CHAINLTX);
+			Files.createDirectories(Path.of(filepath));
+			String[] chainLTX = coreScenariosTCPChain.chainLTXcommands(CHAINLTX, 4);
+			finalizeAndWriteToFile(chainLTX, filepath + '/' + CHAINLTX + '_');
 
+			//----------------------------------------//
 
+			CoreScenariosTCPStar coreScenariosTCPStar = new CoreScenariosTCPStar();
+			filepath = concatenateDirectoryName(COMPLEX, STARXCS);
+			Files.createDirectories(Path.of(filepath));
+			String[] starcsx = coreScenariosTCPStar.star4CSCommands();
+			finalizeAndWriteToFile(starcsx, filepath + '/' + STARXCS + '_');
 
+			//----------------------------------------//
+
+			filepath = concatenateDirectoryName(COMPLEX, STARXSC);
+			Files.createDirectories(Path.of(filepath));
+			String[] starscx = coreScenariosTCPStar.star4SCCommands();
+			finalizeAndWriteToFile(starscx, filepath + '/' + STARXSC + '_');
+
+			//----------------------------------------//
 
 
 
