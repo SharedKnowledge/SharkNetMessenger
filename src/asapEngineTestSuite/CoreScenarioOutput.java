@@ -48,8 +48,9 @@ public class  CoreScenarioOutput {
 	// default wait used for some peers
 	private static final int DEFAULT_PEER_WAIT_MS = 1000;
     private static final String CHAINX = "CHAINX" ;
+	public static final String CHAINLTX = "CHAINLTX" ;
 
-    public static String tcpChainCore(String coreName) {
+	public static String tcpChainCore(String coreName) {
 		return CHAIN + coreName;
 	}
 
@@ -171,12 +172,14 @@ public class  CoreScenarioOutput {
 
 			//----------------------------------------//
 
-            filepath = concatenateDirectoryName(COMPLEX, CHAINX);
-            Files.createDirectories(Path.of(filepath));
-            String[] chainx = coreScenariosTCPChain.chainXCommands(CHAINX, 4);
-            finalizeAndWriteToFile(chainx, filepath + '/' + CHAINX + '_');
-            //----------------------------------------//
+			filepath = concatenateDirectoryName(COMPLEX, CHAINX);
+			Files.createDirectories(Path.of(filepath));
+			String[] chainx = coreScenariosTCPChain.chainXCommands(CHAINX, 4);
+			finalizeAndWriteToFile(chainx, filepath + '/' + CHAINX + '_');
 
+			//----------------------------------------//
+
+			filepath = concatenateDirectoryName(COMPLEX, CHAINLTX);
 
 
 
