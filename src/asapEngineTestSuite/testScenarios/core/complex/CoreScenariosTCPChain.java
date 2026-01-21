@@ -4,7 +4,6 @@ import asapEngineTestSuite.CoreScenarioOutput;
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
 import asapEngineTestSuite.utils.CommandListToFile;
 
-
 /**
  * Each peer connects to the previous peer in order.
  */
@@ -13,7 +12,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
 
     int portNr = 4444;
 
-    private final String openPortLine = CommandListToFile.OPEN_TCP + " " + portNr;
+    private String openPortLine = CommandListToFile.OPEN_TCP + " " + portNr;
     public static final String FILLER_IP = " FILLER_IP ";
     public static final String SN_CHARACTERS = " sn/characters";
     public static final String CLOSE_ENCOUNTER_1 = CommandListToFile.CLOSE_ENCOUNTER + " 1" + CLI_SEPARATOR;
@@ -57,29 +56,29 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
         return commandLists;
     }
 
-    private String coreBDisSendingPeer(int peerCount) {
-        return  WAIT + " " + WAIT_TIME
-                + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerCount + "_Dis " + SN_CHARACTERS
-                +  CLI_SEPARATOR
-                + WAIT + " " + WAIT_TIME
-                + CLI_SEPARATOR
-                + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
-                + CLI_SEPARATOR;
-    }
+//	private String coreBDisSendingPeer(int peerCount) {
+//		return  WAIT + " " + WAIT_TIME
+//			+ CLI_SEPARATOR
+//			+ CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerCount + "_Dis " + SN_CHARACTERS
+//			+  CLI_SEPARATOR
+//			+ WAIT + " " + WAIT_TIME
+//			+ CLI_SEPARATOR
+//			+ CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+//			+ CLI_SEPARATOR;
+//	}
 
-    public String[] coreBDisCommands(int peerOrder, String syncDescriptor) {
-        validation(syncDescriptor);
-        String[] commandLists = new String[2];
-        if (peerOrder == 1) {
-            commandLists[0] = coreBDisSendingPeer(1);
-            commandLists[1] = scReceivingPeer(syncDescriptor);
-        } else {
-            commandLists[0] = scReceivingPeer(syncDescriptor);
-            commandLists[1] = coreBDisSendingPeer(2);
-        }
-        return commandLists;
-    }
+//	public String[] coreBDisCommands(int peerOrder, String syncDescriptor) {
+//		validation(syncDescriptor);
+//		String[] commandLists = new String[2];
+//		if (peerOrder == 1) {
+//			commandLists[0] = coreBDisSendingPeer(1);
+//			commandLists[1] = scReceivingPeer(syncDescriptor);
+//		} else {
+//			commandLists[0] = scReceivingPeer(syncDescriptor);
+//			commandLists[1] = coreBDisSendingPeer(2);
+//		}
+//		return commandLists;
+//	}
 
 //    public String[] coreADisCommandLists(int peerOrder, String syncDescriptor) {
 ////        validation(peerOrder);
@@ -143,7 +142,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                     + RELEASE + syncMarkerGenerator(i)
                     + CLI_SEPARATOR;
             if (i != peerCount - 1) {
-                        commandLists[i] += BLOCK + syncMarkerGenerator(i + 1)
+                commandLists[i] += BLOCK + syncMarkerGenerator(i + 1)
                         + CLI_SEPARATOR;
             }
             commandLists[i]+= WAIT + " " + WAIT_TIME * i
@@ -171,26 +170,48 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + "closeEncounter 1"
                 + CLI_SEPARATOR
+                + WAIT + " 1000"
+                + CLI_SEPARATOR
                 + "echo closeEncounter"
                 + CLI_SEPARATOR
                 + "exit";
 
-        for (int i = 1; i <= peerCount; i++) {
+        for (int i = 1; i < peerCount; i++) {
             commandLists[i] = WAIT  + " " + (testDauer / peerCount) * i
+                    + CLI_SEPARATOR
                     + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                     + CLI_SEPARATOR
                     + "echo connectTCP"
                     + CLI_SEPARATOR
+                    + WAIT + " " + 500
+                    + CLI_SEPARATOR
                     + RELEASE + syncMarkerGenerator(i)
                     + CLI_SEPARATOR
-                    + CommandListToFile.LIST_MESSAGES
+                    + "echo release " + i
                     + CLI_SEPARATOR
+                    + WAIT + " " + 500
+                    + CLI_SEPARATOR
+                    + CommandListToFile.LIST_MESSAGES
+                    + CLI_SEPARATOR;
+            this.portNr++;
+            if (i < peerCount - 1) {
+                commandLists[i] += "openTCP " + this.portNr
+                        + CLI_SEPARATOR
+                        + "echo openTCP"
+                        + CLI_SEPARATOR
+                        + BLOCK + syncMarkerGenerator(i + 1)
+                        + CLI_SEPARATOR;
+            }
+            commandLists[i] += WAIT + " "  + WAIT_TIME
+                    + CLI_SEPARATOR
+                    + CLOSE_ENCOUNTER_1
+                    + "echo closeEncounter 1"
+                    + CLI_SEPARATOR
+                    + WAIT + " " + 500
+                    + CLI_SEPARATOR
+                    + "exit";
 
         }
-
-        //C
-
-        //D
         return commandLists;
     }
 }

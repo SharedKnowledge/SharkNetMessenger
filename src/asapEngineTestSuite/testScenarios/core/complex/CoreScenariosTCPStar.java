@@ -10,6 +10,7 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 
 public String[][] starXCommands(int peerCount) {
 	//todo
+	return new String[0][];
 }
 
 
