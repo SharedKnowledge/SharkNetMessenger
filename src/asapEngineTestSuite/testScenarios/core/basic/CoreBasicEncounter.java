@@ -57,19 +57,19 @@ public class CoreBasicEncounter {
 
     /**
      * Method to generate CS command list for sending peer
-     * @param syncDescriptor the synchronization descriptor
+     * @param syncMarker the synchronization descriptor
      * @return the command list string
-     * @throws IllegalArgumentException if syncDescriptor is null or empty
+     * @throws IllegalArgumentException if syncMarker is null or empty
      */
-    public String csSendingPeer(String syncDescriptor) throws IllegalArgumentException {
-        validation(syncDescriptor);
+    public String csSendingPeer(String syncMarker) throws IllegalArgumentException {
+        validation(syncMarker);
         return WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
                 + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
-                + RELEASE + " " + syncDescriptor
+                + RELEASE + " " + syncMarker
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
@@ -79,12 +79,12 @@ public class CoreBasicEncounter {
 
     /**
      * Method to generate SC command list for sending peer
-     * @param syncDescriptor the synchronization descriptor
+     * @param syncMarker the synchronization descriptor
      * @return the command list string
-     * @throws IllegalArgumentException if syncDescriptor is null or empty
+     * @throws IllegalArgumentException if syncMarker is null or empty
      */
-    public String scSendingPeer(String syncDescriptor) throws IllegalArgumentException {
-        validation(syncDescriptor);
+    public String scSendingPeer(String syncMarker) throws IllegalArgumentException {
+        validation(syncMarker);
         return  WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
                 + CommandListToFile.SEND_MESSAGE + FILLER_FILENAME + SN_FILE + " " + 1
@@ -93,7 +93,7 @@ public class CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                 + CLI_SEPARATOR
-                + RELEASE + " " + syncDescriptor
+                + RELEASE + " " + syncMarker
                 + CLI_SEPARATOR;
     }
 
