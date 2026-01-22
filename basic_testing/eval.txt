@@ -384,3 +384,46 @@ PeerA: pass: Both messages sent/received successfully.
 PeerB: pass: Both messages sent/received successfully.
 CS
 PASS: All peers completed successfully
+CHAINX
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: pass: Message sent/received successfully.
+PeerD: pass: Message sent/received successfully.
+CHAINX
+PASS: All peers completed successfully
+CHAINX
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: pass: Message sent/received successfully.
+PeerD: pass: Message sent/received successfully.
+CHAINX
+PASS: All peers completed successfully
+SC
+PeerA: pass: Both messages sent/received successfully.
+PeerB: pass: Both messages sent/received successfully.
+SC
+PASS: All peers completed successfully
+CHAINX
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: pass: Message sent/received successfully.
+PeerD: pass: Message sent/received successfully.
+CHAINX
+PASS: All peers completed successfully
+STARXCS
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: fail
+PeerD: pass: Message sent/received successfully.
+STARXCS
+FAIL: One or more peers failed
+CS
+PeerA: pass: Both messages sent/received successfully.
+PeerB: pass: Both messages sent/received successfully.
+CS
+PASS: All peers completed successfully
+SC
+PeerA: pass: Both messages sent/received successfully.
+PeerB: pass: Both messages sent/received successfully.
+SC
+PASS: All peers completed successfully

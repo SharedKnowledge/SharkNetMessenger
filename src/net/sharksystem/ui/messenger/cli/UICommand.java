@@ -1,6 +1,6 @@
 package net.sharksystem.ui.messenger.cli;
 
-import net.sharksystem.app.messenger.commands.commandarguments.UICommandQuestionnaire;
+import net.sharksystem.ui.messenger.cli.commandarguments.UICommandQuestionnaire;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -43,6 +43,7 @@ public abstract class UICommand {
     protected SharkNetMessengerApp getSharkMessengerApp() {
         return this.sharkMessengerApp;
     }
+
     protected SharkNetMessengerUI getSharkMessengerUI() {
         return this.sharkMessengerUI;
     }
@@ -53,7 +54,8 @@ public abstract class UICommand {
 
     /**
      * Creates a command object.
-     * @param identifier The identifier of the command.
+     *
+     * @param identifier      The identifier of the command.
      * @param rememberCommand If the command should be saved in the history log.
      */
     public UICommand(SharkNetMessengerApp sharkMessengerApp, SharkNetMessengerUI sharkMessengerUI,
@@ -69,30 +71,30 @@ public abstract class UICommand {
      * command which is run.
      * @throws Exception Which might occur when executing the command.
      */
-    public void startCommandExecution() throws Exception {
-        this.runBefore();
-        UICommandQuestionnaire questionnaire = this.specifyCommandStructure();
-//        if(questionnaire != null && !CLIController.getView().letUserFillOutQuestionnaire(questionnaire)) {
-        if(questionnaire != null && !this.sharkMessengerUI.letUserFillOutQuestionnaire(questionnaire)) {
-//            ui.commandWasTerminated(this.identifier);
-            this.sharkMessengerUI.commandWasTerminated(this.identifier);
-        } else {
-            this.execute();
-        }
-    }
+//    public void startCommandExecution() throws Exception {
+//        this.runBefore();
+//        UICommandQuestionnaire questionnaire = this.specifyCommandStructure();
+////        if(questionnaire != null && !CLIController.getView().letUserFillOutQuestionnaire(questionnaire)) {
+//        if(questionnaire != null && !this.sharkMessengerUI.letUserFillOutQuestionnaire(questionnaire)) {
+////            ui.commandWasTerminated(this.identifier);
+//            this.sharkMessengerUI.commandWasTerminated(this.identifier);
+//        } else {
+//            this.execute();
+//        }
 
-    protected void runBefore() {
-
-    }
+//    protected void runBefore() {
+//
+//    }
 
     /**
      * Prepares the command for execution and executes it if successfull.
      * Preparing is the act of extracting the needed parameters from the
      * argument list and checking if they are valid.
      * After the preparation is completed, the command is executed immediately.
+     *
      * @param arguments needed for execution.
      * @return true, if preperation was successfull. False if an argument could
-     *         not be prepared correctly.
+     * not be prepared correctly.
      * @throws Exception Any exception that might be thrown during the execution process.
      */
     public final boolean execute(List<String> arguments) throws Exception {
@@ -100,12 +102,13 @@ public abstract class UICommand {
             return false;
         }
         execute();
-        return true; 
+        return true;
     }
 
     /**
      * Extract the arguments from the arguments list and assign them, so that
      * the command is ready for execution.
+     *
      * @param arguments needed for execution.
      * @return true, if commands could be assigned correctly, false otherwise.
      */
@@ -115,12 +118,14 @@ public abstract class UICommand {
      * This function returns a questionnaire wich the user needs to answer.
      * The questionnaire is defined in the class of the command. It is recommended to use a CLICQuestionnaireBuilder
      * for setting up the questions.
+     *
      * @return A questionnaire wich is just an ordered list of questions.
      */
-    protected abstract UICommandQuestionnaire specifyCommandStructure();
+    protected abstract net.sharksystem.ui.messenger.cli.commandarguments.UICommandQuestionnaire specifyCommandStructure();
 
     /**
      * This method includes the logic of the command.
+     *
      * @throws Exception Any exception that might be thrown.
      */
     protected abstract void execute() throws Exception;
@@ -139,12 +144,16 @@ public abstract class UICommand {
     /**
      * @return The string which identifies this command and can be entered by the user to execute it.
      */
-    public String getIdentifier() { return this.identifier; }
+    public String getIdentifier() {
+        return this.identifier;
+    }
 
     /**
      * @return Whether this command should be saved in a log file when the user wishes to do so or not.
      */
-    public boolean rememberCommand() { return this.rememberCommand; }
+    public boolean rememberCommand() {
+        return this.rememberCommand;
+    }
 
     /**
      * @return A short description of what the command does.
@@ -158,5 +167,9 @@ public abstract class UICommand {
 
     protected void printErrorMessage(String message) {
         this.getSharkMessengerApp().tellUIError("Error: " + message);
+    }
+
+    public void startCommandExecution() {
+
     }
 }

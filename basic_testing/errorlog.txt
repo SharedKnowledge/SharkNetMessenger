@@ -84,3 +84,130 @@ java.lang.NegativeArraySizeException: -1
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogB.txt ====\n2026-01-22 11:05:15.597: Error: Connection refused
+2026-01-22 11:05:16.617: file does not exist: FILLER_FILENAME
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogD.txt ====\n2026-01-22 11:05:17.101: file does not exist: FILLER_FILENAME
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogA.txt ====\n2026-01-22 11:11:59.748: Error: Address already in use
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogB.txt ====\n2026-01-22 11:12:02.413: Error: Address already in use
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogD.txt ====\n2026-01-22 11:12:05.243: there is no encounter.
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\n2026-01-22 11:16:31.097: Error: Address already in use
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogB.txt ====\n2026-01-22 11:16:32.326: file does not exist: FILLER_FILENAME
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogC.txt ====\n2026-01-22 11:16:33.273: Error: Address already in use
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogD.txt ====\n2026-01-22 11:16:34.039: file does not exist: FILLER_FILENAME
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogA.txt ====\n2026-01-22 12:26:42.485: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogB.txt ====\n2026-01-22 12:26:41.943: file does not exist: STARXCS_filler.txt
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogD.txt ====\n2026-01-22 12:26:41.315: file does not exist: STARXCS_filler.txt
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogB.txt ====\nfailed to parse integer value1100.0
+Arguments invalid for command: wait
+2026-01-22 12:34:58.533: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogC.txt ====\nfailed to parse integer value2200.0
+Arguments invalid for command: wait
+2026-01-22 12:34:59.238: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogD.txt ====\nfailed to parse integer value3300.0000000000005
+Arguments invalid for command: wait
+2026-01-22 12:34:58.878: Error: Connection refused
+2026-01-22 12:35:00.916: there is no encounter.
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/basic/CS_: errorlogA.txt ====\n2026-01-22 12:40:18.590: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/basic/SC_: errorlogB.txt ====\nexception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:34)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:93)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:47)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogA.txt ====\nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+2026-01-22 12:46:26.009: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogC.txt ====\nException in thread "Thread-16" java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:356)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:330)
+	at net.sharksystem.asap.engine.ASAPMementoFS.save(ASAPMementoFS.java:53)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:179)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:110)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getExistingASAPEngineFS(ASAPEngineFS.java:70)
+	at net.sharksystem.asap.engine.ASAPInternalPeerFS.getASAPEngine(ASAPInternalPeerFS.java:277)
+	at net.sharksystem.asap.ASAPInternalPeerWrapper.getASAPStorage(ASAPInternalPeerWrapper.java:59)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.getChannel(SharkNetMessengerComponentImpl.java:111)
+	at net.sharksystem.ui.messenger.cli.SNMMessageReceivedListener.sharkMessagesReceived(SNMMessageReceivedListener.java:17)
+	at net.sharksystem.app.messenger.SharkNetMessagesReceivedListenerManager$SharkMessagesReceivedNotifier.doNotify(SharkNetMessagesReceivedListenerManager.java:33)
+	at net.sharksystem.app.messenger.SharkNetMessagesReceivedListenerManager$SharkMessagesReceivedNotifier.doNotify(SharkNetMessagesReceivedListenerManager.java:24)
+	at net.sharksystem.asap.listenermanager.GenericListenerImplementation.notifyAll(GenericListenerImplementation.java:33)
+	at net.sharksystem.app.messenger.SharkNetMessagesReceivedListenerManager.notifySharkMessageReceivedListener(SharkNetMessagesReceivedListenerManager.java:21)
+	at net.sharksystem.app.messenger.SharkNetMessengerComponentImpl.asapMessagesReceived(SharkNetMessengerComponentImpl.java:213)
+	at net.sharksystem.asap.listenermanager.ASAPMessageReceivedListenerManager$ASAPMessageReceivedNotifier.doNotify(ASAPMessageReceivedListenerManager.java:80)
+	at net.sharksystem.asap.listenermanager.ASAPMessageReceivedListenerManager$ASAPMessageReceivedNotifier.doNotify(ASAPMessageReceivedListenerManager.java:63)
+	at net.sharksystem.asap.listenermanager.GenericListenerImplementation$1.run(GenericListenerImplementation.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogB.txt ====\nfailed to parse integer value1100.0
+Arguments invalid for command: wait
+2026-01-22 12:47:05.756: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogC.txt ====\nfailed to parse integer value2200.0
+Arguments invalid for command: wait
+2026-01-22 12:47:06.394: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogD.txt ====\nfailed to parse integer value3300.0000000000005
+Arguments invalid for command: wait
+2026-01-22 12:47:06.241: Error: Connection refused
+2026-01-22 12:47:08.281: there is no encounter.
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\n2026-01-22 12:49:31.748: Error: Connection refused
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/basic/CS_: errorlogB.txt ====\nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/basic/SC_: errorlogB.txt ====\nexception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:34)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:93)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:47)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

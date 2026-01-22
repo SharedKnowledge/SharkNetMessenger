@@ -86,6 +86,36 @@ done
 # Wait for all processes to complete
 wait "${pids[@]}"
 
+# Additional safeguard: wait until no process is using files in the scenario directory
+wait_for_scenario_dir_free() {
+  local dir="$SCRIPT_DIR"
+  local max_wait=60
+  local waited=0
+
+  if command -v lsof >/dev/null 2>&1; then
+    while lsof +D "$dir" >/dev/null 2>&1; do
+      sleep 1
+      waited=$((waited+1))
+      if (( waited >= max_wait )); then
+        echo "Warning: wait_for_scenario_dir_free timeout for $dir" >&2
+        break
+      fi
+    done
+  else
+    # Fallback: look for java processes referencing the scenario directory on their command line
+    while ps -eo pid=,command= | grep -F "SharkNetMessengerCLI.jar" | grep -F "$dir" >/dev/null 2>&1; do
+      sleep 1
+      waited=$((waited+1))
+      if (( waited >= max_wait )); then
+        echo "Warning: fallback wait_for_scenario_dir_free timeout for $dir" >&2
+        break
+      fi
+    done
+  fi
+}
+
+wait_for_scenario_dir_free
+
 eval_file="$SCRIPT_DIR/eval_local.txt"
 {
   echo "$folderName"
@@ -140,3 +170,4 @@ eval_file="$SCRIPT_DIR/eval_local.txt"
     echo "FAIL: One or more peers failed"
   fi
 } > "$eval_file"
+

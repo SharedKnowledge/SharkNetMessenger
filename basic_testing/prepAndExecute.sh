@@ -50,10 +50,50 @@ done
 mkdir -p "$run_base/run_$i" 2>/dev/null || true
 RUN_SEQ="$i"
 
+# Configuration for automatic killing of stray SharkNet processes before starting a scenario
+# Set these environment variables to control behavior:
+# AUTO_KILL_SHARK_PROCESSES=1    (default) enable auto kill before each scenario
+# KILL_SCOPE=all|dir             (default all) 'all' kills all SharkNet processes, 'dir' kills processes holding files in the scenario dir
+# KILL_SHARK_FORCE=0|1           (default 0) if 1, force-kill (SIGKILL)
+# KILL_SHARK_TIMEOUT=10          (seconds to wait after SIGTERM before SIGKILL)
+# AUTO_KILL_VERBOSE=0|1          (default 0) pass -v to the kill script if set
+AUTO_KILL_SHARK_PROCESSES="${AUTO_KILL_SHARK_PROCESSES:-1}"
+KILL_SCOPE="${KILL_SCOPE:-all}"
+KILL_SHARK_FORCE="${KILL_SHARK_FORCE:-0}"
+KILL_SHARK_TIMEOUT="${KILL_SHARK_TIMEOUT:-10}"
+AUTO_KILL_VERBOSE="${AUTO_KILL_VERBOSE:-0}"
+
 execute_hub_test() {
   local g="$1"
   local export_name="$(basename "$g")"
   export_name="${export_name%_}"
+
+  # Optionally ensure no stray SharkNet processes are running before starting this scenario
+  if [[ "$AUTO_KILL_SHARK_PROCESSES" == "1" ]]; then
+    if [[ -x "$SCRIPT_DIR/kill_shark_processes.sh" ]]; then
+      echo "Ensuring no stray SharkNet processes are running before executing $g..."
+      kill_args=()
+      # choose scope
+      if [[ "$KILL_SCOPE" == "dir" ]]; then
+        kill_args+=( -d "$g" )
+      else
+        kill_args+=( -a )
+      fi
+      # force or timeout
+      if [[ "$KILL_SHARK_FORCE" == "1" ]]; then
+        kill_args+=( -f )
+      else
+        kill_args+=( -t "$KILL_SHARK_TIMEOUT" )
+      fi
+      if [[ "$AUTO_KILL_VERBOSE" == "1" ]]; then
+        kill_args+=( -v )
+      fi
+      # run the kill helper but do not fail the test runner if it fails
+      "$SCRIPT_DIR/kill_shark_processes.sh" "${kill_args[@]}" || true
+    else
+      echo "Warning: kill_shark_processes.sh not found or not executable; skipping auto-kill." >&2
+    fi
+  fi
 
   echo "Executing hub scenario: $g"
   cp -a "$SCRIPT_DIR/runHubCoreScenario.sh" "$g"
@@ -71,6 +111,33 @@ execute_tcp_test() {
   local test_type="$2"  # "basic" or "complex"
   local export_name="$(basename "$g")"
   export_name="${export_name%_}"
+
+  # Optionally ensure no stray SharkNet processes are running before starting this scenario
+  if [[ "$AUTO_KILL_SHARK_PROCESSES" == "1" ]]; then
+    if [[ -x "$SCRIPT_DIR/kill_shark_processes.sh" ]]; then
+      echo "Ensuring no stray SharkNet processes are running before executing $g..."
+      kill_args=()
+      # choose scope
+      if [[ "$KILL_SCOPE" == "dir" ]]; then
+        kill_args+=( -d "$g" )
+      else
+        kill_args+=( -a )
+      fi
+      # force or timeout
+      if [[ "$KILL_SHARK_FORCE" == "1" ]]; then
+        kill_args+=( -f )
+      else
+        kill_args+=( -t "$KILL_SHARK_TIMEOUT" )
+      fi
+      if [[ "$AUTO_KILL_VERBOSE" == "1" ]]; then
+        kill_args+=( -v )
+      fi
+      # run the kill helper but do not fail the test runner if it fails
+      "$SCRIPT_DIR/kill_shark_processes.sh" "${kill_args[@]}" || true
+    else
+      echo "Warning: kill_shark_processes.sh not found or not executable; skipping auto-kill." >&2
+    fi
+  fi
 
   echo "Executing $test_type TCP scenario: $g"
   cp -a "$SCRIPT_DIR/runTCPCoreScenario.sh" "$g"
@@ -273,7 +340,11 @@ export_tcp_test_results() {
       bname="$(basename "$af")"
 
       # Determine target directory based on which peer the file belongs to
-      peer_match=$(echo "$relpath" | grep -oP 'Peer[A-Z]' | head -1)
+      # Extract first occurrence of Peer<Letter> (e.g., PeerA) using bash regex (portable)
+      peer_match=""
+      if [[ "$relpath" =~ (Peer[A-Z]) ]]; then
+        peer_match="${BASH_REMATCH[1]}"
+      fi
       if [[ -n "$peer_match" ]]; then
         target="$export_dir/$peer_match/$bname"
       else
@@ -458,5 +529,3 @@ echo "  Failed:  testRunsFailed/"
 echo "  Summary: eval.txt"
 echo "  Errors:  errorlog.txt"
 echo "======================================================================="
-
-

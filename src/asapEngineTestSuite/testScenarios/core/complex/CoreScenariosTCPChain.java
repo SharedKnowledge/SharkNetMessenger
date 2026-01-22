@@ -173,13 +173,12 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + WAIT + " 1000"
                 + CLI_SEPARATOR
                 + "echo closeEncounter"
-                + CLI_SEPARATOR
-                + "exit";
+                + CLI_SEPARATOR;
 
         for (int i = 1; i < peerCount; i++) {
-            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * i
+            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * i * 1.1
                     + CLI_SEPARATOR
-                    + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+                    + CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
                     + CLI_SEPARATOR
                     + "echo connectTCP"
                     + CLI_SEPARATOR
@@ -193,11 +192,10 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                     + CLI_SEPARATOR
                     + CommandListToFile.LIST_MESSAGES
                     + CLI_SEPARATOR;
-            this.portNr++;
             if (i < peerCount - 1) {
-                commandLists[i] += "openTCP " + this.portNr
+                commandLists[i] += "openTCP " + (this.portNr + i)
                         + CLI_SEPARATOR
-                        + "echo openTCP"
+                        + "echo openTCP Port 4444+" + i
                         + CLI_SEPARATOR
                         + BLOCK + syncMarkerGenerator(i + 1)
                         + CLI_SEPARATOR;
@@ -208,9 +206,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                     + "echo closeEncounter 1"
                     + CLI_SEPARATOR
                     + WAIT + " " + 500
-                    + CLI_SEPARATOR
-                    + "exit";
-
+                    + CLI_SEPARATOR;
         }
         return commandLists;
     }

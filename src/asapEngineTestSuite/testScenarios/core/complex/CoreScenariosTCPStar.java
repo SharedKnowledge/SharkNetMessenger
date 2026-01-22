@@ -26,7 +26,7 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 		//C opens port and does *Nothing*
 		commandsLists[2] = idlePeerCommands();
 		//D opens port and sends message
-		commandsLists[3] = csSendingPeer("P4");
+		commandsLists[3] = csSendingPeer("P3");
 		return commandsLists;
 	}
 
@@ -38,25 +38,32 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 	 */
 	private String centerPeerCommands() {
 		return openPortLine
+			+ CLI_SEPARATOR
 			+ "echo openTCP"
 			+ CLI_SEPARATOR
-			+ BLOCK + "P1"
+			+ BLOCK + " P1"
 			+ CLI_SEPARATOR
 			// B connects to C and D
 			+ WAIT + " 1000"
 			//+ CommandListToFile.CONNECT_TCP + "FILLER_IP" + " " + "FILLER_PORT"
-			+ CommandListToFile.CONNECT_TCP + "FILLER_IP" + " " + (portNr + 1)
 			+ CLI_SEPARATOR
+			+ CommandListToFile.CONNECT_TCP + " " + "FILLER_IP" + " " + (portNr + 1)
+			+ CLI_SEPARATOR
+			+ "echo connectTCP"
+			+ CLI_SEPARATOR
+			+ WAIT + " 1000"
 			+ RELEASE + " P3"
 			+ CLI_SEPARATOR
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
-			+ CommandListToFile.CONNECT_TCP + "FILLER_IP" + " " + (portNr + 2)
+			+ CommandListToFile.CONNECT_TCP + " " + "FILLER_IP" + " " + (portNr + 2)
 			+ CLI_SEPARATOR
-			+ RELEASE + " P4"
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
-			+ CommandListToFile.LIST_MESSAGES
+			+ WAIT + " 1000"
+			+ RELEASE + " P4"
+			+ CLI_SEPARATOR
+			+ "echo connectTCP"
 			+ CLI_SEPARATOR;
 	}
 
@@ -74,7 +81,7 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 		commandsLists[1] = scSendingPeer("P1");
 		//C gets connected to and idles
 		commandsLists[2] = idlePeerCommands();
-		commandsLists[3] = scSendingPeer("P4");
+		commandsLists[3] = scSendingPeer("P3");
 		return commandsLists;
 	}
 
@@ -86,11 +93,12 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 	private String idlePeerCommands() {
 		return CommandListToFile.OPEN_TCP + " " + (portNr + 1)
 			+ CLI_SEPARATOR
+			+ "echo openTCP"
+			+ CLI_SEPARATOR
 			+ BLOCK + " P3"
 			+ CLI_SEPARATOR
 			+ WAIT + " " + 4000
-			+ CLI_SEPARATOR
-			+ CommandListToFile.LIST_MESSAGES;
+			+ CLI_SEPARATOR;
 	}
 
 	public static void main(String[] args) {

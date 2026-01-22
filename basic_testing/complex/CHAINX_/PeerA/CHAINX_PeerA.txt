@@ -1,1 +1,0 @@
-openTCP 4444;echo openTCP;sendMessage FILLER_FILENAME sn/file;echo sendMessage;block P1;wait 500;wait 8000;lsMessages 2;lsMessages 1;exit;
