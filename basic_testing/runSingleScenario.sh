@@ -70,30 +70,72 @@ shopt -u nullglob
 # Create a filler file and replace FILLER_FILENAME tokens
 FILLER_SIZE="${FILLER_SIZE:-1024}"
 FILLER_NAME="${FILLER_NAME:-${folderName}_filler.txt}"
-FILLER_PATH="$SCRIPT_DIR/PeerA/$FILLER_NAME"
-mkdir -p "$SCRIPT_DIR/PeerA" 2>/dev/null || true
+# Default create per-peer filler inside PeerA by default but will create per-peer files below
 
-if command -v truncate >/dev/null 2>&1; then
-  truncate -s "$FILLER_SIZE" "$FILLER_PATH" || :
-elif command -v fallocate >/dev/null 2>&1; then
-  fallocate -l "$FILLER_SIZE" "$FILLER_PATH" || :
-elif command -v dd >/dev/null 2>&1; then
-  dd if=/dev/zero of="$FILLER_PATH" bs=1 count="$FILLER_SIZE" status=none || :
-else
-  head -c "$FILLER_SIZE" </dev/zero > "$FILLER_PATH" || :
-fi
+# Determine peers that need filler
+shopt -s nullglob
+peers_need_filler=()
+for peer_dir in "$SCRIPT_DIR"/Peer*; do
+  if [[ -d "$peer_dir" ]]; then
+    peer_name=$(basename "$peer_dir")
+    target="$peer_dir/${folderName}_${peer_name}.txt"
+    if [[ -f "$target" ]]; then
+      if grep -Fq "FILLER_FILENAME" "$target" 2>/dev/null || grep -Fq "sendMessage" "$target" 2>/dev/null; then
+        peers_need_filler+=("$peer_dir")
+      fi
+    fi
+  fi
+done
+
+# Create per-peer filler files
+for pd in "${peers_need_filler[@]:-}"; do
+  peer_name=$(basename "$pd")
+  peer_letter="${peer_name#Peer}"
+
+  if [[ "$FILLER_NAME" == *.* ]]; then
+    base="${FILLER_NAME%.*}"
+    ext="${FILLER_NAME##*.}"
+    per_name="${base}_${peer_letter}.${ext}"
+  else
+    per_name="${FILLER_NAME}_${peer_letter}"
+  fi
+
+  FILLER_PATH="$pd/$per_name"
+  mkdir -p "$pd" 2>/dev/null || true
+  if command -v truncate >/dev/null 2>&1; then
+    truncate -s "$FILLER_SIZE" "$FILLER_PATH" || :
+  elif command -v fallocate >/dev/null 2>&1; then
+    fallocate -l "$FILLER_SIZE" "$FILLER_PATH" || :
+  elif command -v dd >/dev/null 2>&1; then
+    dd if=/dev/zero of="$FILLER_PATH" bs=1 count="$FILLER_SIZE" status=none || :
+  else
+    head -c "$FILLER_SIZE" </dev/zero > "$FILLER_PATH" || :
+  fi
+  if [[ "$VERBOSE" == "1" ]]; then
+    echo "Created filler: $FILLER_PATH"
+  fi
+done
+shopt -u nullglob
 
 if [[ "$VERBOSE" == "1" ]]; then
-  echo "Replacing FILLER_FILENAME tokens with $FILLER_NAME..."
+  echo "Replacing FILLER_FILENAME tokens..."
 fi
 
 shopt -s nullglob
 for peer_dir in "$SCRIPT_DIR"/Peer*; do
   if [[ -d "$peer_dir" ]]; then
     peer_name=$(basename "$peer_dir")
+    peer_letter="${peer_name#Peer}"
     target="$peer_dir/${folderName}_${peer_name}.txt"
     if [[ -f "$target" ]]; then
-      sed_inplace "s/FILLER_FILENAME/$FILLER_NAME/g" "$target"
+      if [[ "$FILLER_NAME" == *.* ]]; then
+        base="${FILLER_NAME%.*}"
+        ext="${FILLER_NAME##*.}"
+        per_name="${base}_${peer_letter}.${ext}"
+      else
+        per_name="${FILLER_NAME}_${peer_letter}"
+      fi
+      sed_inplace "s/FILLER_FILENAME/$per_name/g" "$target"
       if [[ "$VERBOSE" == "1" ]]; then
         echo "Replaced FILLER_FILENAME in: $target"
       fi
@@ -238,7 +280,6 @@ eval_file="$SCRIPT_DIR/eval_local.txt"
       fi
     fi
   done
-  shopt -u nullglob
 
   echo "$folderName"
   if [[ "$all_pass" == "true" ]]; then

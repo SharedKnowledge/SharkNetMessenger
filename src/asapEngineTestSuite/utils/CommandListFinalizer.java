@@ -1,5 +1,7 @@
 package asapEngineTestSuite.utils;
 
+import com.sun.jdi.event.MonitorWaitedEvent;
+
 /**
  * This class provides a template to finalise a command list for peers in an automated test scenario.
  */
@@ -16,12 +18,18 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandList(String commands) {
 		return commands
-                + lsMessages + " " + 2
-                +CLI_SEPARATOR
-                + lsMessages + " " + 1
-                + CLI_SEPARATOR
-                + exit
-                + CLI_SEPARATOR;
+			+ lsMessages + " " + 2
+			+CLI_SEPARATOR
+			+ lsMessages + " " + 1
+			+ CLI_SEPARATOR
+			+ "wait 1000"
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 1
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 2
+			+ CLI_SEPARATOR
+			+ exit
+			+ CLI_SEPARATOR;
 	}
 
 	/**
@@ -33,14 +41,21 @@ public class CommandListFinalizer {
 		String wait = CommandListToFile.WAIT;
 
 		return commands
-                + wait + " " + waitMs
-                + CLI_SEPARATOR
-                + lsMessages + " " + 2
-                + CLI_SEPARATOR
-                + lsMessages + " " + 1
-                + CLI_SEPARATOR
-                + exit
-                + CLI_SEPARATOR;
+			+ wait + " " + waitMs
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 2
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 1
+			+ CLI_SEPARATOR
+			+ CLI_SEPARATOR
+			+ "wait 1000"
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 1
+			+ CLI_SEPARATOR
+			+ lsMessages + " " + 2
+			+ CLI_SEPARATOR
+			+ exit
+			+ CLI_SEPARATOR;
 	}
 
 	/**
@@ -50,11 +65,11 @@ public class CommandListFinalizer {
 	 */
 	public static String finalizeCommandListHubHost(String commands, int waitMs) {
 		return commands
-                + CommandListToFile.WAIT + " " + waitMs
-                + CLI_SEPARATOR
-                + "stopHub 6907"
-                + CLI_SEPARATOR
-                + exit
-                + CLI_SEPARATOR;
+			+ CommandListToFile.WAIT + " " + waitMs
+			+ CLI_SEPARATOR
+			+ "stopHub 6907"
+			+ CLI_SEPARATOR
+			+ exit
+			+ CLI_SEPARATOR;
 	}
 }

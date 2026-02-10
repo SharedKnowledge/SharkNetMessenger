@@ -32,7 +32,8 @@ FILLER_NAME="${FILLER_NAME:-${folderName}_filler.txt}"
 FILLER_PATH="$SCRIPT_DIR/PeerA/$FILLER_NAME"
 mkdir -p "$SCRIPT_DIR/PeerA" 2>/dev/null || true
 
-# Prefer truncate (fast, may be sparse). Fallback to fallocate, then dd from /dev/zero, then head from /dev/zero.
+# Prefer truncate. Fallback to fallocate, then dd from /dev/zero, then head from /dev/zero.
+# If multiple peers reference FILLER_FILENAME, create per-peer files below and replace accordingly.
 if command -v truncate >/dev/null 2>&1; then
   truncate -s "$FILLER_SIZE" "$FILLER_PATH" || :
 elif command -v fallocate >/dev/null 2>&1; then
@@ -43,11 +44,60 @@ else
   head -c "$FILLER_SIZE" </dev/zero > "$FILLER_PATH" || :
 fi
 
+# If other peers reference FILLER_FILENAME, create per-peer variants and replace tokens
+shopt -s nullglob
+for peer_dir in "$SCRIPT_DIR"/Peer*; do
+  if [[ -d "$peer_dir" ]]; then
+    peer_name=$(basename "$peer_dir")
+    peer_letter="${peer_name#Peer}"
+    target="$peer_dir/${folderName}_${peer_name}.txt"
+    if [[ -f "$target" ]]; then
+      if grep -Fq "FILLER_FILENAME" "$target" 2>/dev/null; then
+        # build per-peer name
+        if [[ "$FILLER_NAME" == *.* ]]; then
+          base="${FILLER_NAME%.*}"
+          ext="${FILLER_NAME##*.}"
+          per_name="${base}_${peer_letter}.${ext}"
+        else
+          per_name="${FILLER_NAME}_${peer_letter}"
+        fi
+        per_path="$peer_dir/$per_name"
+        if [[ ! -f "$per_path" ]]; then
+          if [[ -f "$FILLER_PATH" ]]; then
+            cp -p "$FILLER_PATH" "$per_path" 2>/dev/null || true
+          else
+            mkdir -p "$peer_dir" 2>/dev/null || true
+            if command -v truncate >/dev/null 2>&1; then
+              truncate -s "$FILLER_SIZE" "$per_path" || :
+            elif command -v fallocate >/dev/null 2>&1; then
+              fallocate -l "$FILLER_SIZE" "$per_path" || :
+            elif command -v dd >/dev/null 2>&1; then
+              dd if=/dev/zero of="$per_path" bs=1 count="$FILLER_SIZE" status=none || :
+            else
+              head -c "$FILLER_SIZE" </dev/zero > "$per_path" || :
+            fi
+          fi
+        fi
+
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+          sed -i '' -e "s/FILLER_FILENAME/$per_name/g" "$target" || true
+        else
+          sed -i -e "s/FILLER_FILENAME/$per_name/g" "$target" || true
+        fi
+      fi
+    fi
+  fi
+done
+shopt -u nullglob
+
 # replace FILLER_FILENAME token in the PeerA command list (macOS vs Linux sed)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  sed -i '' -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || true
-else
-  sed -i -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || true
+# Ensure PeerA replacement happens last so PeerA uses the canonical FILLER_NAME (no letter suffix)
+if [[ -f "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" ]]; then
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || true
+  else
+    sed -i -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || true
+  fi
 fi
 
 if [[ ! -f "$SCRIPT_DIR/HubHost.txt" ]]; then
@@ -123,10 +173,10 @@ eval_file="$SCRIPT_DIR/eval_local.txt"
   # portable lowercase for older bash (macOS)
   name_lc="$(printf '%s' "$folderName" | tr '[:upper:]' '[:lower:]')"
 
-  containsDis="no"
-  if [[ "$name_lc" == *dis* ]]; then
-    containsDis="yes"
-  fi
+#  containsDis="no"
+#  if [[ "$name_lc" == *dis* ]]; then
+#   containsDis="yes"
+#  fi
 
   allowEncounter="no"
   if [[ "$name_lc" == *core1* || "$name_lc" == *core2* ]]; then

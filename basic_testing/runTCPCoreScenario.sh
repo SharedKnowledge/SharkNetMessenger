@@ -50,7 +50,18 @@ done
 
 # Create filler files where needed
 for pd in "${peers_need_filler[@]:-}"; do
-  FILLER_PATH="$pd/$FILLER_NAME"
+  peer_name=$(basename "$pd")
+  peer_letter="${peer_name#Peer}"
+
+  if [[ "$FILLER_NAME" == *.* ]]; then
+    base="${FILLER_NAME%.*}"
+    ext="${FILLER_NAME##*.}"
+    per_name="${base}_${peer_letter}.${ext}"
+  else
+    per_name="${FILLER_NAME}_${peer_letter}"
+  fi
+
+  FILLER_PATH="$pd/$per_name"
   mkdir -p "$pd" 2>/dev/null || true
   if command -v truncate >/dev/null 2>&1; then
     truncate -s "$FILLER_SIZE" "$FILLER_PATH" || :
@@ -71,12 +82,23 @@ shopt -u nullglob
 for peer_dir in "$SCRIPT_DIR"/Peer*; do
   if [[ -d "$peer_dir" ]]; then
     peer_name=$(basename "$peer_dir")
+    peer_letter="${peer_name#Peer}"
+
+    # compute per-peer filler name (must match the file we created above)
+    if [[ "$FILLER_NAME" == *.* ]]; then
+      base="${FILLER_NAME%.*}"
+      ext="${FILLER_NAME##*.}"
+      per_name="${base}_${peer_letter}.${ext}"
+    else
+      per_name="${FILLER_NAME}_${peer_letter}"
+    fi
+
     target="$peer_dir/${folderName}_${peer_name}.txt"
     if [[ -f "$target" ]]; then
       if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$target" || true
+        sed -i '' -e "s/FILLER_FILENAME/$per_name/g" "$target" || true
       else
-        sed -i -e "s/FILLER_FILENAME/$FILLER_NAME/g" "$target" || true
+        sed -i -e "s/FILLER_FILENAME/$per_name/g" "$target" || true
       fi
     fi
   fi

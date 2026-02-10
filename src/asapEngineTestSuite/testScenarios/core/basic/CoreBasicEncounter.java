@@ -22,7 +22,8 @@ public class CoreBasicEncounter {
     public static final String CLI_BLOCK = "block";
 
     public static final String CLOSE_ENCOUNTER_1 = CommandListToFile.CLOSE_ENCOUNTER + " 1" + CLI_SEPARATOR;
-    public static final int WAIT_TIME = 500;
+    // Increase WAIT_TIME to reduce race conditions where connect/release/send happen too fast
+    public static final int WAIT_TIME = 1000; // was 500
     public static final String WAIT = CLI_WAIT;
     public static final String RELEASE = CLI_RELEASE;
     public static final String BLOCK = CLI_BLOCK;
@@ -51,7 +52,7 @@ public class CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + BLOCK + " " + syncMarker
                 + CLI_SEPARATOR
-                + WAIT + " " + WAIT_TIME * 2
+                + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR;
     }
 
@@ -64,6 +65,29 @@ public class CoreBasicEncounter {
     public String csSendingPeer(String syncMarker) throws IllegalArgumentException {
         validation(syncMarker);
         return WAIT + " " + WAIT_TIME
+                + CLI_SEPARATOR
+                + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+                + CLI_SEPARATOR
+                + WAIT + " " + WAIT_TIME
+                + CLI_SEPARATOR
+                + RELEASE + " " + syncMarker
+                + CLI_SEPARATOR
+                + WAIT + " " + WAIT_TIME
+                + CLI_SEPARATOR
+                + CommandListToFile.SEND_MESSAGE + FILLER_FILENAME + SN_FILE
+                +  CLI_SEPARATOR;
+    }
+
+    /**
+     * Method to generate CS command list for sending peer with custom wait time
+     * @param syncMarker the synchronization descriptor
+     * @param wait additional wait time in milliseconds to add to the default WAIT_TIME before sending the message
+     * @return the command list string
+     * @throws IllegalArgumentException if syncMarker is null or empty
+     */
+    public String csSendingPeer(String syncMarker, int wait) throws IllegalArgumentException {
+        validation(syncMarker);
+        return WAIT + " " + (WAIT_TIME + wait)
                 + CLI_SEPARATOR
                 + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                 + CLI_SEPARATOR

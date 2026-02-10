@@ -18,15 +18,14 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 	public String[] star4CSCommands() {
 		String[] commandsLists = new String[4];
 
-		//center of the constellation: B opens Port for A to connect
-		commandsLists[0] = centerPeerCommands();
-		//A connects to B and sends a message
-		commandsLists[1] = csSendingPeer("P1")
-			+ CommandListToFile.LIST_MESSAGES;
+		//center of the constellation: A opens Port for B to connect
+		commandsLists[0] = WAIT + " 100" + CLI_SEPARATOR + centerPeerCommands() + CLI_SEPARATOR + WAIT + " 2000" + CLI_SEPARATOR;
+		//B connects to A and sends a message
+		commandsLists[1] = csSendingPeer("P1", 700) + CLI_SEPARATOR + WAIT + " 2000" + CLI_SEPARATOR;
 		//C opens port and does *Nothing*
 		commandsLists[2] = idlePeerCommands();
 		//D opens port and sends message
-		commandsLists[3] = csSendingPeer("P3");
+		commandsLists[3] = csSendingPeer("P3") + CLI_SEPARATOR + WAIT + " 1000" + CLI_SEPARATOR;
 		return commandsLists;
 	}
 
@@ -44,15 +43,16 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 			+ BLOCK + " P1"
 			+ CLI_SEPARATOR
 			// B connects to C and D
-			+ WAIT + " 1000"
+			+ WAIT + " 1500"
 			//+ CommandListToFile.CONNECT_TCP + "FILLER_IP" + " " + "FILLER_PORT"
 			+ CLI_SEPARATOR
 			+ CommandListToFile.CONNECT_TCP + " " + "FILLER_IP" + " " + (portNr + 1)
 			+ CLI_SEPARATOR
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
-			+ WAIT + " 1000"
-			+ RELEASE + " P3"
+			+ WAIT + " 1500"
+			+ CLI_SEPARATOR
+			+ RELEASE + " P2"
 			+ CLI_SEPARATOR
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
@@ -60,8 +60,9 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 			+ CLI_SEPARATOR
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
-			+ WAIT + " 1000"
-			+ RELEASE + " P4"
+			+ WAIT + " 4000"
+			+CLI_SEPARATOR
+			+ RELEASE + " P3"
 			+ CLI_SEPARATOR
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR;
@@ -75,12 +76,13 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 	public String[] star4SCCommands() {
 		String[] commandsLists = new String[4];
 
-		//center: B
+		//center: a
 		commandsLists[0] = centerPeerCommands();
-		//A sends message and connects
+		//b sends message and connects
 		commandsLists[1] = scSendingPeer("P1");
 		//C gets connected to and idles
 		commandsLists[2] = idlePeerCommands();
+		// d sends message and connects
 		commandsLists[3] = scSendingPeer("P3");
 		return commandsLists;
 	}
@@ -95,9 +97,9 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 			+ CLI_SEPARATOR
 			+ "echo openTCP"
 			+ CLI_SEPARATOR
-			+ BLOCK + " P3"
+			+ BLOCK + " P2"
 			+ CLI_SEPARATOR
-			+ WAIT + " " + 4000
+			+ WAIT + " " + 5000
 			+ CLI_SEPARATOR;
 	}
 

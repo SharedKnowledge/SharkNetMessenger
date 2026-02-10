@@ -66,34 +66,42 @@ public class  CoreScenarioOutput {
 	}
 
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex) {
-		try {
-			Path outFile = extractTargetFileNames(fileName, peerIndex);
+        try {
+            Path outFile = extractTargetFileNames(fileName, peerIndex);
 
-			commandList = finalizeCommandList(commandList);
-			try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
-				FileUtils.writeToFile(fos,commandList);
-			}
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
+            // Make sync markers unique to this scenario to avoid cross-scenario interference
+            String basename = Path.of(fileName).getFileName().toString();
+            commandList = addScenarioPrefix(commandList, basename);
 
-	// helper that uses the project default wait; kept private to avoid callers passing different values
-	private static void finalizeAndWriteToFileWithDefaultWait(String commandList, String fileName, char peerIndex) {
-		try {
-			Path outFile = extractTargetFileNames(fileName, peerIndex);
+            commandList = finalizeCommandList(commandList);
+            try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+                FileUtils.writeToFile(fos,commandList);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
-			commandList = finalizeCommandList(commandList, DEFAULT_PEER_WAIT_MS);
+    // helper that uses the project default wait; kept private to avoid callers passing different values
+    private static void finalizeAndWriteToFileWithDefaultWait(String commandList, String fileName, char peerIndex) {
+        try {
+            Path outFile = extractTargetFileNames(fileName, peerIndex);
 
-			try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
-				FileUtils.writeToFile(fos,commandList);
-			}
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
+            // Make sync markers unique to this scenario
+            String basename = Path.of(fileName).getFileName().toString();
+            commandList = addScenarioPrefix(commandList, basename);
 
-	private static Path extractTargetFileNames(String fileName, char peerIndex) throws IOException {
+            commandList = finalizeCommandList(commandList, DEFAULT_PEER_WAIT_MS);
+
+            try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+                FileUtils.writeToFile(fos,commandList);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static Path extractTargetFileNames(String fileName, char peerIndex) throws IOException {
 		Path filepath = Path.of(fileName);
 		Path parentDir = filepath.getParent();
 		if (parentDir == null)
@@ -117,33 +125,50 @@ public class  CoreScenarioOutput {
 	}
 
 	public static void finalizeAndWriteToFile(String[] commandLists, String fileName) {
-		try {
-			Path filepath = Path.of(fileName);
-			Path parentDir = filepath.getParent();
-			if (parentDir != null) {
-				Files.createDirectories(parentDir);
-			}
-			String basename = filepath.getFileName().toString();
-			char peerIndex = 'A';
-			for (String s : commandLists) {
-				if (parentDir != null) {
-					Path peerDir = parentDir.resolve(PEER + peerIndex);
-					Files.createDirectories(peerDir);
+        try {
+            Path filepath = Path.of(fileName);
+            Path parentDir = filepath.getParent();
+            if (parentDir != null) {
+                Files.createDirectories(parentDir);
+            }
+            String basename = filepath.getFileName().toString();
+            char peerIndex = 'A';
+            for (String s : commandLists) {
+                if (parentDir != null) {
+                    Path peerDir = parentDir.resolve(PEER + peerIndex);
+                    Files.createDirectories(peerDir);
 
-					String string = finalizeCommandList(s);
-					Path outFile = peerDir.resolve(basename + PEER + peerIndex + ".txt");
+                    // Prefix block/release markers with basename so they're unique per scenario
+                    String cmdWithPrefix = addScenarioPrefix(s, basename);
 
-					try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
-						FileUtils.writeToFile(fos, string);
-					}
-					peerIndex++;
-				}
-			}
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
+                    String string = finalizeCommandList(cmdWithPrefix);
+                    Path outFile = peerDir.resolve(basename + PEER + peerIndex + ".txt");
 
+                    try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+                        FileUtils.writeToFile(fos, string);
+                    }
+                    peerIndex++;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // Add a helper to prefix block/release markers with a scenario identifier
+    private static String addScenarioPrefix(String commands, String scenarioBasename) {
+        if (commands == null || commands.isEmpty()) return commands;
+        // Ensure basename is safe (remove path separators) and trim trailing underscores
+        String safeBase = scenarioBasename.replaceAll("[^A-Za-z0-9_-]", "_");
+        if (safeBase.endsWith("_")) {
+            safeBase = safeBase.substring(0, safeBase.length()-1);
+        }
+        // Prefix only standalone 'block <token>' and 'release <token>' occurrences so we don't accidentally mangle other text
+        // Use regex to capture the token following block/release and replace with prefixed token
+        commands = commands.replaceAll("\\b(block)\\s+([A-Za-z0-9_]+)", "$1 " + safeBase + "_$2");
+        commands = commands.replaceAll("\\b(release)\\s+([A-Za-z0-9_]+)", "$1 " + safeBase + "_$2");
+        return commands;
+    }
 
 	public static void main(String[] args) {
 		String filepath;

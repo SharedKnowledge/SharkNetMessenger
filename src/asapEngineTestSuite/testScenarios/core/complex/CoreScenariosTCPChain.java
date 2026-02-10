@@ -3,6 +3,7 @@ package asapEngineTestSuite.testScenarios.core.complex;
 import asapEngineTestSuite.CoreScenarioOutput;
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
 import asapEngineTestSuite.utils.CommandListToFile;
+import com.sun.jdi.IntegerValue;
 
 /**
  * Each peer connects to the previous peer in order.
@@ -16,7 +17,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
     public static final String FILLER_IP = " FILLER_IP ";
     public static final String SN_CHARACTERS = " sn/characters";
     public static final String CLOSE_ENCOUNTER_1 = CommandListToFile.CLOSE_ENCOUNTER + " 1" + CLI_SEPARATOR;
-    public static final int WAIT_TIME = 1000;
+    public static final int WAIT_TIME = 1500;
     public static final String WAIT = CLI_WAIT;
     public static final String RELEASE = CLI_RELEASE;
     public static final String BLOCK = CLI_BLOCK;
@@ -114,6 +115,8 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + "echo sendMessage"
                 + CLI_SEPARATOR
+                + WAIT + " " + 500
+                + CLI_SEPARATOR
                 + BLOCK + syncMarkerGenerator(1)
                 + CLI_SEPARATOR
                 + WAIT + " " + testDauer/(peerCount*2)
@@ -135,14 +138,19 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
             }
             commandLists[i] += CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
                     + CLI_SEPARATOR
-                    + WAIT + " " + WAIT_TIME * i
+                    + WAIT + " " + WAIT_TIME * 2 * i
                     + CLI_SEPARATOR
                     + "echo connectTCP"
                     + CLI_SEPARATOR
+                    + WAIT + " " + 500
+                    + CLI_SEPARATOR
                     + RELEASE + syncMarkerGenerator(i)
                     + CLI_SEPARATOR;
+
             if (i != peerCount - 1) {
-                commandLists[i] += BLOCK + syncMarkerGenerator(i + 1)
+                commandLists[i] += WAIT + " " + WAIT_TIME
+                        + CLI_SEPARATOR
+                        + BLOCK + syncMarkerGenerator((i + 1))
                         + CLI_SEPARATOR;
             }
             commandLists[i]+= WAIT + " " + WAIT_TIME * i
@@ -166,7 +174,11 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + "echo openTCP"
                 + CLI_SEPARATOR
+                + WAIT + " " + 500
+                + CLI_SEPARATOR
                 + BLOCK + syncMarkerGenerator(1)
+                + CLI_SEPARATOR
+                + WAIT + " 500"
                 + CLI_SEPARATOR
                 + "closeEncounter 1"
                 + CLI_SEPARATOR
@@ -176,9 +188,11 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR;
 
         for (int i = 1; i < peerCount; i++) {
-            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * i * 1.1
+            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * (i + 1)
                     + CLI_SEPARATOR
                     + CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
+                    + CLI_SEPARATOR
+                    + WAIT + 500
                     + CLI_SEPARATOR
                     + "echo connectTCP"
                     + CLI_SEPARATOR
@@ -186,7 +200,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                     + CLI_SEPARATOR
                     + RELEASE + syncMarkerGenerator(i)
                     + CLI_SEPARATOR
-                    + "echo release " + i
+                    + "echo release P" + i
                     + CLI_SEPARATOR
                     + WAIT + " " + 500
                     + CLI_SEPARATOR
@@ -195,9 +209,11 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
             if (i < peerCount - 1) {
                 commandLists[i] += "openTCP " + (this.portNr + i)
                         + CLI_SEPARATOR
-                        + "echo openTCP Port 4444+" + i
+                        + "echo openTCP"
                         + CLI_SEPARATOR
-                        + BLOCK + syncMarkerGenerator(i + 1)
+                        + WAIT + " " + 500
+                        + CLI_SEPARATOR
+                        + BLOCK + syncMarkerGenerator((i + 1))
                         + CLI_SEPARATOR;
             }
             commandLists[i] += WAIT + " "  + WAIT_TIME
