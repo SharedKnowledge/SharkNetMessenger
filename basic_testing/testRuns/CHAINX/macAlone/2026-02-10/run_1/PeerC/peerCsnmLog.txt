@@ -1,0 +1,125 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:24:09.796: created a new asap peer id for PeerC: PeerC_0kw6Mav0000L82
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:24:11.995: openTCP
+2026-02-10 00:24:11.995: wait 2000 ms ...
+2026-02-10 00:24:14.001: resume
+2026-02-10 00:24:14.026: wait 4000 ms ...
+2026-02-10 00:24:14.032: 
+new encounter to PeerB_xjw6Mav0000CNm via internet
+2026-02-10 00:24:14.033: 
+Peer PeerB_xjw6Mav0000CNm has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:24:14.094: 1messages received in channel sn://universal
+2026-02-10 00:24:15.897: 1messages received in channel snm://block_release
+2026-02-10 00:24:15.944: 
+new encounter to PeerD_6kw6Mav00009G9 via internet
+2026-02-10 00:24:15.944: 
+Peer PeerD_6kw6Mav00009G9 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:24:18.032: resume
+2026-02-10 00:24:18.033: connectTCP
+2026-02-10 00:24:18.034: wait 500 ms ...
+2026-02-10 00:24:18.536: resume
+2026-02-10 00:24:18.542: release block sent: P2
+2026-02-10 00:24:18.543: wait 1000 ms ...
+2026-02-10 00:24:19.547: resume
+2026-02-10 00:24:19.548: block and wait for release P3
+2026-02-10 00:24:21.286: 
+new encounter to PeerD_6kw6Mav00009G9 via internet
+2026-02-10 00:24:21.287: 
+Peer PeerD_6kw6Mav00009G9 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:24:22.637: 3messages received in channel snm://block_release
+2026-02-10 00:24:22.646: block released P3
+2026-02-10 00:24:22.647: wait 2000 ms ...
+2026-02-10 00:24:24.649: resume
+2026-02-10 00:24:24.666: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 00:24:24.672: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler_A.txt (1024 bytes) | saved to disc
+sender: PeerA_8jw6Mav0000HNh | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:12.276
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_8jw6Mav0000HNh | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerB_xjw6Mav0000CNm | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 00:24:24.685: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-02-10 00:24:24.687: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_6kw6Mav00009G9 | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:22.605
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6kw6Mav00009G9 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_xjw6Mav0000CNm | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:15.871
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_xjw6Mav0000CNm | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:18.537
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2026-02-10 00:24:24.687: wait 1000 ms ...
+2026-02-10 00:24:25.692: resume
+2026-02-10 00:24:25.761: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-02-10 00:24:25.775: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_6kw6Mav00009G9 | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:22.605
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6kw6Mav00009G9 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_xjw6Mav0000CNm | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:15.871
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_xjw6Mav0000CNm | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:18.537
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2026-02-10 00:24:25.811: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 00:24:25.816: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler_A.txt (1024 bytes) | already saved
+sender: PeerA_8jw6Mav0000HNh | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:12.276
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_8jw6Mav0000HNh | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerB_xjw6Mav0000CNm | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

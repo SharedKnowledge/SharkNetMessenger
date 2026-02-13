@@ -1,0 +1,74 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-10 01:10:49.931: created a new asap peer id for PeerB: PeerB_xLgiMav0000Lkx
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 01:11:21.445: block and wait for release SC_SC
+2026-02-10 01:11:24.009: 
+new encounter to PeerA_dLgiMav00002wv via internet
+2026-02-10 01:11:24.011: 
+Peer PeerA_dLgiMav00002wv has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 01:11:24.095: 1messages received in channel snm://block_release
+2026-02-10 01:11:24.104: block released SC_SC
+2026-02-10 01:11:24.105: wait 1000 ms ...
+2026-02-10 01:11:24.155: 1messages received in channel sn://universal
+2026-02-10 01:11:25.110: resume
+2026-02-10 01:11:25.121: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 01:11:25.128: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | saved to disc
+sender: PeerA_dLgiMav00002wv | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:11:22.893
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_dLgiMav00002wv | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:11:25.138: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:11:25.139: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: PeerA_dLgiMav00002wv | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:11:24.003
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_dLgiMav00002wv | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:11:25.139: wait 1000 ms ...
+2026-02-10 01:11:25.433: 
+encounter closed: PeerA_dLgiMav00002wv | connection: internet | started: 2026-02-10 01:11:24.010 | closed: 2026-02-10 01:11:25.432
+
+2026-02-10 01:11:26.143: resume
+2026-02-10 01:11:26.150: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:11:26.150: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: PeerA_dLgiMav00002wv | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:11:24.003
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_dLgiMav00002wv | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:11:26.157: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 01:11:26.159: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | already saved
+sender: PeerA_dLgiMav00002wv | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:11:22.893
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_dLgiMav00002wv | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

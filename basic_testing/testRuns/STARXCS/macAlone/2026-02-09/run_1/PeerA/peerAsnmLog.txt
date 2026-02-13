@@ -1,0 +1,97 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-02-09 21:37:47.998: created a new asap peer id for PeerA: PeerA_lBDqLav00006uh
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-09 21:37:50.154: openTCP
+2026-02-09 21:37:50.154: block and wait for release P1
+2026-02-09 21:37:50.658: 
+new encounter to PeerB_IBDqLav0000qum via internet
+2026-02-09 21:37:50.659: 
+Peer PeerB_IBDqLav0000qum has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:37:51.129: 
+new encounter to PeerD_QBDqLav0000SRF via internet
+2026-02-09 21:37:51.130: 
+Peer PeerD_QBDqLav0000SRF has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:37:51.218: 1messages received in channel snm://block_release
+2026-02-09 21:37:51.224: block released P1
+2026-02-09 21:37:51.225: wait 1000 ms ...
+2026-02-09 21:37:51.677: 2messages received in channel snm://block_release
+2026-02-09 21:37:51.708: connectTCP
+2026-02-09 21:37:51.709: connectTCP
+2026-02-09 21:37:51.711: 
+new encounter to PeerD_QBDqLav0000SRF via internet
+2026-02-09 21:37:51.711: 
+Peer PeerD_QBDqLav0000SRF has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:37:51.712: 
+new encounter to PeerB_IBDqLav0000qum via internet
+2026-02-09 21:37:51.712: 
+Peer PeerB_IBDqLav0000qum has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:37:51.712: 
+new encounter to PeerC_rBDqLav0000YfS via internet
+2026-02-09 21:37:51.713: connectTCP
+2026-02-09 21:37:51.713: 
+Peer PeerC_rBDqLav0000YfS has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:37:51.713: connectTCP
+2026-02-09 21:37:51.720: no messages in channel 2
+2026-02-09 21:37:51.734: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-09 21:37:51.736: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_IBDqLav0000qum | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:37:51.177
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_IBDqLav0000qum | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_QBDqLav0000SRF | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:37:51.646
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_QBDqLav0000SRF | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-02-09 21:37:51.736: wait 1000 ms ...
+2026-02-09 21:37:51.843: 3messages received in channel snm://block_release
+2026-02-09 21:37:51.861: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-02-09 21:37:51.865: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_IBDqLav0000qum | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:37:51.177
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_IBDqLav0000qum | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | saved to disc
+sender: PeerB_IBDqLav0000qum | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:37:51.759
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_IBDqLav0000qum | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_QBDqLav0000SRF | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:37:51.646
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_QBDqLav0000SRF | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+
+2026-02-09 21:37:51.871: no messages in channel 2

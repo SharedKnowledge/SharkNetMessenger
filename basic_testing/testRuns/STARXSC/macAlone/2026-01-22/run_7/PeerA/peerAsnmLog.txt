@@ -1,0 +1,111 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 15:10:37.580: created a new asap peer id for PeerA: PeerA_bJHB29v00008LN
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 15:10:40.410: openTCP
+2026-01-22 15:10:40.414: block and wait for release P1
+2026-01-22 15:10:40.838: 
+new encounter to PeerB_bJHB29v00008LN via internet
+2026-01-22 15:10:40.840: 
+Peer PeerB_bJHB29v00008LN has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:40.916: 1messages received in channel sn://universal
+2026-01-22 15:10:40.924: 1messages received in channel snm://block_release
+2026-01-22 15:10:40.930: block released P1
+2026-01-22 15:10:40.931: wait 1000 ms ...
+2026-01-22 15:10:41.921: 
+new encounter to PeerD_BJHB29v0000bAx via internet
+2026-01-22 15:10:41.921: 
+Peer PeerD_BJHB29v0000bAx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:41.937: resume
+2026-01-22 15:10:41.973: connectTCP
+2026-01-22 15:10:41.973: connectTCP
+2026-01-22 15:10:41.988: connectTCP
+2026-01-22 15:10:41.988: connectTCP
+2026-01-22 15:10:42.003: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-01-22 15:10:42.007: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | saved to disc
+sender: PeerB_bJHB29v00008LN | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:40.234
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_bJHB29v00008LN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-01-22 15:10:42.016: 
+new encounter to PeerB_bJHB29v00008LN via internet
+2026-01-22 15:10:42.016: 
+Peer PeerB_bJHB29v00008LN has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:42.019: 
+new encounter to PeerD_BJHB29v0000bAx via internet
+2026-01-22 15:10:42.020: 
+Peer PeerD_BJHB29v0000bAx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:42.021: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 15:10:42.022: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_bJHB29v00008LN | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:40.846
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_bJHB29v00008LN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-01-22 15:10:42.023: wait 1000 ms ...
+2026-01-22 15:10:42.022: 
+new encounter to PeerC_CJHB29v0000aFv via internet
+2026-01-22 15:10:42.023: 
+Peer PeerC_CJHB29v0000aFv has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:42.104: 2messages received in channel sn://universal
+2026-01-22 15:10:42.305: 
+new encounter to PeerD_BJHB29v0000bAx via internet
+2026-01-22 15:10:42.305: 
+Peer PeerD_BJHB29v0000bAx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:42.306: 
+new encounter to PeerC_CJHB29v0000aFv via internet
+2026-01-22 15:10:42.306: 
+Peer PeerC_CJHB29v0000aFv has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:43.024: resume
+2026-01-22 15:10:43.036: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 15:10:43.037: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_bJHB29v00008LN | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:40.846
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_bJHB29v00008LN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-01-22 15:10:43.049: name: sharkNet | uri: sn://universal | #messages: 2 | age: unknown
+2026-01-22 15:10:43.052: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | already saved
+sender: PeerD_BJHB29v0000bAx | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:41.322
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_BJHB29v0000bAx | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | already saved
+sender: PeerB_bJHB29v00008LN | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:40.234
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_bJHB29v00008LN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+

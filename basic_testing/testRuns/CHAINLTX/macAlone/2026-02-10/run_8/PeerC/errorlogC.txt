@@ -1,0 +1,1 @@
+2026-02-10 02:11:14.187: new connection but no connection type?? there is no connection to peer PeerB_5crxMav00004xa

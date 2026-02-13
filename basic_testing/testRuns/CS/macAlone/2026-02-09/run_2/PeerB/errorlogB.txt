@@ -1,0 +1,11 @@
+exception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

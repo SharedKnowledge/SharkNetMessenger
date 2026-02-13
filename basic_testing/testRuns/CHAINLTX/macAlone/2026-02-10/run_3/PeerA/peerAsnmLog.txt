@@ -1,0 +1,73 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-02-10 00:40:10.089: created a new asap peer id for PeerA: PeerA_I8yaMav00003mG
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:40:13.792: sendMessage
+2026-02-10 00:40:13.818: openTCP
+2026-02-10 00:40:13.819: wait 500 ms ...
+2026-02-10 00:40:14.322: resume
+2026-02-10 00:40:14.323: block and wait for release P1
+2026-02-10 00:40:16.560: 
+new encounter to PeerB_k9yaMav0000oRV via internet
+2026-02-10 00:40:16.561: 
+Peer PeerB_k9yaMav0000oRV has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:40:17.161: 1messages received in channel snm://block_release
+2026-02-10 00:40:17.166: block released P1
+2026-02-10 00:40:17.167: wait 500 ms ...
+2026-02-10 00:40:17.667: resume
+2026-02-10 00:40:17.668: close encounter with PeerB_k9yaMav0000oRV
+2026-02-10 00:40:17.670: wait 1000 ms ...
+2026-02-10 00:40:17.678: 
+encounter closed: PeerB_k9yaMav0000oRV | connection: internet | started: 2026-02-10 00:40:16.561 | closed: 2026-02-10 00:40:17.677
+
+2026-02-10 00:40:18.675: resume
+2026-02-10 00:40:18.675: closeEncounter
+2026-02-10 00:40:18.688: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 00:40:18.692: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINLTX_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:40:13.728
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_I8yaMav00003mG): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 00:40:18.701: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 00:40:18.703: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_k9yaMav0000oRV | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:40:17.105
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_k9yaMav0000oRV | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 00:40:18.704: wait 1000 ms ...
+2026-02-10 00:40:19.709: resume
+2026-02-10 00:40:19.717: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 00:40:19.719: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_k9yaMav0000oRV | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:40:17.105
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_k9yaMav0000oRV | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 00:40:19.724: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-10 00:40:19.726: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINLTX_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:40:13.728
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_I8yaMav00003mG): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

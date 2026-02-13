@@ -1,0 +1,4 @@
+failed to parse integer value3300.0000000000005
+Arguments invalid for command: wait
+2026-01-22 12:47:06.241: Error: Connection refused
+2026-01-22 12:47:08.281: there is no encounter.

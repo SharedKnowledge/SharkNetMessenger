@@ -1,0 +1,32 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-09 21:32:54.454: created a new asap peer id for PeerB: PeerB_7eppLav00004T8
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-09 21:32:59.134: openTCP
+2026-02-09 21:32:59.135: wait 1000 ms ...
+2026-02-09 21:33:00.136: resume
+2026-02-09 21:33:00.178: wait 2000 ms ...
+2026-02-09 21:33:00.221: 
+new encounter to PeerA_4eppLav0000fCq via internet
+2026-02-09 21:33:00.223: 
+Peer PeerA_4eppLav0000fCq has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:33:00.460: 1messages received in channel sn://universal
+2026-02-09 21:33:00.645: 
+new encounter to PeerC_GeppLav0000TeF via internet
+2026-02-09 21:33:00.646: 
+Peer PeerC_GeppLav0000TeF has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:33:02.180: resume
+2026-02-09 21:33:02.181: connectTCP
+2026-02-09 21:33:02.181: wait 500 ms ...
+2026-02-09 21:33:02.686: resume
+2026-02-09 21:33:02.724: release block sent: P1
+2026-02-09 21:33:02.725: wait 1000 ms ...
+2026-02-09 21:33:03.735: resume
+2026-02-09 21:33:03.736: block and wait for release P2
+2026-02-09 21:33:12.746: 
+new encounter to PeerA_4eppLav0000fCq via internet
+2026-02-09 21:33:12.747: 
+Peer PeerA_4eppLav0000fCq has not yet issued a certificate for you. You are connected now. A good time to ask for one?

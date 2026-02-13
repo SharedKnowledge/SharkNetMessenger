@@ -1,0 +1,43 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-01-22 14:21:39.490: created a new asap peer id for PeerB: PeerB_ypnp29v0000zeD
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 14:21:42.018: openTCP
+2026-01-22 14:21:42.020: wait 1000 ms ...
+2026-01-22 14:21:43.186: resume
+2026-01-22 14:21:43.345: wait 1000 ms ...
+2026-01-22 14:21:43.586: 
+new encounter to PeerC_Ypnp29v0000HEN via internet
+2026-01-22 14:21:43.587: 
+Peer PeerC_Ypnp29v0000HEN has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 14:21:44.348: resume
+2026-01-22 14:21:44.349: connectTCP
+2026-01-22 14:21:44.361: release block sent: P1
+2026-01-22 14:21:44.363: block and wait for release P2
+2026-01-22 14:21:45.631: 2messages received in channel snm://block_release
+2026-01-22 14:21:45.639: block released P2
+2026-01-22 14:21:45.640: wait 1000 ms ...
+2026-01-22 14:21:46.642: resume
+2026-01-22 14:21:46.650: no messages in channel 2
+2026-01-22 14:21:46.665: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 14:21:46.667: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerC_Ypnp29v0000HEN | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:21:45.568
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_Ypnp29v0000HEN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:21:44.351
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+

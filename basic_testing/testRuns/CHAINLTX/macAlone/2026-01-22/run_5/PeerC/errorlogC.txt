@@ -1,0 +1,3 @@
+failed to parse integer value2200.0
+Arguments invalid for command: wait
+2026-01-22 14:43:18.413: Error: Connection refused

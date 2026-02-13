@@ -1,0 +1,113 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:34:21.673: created a new asap peer id for PeerC: PeerC_ku59Mav00001Z6
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:34:24.108: openTCP
+2026-02-10 00:34:24.108: block and wait for release P2
+2026-02-10 00:34:25.537: 
+new encounter to PeerA_gt59Mav0000FSL via internet
+2026-02-10 00:34:25.539: 
+Peer PeerA_gt59Mav0000FSL has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:34:25.597: 2messages received in channel snm://block_release
+2026-02-10 00:34:25.604: 2messages received in channel snm://block_release
+2026-02-10 00:34:25.883: 3messages received in channel snm://block_release
+2026-02-10 00:34:25.893: block released P2
+2026-02-10 00:34:25.894: wait 5000 ms ...
+2026-02-10 00:34:26.092: 4messages received in channel snm://block_release
+2026-02-10 00:34:26.132: no messages in channel 2
+2026-02-10 00:34:26.151: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-02-10 00:34:26.154: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_xu59Mav0000tJc | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.200
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_xu59Mav0000tJc | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerA_gt59Mav0000FSL | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.851
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerA_gt59Mav0000FSL | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:26.063
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_mv59Mav0000WLT | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.444
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_mv59Mav0000WLT | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+
+2026-02-10 00:34:26.154: wait 1000 ms ...
+2026-02-10 00:34:27.159: resume
+2026-02-10 00:34:27.178: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-02-10 00:34:27.181: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_xu59Mav0000tJc | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.200
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_xu59Mav0000tJc | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: PeerA_gt59Mav0000FSL | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.851
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerA_gt59Mav0000FSL | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:26.063
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_mv59Mav0000WLT | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:25.444
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_mv59Mav0000WLT | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_gt59Mav0000FSL | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+
+2026-02-10 00:34:27.189: no messages in channel 2

@@ -1,0 +1,97 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 15:18:53.685: created a new asap peer id for PeerA: PeerA_RNMD29v0000XmE
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 15:18:56.098: openTCP
+2026-01-22 15:18:56.100: block and wait for release P1
+2026-01-22 15:18:56.400: 
+new encounter to PeerB_WNMD29v0000BL2 via internet
+2026-01-22 15:18:56.401: 
+Peer PeerB_WNMD29v0000BL2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:18:56.934: 1messages received in channel snm://block_release
+2026-01-22 15:18:56.942: block released P1
+2026-01-22 15:18:56.943: wait 1000 ms ...
+2026-01-22 15:18:57.167: 
+new encounter to PeerD_UNMD29v0000wYK via internet
+2026-01-22 15:18:57.168: 
+Peer PeerD_UNMD29v0000wYK has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:18:57.499: 2messages received in channel snm://block_release
+2026-01-22 15:18:57.533: connectTCP
+2026-01-22 15:18:57.533: connectTCP
+2026-01-22 15:18:57.538: connectTCP
+2026-01-22 15:18:57.539: connectTCP
+2026-01-22 15:18:57.541: 
+new encounter to PeerD_UNMD29v0000wYK via internet
+2026-01-22 15:18:57.541: 
+Peer PeerD_UNMD29v0000wYK has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:18:57.543: 
+new encounter to PeerC_JNMD29v0000t62 via internet
+2026-01-22 15:18:57.543: 
+Peer PeerC_JNMD29v0000t62 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:18:57.544: 
+new encounter to PeerB_WNMD29v0000BL2 via internet
+2026-01-22 15:18:57.544: 
+Peer PeerB_WNMD29v0000BL2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:18:57.545: no messages in channel 2
+2026-01-22 15:18:57.555: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 15:18:57.558: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_WNMD29v0000BL2 | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:18:56.893
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_WNMD29v0000BL2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | saved to disc
+sender: PeerB_WNMD29v0000BL2 | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:18:57.419
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_WNMD29v0000BL2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-01-22 15:18:57.559: wait 1000 ms ...
+2026-01-22 15:18:57.691: 3messages received in channel snm://block_release
+2026-01-22 15:18:57.708: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-01-22 15:18:57.710: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_UNMD29v0000wYK | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:18:57.666
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_UNMD29v0000wYK | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_WNMD29v0000BL2 | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:18:56.893
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_WNMD29v0000BL2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | already saved
+sender: PeerB_WNMD29v0000BL2 | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:18:57.419
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_WNMD29v0000BL2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+
+2026-01-22 15:18:57.716: no messages in channel 2

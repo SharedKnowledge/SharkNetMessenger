@@ -1,0 +1,7 @@
+CHAINLTX
+PeerA: pass: Both messages sent/received successfully.
+PeerB: pass: Both messages sent/received successfully.
+PeerC: pass: Both messages sent/received successfully.
+PeerD: pass: Both messages sent/received successfully.
+CHAINLTX
+PASS: All peers completed successfully

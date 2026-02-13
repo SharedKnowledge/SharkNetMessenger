@@ -1,0 +1,1 @@
+2026-02-09 21:33:00.211: new connection but no connection type?? there is no connection to peer PeerB_7eppLav00004T8

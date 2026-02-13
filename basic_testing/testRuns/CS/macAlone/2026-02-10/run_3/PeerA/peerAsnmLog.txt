@@ -1,0 +1,52 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-02-10 00:43:29.293: created a new asap peer id for PeerA: PeerA_PXnbMav0000L4S
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:43:30.968: wait 500 ms ...
+2026-02-10 00:43:31.472: resume
+2026-02-10 00:43:31.536: wait 500 ms ...
+2026-02-10 00:43:31.541: 
+new encounter to PeerB_OXnbMav0000AC8 via internet
+2026-02-10 00:43:31.543: 
+Peer PeerB_OXnbMav0000AC8 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:43:32.037: resume
+2026-02-10 00:43:32.066: release block sent: CS
+2026-02-10 00:43:32.066: wait 500 ms ...
+2026-02-10 00:43:32.569: resume
+2026-02-10 00:43:32.629: no messages in channel 2
+2026-02-10 00:43:32.638: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-10 00:43:32.645: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:43:32.042
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:43:32.586
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_PXnbMav0000L4S): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-10 00:43:32.645: wait 1000 ms ...
+2026-02-10 00:43:33.650: resume
+2026-02-10 00:43:33.655: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-10 00:43:33.658: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:43:32.042
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:43:32.586
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_PXnbMav0000L4S): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-10 00:43:33.661: no messages in channel 2

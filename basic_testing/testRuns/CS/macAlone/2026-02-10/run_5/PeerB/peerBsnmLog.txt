@@ -1,0 +1,46 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-10 01:55:49.262: created a new asap peer id for PeerB: PeerB_cZAtMav0000du3
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 01:55:50.984: block and wait for release CS_CS
+2026-02-10 01:55:51.518: 
+new encounter to PeerA_1ZAtMav00008SR via internet
+2026-02-10 01:55:51.519: 
+Peer PeerA_1ZAtMav00008SR has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 01:55:52.548: 1messages received in channel snm://block_release
+2026-02-10 01:55:52.554: block released CS_CS
+2026-02-10 01:55:52.555: wait 1000 ms ...
+2026-02-10 01:55:53.557: resume
+2026-02-10 01:55:53.564: no messages in channel 2
+2026-02-10 01:55:53.581: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:55:53.582: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: PeerA_1ZAtMav00008SR | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:55:52.515
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_1ZAtMav00008SR | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:55:53.583: wait 1000 ms ...
+2026-02-10 01:55:54.585: resume
+2026-02-10 01:55:54.596: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:55:54.599: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: PeerA_1ZAtMav00008SR | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:55:52.515
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_1ZAtMav00008SR | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:55:54.604: no messages in channel 2

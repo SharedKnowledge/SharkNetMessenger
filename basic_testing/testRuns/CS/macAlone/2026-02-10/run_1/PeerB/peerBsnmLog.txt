@@ -1,0 +1,15 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-10 00:26:43.829: created a new asap peer id for PeerB: PeerB_zoa7Mav0000lpX
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:26:44.746: block and wait for release CS
+2026-02-10 00:26:46.061: 
+new encounter to PeerA_moa7Mav0000YBf via internet
+2026-02-10 00:26:46.062: 
+Peer PeerA_moa7Mav0000YBf has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:26:48.586: 
+encounter closed: PeerA_moa7Mav0000YBf | connection: internet | started: 2026-02-10 00:26:46.062 | closed: 2026-02-10 00:26:48.585
+

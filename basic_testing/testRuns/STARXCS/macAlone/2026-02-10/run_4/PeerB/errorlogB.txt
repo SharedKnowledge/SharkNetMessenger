@@ -1,0 +1,11 @@
+Exception in thread "Thread-12" java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:356)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:330)
+	at net.sharksystem.asap.engine.ASAPMementoFS.save(ASAPMementoFS.java:53)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:179)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getASAPEngineFS(ASAPEngineFS.java:110)
+	at net.sharksystem.asap.engine.ASAPEngineFS.getExistingASAPEngineFS(ASAPEngineFS.java:70)
+	at net.sharksystem.asap.utils.ASAPLogHelper.getMessagesByChunkReceivedInfos(ASAPLogHelper.java:22)
+	at net.sharksystem.asap.ASAPPeerFS.chunkStored(ASAPPeerFS.java:108)
+	at net.sharksystem.asap.engine.ASAPEngine.handleASAPAssimilate(ASAPEngine.java:501)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUExecutor.run(ASAPSessionImpl.java:455)

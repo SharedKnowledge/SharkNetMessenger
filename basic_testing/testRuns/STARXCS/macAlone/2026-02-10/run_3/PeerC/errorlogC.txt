@@ -1,0 +1,6 @@
+Exception in thread "Thread-18" java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1096)
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1050)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting.releaseReceived(SharkNetMessengerAppSupportingDistributedTesting.java:102)
+	at net.sharksystem.ui.messenger.cli.SNMDistributedTestsMessageReceivedListener$1.run(SNMDistributedTestsMessageReceivedListener.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

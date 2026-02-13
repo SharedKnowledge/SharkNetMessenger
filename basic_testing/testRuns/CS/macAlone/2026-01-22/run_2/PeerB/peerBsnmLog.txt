@@ -1,0 +1,8 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-01-22 12:40:16.754: created a new asap peer id for PeerB: PeerB_11RZ19v0000nq1
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:40:18.828: block and wait for release CS

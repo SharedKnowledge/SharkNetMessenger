@@ -1,0 +1,18 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:37:20.060: created a new asap peer id for PeerC: PeerC_7UP9Mav0000xFZ
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:37:22.434: openTCP
+2026-02-10 00:37:22.434: block and wait for release P2
+2026-02-10 00:37:25.193: 
+new encounter to PeerA_dUP9Mav0000nFI via internet
+2026-02-10 00:37:25.194: 
+Peer PeerA_dUP9Mav0000nFI has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:37:25.255: 1messages received in channel snm://block_release
+2026-02-10 00:37:25.285: 2messages received in channel snm://block_release
+2026-02-10 00:37:27.051: 
+encounter closed: PeerA_dUP9Mav0000nFI | connection: internet | started: 2026-02-10 00:37:25.194 | closed: 2026-02-10 00:37:27.049
+

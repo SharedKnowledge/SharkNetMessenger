@@ -1,0 +1,64 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-01-22 14:21:39.509: created a new asap peer id for PeerC: PeerC_Ypnp29v0000HEN
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 14:21:41.393: openTCP
+2026-01-22 14:21:41.394: wait 2000 ms ...
+2026-01-22 14:21:43.402: resume
+2026-01-22 14:21:43.514: wait 2000 ms ...
+2026-01-22 14:21:43.556: 
+new encounter to PeerB_ypnp29v0000zeD via internet
+2026-01-22 14:21:43.563: 
+Peer PeerB_ypnp29v0000zeD has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 14:21:44.420: 1messages received in channel snm://block_release
+2026-01-22 14:21:45.566: resume
+2026-01-22 14:21:45.567: connectTCP
+2026-01-22 14:21:45.578: release block sent: P2
+2026-01-22 14:21:45.579: block and wait for release P3
+2026-01-22 14:21:47.049: 
+encounter closed: PeerB_ypnp29v0000zeD | connection: internet | started: 2026-01-22 14:21:43.559 | closed: 2026-01-22 14:21:47.048
+
+2026-01-22 14:21:47.694: 
+new encounter to PeerD_Zpnp29v0000Tdc via internet
+2026-01-22 14:21:47.695: 
+Peer PeerD_Zpnp29v0000Tdc has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 14:21:47.697: 
+encounter closed: PeerB_ypnp29v0000zeD | connection: internet | started: 2026-01-22 14:21:43.559 | closed: 2026-01-22 14:21:47.696
+
+2026-01-22 14:21:50.733: 3messages received in channel snm://block_release
+2026-01-22 14:21:50.741: block released P3
+2026-01-22 14:21:50.742: wait 2000 ms ...
+2026-01-22 14:21:52.744: resume
+2026-01-22 14:21:52.751: no messages in channel 2
+2026-01-22 14:21:52.799: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-01-22 14:21:52.802: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_Zpnp29v0000Tdc | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:21:50.696
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_Zpnp29v0000Tdc | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_ypnp29v0000zeD | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:21:44.351
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_ypnp29v0000zeD | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:21:45.568
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+

@@ -1,0 +1,175 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-02-09 21:45:31.743: created a new asap peer id for PeerA: PeerA_SeAsLav0000tpg
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-09 21:46:03.996: openTCP
+2026-02-09 21:46:03.999: block and wait for release P1
+2026-02-09 21:46:05.116: 
+new encounter to PeerB_6fAsLav0000MxC via internet
+2026-02-09 21:46:05.117: 
+Peer PeerB_6fAsLav0000MxC has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:05.298: 1messages received in channel sn://universal
+2026-02-09 21:46:05.310: 1messages received in channel snm://block_release
+2026-02-09 21:46:05.319: block released P1
+2026-02-09 21:46:05.320: wait 1000 ms ...
+2026-02-09 21:46:05.514: 
+new encounter to PeerD_WeAsLav0000dFS via internet
+2026-02-09 21:46:05.515: 
+Peer PeerD_WeAsLav0000dFS has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:05.616: 2messages received in channel snm://block_release
+2026-02-09 21:46:05.666: connectTCP
+2026-02-09 21:46:05.667: wait 1000 ms ...
+2026-02-09 21:46:05.672: 2messages received in channel sn://universal
+2026-02-09 21:46:05.680: 
+new encounter to PeerB_6fAsLav0000MxC via internet
+2026-02-09 21:46:05.680: 
+new encounter to PeerC_sfAsLav0000b1p via internet
+2026-02-09 21:46:05.680: 
+Peer PeerB_6fAsLav0000MxC has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:05.680: 
+Peer PeerC_sfAsLav0000b1p has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:05.679: 
+new encounter to PeerD_WeAsLav0000dFS via internet
+2026-02-09 21:46:05.714: 
+Peer PeerD_WeAsLav0000dFS has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:06.667: resume
+2026-02-09 21:46:06.681: release block sent: P2
+2026-02-09 21:46:06.682: connectTCP
+2026-02-09 21:46:06.685: connectTCP
+2026-02-09 21:46:06.685: wait 1000 ms ...
+2026-02-09 21:46:06.763: 
+new encounter to PeerD_WeAsLav0000dFS via internet
+2026-02-09 21:46:06.763: 
+Peer PeerD_WeAsLav0000dFS has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:06.764: 
+new encounter to PeerC_sfAsLav0000b1p via internet
+2026-02-09 21:46:06.764: 
+Peer PeerC_sfAsLav0000b1p has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:07.233: 
+new encounter to PeerC_sfAsLav0000b1p via internet
+2026-02-09 21:46:07.233: 
+Peer PeerC_sfAsLav0000b1p has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 21:46:07.686: resume
+2026-02-09 21:46:07.701: release block sent: P3
+2026-02-09 21:46:07.702: connectTCP
+2026-02-09 21:46:07.802: name: sharkNet | uri: sn://universal | #messages: 2 | age: unknown
+2026-02-09 21:46:07.816: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | saved to disc
+sender: PeerD_WeAsLav0000dFS | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:04.860
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_WeAsLav0000dFS | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | already saved
+sender: PeerB_6fAsLav0000MxC | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:04.389
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_6fAsLav0000MxC | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-02-09 21:46:07.915: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-02-09 21:46:07.920: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_WeAsLav0000dFS | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:05.517
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_WeAsLav0000dFS | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_6fAsLav0000MxC | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:05.096
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_6fAsLav0000MxC | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:06.668
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:07.688
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+
+2026-02-09 21:46:07.921: wait 1000 ms ...
+2026-02-09 21:46:08.926: resume
+2026-02-09 21:46:08.940: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-02-09 21:46:08.947: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_WeAsLav0000dFS | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:05.517
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_WeAsLav0000dFS | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_6fAsLav0000MxC | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:05.096
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_6fAsLav0000MxC | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:06.668
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:07.688
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+
+2026-02-09 21:46:08.966: name: sharkNet | uri: sn://universal | #messages: 2 | age: unknown
+2026-02-09 21:46:08.972: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | already saved
+sender: PeerD_WeAsLav0000dFS | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:04.860
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_WeAsLav0000dFS | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler.txt (1024 bytes) | already saved
+sender: PeerB_6fAsLav0000MxC | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:46:04.389
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_6fAsLav0000MxC | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+

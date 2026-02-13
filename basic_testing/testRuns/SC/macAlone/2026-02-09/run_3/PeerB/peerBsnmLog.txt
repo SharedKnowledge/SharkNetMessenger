@@ -1,0 +1,74 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-09 22:14:27.746: created a new asap peer id for PeerB: PeerB_QQRzLav0000On6
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-09 22:14:30.168: block and wait for release SC
+2026-02-09 22:14:31.407: 
+new encounter to PeerA_USRzLav0000Ja2 via internet
+2026-02-09 22:14:31.409: 
+Peer PeerA_USRzLav0000Ja2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-09 22:14:31.488: 1messages received in channel sn://universal
+2026-02-09 22:14:31.495: 1messages received in channel snm://block_release
+2026-02-09 22:14:31.502: block released SC
+2026-02-09 22:14:31.503: wait 500 ms ...
+2026-02-09 22:14:32.013: resume
+2026-02-09 22:14:32.048: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-09 22:14:32.062: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | saved to disc
+sender: PeerA_USRzLav0000Ja2 | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 22:14:30.828
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_USRzLav0000Ja2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-09 22:14:32.086: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-09 22:14:32.087: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC'
+sender: PeerA_USRzLav0000Ja2 | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 22:14:31.416
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_USRzLav0000Ja2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-09 22:14:32.090: wait 1000 ms ...
+2026-02-09 22:14:32.914: 
+encounter closed: PeerA_USRzLav0000Ja2 | connection: internet | started: 2026-02-09 22:14:31.408 | closed: 2026-02-09 22:14:32.913
+
+2026-02-09 22:14:33.092: resume
+2026-02-09 22:14:33.099: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-09 22:14:33.100: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC'
+sender: PeerA_USRzLav0000Ja2 | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 22:14:31.416
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_USRzLav0000Ja2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-02-09 22:14:33.110: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-02-09 22:14:33.111: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | already saved
+sender: PeerA_USRzLav0000Ja2 | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 22:14:30.828
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_USRzLav0000Ja2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

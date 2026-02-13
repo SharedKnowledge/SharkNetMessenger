@@ -1,0 +1,7 @@
+CHAINX
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: pass: Message sent/received successfully.
+PeerD: pass: Message sent/received successfully.
+CHAINX
+PASS: All peers completed successfully

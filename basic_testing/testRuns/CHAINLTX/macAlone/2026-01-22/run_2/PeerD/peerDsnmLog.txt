@@ -1,0 +1,38 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerD
+2026-01-22 12:34:56.581: created a new asap peer id for PeerD: PeerD_0JvY19v0000f02
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:34:58.879: connectTCP
+2026-01-22 12:34:58.886: wait 500 ms ...
+2026-01-22 12:34:59.390: resume
+2026-01-22 12:34:59.398: release block sent: P3
+2026-01-22 12:34:59.398: release
+2026-01-22 12:34:59.399: wait 500 ms ...
+2026-01-22 12:34:59.900: resume
+2026-01-22 12:34:59.910: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 12:34:59.912: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:34:59.393
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-01-22 12:34:59.912: wait 1000 ms ...
+2026-01-22 12:35:00.916: resume
+2026-01-22 12:35:00.917: closeEncounter
+2026-01-22 12:35:00.917: wait 500 ms ...
+2026-01-22 12:35:01.422: resume
+2026-01-22 12:35:01.427: no messages in channel 2
+2026-01-22 12:35:01.433: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 12:35:01.434: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:34:59.393
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

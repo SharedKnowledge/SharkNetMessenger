@@ -1,0 +1,48 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:59:26.092: created a new asap peer id for PeerC: PeerC_XRofMav0000NkK
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:59:28.341: wait 3000 ms ...
+2026-02-10 00:59:31.342: resume
+2026-02-10 00:59:31.376: connectTCP
+2026-02-10 00:59:31.376: wait 500 ms ...
+2026-02-10 00:59:31.381: 
+new encounter to PeerB_BRofMav0000UJ0 via internet
+2026-02-10 00:59:31.382: 
+Peer PeerB_BRofMav0000UJ0 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:59:31.425: 1messages received in channel snm://block_release
+2026-02-10 00:59:31.455: 1messages received in channel sn://universal
+2026-02-10 00:59:31.876: resume
+2026-02-10 00:59:31.884: release block sent: CHAINLTX_P2
+2026-02-10 00:59:31.884: release
+2026-02-10 00:59:31.884: wait 500 ms ...
+2026-02-10 00:59:32.386: resume
+2026-02-10 00:59:32.399: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-10 00:59:32.401: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P1'
+sender: PeerB_BRofMav0000UJ0 | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:59:30.732
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_BRofMav0000UJ0 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:59:31.877
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-10 00:59:32.403: openTCP
+2026-02-10 00:59:32.404: wait 500 ms ...
+2026-02-10 00:59:32.904: resume
+2026-02-10 00:59:32.905: block and wait for release CHAINLTX_P3
+2026-02-10 00:59:32.933: 
+encounter closed: PeerB_BRofMav0000UJ0 | connection: internet | started: 2026-02-10 00:59:31.382 | closed: 2026-02-10 00:59:32.932
+

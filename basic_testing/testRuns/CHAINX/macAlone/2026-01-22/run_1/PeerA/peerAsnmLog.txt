@@ -1,0 +1,45 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 11:04:55.125: created a new asap peer id for PeerA: PeerA_KyQB19v0000vv2
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 11:04:58.246: openTCP
+2026-01-22 11:04:58.319: sendMessage
+2026-01-22 11:04:58.320: block and wait for release P1
+2026-01-22 11:04:59.108: 
+new encounter to PeerB_6yQB19v00005ng via internet
+2026-01-22 11:04:59.109: 
+Peer PeerB_6yQB19v00005ng has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 11:05:00.146: 1messages received in channel snm://block_release
+2026-01-22 11:05:00.152: block released P1
+2026-01-22 11:05:00.153: wait 500 ms ...
+2026-01-22 11:05:00.655: resume
+2026-01-22 11:05:00.656: wait 8000 ms ...
+2026-01-22 11:05:03.172: 
+encounter closed: PeerB_6yQB19v00005ng | connection: internet | started: 2026-01-22 11:04:59.109 | closed: 2026-01-22 11:05:03.171
+
+2026-01-22 11:05:08.660: resume
+2026-01-22 11:05:08.671: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-01-22 11:05:08.675: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINX_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 11:04:58.272
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_KyQB19v0000vv2): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-01-22 11:05:08.686: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 11:05:08.687: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_6yQB19v00005ng | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 11:05:00.095
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_6yQB19v00005ng | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

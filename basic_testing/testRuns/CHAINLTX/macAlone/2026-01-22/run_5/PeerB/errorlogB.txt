@@ -1,0 +1,8 @@
+failed to parse integer value1100.0
+Arguments invalid for command: wait
+Exception in thread "Thread-1" java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1096)
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1050)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.setEncounteredPeer(ASAPSessionImpl.java:80)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.run(ASAPSessionImpl.java:272)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

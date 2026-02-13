@@ -1,0 +1,32 @@
+exception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+failed to parse integer value1000release
+Arguments invalid for command: wait
+2026-01-22 14:31:16.063: Error: Connection refused
+failed to parse integer value1000release
+Arguments invalid for command: wait
+exception caught: -1
+java.lang.NegativeArraySizeException: -1
+	at net.sharksystem.asap.utils.ASAPSerialization.readByteArray(ASAPSerialization.java:45)
+	at net.sharksystem.app.messenger.InMemoSharkNetMessage.parseMessage(InMemoSharkNetMessage.java:301)
+	at net.sharksystem.app.messenger.SharkNetMessageComparison.earlier(SharkNetMessageComparison.java:23)
+	at net.sharksystem.asap.engine.ASAPMessagesMerger.lookAhead(ASAPMessagesMerger.java:300)
+	at net.sharksystem.asap.engine.ASAPMessagesMerger.getSourceIndex(ASAPMessagesMerger.java:377)
+	at net.sharksystem.asap.engine.ASAPMessagesMerger.getChunk(ASAPMessagesMerger.java:396)
+	at net.sharksystem.app.messenger.SharkNetMessageListImpl.getSharkMessage(SharkNetMessageListImpl.java:32)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.ChannelPrinter.getMessagesASString(ChannelPrinter.java:93)
+	at net.sharksystem.ui.messenger.cli.commands.messenger.UICommandListMessages.execute(UICommandListMessages.java:47)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

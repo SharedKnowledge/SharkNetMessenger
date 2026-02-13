@@ -1,0 +1,52 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerD
+2026-02-10 01:51:19.683: created a new asap peer id for PeerD: PeerD_5RssMav0000xFJ
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 01:51:22.153: wait 6000 ms ...
+2026-02-10 01:51:28.156: resume
+2026-02-10 01:51:28.176: connectTCP
+2026-02-10 01:51:28.176: wait 500 ms ...
+2026-02-10 01:51:28.677: resume
+2026-02-10 01:51:28.684: release block sent: CHAINLTX_P3
+2026-02-10 01:51:28.685: release
+2026-02-10 01:51:28.685: wait 500 ms ...
+2026-02-10 01:51:29.189: resume
+2026-02-10 01:51:29.199: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:51:29.200: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:51:28.680
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:51:29.201: wait 1500 ms ...
+2026-02-10 01:51:30.704: resume
+2026-02-10 01:51:30.705: closeEncounter
+2026-02-10 01:51:30.705: wait 500 ms ...
+2026-02-10 01:51:31.206: resume
+2026-02-10 01:51:31.210: no messages in channel 2
+2026-02-10 01:51:31.213: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:51:31.214: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:51:28.680
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:51:31.214: wait 1000 ms ...
+2026-02-10 01:51:32.216: resume
+2026-02-10 01:51:32.220: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 01:51:32.221: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 01:51:28.680
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 01:51:32.224: no messages in channel 2

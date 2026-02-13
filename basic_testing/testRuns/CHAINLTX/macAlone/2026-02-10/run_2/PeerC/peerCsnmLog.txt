@@ -1,0 +1,29 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:34:30.539: created a new asap peer id for PeerC: PeerC_0O79Mav0000Pg2
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:34:32.679: wait 3000 ms ...
+2026-02-10 00:34:35.681: resume
+2026-02-10 00:34:35.696: connectTCP
+2026-02-10 00:34:35.697: wait 500 ms ...
+2026-02-10 00:34:36.197: resume
+2026-02-10 00:34:36.203: release block sent: P2
+2026-02-10 00:34:36.203: release
+2026-02-10 00:34:36.204: wait 500 ms ...
+2026-02-10 00:34:36.707: resume
+2026-02-10 00:34:36.719: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-02-10 00:34:36.720: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:34:36.200
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-02-10 00:34:36.725: openTCP
+2026-02-10 00:34:36.725: wait 500 ms ...
+2026-02-10 00:34:37.227: resume
+2026-02-10 00:34:37.228: block and wait for release P3

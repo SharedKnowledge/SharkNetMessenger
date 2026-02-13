@@ -1,0 +1,30 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 12:40:16.753: created a new asap peer id for PeerA: PeerA_91RZ19v0000Pzm
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:40:18.062: wait 500 ms ...
+2026-01-22 12:40:18.564: resume
+2026-01-22 12:40:18.591: wait 500 ms ...
+2026-01-22 12:40:19.093: resume
+2026-01-22 12:40:19.099: release block sent: CS
+2026-01-22 12:40:19.099: wait 500 ms ...
+2026-01-22 12:40:19.602: resume
+2026-01-22 12:40:19.682: no messages in channel 2
+2026-01-22 12:40:19.694: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 12:40:19.699: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:40:19.095
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:40:19.624
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_91RZ19v0000Pzm): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+

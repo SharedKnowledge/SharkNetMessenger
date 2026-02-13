@@ -1,0 +1,26 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-01-22 11:15:58.730: created a new asap peer id for PeerB: PeerB_5cDE19v0000bJp
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 11:16:31.813: wait 500 ms ...
+2026-01-22 11:16:32.316: resume
+2026-01-22 11:16:32.327: wait 500 ms ...
+2026-01-22 11:16:32.827: resume
+2026-01-22 11:16:32.898: release block sent: P1
+2026-01-22 11:16:32.903: 
+new encounter to PeerA_3JUB19v0000Op2 via internet
+2026-01-22 11:16:32.904: 
+Peer PeerA_3JUB19v0000Op2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 11:16:32.913: no messages in channel 2
+2026-01-22 11:16:32.926: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 11:16:32.927: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 11:16:32.888
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

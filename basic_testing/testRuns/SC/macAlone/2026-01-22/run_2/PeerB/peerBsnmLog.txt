@@ -1,0 +1,34 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-01-22 12:43:05.701: created a new asap peer id for PeerB: PeerB_7Yy029v0000iv2
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:43:07.488: block and wait for release SC
+2026-01-22 12:43:08.211: 
+new encounter to PeerA_4Yy029v0000tT6 via internet
+2026-01-22 12:43:08.212: 
+Peer PeerA_4Yy029v0000tT6 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 12:43:08.296: 1messages received in channel snm://block_release
+2026-01-22 12:43:08.305: block released SC
+2026-01-22 12:43:08.306: wait 500 ms ...
+2026-01-22 12:43:08.336: 1messages received in channel sn://universal
+2026-01-22 12:43:08.347: 
+encounter closed: PeerA_4Yy029v0000tT6 | connection: internet | started: 2026-01-22 12:43:08.212 | closed: 2026-01-22 12:43:08.345
+
+2026-01-22 12:43:08.807: resume
+2026-01-22 12:43:08.817: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-01-22 12:43:08.827: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-01-22 12:43:08.828: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC'
+sender: PeerA_4Yy029v0000tT6 | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:43:08.206
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_4Yy029v0000tT6 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

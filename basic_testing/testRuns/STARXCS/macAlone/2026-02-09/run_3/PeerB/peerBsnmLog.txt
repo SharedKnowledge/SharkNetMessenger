@@ -1,0 +1,48 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-02-09 21:55:03.300: created a new asap peer id for PeerB: PeerB_JVYuLav00002Tn
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-09 21:55:05.453: wait 500 ms ...
+2026-02-09 21:55:05.955: resume
+2026-02-09 21:55:05.979: wait 500 ms ...
+2026-02-09 21:55:06.479: resume
+2026-02-09 21:55:06.487: release block sent: P1
+2026-02-09 21:55:06.487: wait 500 ms ...
+2026-02-09 21:55:06.989: resume
+2026-02-09 21:55:07.068: no messages in channel 2
+2026-02-09 21:55:07.076: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-09 21:55:07.080: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:55:06.482
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:55:07.017
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_JVYuLav00002Tn): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-09 21:55:07.081: wait 1000 ms ...
+2026-02-09 21:55:08.085: resume
+2026-02-09 21:55:08.091: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-09 21:55:08.093: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:55:06.482
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-09 21:55:07.017
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_JVYuLav00002Tn): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-09 21:55:08.097: no messages in channel 2

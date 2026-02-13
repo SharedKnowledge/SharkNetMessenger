@@ -1,0 +1,7 @@
+STARXCS
+PeerA: fail
+PeerB: pass: Message sent/received successfully.
+PeerC: fail
+PeerD: pass: Message sent/received successfully.
+STARXCS
+FAIL: One or more peers failed

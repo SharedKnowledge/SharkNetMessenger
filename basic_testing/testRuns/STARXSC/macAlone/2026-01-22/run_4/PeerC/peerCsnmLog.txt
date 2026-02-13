@@ -1,0 +1,11 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-01-22 14:31:09.024: created a new asap peer id for PeerC: PeerC_9zLr29v0000kmq
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 14:31:15.038: openTCP
+2026-01-22 14:31:15.039: block and wait for release P3
+2026-01-22 14:31:16.162: 2messages received in channel sn://universal
+2026-01-22 14:31:16.180: 2messages received in channel sn://universal

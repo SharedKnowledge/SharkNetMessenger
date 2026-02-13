@@ -1,0 +1,57 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-01-22 12:45:51.490: created a new asap peer id for PeerB: PeerB_M4g129v0000Vwg
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:46:24.532: wait 500 ms ...
+2026-01-22 12:46:25.035: resume
+2026-01-22 12:46:25.069: wait 500 ms ...
+2026-01-22 12:46:25.080: 
+new encounter to PeerA_i5g129v0000TTn via internet
+2026-01-22 12:46:25.081: 
+Peer PeerA_i5g129v0000TTn has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 12:46:25.572: resume
+2026-01-22 12:46:25.579: release block sent: P1
+2026-01-22 12:46:25.579: wait 500 ms ...
+2026-01-22 12:46:26.060: 2messages received in channel snm://block_release
+2026-01-22 12:46:26.080: 3messages received in channel snm://block_release
+2026-01-22 12:46:26.088: resume
+Unknown command: lsMessageslsMessages
+Type 'help' to see the list of commands.
+2026-01-22 12:46:26.178: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-01-22 12:46:26.181: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerA_i5g129v0000TTn | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:46:25.995
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_i5g129v0000TTn | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P4'
+sender: PeerA_i5g129v0000TTn | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:46:26.009
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_i5g129v0000TTn | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:46:25.574
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 12:46:26.116
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_M4g129v0000Vwg): 10 (perfect) 
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+

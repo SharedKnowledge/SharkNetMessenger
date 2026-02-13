@@ -1,0 +1,34 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 14:41:47.066: created a new asap peer id for PeerA: PeerA_Lyru29v00003s8
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 14:41:48.344: wait 500 ms ...
+2026-01-22 14:41:48.848: resume
+2026-01-22 14:41:48.892: wait 500 ms ...
+2026-01-22 14:41:48.904: 
+new encounter to PeerB_Hyru29v0000jPG via internet
+2026-01-22 14:41:48.905: 
+Peer PeerB_Hyru29v0000jPG has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 14:41:49.395: resume
+2026-01-22 14:41:49.404: release block sent: CS
+2026-01-22 14:41:49.404: wait 500 ms ...
+2026-01-22 14:41:49.907: resume
+2026-01-22 14:41:49.964: no messages in channel 2
+2026-01-22 14:41:49.971: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 14:41:49.976: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:41:49.397
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 14:41:49.923
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_Lyru29v00003s8): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+

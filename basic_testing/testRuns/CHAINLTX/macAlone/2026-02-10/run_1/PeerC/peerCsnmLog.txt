@@ -1,0 +1,48 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-02-10 00:24:44.654: created a new asap peer id for PeerC: PeerC_noF6Mav0000Fyv
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-02-10 00:24:50.696: wait 3000 ms ...
+2026-02-10 00:24:53.697: resume
+2026-02-10 00:24:53.802: 
+new encounter to PeerB_poF6Mav0000N2v via internet
+2026-02-10 00:24:53.804: 
+Peer PeerB_poF6Mav0000N2v has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-02-10 00:24:53.854: connectTCP
+2026-02-10 00:24:53.855: wait 500 ms ...
+2026-02-10 00:24:53.891: 1messages received in channel snm://block_release
+2026-02-10 00:24:53.981: 1messages received in channel sn://universal
+2026-02-10 00:24:54.358: resume
+2026-02-10 00:24:54.383: release block sent: P2
+2026-02-10 00:24:54.384: release
+2026-02-10 00:24:54.384: wait 500 ms ...
+2026-02-10 00:24:54.890: resume
+2026-02-10 00:24:54.974: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-02-10 00:24:54.980: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_poF6Mav0000N2v | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:49.997
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_poF6Mav0000N2v | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-02-10 00:24:54.360
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-02-10 00:24:54.995: openTCP
+2026-02-10 00:24:54.996: wait 500 ms ...
+2026-02-10 00:24:55.478: 
+encounter closed: PeerB_poF6Mav0000N2v | connection: internet | started: 2026-02-10 00:24:53.804 | closed: 2026-02-10 00:24:55.476
+
+2026-02-10 00:24:55.503: resume
+2026-02-10 00:24:55.506: block and wait for release P3

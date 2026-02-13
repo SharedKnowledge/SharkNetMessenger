@@ -1,0 +1,10 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-01-22 12:34:56.599: created a new asap peer id for PeerA: PeerA_RIvY19v0000hRP
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 12:34:59.466: sendMessage
+2026-01-22 12:34:59.492: openTCP
+2026-01-22 12:34:59.493: block and wait for release P1

@@ -1,0 +1,74 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-01-22 15:10:17.008: created a new asap peer id for PeerC: PeerC_foCB29v00006e7
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-01-22 15:10:19.114: openTCP
+2026-01-22 15:10:19.115: block and wait for release P3
+2026-01-22 15:10:20.538: 
+new encounter to PeerA_RnCB29v0000mgw via internet
+2026-01-22 15:10:20.540: 
+Peer PeerA_RnCB29v0000mgw has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-01-22 15:10:20.598: 2messages received in channel snm://block_release
+2026-01-22 15:10:20.601: 2messages received in channel snm://block_release
+2026-01-22 15:10:20.609: block released P3
+2026-01-22 15:10:20.610: wait 4000 ms ...
+2026-01-22 15:10:20.621: no messages in channel 2
+2026-01-22 15:10:20.633: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 15:10:20.636: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_QnCB29v0000bfL | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:20.300
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_QnCB29v0000bfL | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_RnCB29v0000mgw | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_2pCB29v0000ZnT | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:20.460
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_2pCB29v0000ZnT | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_RnCB29v0000mgw | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-01-22 15:10:20.637: wait 1000 ms ...
+2026-01-22 15:10:21.291: 
+encounter closed: PeerA_RnCB29v0000mgw | connection: internet | started: 2026-01-22 15:10:20.539 | closed: 2026-01-22 15:10:21.290
+
+2026-01-22 15:10:21.641: resume
+2026-01-22 15:10:21.652: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-01-22 15:10:21.654: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P1'
+sender: PeerB_QnCB29v0000bfL | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:20.300
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_QnCB29v0000bfL | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_RnCB29v0000mgw | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'P3'
+sender: PeerD_2pCB29v0000ZnT | recipients: ANY_SHARKNET_PEER | time: 2026-01-22 15:10:20.460
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_2pCB29v0000ZnT | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_RnCB29v0000mgw | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-01-22 15:10:21.660: no messages in channel 2

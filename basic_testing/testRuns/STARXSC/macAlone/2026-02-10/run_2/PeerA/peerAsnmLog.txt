@@ -1,0 +1,3 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-02-10 00:36:22.624: created a new asap peer id for PeerA: PeerA_KXA9Mav00006uN
