@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: asapEngineTestSuite.CoreScenarioOutput
+Created-By: 22.0.1 (Oracle Corporation)
+
