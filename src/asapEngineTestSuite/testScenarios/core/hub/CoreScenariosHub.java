@@ -1,5 +1,7 @@
-package asapEngineTestSuite.testScenarios.core;
+package asapEngineTestSuite.testScenarios.core.hub;
 import asapEngineTestSuite.utils.CommandListToFile;
+
+import static asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter.*;
 
 public class CoreScenariosHub {
 
@@ -8,6 +10,7 @@ public class CoreScenariosHub {
     public static final String DISCONNECT_HUB = "disconnectHub";
     public static final String DISCONNECT_HUB_LINE = DISCONNECT_HUB + " 1";
     private int hubPort = 6907;
+    public final String STOP_HUB_LINE = "stopHub " + hubPort;
 
     public CoreScenariosHub() {}
 
@@ -29,7 +32,37 @@ public class CoreScenariosHub {
      * @return the command list as a string
      */
     public final String hubHostCommand() {
-        return START_HUB + " " + hubPort + System.lineSeparator();
+        return START_HUB + " " + hubPort + CLI_SEPARATOR;
+    }
+
+    /**
+     * Generates command lists for HubTX_Length with 3 Peers and a File of 1kB.
+     * @param x the total peer count including the peer which starts the hub
+     * @param length the length of the message to be sent
+     * @return The command lists
+     */
+    public String[] HubTX_Length(int x, int length) {
+        String[] commands = new String[x];
+
+        commands[0] = hubHostCommand()
+                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CLI_SEPARATOR;
+        for (int i = 1; i < x; i++) {
+            commands[0] += CLI_BLOCK + " P" + i
+            +CLI_SEPARATOR;
+        }
+        for (int i = 1; i < x; i++) {
+            commands[0] += CLI_RELEASE + " P" + i
+            + CLI_SEPARATOR;
+        }
+        commands[0] += CommandListToFile.WAIT + " 1000"
+                + CLI_SEPARATOR
+                + CommandListToFile.SEND_MESSAGE + " HubT" + x + length + ".txt"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000 * x)
+                + CLI_SEPARATOR
+                + STOP_HUB_LINE
+                + CLI_SEPARATOR;
     }
 
     /**
@@ -72,6 +105,7 @@ public class CoreScenariosHub {
      * @return the command list for the peer in this order as a string
      * @throws IllegalArgumentException if the order is not 1 or 2
      */
+    @Deprecated
     public String[] hubA1Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(1)
@@ -81,6 +115,7 @@ public class CoreScenariosHub {
         return commands;
     }
 
+    @Deprecated
     public String[] hubA2Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(2)
@@ -96,6 +131,7 @@ public class CoreScenariosHub {
      * @return the command list for the peer in this order as a string
      * @throws IllegalArgumentException if the order is not 1 or 2
      */
+    @Deprecated
     public String[] hubB1Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
 		commands[0] = CommandListToFile.SEND_MESSAGE + " HUBCoreB1_" + " " + "sn/characters"
@@ -110,6 +146,7 @@ public class CoreScenariosHub {
      * The peer that connects second sends a message.
      * @return the command list as a string
      */
+    @Deprecated
     public String[] hubB2Commands() {
         String[] commands = new String[2];
         commands[0] = CommandListToFile.SEND_MESSAGE + " HUBCoreB2_" + " " + "sn/characters"
@@ -124,6 +161,7 @@ public class CoreScenariosHub {
      * Generates command lists for the scenario where both peers connect to the hub, one sends a message,
      * while the other immediately disconnects.
      */
+    @Deprecated
     public String[] hubDisA1Commands() {
         String[] commands = new String[2];
         commands[0] = hubCoreCommands(1)
@@ -145,6 +183,7 @@ public class CoreScenariosHub {
      * Generates command list for a peer to disconnect from the hub after sending a message and the other peer to send a message.
      * @return the command list as a string
      */
+    @Deprecated
     public String[] hubDisA2Commands() throws IllegalArgumentException {
         String[] commands = new String[2];
             //PeerA
@@ -166,6 +205,7 @@ public class CoreScenariosHub {
      * In this scenario, the peer that connects first is the one that sends the message.
      * @return the command list as a string
      */
+    @Deprecated
     public String[] hubDisB1Commands() {
         String[] commands = new String[2];
 
@@ -185,6 +225,7 @@ public class CoreScenariosHub {
     /**
      * @return the command list as a string array
      */
+    @Deprecated
     public String[] hubDisB2Commands() {
         String[] commands = new String[2];
             commands[0] = hubCoreCommands(1)

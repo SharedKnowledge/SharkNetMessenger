@@ -1,7 +1,7 @@
 package asapEngineTestSuite;
 
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
-import asapEngineTestSuite.testScenarios.core.CoreScenariosHub;
+import asapEngineTestSuite.testScenarios.core.hub.CoreScenariosHub;
 import asapEngineTestSuite.testScenarios.core.complex.CoreScenariosTCPChain;
 import asapEngineTestSuite.testScenarios.core.complex.CoreScenariosTCPStar;
 import asapEngineTestSuite.utils.fileUtils.FileUtils;

@@ -1,5 +1,7 @@
 package asapEngineTestSuite.testScenarios.core;
 
+import asapEngineTestSuite.testScenarios.core.hub.CoreScenariosHub;
+
 import java.util.Arrays;
 
 @Deprecated
