@@ -84,8 +84,8 @@ public class CoreScenariosHub {
 
     /**
      * Generates command list for HubTStalling with 2 Peers and a File of {@code length} Bytes.
-     * @param length
-     * @return
+     * @param length the length of the message to be sent
+     * @return the command lists
      */
     public String[] hubTStalling_Length(int length) {
 
@@ -110,7 +110,7 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + + length + "3.txt"
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "3.txt"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
