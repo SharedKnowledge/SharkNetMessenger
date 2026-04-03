@@ -33,10 +33,10 @@ public class  CoreScenarioOutput {
 
 	private static final String DISCONNECT = "Dis";
 
-	public static final String HUB_HOST_TXT = "HubHost.txt";
+	//public static final String HUB_HOST_TXT = "HubHost.txt";
 
 	// default wait used for some peers
-	private static final int DEFAULT_PEER_WAIT_MS = 1000;
+	//private static final int DEFAULT_PEER_WAIT_MS = 1000;
 	private static final String CHAINX = "CHAINX" ;
 	public static final String CHAINLTX = "CHAINLTX" ;
 	public static final String STARXCS = "STARXCS";
@@ -48,13 +48,13 @@ public class  CoreScenarioOutput {
 		return CHAIN + coreName;
 	}
 
-	private static String hubCoreName(String name) {
-		return HUB + name;
-	}
+//	private static String hubCoreName(String name) {
+//		return HUB + name;
+//	}
 
-	private static String disconnected(String name) {
-		return name + "_" + DISCONNECT;
-	}
+//	private static String disconnected(String name) {
+//		return name + "_" + DISCONNECT;
+//	}
 
 	private static void finalizeAndWriteToFile(String commandList, String fileName, char peerIndex) {
         try {
