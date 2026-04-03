@@ -31,7 +31,7 @@ public class  CoreScenarioOutput {
 
 	public static final String PEER = "Peer";
 
-	private static final String DISCONNECT = "Dis";
+//	private static final String DISCONNECT = "Dis";
 
 	//public static final String HUB_HOST_TXT = "HubHost.txt";
 
