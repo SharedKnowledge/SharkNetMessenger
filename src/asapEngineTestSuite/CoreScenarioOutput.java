@@ -18,19 +18,8 @@ public class  CoreScenarioOutput {
 	public static final String HUB = "hub";
 	public static final String COMPLEX = "complex";
 	public static final String CHAIN = "chain";
-    public static final String BASIC = "basic";
+	public static final String BASIC = "basic";
 
-	/**
-	 * Directory name for the basic encounter core scenarios
-	 */
-	public static final String BASIC_DIR = BASIC; // no trailing slash, join later
-	/**
-	 * Directory name for hub core scenarios
-	 */
-	public static final String HUB_DIR = "hub"; // no trailing slash, join later
-
-
-    public static final String CHAIN_DIR = "chain";
 	/**
 	 * Core Scenario Names
 	 */
@@ -48,10 +37,12 @@ public class  CoreScenarioOutput {
 
 	// default wait used for some peers
 	private static final int DEFAULT_PEER_WAIT_MS = 1000;
-    private static final String CHAINX = "CHAINX" ;
+	private static final String CHAINX = "CHAINX" ;
 	public static final String CHAINLTX = "CHAINLTX" ;
 	public static final String STARXCS = "STARXCS";
 	public static final String STARXSC = "STARXSC";
+	public static final String HUBTX_LENGTH = "HUBTX_LENGTH";
+	public static final String HUBT_STALLING = "HUBT_STALLING";
 
 	public static String tcpChainCore(String coreName) {
 		return CHAIN + coreName;
@@ -82,24 +73,24 @@ public class  CoreScenarioOutput {
         }
     }
 
-    // helper that uses the project default wait; kept private to avoid callers passing different values
-    private static void finalizeAndWriteToFileWithDefaultWait(String commandList, String fileName, char peerIndex) {
-        try {
-            Path outFile = extractTargetFileNames(fileName, peerIndex);
-
-            // Make sync markers unique to this scenario
-            String basename = Path.of(fileName).getFileName().toString();
-            commandList = addScenarioPrefix(commandList, basename);
-
-            commandList = finalizeCommandList(commandList, DEFAULT_PEER_WAIT_MS);
-
-            try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
-                FileUtils.writeToFile(fos,commandList);
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+//    helper that uses the project default wait; kept private to avoid callers passing different values
+//    private static void finalizeAndWriteToFileWithDefaultWait(String commandList, String fileName, char peerIndex) {
+//        try {
+//            Path outFile = extractTargetFileNames(fileName, peerIndex);
+//
+//            // Make sync markers unique to this scenario
+//            String basename = Path.of(fileName).getFileName().toString();
+//            commandList = addScenarioPrefix(commandList, basename);
+//
+//            commandList = finalizeCommandList(commandList, DEFAULT_PEER_WAIT_MS);
+//
+//            try (FileOutputStream fos = new FileOutputStream(outFile.toFile())) {
+//                FileUtils.writeToFile(fos,commandList);
+//            }
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 
     private static Path extractTargetFileNames(String fileName, char peerIndex) throws IOException {
 		Path filepath = Path.of(fileName);
@@ -229,7 +220,19 @@ public class  CoreScenarioOutput {
 
 			//----------------------------------------//
 
+			filepath = concatenateDirectoryName(HUB, HUBTX_LENGTH);
+			Files.createDirectories(Path.of(filepath));
+			String[] hubTxLength = coreScenariosHub.hubTX_Length(3, 1000);
+			finalizeAndWriteToFile(hubTxLength, filepath + '/' + HUBTX_LENGTH + '_');
 
+			//----------------------------------------//
+
+			filepath = concatenateDirectoryName(HUB, HUBT_STALLING);
+			Files.createDirectories(Path.of(filepath));
+			String[] hubTStalling = coreScenariosHub.hubTStalling_Length(1000);
+			finalizeAndWriteToFile(hubTStalling, filepath + '/' + HUBT_STALLING + '_');
+
+			//----------------------------------------//
 
 //			filepath = concatenateDirectoryName(CHAIN_DIR, tcpChainCore(CORE_B2));
 //			Files.createDirectories(Path.of(filepath));

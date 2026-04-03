@@ -36,24 +36,25 @@ public class CoreScenariosHub {
     }
 
     /**
-     * Generates command lists for HubTX_Length with 3 Peers and a File of 1kB.
+     * Generates command lists for HubTX_Length with {@code x} Peers and a File of {@code length} Bytes.
      * @param x the total peer count including the peer which starts the hub
      * @param length the length of the message to be sent
      * @return The command lists
      */
-    public String[] HubTX_Length(int x, int length) {
+    public String[] hubTX_Length(int x, int length) {
         String[] commands = new String[x];
 
         commands[0] = hubHostCommand()
                 + CONNECT_HUB + " IP_FILLER " + hubPort
                 + CLI_SEPARATOR;
         for (int i = 1; i < x; i++) {
-            commands[0] += CLI_BLOCK + " P" + i
-            +CLI_SEPARATOR;
+            commands[0] += CLI_BLOCK + " P_hub" + i
+                    + CLI_SEPARATOR
+                    + WAIT + " " + (1000);
         }
         for (int i = 1; i < x; i++) {
-            commands[0] += CLI_RELEASE + " P" + i
-            + CLI_SEPARATOR;
+            commands[0] += CLI_RELEASE + " P" + (i + 1)
+                    + CLI_SEPARATOR;
         }
         commands[0] += CommandListToFile.WAIT + " 1000"
                 + CLI_SEPARATOR
@@ -63,6 +64,74 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + STOP_HUB_LINE
                 + CLI_SEPARATOR;
+        for (int i = 1; i < x; i++) {
+            commands[i] = CommandListToFile.WAIT + " " + (1000)
+                    + CLI_SEPARATOR
+                    + CONNECT_HUB + " IP_FILLER " + hubPort
+                    + CLI_SEPARATOR
+                    + CommandListToFile.WAIT + " " + (1000)
+                    + CLI_SEPARATOR
+                    + CLI_RELEASE + " P_hub" + i
+                    + CLI_SEPARATOR
+                    + CLI_BLOCK + " P" + (i + 1)
+                    + CLI_SEPARATOR
+                    + CommandListToFile.WAIT + " " + (1000 * x)
+                    + CLI_SEPARATOR
+                    + CommandListToFile.LIST_MESSAGES;
+        }
+        return commands;
+    }
+
+    /**
+     * Generates command list for HubTStalling with 2 Peers and a File of {@code length} Bytes.
+     * @param length
+     * @return
+     */
+    public String[] hubTStalling_Length(int length) {
+
+        String[] commands = new String[2];
+
+        commands[0] = hubHostCommand()
+                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CLI_SEPARATOR
+                + CLI_BLOCK + " P_hub"
+                + CLI_SEPARATOR
+                + WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + CLI_RELEASE + " P2"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " 1000"
+                + CLI_SEPARATOR
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "1.txt"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                +  CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "2.txt"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + + length + "3.txt"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + STOP_HUB_LINE
+                + CLI_SEPARATOR;
+
+        commands[1] = CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + CLI_RELEASE + " P_hub"
+                + CLI_SEPARATOR
+                + CLI_BLOCK + " P2"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (5000)
+                + CLI_SEPARATOR
+                + CommandListToFile.LIST_MESSAGES;
+
+        return commands;
     }
 
     /**
