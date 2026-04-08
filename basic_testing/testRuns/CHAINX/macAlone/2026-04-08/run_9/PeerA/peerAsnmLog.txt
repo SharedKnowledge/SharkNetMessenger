@@ -1,0 +1,48 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-08 12:23:38.029: created a new asap peer id for PeerA: PeerA_8hv4cgv0000gn3
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 12:23:41.994: openTCP
+2026-04-08 12:23:42.223: sendMessage
+2026-04-08 12:23:42.224: wait 500 ms ...
+2026-04-08 12:23:42.728: resume
+2026-04-08 12:23:42.729: block and wait for release CHAINX_P1
+2026-04-08 12:23:43.316: 
+new encounter to PeerB_ghv4cgv0000KNx via internet
+2026-04-08 12:23:43.317: 
+Peer PeerB_ghv4cgv0000KNx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:46.443: 
+new encounter to PeerD_fXv4cgv0000B6u via internet
+2026-04-08 12:23:46.443: 
+Peer PeerD_fXv4cgv0000B6u has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:46.542: 2messages received in channel sn://universal
+2026-04-08 12:23:46.562: 1messages received in channel snm://block_release
+2026-04-08 12:23:46.775: 
+new encounter to PeerB_kYv4cgv00005Lx via internet
+2026-04-08 12:23:46.775: 
+Peer PeerB_kYv4cgv00005Lx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:46.775: 
+new encounter to PeerB_ghv4cgv0000KNx via internet
+2026-04-08 12:23:46.775: 
+new encounter to PeerD_fXv4cgv0000B6u via internet
+2026-04-08 12:23:46.775: 
+Peer PeerB_ghv4cgv0000KNx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:46.776: 
+Peer PeerD_fXv4cgv0000B6u has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:46.888: 3messages received in channel sn://universal
+2026-04-08 12:23:46.924: 2messages received in channel snm://block_release
+2026-04-08 12:23:47.994: 
+new encounter to PeerB_kYv4cgv00005Lx via internet
+2026-04-08 12:23:47.994: 
+new encounter to PeerB_ghv4cgv0000KNx via internet
+2026-04-08 12:23:47.995: 
+Peer PeerB_kYv4cgv00005Lx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:47.995: 
+Peer PeerB_ghv4cgv0000KNx has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 12:23:48.422: 
+new encounter to PeerB_ghv4cgv0000KNx via internet
+2026-04-08 12:23:48.423: 
+Peer PeerB_ghv4cgv0000KNx has not yet issued a certificate for you. You are connected now. A good time to ask for one?

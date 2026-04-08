@@ -1,0 +1,48 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-04 19:05:59.611: created a new asap peer id for PeerA: PeerA_bgHjQfv0000cCT
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-04 19:06:00.844: wait 1000 ms ...
+2026-04-04 19:06:01.846: resume
+2026-04-04 19:06:01.867: wait 1000 ms ...
+2026-04-04 19:06:02.869: resume
+2026-04-04 19:06:02.881: release block sent: CS_CS
+2026-04-04 19:06:02.881: wait 1000 ms ...
+2026-04-04 19:06:03.886: resume
+2026-04-04 19:06:03.979: no messages in channel 2
+2026-04-04 19:06:03.989: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-04-04 19:06:03.995: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-04 19:06:02.871
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-04 19:06:03.914
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_bgHjQfv0000cCT): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-04-04 19:06:03.996: wait 1000 ms ...
+2026-04-04 19:06:05.000: resume
+2026-04-04 19:06:05.006: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-04-04 19:06:05.008: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-04 19:06:02.871
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-04 19:06:03.914
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_bgHjQfv0000cCT): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-04-04 19:06:05.012: no messages in channel 2

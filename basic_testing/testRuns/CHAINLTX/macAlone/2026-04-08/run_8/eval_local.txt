@@ -1,0 +1,7 @@
+CHAINLTX
+PeerA: fail (peerAsnmLog.txt missing)
+PeerB: fail (peerBsnmLog.txt missing)
+PeerC: fail (peerCsnmLog.txt missing)
+PeerD: fail (peerDsnmLog.txt missing)
+CHAINLTX
+FAIL: One or more peers failed

@@ -6,8 +6,10 @@ ip="${1:-localhost}"
 # overridden by exporting TEST_ENV_NAME in the environment before running
 TEST_ENV_NAME="${TEST_ENV_NAME:-macAlone}"
 
-# remove leftover scenario dirs from previous runs
-rm -rf "$SCRIPT_DIR/hub" "$SCRIPT_DIR/TCPChain" 2>/dev/null || true
+# remove leftover scenario dirs from previous runs unless SKIP_INITIAL_CLEANUP=1
+if [[ "${SKIP_INITIAL_CLEANUP:-0}" != "1" ]]; then
+  rm -rf "$SCRIPT_DIR/hub" "$SCRIPT_DIR/TCPChain" 2>/dev/null || true
+fi
 
 export TEST_ROOT="$SCRIPT_DIR"
 
@@ -48,6 +50,12 @@ RUN_SEQ="$i"
 
 for f in "$SCRIPT_DIR"/*/; do
   [[ -d "$f" ]] || continue
+  # Skip artifact/result directories anywhere in the tree (top-level or nested)
+  case "$f" in
+    */testRuns/*|*/testRunsFailed/*|*/.runs/*|*/testRuns|*/testRunsFailed|*/.runs)
+      continue
+      ;;
+  esac
   dirbase="$(basename "$f")"
   case "$dirbase" in
     testRuns|testRunsFailed|.runs)

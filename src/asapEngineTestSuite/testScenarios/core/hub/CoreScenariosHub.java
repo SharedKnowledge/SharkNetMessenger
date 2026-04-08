@@ -50,7 +50,8 @@ public class CoreScenariosHub {
         for (int i = 1; i < x; i++) {
             commands[0] += CLI_BLOCK + " P_hub" + i
                     + CLI_SEPARATOR
-                    + WAIT + " " + (1000);
+                    + WAIT + " " + (1000)
+                    + CLI_SEPARATOR;
         }
         for (int i = 1; i < x; i++) {
             commands[0] += CLI_RELEASE + " P" + (i + 1)
@@ -75,9 +76,7 @@ public class CoreScenariosHub {
                     + CLI_SEPARATOR
                     + CLI_BLOCK + " P" + (i + 1)
                     + CLI_SEPARATOR
-                    + CommandListToFile.WAIT + " " + (1000 * x)
-                    + CLI_SEPARATOR
-                    + CommandListToFile.LIST_MESSAGES;
+                    + CommandListToFile.WAIT + " " + (1000 * x);
         }
         return commands;
     }
@@ -102,15 +101,15 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " 1000"
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "1.txt"
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_1.txt"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                +  CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "2.txt"
+                +  CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_2.txt"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "3.txt"
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_3.txt"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
@@ -127,9 +126,7 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + CLI_BLOCK + " P2"
                 + CLI_SEPARATOR
-                + CommandListToFile.WAIT + " " + (5000)
-                + CLI_SEPARATOR
-                + CommandListToFile.LIST_MESSAGES;
+                + CommandListToFile.WAIT + " " + (5000);
 
         return commands;
     }

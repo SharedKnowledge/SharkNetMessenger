@@ -11,7 +11,7 @@ ip="${1:-localhost}"
 # overridden by exporting TEST_ENV_NAME in the environment before running
 TEST_ENV_NAME="${TEST_ENV_NAME:-macAlone}"
 
-if [[ -x "$SCRIPT_DIR/cleanup_scenarios.sh" ]]; then
+if [[ -x "$SCRIPT_DIR/cleanup_scenarios.sh" && "${SKIP_INITIAL_CLEANUP:-0}" != "1" ]]; then
   "$SCRIPT_DIR/cleanup_scenarios.sh" > /dev/null 2>&1
 fi
 
@@ -26,7 +26,7 @@ mkdir -p "$TEST_ROOT/testRuns" 2>/dev/null || true
 
 sg_ts=$(date +"%Y-%m-%d_%H-%M-%S%Z")
 sg_zip="$TEST_ROOT/testRuns/scriptgenerator_output_${sg_ts}.zip"
-(cd "$SCRIPT_DIR" && find . -type f \( -name 'HubHost.txt' -o -name '*_PeerA.txt' -o -name '*_PeerB.txt' \) -print0 | xargs -0 zip -q "$sg_zip") 2>/dev/null || true
+(cd "$SCRIPT_DIR" && find . -type f \( -name '*_PeerA.txt' -o -name '*_PeerB.txt' -o -name '*_PeerC.txt' \) -print0 | xargs -0 zip -q "$sg_zip") 2>/dev/null || true
 
 if [[ ! -f "$SCRIPT_DIR/runTCPCoreScenario.sh" || ! -f "$SCRIPT_DIR/SharkNetMessengerCLI.jar" ]]; then
   echo "Missing required files (runTCPCoreScenario.sh or SharkNetMessengerCLI.jar) in $SCRIPT_DIR"
@@ -63,6 +63,47 @@ KILL_SHARK_FORCE="${KILL_SHARK_FORCE:-0}"
 KILL_SHARK_TIMEOUT="${KILL_SHARK_TIMEOUT:-10}"
 AUTO_KILL_VERBOSE="${AUTO_KILL_VERBOSE:-0}"
 
+# Test execution timeout configuration
+# TEST_TIMEOUT=60        (default) timeout in seconds for each individual test (60 seconds = 1 minute)
+# Set to 0 to disable timeout
+TEST_TIMEOUT="${TEST_TIMEOUT:-60}"
+
+################################################################################
+# Helper function to run commands with timeout
+################################################################################
+run_with_timeout() {
+  local timeout_sec="$1"
+  shift
+  local cmd=("$@")
+
+  if [[ "$timeout_sec" -le 0 ]]; then
+    # No timeout, run the command directly
+    "${cmd[@]}"
+    return $?
+  fi
+
+  # Run with timeout using sleep + background process + wait with timeout
+  "${cmd[@]}" &
+  local pid=$!
+  local count=0
+
+  while kill -0 "$pid" 2>/dev/null; do
+    if [[ $count -ge $timeout_sec ]]; then
+      echo "⚠ WARNING: Test exceeded timeout of ${timeout_sec} seconds, force-killing..." >&2
+      # Kill the process and all children
+      kill -9 "$pid" 2>/dev/null || true
+      # Wait a bit for process to die
+      sleep 1
+      return 124  # Timeout exit code
+    fi
+    sleep 1
+    count=$((count + 1))
+  done
+
+  wait "$pid"
+  return $?
+}
+
 execute_hub_test() {
   local g="$1"
   local export_name="$(basename "$g")"
@@ -95,13 +136,15 @@ execute_hub_test() {
     fi
   fi
 
-  echo "Executing hub scenario: $g"
+  echo "Executing hub scenario: $g (timeout: ${TEST_TIMEOUT}s)"
   cp -a "$SCRIPT_DIR/runHubCoreScenario.sh" "$g"
   cp -a "$SCRIPT_DIR/SharkNetMessengerCLI.jar" "$g"
   chmod +x "$g/runHubCoreScenario.sh" || true
-  (cd "$g" && ./runHubCoreScenario.sh "$ip")
 
-  export_hub_test_results "$g" "$export_name"
+  run_with_timeout "$TEST_TIMEOUT" bash -c "cd '$g' && ./runHubCoreScenario.sh '$ip'"
+  local test_exit_code=$?
+
+  export_hub_test_results "$g" "$export_name" "$test_exit_code"
 
   rm -rf "$g" 2>/dev/null || true
 }
@@ -139,14 +182,16 @@ execute_tcp_test() {
     fi
   fi
 
-  echo "Executing $test_type TCP scenario: $g"
+  echo "Executing $test_type TCP scenario: $g (timeout: ${TEST_TIMEOUT}s)"
   cp -a "$SCRIPT_DIR/runTCPCoreScenario.sh" "$g"
   cp -a "$SCRIPT_DIR/SharkNetMessengerCLI.jar" "$g"
   chmod +x "$g/runTCPCoreScenario.sh" || true
-  (cd "$g" && ./runTCPCoreScenario.sh "$ip")
+
+  run_with_timeout "$TEST_TIMEOUT" bash -c "cd '$g' && ./runTCPCoreScenario.sh '$ip'"
+  local test_exit_code=$?
 
   # Export results
-  export_tcp_test_results "$g" "$export_name"
+  export_tcp_test_results "$g" "$export_name" "$test_exit_code"
 
   # Cleanup scenario directory to free up resources
   rm -rf "$g" 2>/dev/null || true
@@ -156,8 +201,15 @@ execute_tcp_test() {
 export_hub_test_results() {
   local g="$1"
   local export_name="$2"
+  local test_exit_code="${3:-0}"
   local export_dir="$TEST_ROOT/testRuns/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
   mkdir -p "$export_dir" 2>/dev/null || true
+
+  # Handle timeout case
+  if [[ $test_exit_code -eq 124 ]]; then
+    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" | tee -a "$TEST_ROOT/errorlog.txt"
+    echo "TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" > "$export_dir/TIMEOUT.txt"
+  fi
 
   # collect command lists from ALL peers (not just A and B)
   cmd_zip="$export_dir/command_lists.zip"
@@ -260,8 +312,15 @@ export_hub_test_results() {
 export_tcp_test_results() {
   local g="$1"
   local export_name="$2"
+  local test_exit_code="${3:-0}"
   local export_dir="$TEST_ROOT/testRuns/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
   mkdir -p "$export_dir" 2>/dev/null || true
+
+  # Handle timeout case
+  if [[ $test_exit_code -eq 124 ]]; then
+    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" | tee -a "$TEST_ROOT/errorlog.txt"
+    echo "TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" > "$export_dir/TIMEOUT.txt"
+  fi
 
   # Collect command lists from ALL peers
   cmd_zip="$export_dir/command_lists.zip"
@@ -377,9 +436,15 @@ detect_test_type() {
   export_name="${export_name%_}"
 
   # Check if this is a hub test
-  if [[ -f "$dirpath/HubHost.txt" && $have_hub -eq 1 ]]; then
-    echo "hub"
-    return 0
+  if [[ $have_hub -eq 1 ]]; then
+
+    dirbase="$(basename "$dirpath")"
+    dirbase_lc="$(printf '%s' "$dirbase" | tr '[:upper:]' '[:lower:]')"
+    export_name_lc="$(printf '%s' "$export_name" | tr '[:upper:]' '[:lower:]')"
+    if [[ "$dirpath" == */hub/* || "$dirbase_lc" == *hub* || "$export_name_lc" == *hub* ]]; then
+      echo "hub"
+      return 0
+    fi
   fi
 
   # Check if this is a TCP test by looking for any peer directory with command file
@@ -428,17 +493,49 @@ echo ""
 declare -a scenario_dirs
 while IFS= read -r -d '' dirpath; do
   [[ -d "$dirpath" ]] && scenario_dirs+=("$dirpath")
-done < <(find "$SCRIPT_DIR" -mindepth 1 -maxdepth 2 -type d -print0)
+done < <(find "$SCRIPT_DIR" -mindepth 1 -maxdepth 3 -type d -print0)
+
+# Keep track of directories we've processed to avoid duplicates (hub root + child dirs)
+declare -a processed_dirs
 
 # Now process the collected directories
 for dirpath in "${scenario_dirs[@]}"; do
   [[ -d "$dirpath" ]] || continue
-  dirbase="$(basename "$dirpath")"
-  case "$dirbase" in
-    testRuns|testRunsFailed|.runs)
+  # Skip artifact/result directories anywhere in the tree
+  case "$dirpath" in
+    */testRuns/*|*/testRunsFailed/*|*/.runs/*|*/testRuns|*/testRunsFailed|*/.runs)
       continue
       ;;
   esac
+
+  # If we've already processed this directory (e.g. as a child of a hub grouping), skip it
+  if printf '%s\n' "${processed_dirs[@]}" | grep -Fxq "$dirpath"; then
+    continue
+  fi
+
+  dirbase="$(basename "$dirpath")"
+  dirbase_lc="$(printf '%s' "$dirbase" | tr '[:upper:]' '[:lower:]')"
+
+  # Special-case: a top-level `hub` folder is a grouping folder; iterate its subfolders
+  if [[ "$dirbase_lc" == "hub" ]]; then
+    if [[ $have_hub -eq 1 ]]; then
+      for g in "$dirpath"/*; do
+        [[ -d "$g" ]] || continue
+        # mark child as processed to avoid duplicate work later
+        processed_dirs+=("$g")
+        echo "Processing hub scenario directory: $g"
+        execute_hub_test "$g"
+        ((hub_test_count++))
+        echo ""
+      done
+    fi
+    # mark the hub grouping dir processed and skip further handling
+    processed_dirs+=("$dirpath")
+    continue
+  fi
+
+  # Mark current dir as processed (prevents duplicates)
+  processed_dirs+=("$dirpath")
 
   echo "Processing directory: $dirpath"
 
@@ -465,8 +562,9 @@ for dirpath in "${scenario_dirs[@]}"; do
       echo ""
       ;;
     unknown)
-      # If there are scenario files in descendant directories, this is just a grouping folder
-      if find "$dirpath" -mindepth 1 -maxdepth 2 -type f \( -name 'HubHost.txt' -o -name '*_PeerA.txt' -o -name '*_PeerB.txt' \) -print -quit | grep -q .; then
+      # If there are scenario files in descendant directories, or descendant dirs with 'hub' in their name,
+      # this is just a grouping folder
+      if find "$dirpath" -mindepth 1 -maxdepth 2 \( -type f \( -name '*_PeerA.txt' -o -name '*_PeerB.txt' \) -o -type d -iname '*hub*' \) -print -quit | grep -q .; then
         echo "  -> Skipping: Parent/grouping directory (contains scenario subdirs)"
       else
         echo "  -> Skipping: No recognizable scenario files"
@@ -489,6 +587,11 @@ else
   rm -rf "$SCRIPT_DIR/hub"/* 2>/dev/null || true
   rm -rf "$SCRIPT_DIR/TCPChain" 2>/dev/null || true
 fi
+
+# Ensure top-level hub and TCPChain directories are removed entirely to avoid reuse of old scenarios
+# This mirrors the user's request to delete these folders containing test scenarios
+rm -rf "$SCRIPT_DIR/hub" 2>/dev/null || true
+rm -rf "$SCRIPT_DIR/TCPChain" 2>/dev/null || true
 
 ################################################################################
 # Generate Final Summary and Archive Results

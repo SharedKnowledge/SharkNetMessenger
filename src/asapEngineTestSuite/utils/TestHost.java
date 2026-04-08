@@ -6,6 +6,7 @@ package asapEngineTestSuite.utils;
  *
  * @author cemreozen
  */
+@Deprecated
 public class TestHost {
 
 	/**

@@ -1,0 +1,13 @@
+Exception in thread "Thread-3" java.util.ConcurrentModificationException
+	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1605)
+	at java.base/java.util.HashMap$KeyIterator.next(HashMap.java:1628)
+	at net.sharksystem.SharkPeerBasicImpl.notifyAboutEncounter(SharkPeerBasicImpl.java:244)
+	at net.sharksystem.SharkPeerBasicImpl.onlinePeersChanged(SharkPeerBasicImpl.java:221)
+	at net.sharksystem.asap.listenermanager.ASAPEnvironmentChangesListenerManager.notifyListeners(ASAPEnvironmentChangesListenerManager.java:31)
+	at net.sharksystem.asap.ASAPInternalPeerWrapper.notifyOnlinePeersChanged(ASAPInternalPeerWrapper.java:100)
+	at net.sharksystem.asap.ASAPInternalPeerWrapper.notifyOnlinePeersChanged(ASAPInternalPeerWrapper.java:96)
+	at net.sharksystem.asap.engine.ASAPInternalPeerFS.notifyOnlinePeersChangedListener(ASAPInternalPeerFS.java:444)
+	at net.sharksystem.asap.engine.ASAPInternalPeerFS.asapConnectionStarted(ASAPInternalPeerFS.java:489)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.setEncounteredPeer(ASAPSessionImpl.java:81)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.run(ASAPSessionImpl.java:272)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

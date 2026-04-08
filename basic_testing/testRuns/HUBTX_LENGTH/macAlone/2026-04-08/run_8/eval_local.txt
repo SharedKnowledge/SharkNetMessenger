@@ -1,0 +1,6 @@
+HUBTX_LENGTH
+PeerA: pass: Message sent/received successfully.
+PeerB: pass: Message sent/received successfully.
+PeerC: pass: Message sent/received successfully.
+HUBTX_LENGTH
+PASS: All peers completed successfully

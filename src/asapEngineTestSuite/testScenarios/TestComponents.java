@@ -1,13 +1,11 @@
 package asapEngineTestSuite.testScenarios;
 
-import asapEngineTestSuite.utils.ScenarioIndex;
 import asapEngineTestSuite.utils.CommandListToFile;
 import asapEngineTestSuite.utils.ScenarioParamAllocation;
 
 public abstract class TestComponents extends ScenarioParamAllocation{
 
 	protected String printSuccess = "";
-	private final ScenarioIndex si = null;
 
 	public String getPrintSuccess() {
 		return printSuccess;
@@ -19,7 +17,6 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 		commandListToFile = clf;
 	}
 
-	public abstract int getScenarioIndex();
 
 	/**
 	 * Generates a command list for receiving messages in a TCP scenario.
@@ -49,6 +46,7 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 	 *
 	 * @return the command list as a string
 	 */
+	@Deprecated
 	static String sendIPAddressCommandList() {
 		String sb = CommandListToFile.SEND_MESSAGE +
 			' ' +
@@ -69,6 +67,7 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 	 * @return the command list as a string
 	 * @throws IllegalArgumentException if the peer index is invalid
 	 */
+	@Deprecated
 	public String generateRunScenarioCommands(int peerIndex, String hostAddress) {
 		int peerCount = getPeerCount();
 		if (peerIndex < 1 || peerIndex > peerCount) {
@@ -109,6 +108,7 @@ public abstract class TestComponents extends ScenarioParamAllocation{
 	public abstract void waitAndConnect(int pc, StringBuilder sb);
 	public void waitAndListMessages(StringBuilder stringBuilder){}
 
+	@Deprecated
 	protected String generateTestScenarioCommands(int peerIndex) throws IllegalArgumentException
 	{
 		int peerCount = commandListToFile.getPeerCount();

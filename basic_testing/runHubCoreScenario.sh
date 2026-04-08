@@ -100,11 +100,6 @@ if [[ -f "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" ]]; then
   fi
 fi
 
-if [[ ! -f "$SCRIPT_DIR/HubHost.txt" ]]; then
-  echo "Required file HubHost.txt missing in $SCRIPT_DIR"
-  exit 1
-fi
-
 # Check that at least PeerA and PeerB exist
 if [[ ! -f "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || ! -f "$SCRIPT_DIR/PeerB/${folderName}_PeerB.txt" ]]; then
   echo "Required peer files (PeerA and PeerB) missing in $SCRIPT_DIR"
@@ -116,12 +111,10 @@ if [[ ! -f "$SCRIPT_DIR/SharkNetMessengerCLI.jar" ]]; then
   exit 1
 fi
 
-# Execute hub and all peers (PeerA, PeerB, PeerC, PeerD, etc.) in background
+# Execute all peers (PeerA, PeerB, PeerC, PeerD, etc.) in background
+# Hub tests no longer use HubHost.txt; only peers are started
 pids=()
 
-# Start the hub
-(cd "$SCRIPT_DIR" && cat HubHost.txt | java -jar "$SCRIPT_DIR/SharkNetMessengerCLI.jar" Hub > hubHostsnmLog.txt) &
-pids+=($!)
 
 # Start all peers
 for peer_dir in "$SCRIPT_DIR"/Peer*; do

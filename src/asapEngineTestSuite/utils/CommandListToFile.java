@@ -3,8 +3,9 @@ package asapEngineTestSuite.utils;
 import asapEngineTestSuite.utils.fileUtils.FileUtils;
 
 import java.io.*;
-import static java.lang.Long.parseLong;
+
 import static asapEngineTestSuite.testScenarios.TestComponents.generateReceiveScenarioCommands;
+import static java.lang.Long.parseLong;
 
 public class CommandListToFile {
 
@@ -67,6 +68,7 @@ public class CommandListToFile {
 	 * Parses the command line arguments to set the scenario parameters.
 	 * @param args the command line arguments
 	 */
+	@Deprecated
 	public void argsParser(String[] args) {
 		long size;
 
@@ -129,6 +131,7 @@ public class CommandListToFile {
 //	}
 
 
+	@Deprecated
 	public void receiveCommandsToFile(String hostIPAddress) {
 		if (hostIPAddress == null || hostIPAddress.isEmpty()) {
 			hostIPAddress = CommandListToFile.DEFAULT_HOST_ADDRESS;
@@ -148,6 +151,7 @@ public class CommandListToFile {
 	 * @param testHost the TestHost object to generate the command list
 	 * @throws IOException if an I/O error occurs while creating the file
 	 */
+	@Deprecated
 	public void hostCommandListToFile(TestHost testHost) throws IOException {
 		File file = new File("hostCommandList.txt");
 		FileOutputStream fos = new FileOutputStream(file);

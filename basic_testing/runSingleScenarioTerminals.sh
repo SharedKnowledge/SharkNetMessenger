@@ -223,9 +223,20 @@ open_terminal_with_script() {
 launcher_paths=()
 
 # Hub (if present)
-if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
-  hub_launcher="$SCRIPT_DIR/.run_hub.sh"
-  cat > "$hub_launcher" <<EOF
+dirbase="$(basename "$SCRIPT_DIR")"
+dirbase_lc="$(printf '%s' "$dirbase" | tr '[:upper:]' '[:lower:]')"
+if [[ "$SCRIPT_DIR" == */hub/* || "$dirbase_lc" == *hub* ]]; then
+  is_hub=1
+else
+  is_hub=0
+fi
+
+# Hub (if present)
+if [[ $is_hub -eq 1 ]]; then
+  # create hub launcher only if HubHost.txt exists
+  if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
+     hub_launcher="$SCRIPT_DIR/.run_hub.sh"
+     cat > "$hub_launcher" <<EOF
 #!/usr/bin/env bash
 cd "$SCRIPT_DIR"
 # set terminal title to help identify the window
@@ -237,8 +248,11 @@ cat HubHost.txt | java -jar "$CLI_JAR_PATH" Hub 2>&1 | $SLOW_CMD | tee "hubHosts
 printf "\nHub finished. Press ENTER to close...\n"
 read -r
 EOF
-  chmod +x "$hub_launcher"
-  launcher_paths+=("$hub_launcher")
+     chmod +x "$hub_launcher"
+     launcher_paths+=("$hub_launcher")
+  else
+    echo "Notice: Hub scenario detected by name/placement but HubHost.txt is missing in $SCRIPT_DIR; peers only." >&2
+  fi
 fi
 
 # Create peer launchers

@@ -61,11 +61,10 @@ public class CoreScenariosTCPStar extends CoreBasicEncounter {
 			+ "echo connectTCP"
 			+ CLI_SEPARATOR
 			+ WAIT + " 4000"
-			+CLI_SEPARATOR
+			+ CLI_SEPARATOR
 			+ RELEASE + " P3"
 			+ CLI_SEPARATOR
-			+ "echo connectTCP"
-			+ CLI_SEPARATOR;
+			+ "echo connectTCP";
 	}
 
 	/**

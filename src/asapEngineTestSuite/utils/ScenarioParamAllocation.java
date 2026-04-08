@@ -18,16 +18,14 @@ public class ScenarioParamAllocation {
 	public static final String DEFAULT_FILE_NAME = "200Kb.txt";
 	public static final String DEFAULT_FILE_SIZE = "" + (1024 * 2); // 200 kB in bytes
 	public static final String DEFAULT_FILE_SIZE_UNIT = "kB";
-	public static final ScenarioIndex DEFAULT_SCENARIO_INDEX = ScenarioIndex.TCP_STAR;
-
-	ScenarioIndex[] scenarios = ScenarioIndex.values();
+	public static final String DEFAULT_SCENARIO_INDEX = "TCP_STAR";
 
 	//public static final String SCENARIO_HOST_NAME = "testHost"; //oder so
 
 	private int peerCount = DEFAULT_PEER_COUNT;
 	private String fileNameToBeSent = DEFAULT_FILE_NAME;
 	private String fileSizeUnit = DEFAULT_FILE_SIZE_UNIT;
-	private ScenarioIndex scenarioIndex = DEFAULT_SCENARIO_INDEX;
+	private String scenarioIndex = DEFAULT_SCENARIO_INDEX;
 	private String hostIPAddress = CommandListToFile.DEFAULT_HOST_ADDRESS;
 	private long fileSize = 1024 * 2; // 200 kB in bytes
 
@@ -115,8 +113,14 @@ public class ScenarioParamAllocation {
 	 * @param scenarioIndex the index of the scenario
 	 */
 	public void setScenarioIndex(int scenarioIndex) {
-		this.scenarioIndex = scenarios[scenarioIndex];
-
+		this.scenarioIndex = switch (scenarioIndex) {
+			case 0 -> "TCP_STAR";
+			case 1 -> "TCP_CHAIN";
+			default -> {
+				System.err.println("Scenario index invalid. Using default scenario index: " + DEFAULT_SCENARIO_INDEX);
+				yield DEFAULT_SCENARIO_INDEX;
+			}
+		};
 	}
 
 	/**
@@ -209,8 +213,8 @@ public class ScenarioParamAllocation {
 	 *
 	 * @return scenario index
 	 */
-	public int getScenarioIndex() {
-		return scenarioIndex.ordinal();
+	public String getScenarioIndex() {
+		return scenarioIndex;
 	}
 
 	/**

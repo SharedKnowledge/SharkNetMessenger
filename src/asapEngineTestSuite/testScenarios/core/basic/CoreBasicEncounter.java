@@ -97,8 +97,7 @@ public class CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + FILLER_FILENAME + SN_FILE
-                +  CLI_SEPARATOR;
+                + CommandListToFile.SEND_MESSAGE + FILLER_FILENAME + SN_FILE;
     }
 
     /**

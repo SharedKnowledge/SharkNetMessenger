@@ -5,11 +5,11 @@ import java.util.List;
 
 import net.sharksystem.SharkException;
 import net.sharksystem.app.messenger.commands.commandarguments.*;
-import net.sharksystem.app.messenger.commands.messenger.UICommandSendMessage;
 import net.sharksystem.app.messenger.SharkNetMessengerComponent;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerApp;
 import net.sharksystem.ui.messenger.cli.SharkNetMessengerUI;
 import net.sharksystem.ui.messenger.cli.UICommand;
+import net.sharksystem.ui.messenger.cli.commands.messenger.UICommandSendMessage;
 
 /**
  * This command is for batch test purposes. It adds a test run specific ID to

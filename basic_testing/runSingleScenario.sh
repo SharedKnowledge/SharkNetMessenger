@@ -200,13 +200,26 @@ wait_for_dir_free() {
   fi
 }
 
-# Decide hub vs tcp by presence of HubHost.txt
-if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
-  echo "Detected hub scenario (HubHost.txt present). Starting hub + peers..."
+# Decide hub vs tcp by folder name or path (folder names containing 'hub' or under top-level hub)
+dirbase="$(basename "$SCRIPT_DIR")"
+dirbase_lc="$(printf '%s' "$dirbase" | tr '[:upper:]' '[:lower:]')"
+if [[ "$SCRIPT_DIR" == */hub/* || "$dirbase_lc" == *hub* ]]; then
+  is_hub=1
+else
+  is_hub=0
+fi
+
+if [[ $is_hub -eq 1 ]]; then
+  echo "Detected hub scenario by folder name/placement."
   pids=()
-  # start hub
-  (cd "$SCRIPT_DIR" && cat HubHost.txt | java -jar "$CLI_JAR_PATH" Hub > hubHostsnmLog.txt 2>&1) &
-  pids+=("$!")
+  # start hub only if HubHost.txt exists
+  if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
+    (cd "$SCRIPT_DIR" && cat HubHost.txt | java -jar "$CLI_JAR_PATH" Hub > hubHostsnmLog.txt 2>&1) &
+    pids+=("$!")
+  else
+    echo "Notice: HubHost.txt missing in $SCRIPT_DIR — starting peers only." >&2
+  fi
+
   # start peers
   shopt -s nullglob
   for peer_dir in "$SCRIPT_DIR"/Peer*; do
@@ -218,13 +231,11 @@ if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
     fi
   done
   shopt -u nullglob
-  # wait
   echo "Waiting for hub and peer processes to finish..."
   wait "${pids[@]}" || true
-  # additional safeguard
   wait_for_dir_free
 else
-  echo "Detected TCP-only scenario (no HubHost.txt). Starting peers..."
+  echo "Detected TCP-only scenario by folder name/placement. Starting peers..."
   pids=()
   shopt -s nullglob
   for peer_dir in "$SCRIPT_DIR"/Peer*; do

@@ -6,28 +6,19 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 
 import net.sharksystem.SharkException;
-import net.sharksystem.app.messenger.commands.CommandNames;
 import net.sharksystem.app.messenger.commands.basics.UICommandDestroyPeer;
 import net.sharksystem.app.messenger.commands.basics.UICommandExit;
 import net.sharksystem.app.messenger.commands.basics.UICommandHelp;
 import net.sharksystem.app.messenger.commands.basics.UICommandStatus;
-import net.sharksystem.app.messenger.commands.hubaccess.*;
-import net.sharksystem.app.messenger.commands.messenger.*;
-import net.sharksystem.app.messenger.commands.pki.*;
-import net.sharksystem.app.messenger.commands.testing.*;
+
 import net.sharksystem.app.messenger.commands.encounter.UICommandCloseEncounter;
 import net.sharksystem.app.messenger.commands.encounter.UICommandDenyEncounter;
 import net.sharksystem.app.messenger.commands.encounter.UICommandListEncounter;
-import net.sharksystem.app.messenger.commands.external.UICommandDecryptFile;
-import net.sharksystem.app.messenger.commands.external.UICommandEncryptFile;
-import net.sharksystem.app.messenger.commands.external.UICommandProduceSignature;
-import net.sharksystem.app.messenger.commands.external.UICommandVerifySignedFile;
+
 import net.sharksystem.app.messenger.commands.hubmanagement.UICommandListHub;
 import net.sharksystem.app.messenger.commands.hubmanagement.UICommandStartHub;
 import net.sharksystem.app.messenger.commands.hubmanagement.UICommandStopHub;
-import net.sharksystem.app.messenger.commands.persons.UICommandListPersons;
-import net.sharksystem.app.messenger.commands.persons.UICommandRenamePerson;
-import net.sharksystem.app.messenger.commands.persons.UICommandSetSigningFailure;
+
 import net.sharksystem.app.messenger.commands.tcp.UICommandCloseTCP;
 import net.sharksystem.app.messenger.commands.tcp.UICommandConnectTCP;
 import net.sharksystem.app.messenger.commands.tcp.UICommandOpenTCP;
@@ -35,6 +26,12 @@ import net.sharksystem.app.messenger.commands.tcp.UICommandShowOpenTCPPorts;
 import net.sharksystem.fs.ExtraData;
 import net.sharksystem.fs.ExtraDataFS;
 import net.sharksystem.hub.peerside.ASAPHubManager;
+import net.sharksystem.ui.messenger.cli.commands.hubaccess.*;
+import net.sharksystem.ui.messenger.cli.commands.messenger.*;
+import net.sharksystem.ui.messenger.cli.commands.pki.UICommandRefuseCredential;
+import net.sharksystem.ui.messenger.cli.commands.pki.UICommandShowCertificatesBySubject;
+import net.sharksystem.ui.messenger.cli.commands.testing.UICommandSaveLog;
+import net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait;
 import net.sharksystem.ui.messenger.cli.distributedtesting.SNMAppSupportingDistributedTesting;
 import net.sharksystem.utils.Log;
 
