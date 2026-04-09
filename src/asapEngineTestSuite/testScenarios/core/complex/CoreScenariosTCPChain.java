@@ -1,15 +1,12 @@
 package asapEngineTestSuite.testScenarios.core.complex;
 
-import asapEngineTestSuite.CoreScenarioOutput;
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
 import asapEngineTestSuite.utils.CommandListToFile;
-import com.sun.jdi.IntegerValue;
 
 /**
  * Each peer connects to the previous peer in order.
  */
 public class CoreScenariosTCPChain extends CoreBasicEncounter {
-
 
     int portNr = 4444;
 
@@ -40,8 +37,10 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME
                 + CLI_SEPARATOR
-//              + CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + "_Dis " +  SN_CHARACTERS
-                +  CLI_SEPARATOR;
+                // + CommandListToFile.SEND_MESSAGE + " " +
+                // CoreScenarioOutput.tcpChainCore("CoreA") + peerOrder + "_Dis " +
+                // SN_CHARACTERS
+                + CLI_SEPARATOR;
     }
 
     public String[] coreADisCommands(int peerOrder, String syncDescriptor) throws IllegalArgumentException {
@@ -57,49 +56,51 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
         return commandLists;
     }
 
-//	private String coreBDisSendingPeer(int peerCount) {
-//		return  WAIT + " " + WAIT_TIME
-//			+ CLI_SEPARATOR
-//			+ CommandListToFile.SEND_MESSAGE + " " + CoreScenarioOutput.tcpChainCore("CoreB") + peerCount + "_Dis " + SN_CHARACTERS
-//			+  CLI_SEPARATOR
-//			+ WAIT + " " + WAIT_TIME
-//			+ CLI_SEPARATOR
-//			+ CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
-//			+ CLI_SEPARATOR;
-//	}
+    // private String coreBDisSendingPeer(int peerCount) {
+    // return WAIT + " " + WAIT_TIME
+    // + CLI_SEPARATOR
+    // + CommandListToFile.SEND_MESSAGE + " " +
+    // CoreScenarioOutput.tcpChainCore("CoreB") + peerCount + "_Dis " +
+    // SN_CHARACTERS
+    // + CLI_SEPARATOR
+    // + WAIT + " " + WAIT_TIME
+    // + CLI_SEPARATOR
+    // + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
+    // + CLI_SEPARATOR;
+    // }
 
-//	public String[] coreBDisCommands(int peerOrder, String syncDescriptor) {
-//		validation(syncDescriptor);
-//		String[] commandLists = new String[2];
-//		if (peerOrder == 1) {
-//			commandLists[0] = coreBDisSendingPeer(1);
-//			commandLists[1] = scReceivingPeer(syncDescriptor);
-//		} else {
-//			commandLists[0] = scReceivingPeer(syncDescriptor);
-//			commandLists[1] = coreBDisSendingPeer(2);
-//		}
-//		return commandLists;
-//	}
+    // public String[] coreBDisCommands(int peerOrder, String syncDescriptor) {
+    // validation(syncDescriptor);
+    // String[] commandLists = new String[2];
+    // if (peerOrder == 1) {
+    // commandLists[0] = coreBDisSendingPeer(1);
+    // commandLists[1] = scReceivingPeer(syncDescriptor);
+    // } else {
+    // commandLists[0] = scReceivingPeer(syncDescriptor);
+    // commandLists[1] = coreBDisSendingPeer(2);
+    // }
+    // return commandLists;
+    // }
 
-//    public String[] coreADisCommandLists(int peerOrder, String syncDescriptor) {
-////        validation(peerOrder);
-//        String[] commandLists = new String[2];
-//
-//        if (peerOrder == 1) {
-//            commandLists[0] = coreADisCommands(1, syncDescriptor)[0]
-//                    + CLOSE_ENCOUNTER_1
-//                    + WAIT + " " + 3000
-//                    + CLI_SEPARATOR//                    + coreADisSendingPeer(1);
-//            commandLists[1] = coreADisCommands(1, syncDescriptor)[1];
-//        } else {
-//            commandLists[0] = coreADisCommands(2, syncDescriptor)[0];
-//            commandLists[1] = coreADisCommands(2, syncDescriptor)[1]
-//                    + CLOSE_ENCOUNTER_1
-//                    + WAIT + " " + 3000
-//                    + CLI_SEPARATOR//                    + coreADisSendingPeer(2);
-//        }
-//        return commandLists;
-//    }
+    // public String[] coreADisCommandLists(int peerOrder, String syncDescriptor) {
+    //// validation(peerOrder);
+    // String[] commandLists = new String[2];
+    //
+    // if (peerOrder == 1) {
+    // commandLists[0] = coreADisCommands(1, syncDescriptor)[0]
+    // + CLOSE_ENCOUNTER_1
+    // + WAIT + " " + 3000
+    // + CLI_SEPARATOR// + coreADisSendingPeer(1);
+    // commandLists[1] = coreADisCommands(1, syncDescriptor)[1];
+    // } else {
+    // commandLists[0] = coreADisCommands(2, syncDescriptor)[0];
+    // commandLists[1] = coreADisCommands(2, syncDescriptor)[1]
+    // + CLOSE_ENCOUNTER_1
+    // + WAIT + " " + 3000
+    // + CLI_SEPARATOR// + coreADisSendingPeer(2);
+    // }
+    // return commandLists;
+    // }
 
     public String[] chainXCommands(String syncMarker, int peerCount) throws IllegalArgumentException {
         validation(syncMarker);
@@ -119,7 +120,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + BLOCK + syncMarkerGenerator(1)
                 + CLI_SEPARATOR
-                + WAIT + " " + testDauer/(peerCount*2)
+                + WAIT + " " + testDauer / (peerCount * 2)
                 + CLI_SEPARATOR
                 + WAIT + " " + WAIT_TIME * (2 * peerCount)
                 + CLI_SEPARATOR;
@@ -136,6 +137,10 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 commandLists[i] = WAIT + " " + testDauer
                         + CLI_SEPARATOR;
             }
+                if (i == 1) {
+                commandLists[i] += WAIT + " " + 500
+                    + CLI_SEPARATOR;
+                }
             commandLists[i] += CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
                     + CLI_SEPARATOR
                     + WAIT + " " + WAIT_TIME * 2 * i
@@ -153,7 +158,7 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                         + BLOCK + syncMarkerGenerator((i + 1))
                         + CLI_SEPARATOR;
             }
-            commandLists[i]+= WAIT + " " + WAIT_TIME * i
+            commandLists[i] += WAIT + " " + WAIT_TIME * i
                     + CLI_SEPARATOR;
         }
         return commandLists;
@@ -188,11 +193,21 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                 + CLI_SEPARATOR;
 
         for (int i = 1; i < peerCount; i++) {
-            commandLists[i] = WAIT  + " " + (testDauer / peerCount) * (i + 1)
+            commandLists[i] = WAIT + " " + (testDauer / peerCount) * (i + 1)
+                    + CLI_SEPARATOR;
+
+            // Open own listener early (except for the tail peer) so downstream peer
+            // connects do not race.
+            if (i < peerCount - 1) {
+                commandLists[i] += "openTCP " + (this.portNr + i)
+                        + CLI_SEPARATOR
+                        + "echo openTCP"
+                        + CLI_SEPARATOR;
+            }
+
+            commandLists[i] += CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
                     + CLI_SEPARATOR
-                    + CommandListToFile.CONNECT_TCP + FILLER_IP + (portNr + i - 1)
-                    + CLI_SEPARATOR
-                    + WAIT + 500
+                    + WAIT + " " + 500
                     + CLI_SEPARATOR
                     + "echo connectTCP"
                     + CLI_SEPARATOR
@@ -207,16 +222,12 @@ public class CoreScenariosTCPChain extends CoreBasicEncounter {
                     + CommandListToFile.LIST_MESSAGES
                     + CLI_SEPARATOR;
             if (i < peerCount - 1) {
-                commandLists[i] += "openTCP " + (this.portNr + i)
-                        + CLI_SEPARATOR
-                        + "echo openTCP"
-                        + CLI_SEPARATOR
-                        + WAIT + " " + 500
+                commandLists[i] += WAIT + " " + 500
                         + CLI_SEPARATOR
                         + BLOCK + syncMarkerGenerator((i + 1))
                         + CLI_SEPARATOR;
             }
-            commandLists[i] += WAIT + " "  + WAIT_TIME
+            commandLists[i] += WAIT + " " + WAIT_TIME
                     + CLI_SEPARATOR
                     + CLOSE_ENCOUNTER_1
                     + "echo closeEncounter 1"

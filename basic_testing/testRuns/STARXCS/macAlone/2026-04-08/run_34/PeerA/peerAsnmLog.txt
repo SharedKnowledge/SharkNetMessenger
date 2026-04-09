@@ -1,0 +1,154 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-08 21:36:05.132: created a new asap peer id for PeerA: PeerA_RkAjegv00007VW
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 21:36:09.023: wait 100 ms ...
+2026-04-08 21:36:09.146: resume
+2026-04-08 21:36:09.167: openTCP
+2026-04-08 21:36:09.167: block and wait for release STARXCS_P1
+2026-04-08 21:36:09.938: 
+new encounter to PeerD_HjAjegv0000qSu via internet
+2026-04-08 21:36:09.940: 
+Peer PeerD_HjAjegv0000qSu has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:10.984: 1messages received in channel snm://block_release
+2026-04-08 21:36:11.239: 
+new encounter to PeerB_zkAjegv00003t2 via internet
+2026-04-08 21:36:11.239: 
+Peer PeerB_zkAjegv00003t2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:12.290: 2messages received in channel snm://block_release
+2026-04-08 21:36:12.297: block released STARXCS_P1
+2026-04-08 21:36:12.298: wait 1500 ms ...
+2026-04-08 21:36:13.369: 3messages received in channel snm://block_release
+2026-04-08 21:36:13.404: connectTCP
+2026-04-08 21:36:13.404: wait 1500 ms ...
+2026-04-08 21:36:13.410: 
+new encounter to PeerD_HjAjegv0000qSu via internet
+2026-04-08 21:36:13.411: 
+Peer PeerD_HjAjegv0000qSu has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:13.411: 
+new encounter to PeerB_zkAjegv00003t2 via internet
+2026-04-08 21:36:13.412: 
+Peer PeerB_zkAjegv00003t2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:13.415: 
+new encounter to PeerC_7kAjegv0000xy7 via internet
+2026-04-08 21:36:13.415: 
+Peer PeerC_7kAjegv0000xy7 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:14.468: 
+new encounter to PeerB_zkAjegv00003t2 via internet
+2026-04-08 21:36:14.469: 
+Peer PeerB_zkAjegv00003t2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:14.468: 
+new encounter to PeerC_7kAjegv0000xy7 via internet
+2026-04-08 21:36:14.469: 
+Peer PeerC_7kAjegv0000xy7 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:14.906: resume
+2026-04-08 21:36:14.913: release block sent: STARXCS_P2
+2026-04-08 21:36:14.914: connectTCP
+2026-04-08 21:36:14.916: connectTCP
+2026-04-08 21:36:14.916: wait 4000 ms ...
+2026-04-08 21:36:16.372: 
+new encounter to PeerB_zkAjegv00003t2 via internet
+2026-04-08 21:36:16.373: 
+Peer PeerB_zkAjegv00003t2 has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:36:18.922: resume
+2026-04-08 21:36:18.925: release block sent: STARXCS_P3
+2026-04-08 21:36:18.926: connectTCP
+2026-04-08 21:36:18.926: wait 2000 ms ...
+2026-04-08 21:36:20.929: resume
+2026-04-08 21:36:20.933: no messages in channel 2
+2026-04-08 21:36:20.942: name: <no name set> | uri: snm://block_release | #messages: 5 | age: unknown
+2026-04-08 21:36:20.948: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerD_HjAjegv0000qSu | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:10.938
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_HjAjegv0000qSu | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: PeerB_zkAjegv00003t2 | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:12.243
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_zkAjegv00003t2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_B.txt (1024 bytes) | saved to disc
+sender: PeerB_zkAjegv00003t2 | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:13.276
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_zkAjegv00003t2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:14.907
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:18.922
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#5 --------------------------------------------------------------------------------
+
+2026-04-08 21:36:20.948: wait 1000 ms ...
+2026-04-08 21:36:21.951: resume
+2026-04-08 21:36:21.962: name: <no name set> | uri: snm://block_release | #messages: 5 | age: unknown
+2026-04-08 21:36:21.966: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerD_HjAjegv0000qSu | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:10.938
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_HjAjegv0000qSu | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: PeerB_zkAjegv00003t2 | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:12.243
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_zkAjegv00003t2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_B.txt (1024 bytes) | already saved
+sender: PeerB_zkAjegv00003t2 | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:13.276
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_zkAjegv00003t2 | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:14.907
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:36:18.922
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#5 --------------------------------------------------------------------------------
+
+2026-04-08 21:36:21.970: no messages in channel 2

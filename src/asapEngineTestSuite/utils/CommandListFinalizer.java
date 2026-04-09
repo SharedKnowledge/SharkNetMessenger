@@ -1,7 +1,5 @@
 package asapEngineTestSuite.utils;
 
-import com.sun.jdi.event.MonitorWaitedEvent;
-
 /**
  * This class provides a template to finalise a command list for peers in an automated test scenario.
  */

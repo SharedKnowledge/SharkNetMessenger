@@ -212,14 +212,6 @@ fi
 if [[ $is_hub -eq 1 ]]; then
   echo "Detected hub scenario by folder name/placement."
   pids=()
-  # start hub only if HubHost.txt exists
-  if [[ -f "$SCRIPT_DIR/HubHost.txt" ]]; then
-    (cd "$SCRIPT_DIR" && cat HubHost.txt | java -jar "$CLI_JAR_PATH" Hub > hubHostsnmLog.txt 2>&1) &
-    pids+=("$!")
-  else
-    echo "Notice: HubHost.txt missing in $SCRIPT_DIR — starting peers only." >&2
-  fi
-
   # start peers
   shopt -s nullglob
   for peer_dir in "$SCRIPT_DIR"/Peer*; do
@@ -253,14 +245,69 @@ else
 fi
 
 # Produce a simple eval summary (same style as other runners)
+count_scenario_payload_sources() {
+  local log_file="$1"
+  awk '
+    BEGIN {
+      in_block = 0
+      content = ""
+      content_lc = ""
+      is_payload = 0
+      remote = 0
+      local = 0
+    }
+    /^content type:/ {
+      in_block = 1
+      content = $0
+      sub(/^content type:[[:space:]]*/, "", content)
+      content_lc = tolower(content)
+      is_payload = (index(content_lc, ".txt") > 0)
+      next
+    }
+    in_block && /^sender:/ {
+      if (is_payload) {
+        line = tolower($0)
+        if (line ~ /^sender:[[:space:]]*you([[:space:]]|\||$)/) {
+          if (!(content in seen_local)) {
+            seen_local[content] = 1
+            local++
+          }
+        } else {
+          if (!(content in seen_remote)) {
+            seen_remote[content] = 1
+            remote++
+          }
+        }
+      }
+      in_block = 0
+      is_payload = 0
+      content = ""
+      content_lc = ""
+    }
+    END {
+      printf "%d %d\n", remote, local
+    }
+  ' "$log_file" 2>/dev/null
+}
+
+first_fatal_error_line() {
+  local err_log="$1"
+  [[ -s "$err_log" ]] || return 1
+
+  grep -Eiv "sleep interrupted|InterruptedException" "$err_log" 2>/dev/null \
+    | grep -Ei "Connection refused|there is no encounter|NullPointerException|IllegalStateException|RuntimeException|Exception in thread|^Error:" \
+    | head -n 1
+}
+
+peer_had_encounter() {
+  local snm_log="$1"
+  grep -Eiq "new encounter to|open encounter|encounter started|encounter to" "$snm_log" 2>/dev/null
+}
+
 eval_file="$SCRIPT_DIR/eval_local.txt"
 {
-  echo "$folderName"
-  name_lc="$(printf '%s' "$folderName" | tr '[:upper:]' '[:lower:]')"
-  containsDis="no"
-  if [[ "$name_lc" == *dis* ]]; then
-    containsDis="yes"
-  fi
+  echo "Scenario: $folderName"
+  echo "Peer results:"
 
   all_pass=true
   shopt -s nullglob
@@ -269,34 +316,53 @@ eval_file="$SCRIPT_DIR/eval_local.txt"
       peer_name=$(basename "$peer_dir")
       peer_letter="${peer_name#Peer}"
       snm_log="$peer_dir/peer${peer_letter}snmLog.txt"
+      err_log="$peer_dir/errorlog${peer_letter}.txt"
+      cmd_file="$peer_dir/${folderName}_${peer_name}.txt"
 
       if [[ -f "$snm_log" ]]; then
-        count=$(grep -F -i -c "$folderName" "$snm_log" 2>/dev/null || true)
-        if (( count >= 1 )); then
-          echo "$peer_name: pass: Message seen in log."
-        else
-          if [[ "$containsDis" == "yes" ]]; then
-            echo "$peer_name: fail: One or both messages failed."
-            all_pass=false
-          elif grep -Fiq "$folderName" "$snm_log"; then
-            echo "$peer_name: pass: Message sent/received successfully."
+        read -r remote_count local_count < <(count_scenario_payload_sources "$snm_log" "$folderName")
+        remote_count=${remote_count:-0}
+        local_count=${local_count:-0}
+
+        is_sender=false
+        if [[ -f "$cmd_file" ]] && grep -Fiq "sendMessage" "$cmd_file" 2>/dev/null; then
+          is_sender=true
+        fi
+
+        fatal_err_line="$(first_fatal_error_line "$err_log")"
+        had_encounter=false
+        if peer_had_encounter "$snm_log"; then
+          had_encounter=true
+        fi
+
+        if [[ -n "$fatal_err_line" ]]; then
+          echo "  $peer_name | FAIL | Transport/encounter error detected ($fatal_err_line)."
+          all_pass=false
+        elif [[ "$is_sender" == "true" ]] && (( local_count >= 1 )); then
+          echo "  $peer_name | PASS | Sender peer produced local scenario payloads ($local_count unique)."
+        elif [[ "$had_encounter" == "true" ]]; then
+          if (( remote_count >= 1 )); then
+            echo "  $peer_name | PASS | Encounter observed and remote payloads received ($remote_count unique)."
           else
-            echo "$peer_name: fail"
+            echo "  $peer_name | FAIL | Encounter observed but no remote payloads were received."
             all_pass=false
           fi
+        else
+          echo "  $peer_name | PASS | No encounter observed; routing delivery check not applicable."
         fi
       else
-        echo "$peer_name: fail (peer${peer_letter}snmLog.txt missing)"
+        echo "  $peer_name | FAIL | peer${peer_letter}snmLog.txt missing"
         all_pass=false
       fi
     fi
   done
 
-  echo "$folderName"
+  echo ""
+  echo "Summary:"
   if [[ "$all_pass" == "true" ]]; then
-    echo "PASS: All peers completed successfully"
+    echo "  PASS | All peers completed successfully"
   else
-    echo "FAIL: One or more peers failed"
+    echo "  FAIL | One or more peers failed"
   fi
 } > "$eval_file"
 

@@ -1,0 +1,5 @@
+SC
+PeerA: fail: Only self-produced scenario messages observed (no remote delivery evidence).
+PeerB: pass: Remote scenario messages observed (4).
+SC
+FAIL: One or more peers failed

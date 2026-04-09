@@ -1,0 +1,8 @@
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (1 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (1 unique).
+
+Summary:
+  PASS | All peers completed successfully

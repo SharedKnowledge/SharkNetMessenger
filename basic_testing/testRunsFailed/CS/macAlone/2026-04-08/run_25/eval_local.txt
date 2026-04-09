@@ -1,0 +1,5 @@
+CS
+PeerA: fail: Only self-produced scenario messages observed (no remote delivery evidence).
+PeerB: fail: Transport/encounter error detected (exception caught: sleep interrupted).
+CS
+FAIL: One or more peers failed

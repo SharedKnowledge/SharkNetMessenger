@@ -1,0 +1,9 @@
+Scenario: CHAINX
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Remote scenario payloads observed (2 unique).
+  PeerC | PASS | Remote scenario payloads observed (2 unique).
+  PeerD | PASS | Remote scenario payloads observed (2 unique).
+
+Summary:
+  PASS | All peers completed successfully

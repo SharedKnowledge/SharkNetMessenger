@@ -3,8 +3,6 @@ package asapEngineTestSuite.testScenarios.core.complex;
 import asapEngineTestSuite.testScenarios.core.basic.CoreBasicEncounter;
 import asapEngineTestSuite.utils.CommandListToFile;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * Intermediate peers connect to a central peer which routes communications.
  */

@@ -1,0 +1,7 @@
+CHAINX
+PeerA: pass: Remote scenario messages observed (2).
+PeerB: pass: Remote scenario messages observed (4).
+PeerC: pass: Remote scenario messages observed (6).
+PeerD: pass: Remote scenario messages observed (6).
+CHAINX
+PASS: All peers completed successfully

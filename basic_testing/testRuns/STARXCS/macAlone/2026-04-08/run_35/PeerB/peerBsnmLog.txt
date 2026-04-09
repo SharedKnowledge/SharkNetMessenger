@@ -1,0 +1,75 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-08 22:05:37.663: created a new asap peer id for PeerB: PeerB_Zs1regv0000ChN
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 22:05:41.612: wait 1700 ms ...
+2026-04-08 22:05:43.320: resume
+2026-04-08 22:05:43.417: wait 1000 ms ...
+2026-04-08 22:05:43.441: 
+new encounter to PeerA_Ts1regv0000IUN via internet
+2026-04-08 22:05:43.443: 
+Peer PeerA_Ts1regv0000IUN has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 22:05:44.418: resume
+2026-04-08 22:05:44.427: release block sent: STARXCS_P1
+2026-04-08 22:05:44.428: wait 1000 ms ...
+2026-04-08 22:05:45.432: resume
+2026-04-08 22:05:45.513: wait 2000 ms ...
+2026-04-08 22:05:45.602: 3messages received in channel snm://block_release
+2026-04-08 22:05:47.517: resume
+2026-04-08 22:05:47.525: no messages in channel 2
+2026-04-08 22:05:47.542: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-04-08 22:05:47.547: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: PeerA_Ts1regv0000IUN | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:45.554
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_Ts1regv0000IUN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:44.421
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_B.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:45.457
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_Zs1regv0000ChN): 10 (perfect) 
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2026-04-08 22:05:47.547: wait 1000 ms ...
+2026-04-08 22:05:48.550: resume
+2026-04-08 22:05:48.558: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-04-08 22:05:48.562: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: PeerA_Ts1regv0000IUN | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:45.554
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_Ts1regv0000IUN | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:44.421
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_B.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 22:05:45.457
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_Zs1regv0000ChN): 10 (perfect) 
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2026-04-08 22:05:48.568: no messages in channel 2

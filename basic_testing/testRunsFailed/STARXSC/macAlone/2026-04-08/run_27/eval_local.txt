@@ -1,0 +1,7 @@
+STARXSC
+PeerA: fail: Transport/encounter error detected (2026-04-08 17:43:34.035: Error: Connection refused).
+PeerB: fail: Only self-produced scenario messages observed (no remote delivery evidence).
+PeerC: fail: Transport/encounter error detected (exception caught: sleep interrupted).
+PeerD: fail: Only self-produced scenario messages observed (no remote delivery evidence).
+STARXSC
+FAIL: One or more peers failed

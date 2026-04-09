@@ -1,4 +1,0 @@
-HUBTX_LENGTH
-PeerC: fail (peerCsnmLog.txt missing)
-HUBTX_LENGTH
-FAIL: One or more peers failed

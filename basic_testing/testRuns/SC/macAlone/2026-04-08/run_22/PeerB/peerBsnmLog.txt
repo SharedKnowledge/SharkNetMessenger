@@ -1,0 +1,74 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-08 14:09:11.055: created a new asap peer id for PeerB: PeerB_dN4vcgv0000eum
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 14:09:12.673: block and wait for release SC_SC
+2026-04-08 14:09:14.762: 
+new encounter to PeerA_kN4vcgv0000xee via internet
+2026-04-08 14:09:14.764: 
+Peer PeerA_kN4vcgv0000xee has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 14:09:14.839: 1messages received in channel snm://block_release
+2026-04-08 14:09:14.846: block released SC_SC
+2026-04-08 14:09:14.847: wait 1000 ms ...
+2026-04-08 14:09:14.874: 1messages received in channel sn://universal
+2026-04-08 14:09:15.848: resume
+2026-04-08 14:09:15.859: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-08 14:09:15.863: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | saved to disc
+sender: PeerA_kN4vcgv0000xee | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 14:09:13.677
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_kN4vcgv0000xee | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-08 14:09:15.876: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-08 14:09:15.877: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: PeerA_kN4vcgv0000xee | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 14:09:14.758
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_kN4vcgv0000xee | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-08 14:09:15.877: wait 1000 ms ...
+2026-04-08 14:09:16.203: 
+encounter closed: PeerA_kN4vcgv0000xee | connection: internet | started: 2026-04-08 14:09:14.764 | closed: 2026-04-08 14:09:16.202
+
+2026-04-08 14:09:16.881: resume
+2026-04-08 14:09:16.890: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-08 14:09:16.891: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: PeerA_kN4vcgv0000xee | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 14:09:14.758
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_kN4vcgv0000xee | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-08 14:09:16.902: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-08 14:09:16.904: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | already saved
+sender: PeerA_kN4vcgv0000xee | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 14:09:13.677
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_kN4vcgv0000xee | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+

@@ -1,0 +1,6 @@
+HUBTX_LENGTH
+PeerA: pass: Remote scenario payloads observed (2 unique).
+PeerB: pass: Remote scenario payloads observed (1 unique).
+PeerC: pass: Remote scenario payloads observed (1 unique).
+HUBTX_LENGTH
+PASS: All peers completed successfully

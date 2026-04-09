@@ -1,0 +1,7 @@
+CHAINX
+PeerA: pass: Remote scenario messages observed (2).
+PeerB: fail: Transport/encounter error detected (Exception in thread "Thread-23" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+PeerC: pass: Remote scenario messages observed (2).
+PeerD: fail: No scenario messages observed.
+CHAINX
+FAIL: One or more peers failed

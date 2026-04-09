@@ -1,0 +1,7 @@
+CHAINX
+PeerA: pass: Sender peer produced local scenario payloads (1 unique).
+PeerB: pass: Remote scenario payloads observed (2 unique).
+PeerC: fail: No scenario payloads observed.
+PeerD: fail: No scenario payloads observed.
+CHAINX
+FAIL: One or more peers failed

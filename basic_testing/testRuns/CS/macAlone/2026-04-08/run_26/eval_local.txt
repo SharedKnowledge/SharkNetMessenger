@@ -1,0 +1,5 @@
+CS
+PeerA: fail: Transport/encounter error detected (Exception in thread "Thread-11" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+PeerB: pass: Remote scenario messages observed (2).
+CS
+FAIL: One or more peers failed

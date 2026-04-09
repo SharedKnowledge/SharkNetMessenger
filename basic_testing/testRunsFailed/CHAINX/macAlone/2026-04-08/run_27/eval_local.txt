@@ -1,0 +1,7 @@
+CHAINX
+PeerA: pass: Remote scenario messages observed (2).
+PeerB: pass: Remote scenario messages observed (4).
+PeerC: pass: Remote scenario messages observed (6).
+PeerD: fail: Transport/encounter error detected (2026-04-08 17:42:31.868: new connection but no connection type?? there is no connection to peer PeerC_1zKmdgv0000FiU).
+CHAINX
+FAIL: One or more peers failed

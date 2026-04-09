@@ -1,0 +1,9 @@
+Scenario: STARXCS
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (2026-04-09 20:59:17.779: Error: Connection refused).
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | FAIL | Transport/encounter error detected (Exception in thread "Thread-11" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+
+Summary:
+  FAIL | One or more peers failed

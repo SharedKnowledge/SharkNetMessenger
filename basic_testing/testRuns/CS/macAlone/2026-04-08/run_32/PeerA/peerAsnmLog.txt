@@ -1,0 +1,55 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-08 20:07:05.760: created a new asap peer id for PeerA: PeerA_jlbXdgv0000ZHt
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 20:07:07.350: wait 1000 ms ...
+2026-04-08 20:07:08.352: resume
+2026-04-08 20:07:08.423: wait 1000 ms ...
+2026-04-08 20:07:08.438: 
+new encounter to PeerB_3lbXdgv00003tI via internet
+2026-04-08 20:07:08.439: 
+Peer PeerB_3lbXdgv00003tI has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 20:07:09.428: resume
+2026-04-08 20:07:09.441: release block sent: CS_CS
+2026-04-08 20:07:09.441: wait 1000 ms ...
+2026-04-08 20:07:10.445: resume
+2026-04-08 20:07:10.559: no messages in channel 2
+2026-04-08 20:07:10.587: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-04-08 20:07:10.593: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 20:07:09.431
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 20:07:10.477
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_jlbXdgv0000ZHt): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-04-08 20:07:10.593: wait 1000 ms ...
+2026-04-08 20:07:10.985: 
+encounter closed: PeerB_3lbXdgv00003tI | connection: internet | started: 2026-04-08 20:07:08.439 | closed: 2026-04-08 20:07:10.985
+
+2026-04-08 20:07:11.598: resume
+2026-04-08 20:07:11.604: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-04-08 20:07:11.606: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 20:07:09.431
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 20:07:10.477
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_jlbXdgv0000ZHt): 10 (perfect) 
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+
+2026-04-08 20:07:11.615: no messages in channel 2

@@ -1,0 +1,7 @@
+STARXCS
+PeerA: fail: Transport/encounter error detected (2026-04-08 21:36:14.915: Error: Connection refused).
+PeerB: pass: Sender peer produced local scenario payloads (1 unique).
+PeerC: pass: Remote scenario payloads observed (2 unique).
+PeerD: fail: Transport/encounter error detected (Exception in thread "Thread-11" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+STARXCS
+FAIL: One or more peers failed

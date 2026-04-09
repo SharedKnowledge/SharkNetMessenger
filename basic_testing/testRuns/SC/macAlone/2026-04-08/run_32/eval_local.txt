@@ -1,0 +1,5 @@
+SC
+PeerA: pass: Sender peer produced local scenario payloads (1 unique).
+PeerB: pass: Remote scenario payloads observed (2 unique).
+SC
+PASS: All peers completed successfully

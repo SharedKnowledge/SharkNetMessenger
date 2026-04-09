@@ -1,0 +1,2 @@
+2026-04-08 13:12:30.557: Error: Connection refused
+2026-04-08 13:12:33.088: there is no encounter.

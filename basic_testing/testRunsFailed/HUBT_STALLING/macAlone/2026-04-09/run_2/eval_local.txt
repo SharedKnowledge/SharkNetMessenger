@@ -1,0 +1,7 @@
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | PASS | Remote scenario payloads observed (1 unique).
+  PeerB | FAIL | Only self-produced scenario payloads observed (no remote delivery evidence).
+
+Summary:
+  FAIL | One or more peers failed

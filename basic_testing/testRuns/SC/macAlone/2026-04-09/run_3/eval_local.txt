@@ -1,0 +1,7 @@
+Scenario: SC
+Peer results:
+  PeerA | FAIL | Encounter observed but no remote payloads were received.
+  PeerB | PASS | Encounter observed and remote payloads received (3 unique).
+
+Summary:
+  FAIL | One or more peers failed

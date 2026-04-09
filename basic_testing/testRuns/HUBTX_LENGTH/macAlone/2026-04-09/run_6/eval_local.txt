@@ -1,0 +1,8 @@
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | FAIL | No scenario payloads observed.
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed

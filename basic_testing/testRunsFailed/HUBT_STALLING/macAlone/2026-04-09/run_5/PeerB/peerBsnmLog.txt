@@ -1,0 +1,154 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-09 21:10:55.429: created a new asap peer id for PeerB: PeerB_GcM3kgv0000SRC
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-09 21:10:56.999: wait 1000 ms ...
+2026-04-09 21:10:58.000: resume
+2026-04-09 21:10:58.015: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-09 21:10:58.018: try to connect
+2026-04-09 21:10:58.019: wait 1000 ms ...
+2026-04-09 21:10:58.062: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-09 21:10:58.065: 
+remembered hub description
+
+2026-04-09 21:10:59.022: resume
+2026-04-09 21:10:59.035: release block sent: HUBT_STALLING_P_hub
+2026-04-09 21:10:59.035: block and wait for release HUBT_STALLING_P2
+2026-04-09 21:10:59.037: 
+new encounter to PeerA_ncM3kgv0000iBu via hub
+2026-04-09 21:11:00.295: 2messages received in channel snm://block_release
+2026-04-09 21:11:00.301: block released HUBT_STALLING_P2
+2026-04-09 21:11:00.302: block and wait for release HUBT_STALLING_P3
+2026-04-09 21:11:01.283: 3messages received in channel snm://block_release
+2026-04-09 21:11:02.253: 4messages received in channel snm://block_release
+2026-04-09 21:11:03.270: 5messages received in channel snm://block_release
+2026-04-09 21:11:04.273: 6messages received in channel snm://block_release
+2026-04-09 21:11:04.279: block released HUBT_STALLING_P3
+2026-04-09 21:11:04.279: wait 1000 ms ...
+2026-04-09 21:11:05.282: resume
+2026-04-09 21:11:05.288: no messages in channel 2
+2026-04-09 21:11:05.297: name: <no name set> | uri: snm://block_release | #messages: 6 | age: unknown
+2026-04-09 21:11:05.301: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P2'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:00.080
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_1.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:01.141
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_2.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:02.219
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_3.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:03.239
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P3'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:04.254
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#5 --------------------------------------------------------------------------------
+#6 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P_hub'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:10:59.028
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#6 --------------------------------------------------------------------------------
+
+2026-04-09 21:11:05.301: wait 1000 ms ...
+2026-04-09 21:11:06.303: resume
+2026-04-09 21:11:06.308: name: <no name set> | uri: snm://block_release | #messages: 6 | age: unknown
+2026-04-09 21:11:06.311: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P2'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:00.080
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_1.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:01.141
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_2.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:02.219
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HubTStalling1000_3.txt'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:03.239
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P3'
+sender: PeerA_ncM3kgv0000iBu | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:11:04.254
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_ncM3kgv0000iBu | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#5 --------------------------------------------------------------------------------
+#6 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P_hub'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:10:59.028
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#6 --------------------------------------------------------------------------------
+
+2026-04-09 21:11:06.315: no messages in channel 2

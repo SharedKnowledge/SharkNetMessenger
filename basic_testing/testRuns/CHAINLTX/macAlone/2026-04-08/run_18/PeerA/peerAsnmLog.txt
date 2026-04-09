@@ -1,0 +1,16 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-08 13:40:59.810: created a new asap peer id for PeerA: PeerA_NOYncgv0000rZ3
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 13:41:02.300: sendMessage
+2026-04-08 13:41:02.320: openTCP
+2026-04-08 13:41:02.320: wait 500 ms ...
+2026-04-08 13:41:02.822: resume
+2026-04-08 13:41:02.823: block and wait for release CHAINLTX_P1
+2026-04-08 13:41:05.527: 
+new encounter to PeerB_bPYncgv0000X5q via internet
+2026-04-08 13:41:05.528: 
+Peer PeerB_bPYncgv0000X5q has not yet issued a certificate for you. You are connected now. A good time to ask for one?

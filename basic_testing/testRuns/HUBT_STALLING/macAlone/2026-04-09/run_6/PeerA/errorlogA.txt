@@ -1,0 +1,8 @@
+2026-04-09 22:14:35.474: file does not exist: HubTStalling1000_1.txt
+2026-04-09 22:14:36.478: file does not exist: HubTStalling1000_2.txt
+2026-04-09 22:14:37.481: file does not exist: HubTStalling1000_3.txt
+Exception in thread "Thread-31" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null
+	at net.sharksystem.asap.engine.ASAPOnlineMessageSenderEngineSide.sendStoredMessages(ASAPOnlineMessageSenderEngineSide.java:132)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.sendOnlineMessages(ASAPSessionImpl.java:171)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.access$200(ASAPSessionImpl.java:17)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$OnlineMessageSenderThread.run(ASAPSessionImpl.java:182)

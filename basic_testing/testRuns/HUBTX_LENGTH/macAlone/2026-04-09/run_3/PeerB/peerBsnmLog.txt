@@ -1,0 +1,100 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-09 20:55:12.502: created a new asap peer id for PeerB: PeerB_wTOZjgv0000522
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-09 20:55:15.479: wait 1000 ms ...
+2026-04-09 20:55:16.489: resume
+2026-04-09 20:55:16.521: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-09 20:55:16.529: try to connect
+2026-04-09 20:55:16.529: wait 1000 ms ...
+2026-04-09 20:55:16.618: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-09 20:55:16.622: 
+remembered hub description
+
+2026-04-09 20:55:17.532: resume
+2026-04-09 20:55:17.533: block and wait for release HUBTX_LENGTH_P1
+2026-04-09 20:55:17.597: 
+new encounter to PeerA_mSOZjgv0000IJL via hub
+2026-04-09 20:55:17.654: 1messages received in channel snm://block_release
+2026-04-09 20:55:17.668: block released HUBTX_LENGTH_P1
+2026-04-09 20:55:17.674: release block sent: HUBTX_LENGTH_P_hub1
+2026-04-09 20:55:17.675: wait 3000 ms ...
+2026-04-09 20:55:18.438: 3messages received in channel snm://block_release
+2026-04-09 20:55:18.460: no messages in channel 2
+2026-04-09 20:55:18.476: name: <no name set> | uri: snm://block_release | #messages: 3 | age: unknown
+2026-04-09 20:55:18.480: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P1'
+sender: PeerA_mSOZjgv0000IJL | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:16.380
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_mSOZjgv0000IJL | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P2'
+sender: PeerA_mSOZjgv0000IJL | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:18.393
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_mSOZjgv0000IJL | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P_hub1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:17.668
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+
+2026-04-09 20:55:18.481: wait 1000 ms ...
+2026-04-09 20:55:18.759: 
+new encounter to PeerC_2SOZjgv0000Wo8 via hub
+2026-04-09 20:55:18.812: 4messages received in channel snm://block_release
+2026-04-09 20:55:18.844: name: <no name set> | uri: snm://block_release | #messages: 4 | age: unknown
+2026-04-09 20:55:18.847: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P_hub2'
+sender: PeerC_2SOZjgv0000Wo8 | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:18.460
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerC_2SOZjgv0000Wo8 | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P1'
+sender: PeerA_mSOZjgv0000IJL | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:16.380
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_mSOZjgv0000IJL | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P2'
+sender: PeerA_mSOZjgv0000IJL | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:18.393
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_mSOZjgv0000IJL | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBTX_LENGTH_P_hub1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:55:17.668
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+
+2026-04-09 20:55:18.853: no messages in channel 2

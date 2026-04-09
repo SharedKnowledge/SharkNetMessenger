@@ -1,0 +1,7 @@
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | PASS | Encounter observed and remote payloads received (1 unique).
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed

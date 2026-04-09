@@ -1,0 +1,8 @@
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-65" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+  PeerB | PASS | Encounter observed and remote payloads received (1 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (1 unique).
+
+Summary:
+  FAIL | One or more peers failed

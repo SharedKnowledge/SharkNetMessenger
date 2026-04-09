@@ -1,0 +1,7 @@
+CHAINLTX
+PeerA: pass: Sender peer produced local scenario payloads (1 unique).
+PeerB: pass: Remote scenario payloads observed (2 unique).
+PeerC: pass: Remote scenario payloads observed (2 unique).
+PeerD: fail: Transport/encounter error detected (Exception in thread "Thread-16" java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null).
+CHAINLTX
+FAIL: One or more peers failed

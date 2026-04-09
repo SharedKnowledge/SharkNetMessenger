@@ -1,0 +1,9 @@
+Scenario: CHAINX
+Peer results:
+  PeerA | FAIL | Encounter observed but no remote payloads were received.
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | FAIL | Transport/encounter error detected (Exception in thread "Thread-27" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+  PeerD | PASS | Encounter observed and remote payloads received (2 unique).
+
+Summary:
+  FAIL | One or more peers failed

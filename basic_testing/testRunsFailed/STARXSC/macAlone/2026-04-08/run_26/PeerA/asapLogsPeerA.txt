@@ -1,0 +1,915 @@
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format SharkCredentials
+SharkPeerFS: added component that supports format ASAPSharkCertificates
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format shark/messenger
+ASAPInternalPeerFS: setting up ASAPEngine based on sub folders in ./PeerA
+ASAPInternalPeerFS: set up: SharkCredentials in folder ./PeerA/SharkCredentials
+ASAPInternalPeerFS: set up: ASAPSharkCertificates in folder ./PeerA/ASAPSharkCertificates
+ASAPInternalPeerFS: set up: shark/messenger in folder ./PeerA/shark%2Fmessenger
+ASAPPeerFS: activate online messages on that peer
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): (SharkCredentials) created new online message sender
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): (ASAPSharkCertificates) created new online message sender
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) created new online message sender
+SharkPeerFS: cannot read hub description - ok, maybe there are non
+InMemoASAPKeyStore: create new keypair since requested but missing
+InMemoASAPKeyStore: create key pair
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+SharkPeerFS: shark system started
+ASAPHubManagerImpl(PeerA_y3ONcgv0000zCZ): hub manager thread started
+ASAPHubManagerImpl(PeerA_y3ONcgv0000zCZ): start a new sync round
+ASAPHubManagerImpl(PeerA_y3ONcgv0000zCZ): wait before next round (in ms): 600000
+TCPServerSocketAcceptor: start socket factory - no race condition assumed
+SocketFactory: socket factory running - accept connections on port: 4444
+SharkNetMessengerAppSupportingDistributedTesting: Socket open to connect on port: 4444
+SocketFactory: connection attempt accepted: socket created
+TCPServerSocketAcceptor: new stream pair created
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): decide whether to pursue this new encounter: StreamPair (session: no ID | endpoint: PeerB_FZNNcgv0000gil)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): should connect to PeerB_FZNNcgv0000gil ?
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerB_FZNNcgv0000gil not on deny list
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerB_FZNNcgv0000gil no parallel open connection
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): device/peer not in encounteredDevices - add 2026-04-08 15:23:41.110
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember streamPair: StreamPair (session: no ID | endpoint: PeerB_FZNNcgv0000gil)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember encounter: PeerB_FZNNcgv0000gil
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): call asap peer to handle connection
+ASAPSessionImpl(constructor): is: SocketInputStream | os: SocketOutputStream
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): handleConnection
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): launched new asapConnection thread, total number is now: 1
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): asap peers is handling session: PeerA_y3ONcgv0000zCZ <--> <unkown yet> | type: internet | encrypted: false | sign: false
+SocketFactory: resume waiting for new connections on port 4444
+ASAPInternalPeerFS: start sending interest for apps/formats
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: SharkCredentials
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: ASAPSharkCertificates
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: shark/messenger
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPSessionImpl(to: unknown yet): start reading
+ASAPSessionImpl(to: unknown yet): back from reading
+ASAPSessionImpl(to: unknown yet): read valid pdu, remember meeting this peer and going to process pdu
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): asap connection started, got a peername: PeerB_FZNNcgv0000gil
+ASAPInternalPeerFS: #online peers: 1 | PeerB_FZNNcgv0000gil
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerB_FZNNcgv0000gil
+SharkPKIComponentImpl(PeerA_y3ONcgv0000zCZ): notified about changes in peer list: [PeerB_FZNNcgv0000gil]
+ASAPStorageBasedCertificates: readCertificatesFromStorage oldestEra/thisEra: 0 | 0
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPStorageBasedCertificates: readReceivedCertificates
+ASAPStorageBasedCertificates: look for chunk storage...
+ASAPStorageBasedCertificates: ...got it: owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true
+ASAPStorageBasedCertificates: got sender list: []
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPStorageBasedCertificates: got ownerCertificateChannel
+ASAPStorageBasedCertificates: created address
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): new ASAP encounter: PeerA_y3ONcgv0000zCZ <--> PeerB_FZNNcgv0000gil | type: internet | encrypted: false | sign: false
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): to: PeerB_FZNNcgv0000gilASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/SharkCredentials
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor got stream access - process pdu
+: encounter started
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerB_FZNNcgv0000gil | app: SharkCredentials | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor release locks
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): start reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): back from reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): to: PeerB_FZNNcgv0000gilASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/ASAPSharkCertificates
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerB_FZNNcgv0000gil | app: ASAPSharkCertificates | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor release locks
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): start reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): back from reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): to: PeerB_FZNNcgv0000gilASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerB_FZNNcgv0000gil | app: shark/messenger | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor release locks
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): start reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): back from reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): to: PeerB_FZNNcgv0000gilASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor call handleASAPAssimilate
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle assimilate pdu received from PeerB_FZNNcgv0000gil | era: 1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): called: get incoming chunk
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got incoming chunk storage ASAPChunkStorageFS: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil | shark/messenger | -1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): asked to set up new channel: (uri/senderE2E): snm://block_release | PeerB_FZNNcgv0000gil
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): allowed. Set it up.
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): create new chunk to assimilate received data
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 0 | routing: true): forced setting era to 1
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 1 | routing: true): setup new era by cloning previous chunk meta data: 1 <- 0
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 1 | routing: true): era incremented
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): new incoming chunk created: sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): take data to local chunk or transient message: sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to read last message: from offset 0 to end of file - total length: 98
+ASAPInternalChunkFS: parent folder created: true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got hop list: []
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): assimilated: senderE2E: PeerB_FZNNcgv0000gil, uri: snm://block_release, eraSender: 1 | listener: ASAPPeerFS
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): extract messages from chunk and notify listener
+ASAPLogHelper: try getting storage in folder ./PeerA/shark%2Fmessenger
+ASAPLogHelper: got existing asap engine
+ASAPLogHelper: got incoming channel of PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 1 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPLogHelper: got messages uri: snm://block_release / era: 1
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): 
++++++++++++++++++++++++++++++++++++++++ chunkReceived +++++++++++++++++++++++++++++++++++++++++
+E2E|P2P: PeerB_FZNNcgv0000gil | PeerB_FZNNcgv0000gil | uri: snm://block_release | era: 1 | appFormat: shark/messenger
+hop#0: sender: PeerB_FZNNcgv0000gil | verified: false | encrypted: false | connectionType: Internet
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): notify listeners; number: 3
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor release locks
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): start reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): back from reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): read valid pdu, remember meeting this peer and going to process pdu
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): to: PeerB_FZNNcgv0000gilASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor got stream access - process pdu
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerB_FZNNcgv0000gil): ASAPPDUExecutor call handleASAPAssimilate
+DefaultSecurityAdministrator: ok
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle assimilate pdu received from PeerB_FZNNcgv0000gil | era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): called: get incoming chunk
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got incoming chunk storage ASAPChunkStorageFS: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil | shark/messenger | -1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): get local chunk to copy channel data
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): create new chunk to assimilate received data
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 1 | routing: true): forced setting era to 0
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 0 | routing: true): setup new era by cloning previous chunk meta data: 0 <- 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 0 | routing: true): going to clone: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 0 | routing: true): done cloning: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerB_FZNNcgv0000gil | oldestEra: 0 | era: 0 | routing: true): era incremented
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): copy local meta data into newly created incoming chunk
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): new incoming chunk created: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): take data to local chunk or transient message: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to read last message: from offset 0 to end of file - total length: 1394
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got hop list: []
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): assimilated: senderE2E: PeerB_FZNNcgv0000gil, uri: sn://universal, eraSender: 0 | listener: ASAPPeerFS
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): extract messages from chunk and notify listener
+ASAPLogHelper: try getting storage in folder ./PeerA/shark%2Fmessenger
+ASAPLogHelper: got existing asap engine
+ASAPLogHelper: got incoming channel of PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPLogHelper: got messages uri: sn://universal / era: 0
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): 
++++++++++++++++++++++++++++++++++++++++ chunkReceived +++++++++++++++++++++++++++++++++++++++++
+E2E|P2P: PeerB_FZNNcgv0000gil | PeerB_FZNNcgv0000gil | uri: sn://universal | era: 0 | appFormat: shark/messenger
+hop#0: sender: PeerB_FZNNcgv0000gil | verified: false | encrypted: false | connectionType: Internet
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): notify listeners; number: 3
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): asap pdu executor release locks
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): start reading
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+SocketFactory: connection attempt accepted: socket created
+TCPServerSocketAcceptor: new stream pair created
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): decide whether to pursue this new encounter: StreamPair (session: no ID | endpoint: PeerD_XZNNcgv0000pW3)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): should connect to PeerD_XZNNcgv0000pW3 ?
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerD_XZNNcgv0000pW3 not on deny list
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerD_XZNNcgv0000pW3 no parallel open connection
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): device/peer not in encounteredDevices - add 2026-04-08 15:23:41.419
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember streamPair: StreamPair (session: no ID | endpoint: PeerD_XZNNcgv0000pW3)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember encounter: PeerD_XZNNcgv0000pW3
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): call asap peer to handle connection
+ASAPSessionImpl(constructor): is: SocketInputStream | os: SocketOutputStream
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): handleConnection
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: start sending interest for apps/formats
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: SharkCredentials
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): launched new asapConnection thread, total number is now: 2
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): asap peers is handling session: PeerA_y3ONcgv0000zCZ <--> <unkown yet> | type: internet | encrypted: false | sign: false
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: ASAPSharkCertificates
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: shark/messenger
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPSessionImpl(to: unknown yet): start reading
+SocketFactory: resume waiting for new connections on port 4444
+ASAPSessionImpl(to: unknown yet): back from reading
+ASAPSessionImpl(to: unknown yet): read valid pdu, remember meeting this peer and going to process pdu
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): asap connection started, got a peername: PeerD_XZNNcgv0000pW3
+ASAPInternalPeerFS: #online peers: 2 | PeerD_XZNNcgv0000pW3|||PeerB_FZNNcgv0000gil
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 2 | PeerD_XZNNcgv0000pW3|||PeerB_FZNNcgv0000gil
+SharkPKIComponentImpl(PeerA_y3ONcgv0000zCZ): notified about changes in peer list: [PeerD_XZNNcgv0000pW3, PeerB_FZNNcgv0000gil]
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS(BREAK 1): ConcurrentModification
+SharkPeerFS: notifyAboutEncounter
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): new ASAP encounter: PeerA_y3ONcgv0000zCZ <--> PeerD_XZNNcgv0000pW3 | type: internet | encrypted: false | sign: false
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): to: PeerD_XZNNcgv0000pW3ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/SharkCredentials
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor got stream access - process pdu
+: encounter started
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerD_XZNNcgv0000pW3 | app: SharkCredentials | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor release locks
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): start reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): back from reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): to: PeerD_XZNNcgv0000pW3ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/ASAPSharkCertificates
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerD_XZNNcgv0000pW3 | app: ASAPSharkCertificates | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor release locks
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): start reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): back from reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): to: PeerD_XZNNcgv0000pW3ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerD_XZNNcgv0000pW3 | app: shark/messenger | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to route messages from PeerB_FZNNcgv0000gil
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): sendChunks: sender: PeerB_FZNNcgv0000gil | encounteredPeer: PeerD_XZNNcgv0000pW3 | workingEra: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): start iterating chunks with working era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: snm://block_release | isPublic: true | len: 0 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): nothing sent: empty or not on recipient list
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: sn://universal | isPublic: true | len: 1394 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send chunk
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): remembered delivered to PeerD_XZNNcgv0000pW3
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): #recipients == #deliveredTo chunk delivered to any potential remotePeer - could drop it
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): drop flag set false - engine does not remove delivered chunks
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor release locks
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): start reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): back from reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): to: PeerD_XZNNcgv0000pW3ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor call handleASAPAssimilate
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle assimilate pdu received from PeerD_XZNNcgv0000pW3 | era: 1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): called: get incoming chunk
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got incoming chunk storage ASAPChunkStorageFS: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3 | shark/messenger | -1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): get local chunk to copy channel data
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): create new chunk to assimilate received data
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 0 | routing: true): forced setting era to 1
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 1 | routing: true): setup new era by cloning previous chunk meta data: 1 <- 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 1 | routing: true): going to clone: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 1 | routing: true): done cloning: sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 1 | routing: true): era incremented
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): copy local meta data into newly created incoming chunk
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): new incoming chunk created: sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): take data to local chunk or transient message: sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to read last message: from offset 0 to end of file - total length: 98
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got hop list: []
+ASAPInternalChunkFS(sender: null | era: 1 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): assimilated: senderE2E: PeerD_XZNNcgv0000pW3, uri: snm://block_release, eraSender: 1 | listener: ASAPPeerFS
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): extract messages from chunk and notify listener
+ASAPLogHelper: try getting storage in folder ./PeerA/shark%2Fmessenger
+ASAPLogHelper: got existing asap engine
+ASAPLogHelper: got incoming channel of PeerD_XZNNcgv0000pW3
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 1 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPLogHelper: got messages uri: snm://block_release / era: 1
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): 
++++++++++++++++++++++++++++++++++++++++ chunkReceived +++++++++++++++++++++++++++++++++++++++++
+E2E|P2P: PeerD_XZNNcgv0000pW3 | PeerD_XZNNcgv0000pW3 | uri: snm://block_release | era: 1 | appFormat: shark/messenger
+hop#0: sender: PeerD_XZNNcgv0000pW3 | verified: false | encrypted: false | connectionType: Internet
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): notify listeners; number: 3
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor release locks
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): start reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): back from reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): read valid pdu, remember meeting this peer and going to process pdu
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): to: PeerD_XZNNcgv0000pW3ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerD_XZNNcgv0000pW3): ASAPPDUExecutor call handleASAPAssimilate
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle assimilate pdu received from PeerD_XZNNcgv0000pW3 | era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): called: get incoming chunk
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got incoming chunk storage ASAPChunkStorageFS: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3 | shark/messenger | -1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): get local chunk to copy channel data
+ASAPInMemoMessages: reached era: 0
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): create new chunk to assimilate received data
+ASAPInMemoMessages: reached era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 1 | routing: true): forced setting era to 0
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 0 | routing: true): setup new era by cloning previous chunk meta data: 0 <- 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 0 | routing: true): going to clone: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPInMemoMessages: reached era: 0
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 0 | routing: true): done cloning: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerD_XZNNcgv0000pW3 | oldestEra: 0 | era: 0 | routing: true): era incremented
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): copy local meta data into newly created incoming chunk
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): new incoming chunk created: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): take data to local chunk or transient message: sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to read last message: from offset 0 to end of file - total length: 1394
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): decide whether to pursue this new encounter: StreamPair (session: no ID | endpoint: PeerC_EZNNcgv00005L7)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): should connect to PeerC_EZNNcgv00005L7 ?
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerC_EZNNcgv00005L7 not on deny list
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): PeerC_EZNNcgv00005L7 no parallel open connection
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): device/peer not in encounteredDevices - add 2026-04-08 15:23:41.566
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember streamPair: StreamPair (session: no ID | endpoint: PeerC_EZNNcgv00005L7)
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): remember encounter: PeerC_EZNNcgv00005L7
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): call asap peer to handle connection
+ASAPSessionImpl(constructor): is: SocketInputStream | os: SocketOutputStream
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): handleConnection
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): launched new asapConnection thread, total number is now: 3
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): asap peers is handling session: PeerA_y3ONcgv0000zCZ <--> <unkown yet> | type: internet | encrypted: false | sign: false
+SharkNetMessengerAppSupportingDistributedTesting: connected to: localhost on port: 4445
+ASAPInternalPeerFS: start sending interest for apps/formats
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: SharkCredentials
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: ASAPSharkCertificates
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: shark/messenger
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPSessionImpl(to: unknown yet): start reading
+ASAPSessionImpl(to: unknown yet): back from reading
+ASAPSessionImpl(to: unknown yet): read valid pdu, remember meeting this peer and going to process pdu
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): asap connection started, got a peername: PeerC_EZNNcgv00005L7
+ASAPInternalPeerFS: #online peers: 3 | PeerC_EZNNcgv00005L7|||PeerD_XZNNcgv0000pW3|||PeerB_FZNNcgv0000gil
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 3 | PeerC_EZNNcgv00005L7|||PeerD_XZNNcgv0000pW3|||PeerB_FZNNcgv0000gil
+SharkPKIComponentImpl(PeerA_y3ONcgv0000zCZ): notified about changes in peer list: [PeerC_EZNNcgv00005L7, PeerD_XZNNcgv0000pW3, PeerB_FZNNcgv0000gil]
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS(BREAK 1): ConcurrentModification
+SharkPeerFS: notifyAboutEncounter
+: encounter started
+: encounter started
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): new ASAP encounter: PeerA_y3ONcgv0000zCZ <--> PeerC_EZNNcgv00005L7 | type: internet | encrypted: false | sign: false
+: encounter started
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): to: PeerC_EZNNcgv00005L7ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/SharkCredentials
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_EZNNcgv00005L7 | app: SharkCredentials | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): start reading
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): back from reading
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): to: PeerC_EZNNcgv00005L7ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/ASAPSharkCertificates
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_EZNNcgv00005L7 | app: ASAPSharkCertificates | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): start reading
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): back from reading
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): to: PeerC_EZNNcgv00005L7ASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerA/shark%2Fmessenger
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_EZNNcgv00005L7): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_EZNNcgv00005L7 | app: shark/messenger | uri:null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to route messages from PeerB_FZNNcgv0000gil
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): sendChunks: sender: PeerB_FZNNcgv0000gil | encounteredPeer: PeerC_EZNNcgv00005L7 | workingEra: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): start iterating chunks with working era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: snm://block_release | isPublic: true | len: 0 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): nothing sent: empty or not on recipient list
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: sn://universal | isPublic: true | len: 1394 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send chunk
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): got hop list: []
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): assimilated: senderE2E: PeerD_XZNNcgv0000pW3, uri: sn://universal, eraSender: 0 | listener: ASAPPeerFS
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): extract messages from chunk and notify listener
+ASAPLogHelper: try getting storage in folder ./PeerA/shark%2Fmessenger
+ASAPLogHelper: got existing asap engine
+ASAPLogHelper: got incoming channel of PeerD_XZNNcgv0000pW3
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): remembered delivered to PeerC_EZNNcgv00005L7
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): #recipients == #deliveredTo chunk delivered to any potential remotePeer - could drop it
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): drop flag set false - engine does not remove delivered chunks
+ASAPLogHelper: got messages uri: sn://universal / era: 0
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): going to route messages from PeerD_XZNNcgv0000pW3
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): 
++++++++++++++++++++++++++++++++++++++++ chunkReceived +++++++++++++++++++++++++++++++++++++++++
+E2E|P2P: PeerD_XZNNcgv0000pW3 | PeerD_XZNNcgv0000pW3 | uri: sn://universal | era: 0 | appFormat: shark/messenger
+hop#0: sender: PeerD_XZNNcgv0000pW3 | verified: false | encrypted: false | connectionType: Internet
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ASAPPeerFS(PeerA_y3ONcgv0000zCZ): notify listeners; number: 3
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): sendChunks: sender: PeerD_XZNNcgv0000pW3 | encounteredPeer: PeerC_EZNNcgv00005L7 | workingEra: 0
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): asap pdu executor release locks
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): start reading
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): start iterating chunks with working era: 0
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: snm://block_release | isPublic: true | len: 0 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): nothing sent: empty or not on recipient list
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): chunkUrl: sn://universal | isPublic: true | len: 1394 | recipients: []
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send chunk
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): remembered delivered to PeerC_EZNNcgv00005L7
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): #recipients == #deliveredTo chunk delivered to any potential remotePeer - could drop it
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): drop flag set false - engine does not remove delivered chunks
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): start reading
+ASAPPDUReader(to: PeerB_FZNNcgv0000gil): ASAPException when reading from stream
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): back from reading
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): connection broken
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): close input stream
+ASAPSessionImpl(to: PeerB_FZNNcgv0000gil): problem when reading from stream (close asap session and stream):  | issued by: ASAPException: read -1: no more data in stream
+>>>>>>>>>>>>> stack trace:
+net.sharksystem.asap.ASAPException: read -1: no more data in stream
+	at net.sharksystem.asap.utils.ASAPSerialization.readByte(ASAPSerialization.java:232)
+	at net.sharksystem.asap.protocol.ASAP_Modem_Impl.readPDU(ASAP_Modem_Impl.java:209)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUReader.run(ASAPSessionImpl.java:523)
+<<<<<<<<<<<< stack trace
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): asapConnection terminated; was connected to: PeerB_FZNNcgv0000gil
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: #online peers: 2 | PeerC_EZNNcgv00005L7|||PeerD_XZNNcgv0000pW3
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 2 | PeerC_EZNNcgv00005L7|||PeerD_XZNNcgv0000pW3
+SharkPKIComponentImpl(PeerA_y3ONcgv0000zCZ): notified about changes in peer list: [PeerC_EZNNcgv00005L7, PeerD_XZNNcgv0000pW3]
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS(BREAK 1): ConcurrentModification
+SharkPeerFS: notifyAboutEncounter
+: encounter started
+: encounter started
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): encounter terminated: PeerA_y3ONcgv0000zCZ <--> PeerB_FZNNcgv0000gil | type: internet | encrypted: false | sign: false
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): thread terminated - number of running threads is now: 2
+ASAPPDUReader(to: PeerD_XZNNcgv0000pW3): ASAPException when reading from stream
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): back from reading
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): connection broken
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): close input stream
+ASAPSessionImpl(to: PeerD_XZNNcgv0000pW3): problem when reading from stream (close asap session and stream):  | issued by: ASAPException: read -1: no more data in stream
+>>>>>>>>>>>>> stack trace:
+net.sharksystem.asap.ASAPException: read -1: no more data in stream
+	at net.sharksystem.asap.utils.ASAPSerialization.readByte(ASAPSerialization.java:232)
+	at net.sharksystem.asap.protocol.ASAP_Modem_Impl.readPDU(ASAP_Modem_Impl.java:209)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUReader.run(ASAPSessionImpl.java:523)
+<<<<<<<<<<<< stack trace
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): asapConnection terminated; was connected to: PeerD_XZNNcgv0000pW3
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: #online peers: 1 | PeerC_EZNNcgv00005L7
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerC_EZNNcgv00005L7
+SharkPKIComponentImpl(PeerA_y3ONcgv0000zCZ): notified about changes in peer list: [PeerC_EZNNcgv00005L7]
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS(BREAK 1): ConcurrentModification
+SharkPeerFS: notifyAboutEncounter
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerA_y3ONcgv0000zCZ): encounter terminated: PeerA_y3ONcgv0000zCZ <--> PeerD_XZNNcgv0000pW3 | type: internet | encrypted: false | sign: false
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerA_y3ONcgv0000zCZ): thread terminated - number of running threads is now: 1
+: encounter started
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) online message sender already running
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content changed - save status
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send online message...
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerC_EZNNcgv00005L7
+ASAPOnlineMessageSenderEngineSide: PeerC_EZNNcgv00005L7 is online
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: sendASAPAssimilate(format: shark/messenger| uri: snm://block_release| era: 0| #receiver: 1| length: 98)
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: try to find connection for recipient: PeerC_EZNNcgv00005L7
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: got asap connection, subscribe and store message
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): ... done sending online message
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender is going to wait for stream access
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender got stream access
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): going to send online message
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: send message(s) to PeerC_EZNNcgv00005L7 via: SocketOutputStream
+ASAPOnlineMessageSenderEngineSide: wrote pure bytes: 207
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender releases lock
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) online message sender already running
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_/PeerA/./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): content changed - save status
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): send online message...
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerC_EZNNcgv00005L7
+ASAPOnlineMessageSenderEngineSide: PeerC_EZNNcgv00005L7 is online
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: sendASAPAssimilate(format: shark/messenger| uri: snm://block_release| era: 0| #receiver: 1| length: 98)
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: try to find connection for recipient: PeerC_EZNNcgv00005L7
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: got asap connection, subscribe and store message
+ASAPEngineFS(owner: PeerA_y3ONcgv0000zCZ | oldestEra: 0 | era: 0 | routing: true): ... done sending online message
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender is going to wait for stream access
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender got stream access
+ASAPSessionImpl(to: PeerC_EZNNcgv00005L7): going to send online message
+ASAPOnlineMessageSenderEngineSide: ASAPOnlineMessageSenderEngineSide: send message(s) to PeerC_EZNNcgv00005L7 via: SocketOutputStream
+ASAPOnlineMessageSenderEngineSide: wrote pure bytes: 207
+OnlineMessageSenderThread(to: PeerC_EZNNcgv00005L7): online sender releases lock
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: snm://block_release | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/1/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/snm%3A%2F%2Fblock_release.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: getChunk with era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/1/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/snm%3A%2F%2Fblock_release.meta
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 1 | toEra: 0 | rootDir: ./PeerA/shark%2Fmessenger
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil
+ASAPChunkStorageFS: create ASAPInMemoMessages
+ASAPInMemoMessages: format: shark/messenger | uri: sn://universal | fromEra: 0 | toEra: 2147483646 | rootDir: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerB_FZNNcgv0000gil/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1
+ASAPInMemoMessages: reached era: 0
+ASAPInMemoMessages: getChunk with era: 0
+ASAPInternalChunkFS: meta file does already exists: ./PeerA/shark%2Fmessenger/PeerD_XZNNcgv0000pW3/0/sn%3A%2F%2Funiversal.meta
+ASAPInMemoMessages: reached era: 1

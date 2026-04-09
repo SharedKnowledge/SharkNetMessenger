@@ -1,0 +1,7 @@
+Scenario: CS
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (1 unique).
+
+Summary:
+  PASS | All peers completed successfully

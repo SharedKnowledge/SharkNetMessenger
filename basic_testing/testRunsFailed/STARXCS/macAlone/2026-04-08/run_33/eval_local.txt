@@ -1,0 +1,7 @@
+STARXCS
+PeerA: fail: Transport/encounter error detected (2026-04-08 21:29:00.218: Error: Connection refused).
+PeerB: pass: Sender peer produced local scenario payloads (1 unique).
+PeerC: fail: No scenario payloads observed.
+PeerD: pass: Sender peer produced local scenario payloads (1 unique).
+STARXCS
+FAIL: One or more peers failed

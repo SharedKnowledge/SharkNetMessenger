@@ -1,0 +1,26 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-09 22:13:27.145: created a new asap peer id for PeerA: PeerA_acwjkgv0000REY
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-09 22:13:28.723: start hub on port: 6907 | creates new connections: true | connections max idle (in sec): 60
+2026-04-09 22:13:28.817: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-09 22:13:28.819: try to connect
+2026-04-09 22:13:28.820: wait 1000 ms ...
+2026-04-09 22:13:28.844: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-09 22:13:28.849: 
+remembered hub description
+
+2026-04-09 22:13:29.822: resume
+2026-04-09 22:13:29.828: release block sent: HUBTX_LENGTH_P1
+2026-04-09 22:13:29.828: wait 1000 ms ...
+2026-04-09 22:13:30.828: resume
+2026-04-09 22:13:30.829: wait 1000 ms ...
+2026-04-09 22:13:31.833: resume
+2026-04-09 22:13:31.838: release block sent: HUBTX_LENGTH_P2
+2026-04-09 22:13:31.838: wait 1000 ms ...
+2026-04-09 22:13:32.841: resume
+2026-04-09 22:13:32.842: block and wait for release HUBTX_LENGTH_P_hub1

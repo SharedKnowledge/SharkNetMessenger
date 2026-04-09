@@ -1,0 +1,7 @@
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-33" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+  PeerB | FAIL | No scenario payloads observed.
+
+Summary:
+  FAIL | One or more peers failed

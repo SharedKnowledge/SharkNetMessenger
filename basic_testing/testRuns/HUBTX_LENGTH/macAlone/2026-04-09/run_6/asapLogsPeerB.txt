@@ -1,0 +1,183 @@
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format SharkCredentials
+SharkPeerFS: added component that supports format ASAPSharkCertificates
+SharkPeerFS: create component
+SharkPeerFS: added component that supports format shark/messenger
+ASAPInternalPeerFS: setting up ASAPEngine based on sub folders in ./PeerB
+ASAPInternalPeerFS: set up: SharkCredentials in folder ./PeerB/SharkCredentials
+ASAPInternalPeerFS: set up: ASAPSharkCertificates in folder ./PeerB/ASAPSharkCertificates
+ASAPInternalPeerFS: set up: shark/messenger in folder ./PeerB/shark%2Fmessenger
+ASAPPeerFS: activate online messages on that peer
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): (SharkCredentials) created new online message sender
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): (ASAPSharkCertificates) created new online message sender
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): (shark/messenger) created new online message sender
+SharkPeerFS: cannot read hub description - ok, maybe there are non
+InMemoASAPKeyStore: create new keypair since requested but missing
+InMemoASAPKeyStore: create key pair
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+InMemoASAPKeyStore: restored keys
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPInternalChunkFS: meta file does already exists: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/shark%2Fmessenger/0/sn%3A%2F%2Funiversal.meta
+exists:true
+canWrite:true
+SharkNetMessengerComponentImpl: MAKE URI LISTENER PUBLIC AGAIN. Thank you :)
+SharkPeerFS: shark system started
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): hub manager thread started
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): start a new sync round
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): wait before next round (in ms): 600000
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): init new hub connector: localhost:6907
+SharedTCPChannelConnectorPeerSide(null | null:0): connected to hub: localhost:6907
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): start hub protocol engine
+SharedTCPChannelConnectorPeerSide: connector thread running
+SharedTCPChannelConnectorPeerSide: connector thread running
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): connector engine started with SharedTCPChannelConnectorPeerSide
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): added hub connector: PeerB_Xbwjkgv00009sS | localhost:6907
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub status RPLY
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): hub connector initialized: localhost:6907
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): HubPDU #4 | HubPDUHubStatusRPLY | [PeerC_mcwjkgv00003hv, PeerA_acwjkgv0000REY]
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub status RPLY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): HubPDU #4 | HubPDUHubStatusRPLY | [PeerC_mcwjkgv00003hv, PeerA_acwjkgv0000REY]
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub status RPLY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): HubPDU #4 | HubPDUHubStatusRPLY | [PeerC_mcwjkgv00003hv, PeerA_acwjkgv0000REY]
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub new TCP connection request
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): asked to open a new connection to PeerA_acwjkgv0000REY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): connected - wait clearance message
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): data session started to peer PeerA_acwjkgv0000REY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): wait for ready byte PeerA_acwjkgv0000REY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): no ready byte yet
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub new TCP connection request
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): asked to open a new connection to PeerC_mcwjkgv00003hv
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): connected - wait clearance message
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): data session started to peer PeerC_mcwjkgv00003hv
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): wait for ready byte PeerC_mcwjkgv00003hv
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): no ready byte yet
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): got ready byte from hub - notify data session can begin
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): decide whether to pursue this new encounter: StreamPair (session: PeerB_Xbwjkgv00009sS --> PeerA_acwjkgv0000REY | endpoint: PeerC_mcwjkgv00003hv)
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): should connect to PeerC_mcwjkgv00003hv ?
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): PeerC_mcwjkgv00003hv not on deny list
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): PeerC_mcwjkgv00003hv no parallel open connection
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): device/peer not in encounteredDevices - add 2026-04-09 22:13:32.159
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): remember streamPair: StreamPair (session: PeerB_Xbwjkgv00009sS --> PeerA_acwjkgv0000REY | endpoint: PeerC_mcwjkgv00003hv)
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): remember encounter: PeerC_mcwjkgv00003hv
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): call asap peer to handle connection
+ASAPSessionImpl(constructor): is: SocketInputStream | os: SocketOutputStream
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerB_Xbwjkgv00009sS): handleConnection
+ASAPInternalPeerFS: announce new era
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): content not changed - era not changed
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerB_Xbwjkgv00009sS): launched new asapConnection thread, total number is now: 1
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): asap peers is handling session: PeerB_Xbwjkgv00009sS <--> <unkown yet> | type: hub | encrypted: false | sign: false
+ASAPInternalPeerFS: start sending interest for apps/formats
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: SharkCredentials
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: ASAPSharkCertificates
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send interest for app/format: shark/messenger
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): send encounterMap with interest: {}
+ASAPSessionImpl(to: unknown yet): start reading
+ASAPSessionImpl(to: unknown yet): back from reading
+ASAPSessionImpl(to: unknown yet): read valid pdu, remember meeting this peer and going to process pdu
+ASAPInternalPeerFS: ASAPInternalPeerFS(PeerB_Xbwjkgv00009sS): asap connection started, got a peername: PeerC_mcwjkgv00003hv
+ASAPInternalPeerFS: #online peers: 1 | PeerC_mcwjkgv00003hv
+ASAPInternalPeerFS: getOnlinePeers called | #online peers: 1 | PeerC_mcwjkgv00003hv
+SharkPKIComponentImpl(PeerB_Xbwjkgv00009sS): notified about changes in peer list: [PeerC_mcwjkgv00003hv]
+ASAPStorageBasedCertificates: readCertificatesFromStorage oldestEra/thisEra: 0 | 0
+ASAPInternalChunkFS: meta file does not exist / set up: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPStorageBasedCertificates: readReceivedCertificates
+ASAPStorageBasedCertificates: look for chunk storage...
+ASAPStorageBasedCertificates: ...got it: owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true
+ASAPStorageBasedCertificates: got sender list: []
+ASAPInternalChunkFS: meta file does already exists: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPInternalChunkFS: meta file does already exists: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+ASAPInternalChunkFS(sender: null | era: 0 | metafile: ./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta): \nDEBUGGING_Multihop_Bug: write meta data to:
+file2WriteMetaData:/Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_/PeerB/./PeerB/ASAPSharkCertificates/0/asap%2Fcertificate.meta
+exists:true
+canWrite:true
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): asap management storage not set - no propagation of channel creation
+ASAPStorageBasedCertificates: got ownerCertificateChannel
+ASAPStorageBasedCertificates: created address
+SharkPeerFS: onlinePeersChanged
+SharkPeerFS: notifyAboutEncounter
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): new ASAP encounter: PeerB_Xbwjkgv00009sS <--> PeerC_mcwjkgv00003hv | type: hub | encrypted: false | sign: false
+: encounter started
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): to: PeerC_mcwjkgv00003hvASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerB/SharkCredentials
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_mcwjkgv00003hv | app: SharkCredentials | uri:null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): start reading
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): back from reading
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): to: PeerC_mcwjkgv00003hvASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerB/ASAPSharkCertificates
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_mcwjkgv00003hv | app: ASAPSharkCertificates | uri:null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): start reading
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): back from reading
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): read valid pdu, remember meeting this peer and going to process pdu
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): to: PeerC_mcwjkgv00003hvASAPPDUExecutor: engine: ASAPEngineFS | listener: ASAPPeerFS | folder: ./PeerB/shark%2Fmessenger
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor going to wait for stream access
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor got stream access - process pdu
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor calls engine: ASAPEngineFS
+ASAPPDUExecutor(to: PeerC_mcwjkgv00003hv): ASAPPDUExecutor call handleASAPInterest
+DefaultSecurityAdministrator: ok
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): handle interest from: PeerC_mcwjkgv00003hv | app: shark/messenger | uri:null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): received encounterMap: null
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): transmit chunks from 0 to era: 0
+ASAPEngineFS(owner: PeerB_Xbwjkgv00009sS | oldestEra: 0 | era: 0 | routing: true): there are no information before that era; we only deliver information from previous eras - nothing todo here.
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): asap pdu executor release locks
+ASAPSessionImpl(to: PeerC_mcwjkgv00003hv): start reading
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): alarm clock ringing
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): interrupted - make next sync round now
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): start a new sync round
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): check hub connection
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): wait before next round (in ms): 600000
+ConnectorThread(PeerB_Xbwjkgv00009sS | localhost:6907): read hub status RPLY
+SharedTCPChannelConnectorPeerSide(PeerB_Xbwjkgv00009sS | localhost:6907): HubPDU #4 | HubPDUHubStatusRPLY | [PeerC_mcwjkgv00003hv, PeerA_acwjkgv0000REY]
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): synced (changed: false)
+ASAPHubManagerImpl(PeerB_Xbwjkgv00009sS): got peerIDs: [PeerC_mcwjkgv00003hv, PeerA_acwjkgv0000REY]
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): should connect to PeerC_mcwjkgv00003hv ?
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): PeerC_mcwjkgv00003hv not on deny list
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): should connect to PeerA_acwjkgv0000REY ?
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): PeerA_acwjkgv0000REY not on deny list
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): PeerA_acwjkgv0000REY no parallel open connection
+ASAPEncounterManagerImpl(PeerB_Xbwjkgv00009sS): device/peer not in encounteredDevices - add 2026-04-09 22:13:32.563

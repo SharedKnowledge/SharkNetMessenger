@@ -1,0 +1,9 @@
+Scenario: STARXCS
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-23" java.util.ConcurrentModificationException).
+  PeerB | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | PASS | Sender peer produced local scenario payloads (1 unique).
+
+Summary:
+  FAIL | One or more peers failed

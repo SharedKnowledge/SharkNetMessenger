@@ -10,19 +10,18 @@ if [[ $# -gt 1 ]]; then
   exit 1
 fi
 
-# replace FILLER_IP in ALL peer files when IP provided (macOS vs Linux sed)
-if [[ $# -eq 1 ]]; then
-  # Find all peer command files and replace FILLER_IP in each one
-  for peer_file in "$SCRIPT_DIR"/Peer*/${folderName}_Peer*.txt; do
-    if [[ -f "$peer_file" ]]; then
-      if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' -e "s/FILLER_IP/$ip/g" "$peer_file" || true
-      else
-        sed -i -e "s/FILLER_IP/$ip/g" "$peer_file" || true
-      fi
+# replace FILLER_IP in ALL peer files using the resolved IP value
+# escape characters that sed treats specially in replacement text
+ip_escaped=$(printf '%s' "$ip" | sed 's/[\/&]/\\&/g')
+for peer_file in "$SCRIPT_DIR"/Peer*/${folderName}_Peer*.txt; do
+  if [[ -f "$peer_file" ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      sed -i '' -e "s/FILLER_IP/$ip_escaped/g" "$peer_file" || true
+    else
+      sed -i -e "s/FILLER_IP/$ip_escaped/g" "$peer_file" || true
     fi
-  done
-fi
+  fi
+done
 
 # configurable via environment variables:
 # FILLER_SIZE (bytes, default 1024)
@@ -112,7 +111,6 @@ if [[ ! -f "$SCRIPT_DIR/SharkNetMessengerCLI.jar" ]]; then
 fi
 
 # Execute all peers (PeerA, PeerB, PeerC, PeerD, etc.) in background
-# Hub tests no longer use HubHost.txt; only peers are started
 pids=()
 
 
@@ -159,9 +157,71 @@ wait_for_scenario_dir_free() {
 
 wait_for_scenario_dir_free
 
+# Return two integers: <remote_unique_payload_messages> <local_unique_payload_messages>
+count_scenario_payload_sources() {
+  local log_file="$1"
+  awk '
+    BEGIN {
+      in_block = 0
+      content = ""
+      content_lc = ""
+      is_payload = 0
+      remote = 0
+      local = 0
+    }
+    /^content type:/ {
+      in_block = 1
+      content = $0
+      sub(/^content type:[[:space:]]*/, "", content)
+      content_lc = tolower(content)
+      is_payload = (index(content_lc, ".txt") > 0)
+      next
+    }
+    in_block && /^sender:/ {
+      if (is_payload) {
+        line = tolower($0)
+        if (line ~ /^sender:[[:space:]]*you([[:space:]]|\||$)/) {
+          if (!(content in seen_local)) {
+            seen_local[content] = 1
+            local++
+          }
+        } else {
+          if (!(content in seen_remote)) {
+            seen_remote[content] = 1
+            remote++
+          }
+        }
+      }
+      in_block = 0
+      is_payload = 0
+      content = ""
+      content_lc = ""
+    }
+    END {
+      printf "%d %d\n", remote, local
+    }
+  ' "$log_file" 2>/dev/null
+}
+
+first_fatal_error_line() {
+  local err_log="$1"
+  [[ -s "$err_log" ]] || return 1
+
+  # Ignore benign interruption noise caused during coordinated shutdown.
+  grep -Eiv "sleep interrupted|InterruptedException" "$err_log" 2>/dev/null \
+    | grep -Ei "Connection refused|there is no encounter|NullPointerException|IllegalStateException|RuntimeException|Exception in thread|^Error:" \
+    | head -n 1
+}
+
+peer_had_encounter() {
+  local snm_log="$1"
+  grep -Eiq "new encounter to|open encounter|encounter started|encounter to" "$snm_log" 2>/dev/null
+}
+
 eval_file="$SCRIPT_DIR/eval_local.txt"
 {
-  echo "$folderName"
+  echo "Scenario: $folderName"
+  echo "Peer results:"
 
   # portable lowercase for older bash (macOS)
   name_lc="$(printf '%s' "$folderName" | tr '[:upper:]' '[:lower:]')"
@@ -183,34 +243,55 @@ eval_file="$SCRIPT_DIR/eval_local.txt"
       peer_name=$(basename "$peer_dir")
       peer_letter="${peer_name#Peer}"
       snm_log="$peer_dir/peer${peer_letter}snmLog.txt"
+      err_log="$peer_dir/errorlog${peer_letter}.txt"
+      cmd_file="$peer_dir/${folderName}_${peer_name}.txt"
 
       if [[ -f "$snm_log" ]]; then
-        count=$(grep -F -i -c "$folderName" "$snm_log" 2>/dev/null || true)
-        if (( count >= 1 )); then
-          echo "$peer_name: pass: Message sent/received successfully."
-        else
-          if grep -Fiq "$folderName" "$snm_log"; then
-            echo "$peer_name: pass: Message sent/received successfully."
-          elif [[ "$allowEncounter" == "yes" ]] && grep -Fiq "open encounter" "$snm_log"; then
-            echo "$peer_name: pass: Open encounter established."
+        read -r remote_count local_count < <(count_scenario_payload_sources "$snm_log" "$folderName")
+        remote_count=${remote_count:-0}
+        local_count=${local_count:-0}
+        is_sender=false
+        if [[ -f "$cmd_file" ]] && grep -Fiq "sendMessage" "$cmd_file" 2>/dev/null; then
+          is_sender=true
+        fi
+
+        fatal_err_line="$(first_fatal_error_line "$err_log")"
+        if [[ -n "$fatal_err_line" ]]; then
+          echo "  $peer_name | FAIL | Transport/encounter error detected ($fatal_err_line)."
+          all_pass=false
+        elif [[ "$is_sender" == "true" ]] && (( local_count >= 1 )); then
+          echo "  $peer_name | PASS | Sender peer produced local scenario payloads ($local_count unique)."
+        elif peer_had_encounter "$snm_log"; then
+          if (( remote_count >= 1 )); then
+            echo "  $peer_name | PASS | Encounter observed and remote payloads received ($remote_count unique)."
           else
-            echo "$peer_name: fail"
+            echo "  $peer_name | FAIL | Encounter observed but no remote payloads were received."
             all_pass=false
           fi
+        elif [[ "$allowEncounter" == "yes" ]] && grep -Fiq "open encounter" "$snm_log"; then
+          echo "  $peer_name | PASS | Open encounter established."
+        else
+          if (( local_count > 0 )); then
+            echo "  $peer_name | FAIL | Only self-produced scenario payloads observed (no remote delivery evidence)."
+          else
+            echo "  $peer_name | FAIL | No scenario payloads observed."
+          fi
+          all_pass=false
         fi
       else
-        echo "$peer_name: fail (peer${peer_letter}snmLog.txt missing)"
+        echo "  $peer_name | FAIL | peer${peer_letter}snmLog.txt missing"
         all_pass=false
       fi
     fi
   done
 
   # Summary
-  echo "$folderName"
+  echo ""
+  echo "Summary:"
   if [[ "$all_pass" == "true" ]]; then
-    echo "PASS: All peers completed successfully"
+    echo "  PASS | All peers completed successfully"
   else
-    echo "FAIL: One or more peers failed"
+    echo "  FAIL | One or more peers failed"
   fi
 } > "$eval_file"
 

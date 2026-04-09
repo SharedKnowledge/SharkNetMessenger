@@ -1,55 +1,89 @@
-CHAINX
-PeerA: pass: Both messages sent/received successfully.
-PeerB: pass: Both messages sent/received successfully.
-PeerC: pass: Both messages sent/received successfully.
-PeerD: pass: Both messages sent/received successfully.
-CHAINX
-PASS: All peers completed successfully
-STARXCS
-PeerA: pass: Both messages sent/received successfully.
-PeerB: pass: Both messages sent/received successfully.
-PeerC: pass: Both messages sent/received successfully.
-PeerD: pass: Both messages sent/received successfully.
-STARXCS
-PASS: All peers completed successfully
-CHAINLTX
-PeerA: fail (peerAsnmLog.txt missing)
-PeerB: fail (peerBsnmLog.txt missing)
-PeerC: fail (peerCsnmLog.txt missing)
-PeerD: fail (peerDsnmLog.txt missing)
-CHAINLTX
-FAIL: One or more peers failed
-STARXSC
-PeerA: fail (peerAsnmLog.txt missing)
-PeerB: fail (peerBsnmLog.txt missing)
-PeerC: fail (peerCsnmLog.txt missing)
-PeerD: fail (peerDsnmLog.txt missing)
-STARXSC
-FAIL: One or more peers failed
-CS
-PeerA: pass: Both messages sent/received successfully.
-PeerB: pass: Message sent/received successfully.
-CS
-PASS: All peers completed successfully
-STARXCS
-PeerA: pass: Both messages sent/received successfully.
-PeerB: pass: Both messages sent/received successfully.
-PeerC: pass: Both messages sent/received successfully.
-PeerD: pass: Both messages sent/received successfully.
-STARXCS
-PASS: All peers completed successfully
-SC
-PeerA: pass: Both messages sent/received successfully.
-PeerB: pass: Message sent/received successfully.
-SC
-PASS: All peers completed successfully
-HUBTX_LENGTH
-PeerA: pass: Message sent/received successfully.
-PeerB: pass: Message sent/received successfully.
-PeerC: pass: Message sent/received successfully.
-HUBTX_LENGTH
-PASS: All peers completed successfully
-HUBTX_LENGTH
-PeerC: fail (peerCsnmLog.txt missing)
-HUBTX_LENGTH
-FAIL: One or more peers failed
+
+===== CHAINX =====
+Scenario: CHAINX
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | PASS | Encounter observed and remote payloads received (2 unique).
+
+Summary:
+  PASS | All peers completed successfully
+
+
+===== STARXCS =====
+Scenario: STARXCS
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-23" java.util.ConcurrentModificationException).
+  PeerB | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | PASS | Sender peer produced local scenario payloads (1 unique).
+
+Summary:
+  FAIL | One or more peers failed
+
+
+===== CHAINLTX =====
+Scenario: CHAINLTX
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | FAIL | Transport/encounter error detected (2026-04-09 22:12:49.402: there is no encounter.).
+
+Summary:
+  FAIL | One or more peers failed
+
+
+===== STARXSC =====
+Scenario: STARXSC
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (2026-04-09 22:13:01.264: Error: Connection refused).
+  PeerB | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (4 unique).
+  PeerD | PASS | Sender peer produced local scenario payloads (1 unique).
+
+Summary:
+  FAIL | One or more peers failed
+
+
+===== CS =====
+Scenario: CS
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (1 unique).
+
+Summary:
+  PASS | All peers completed successfully
+
+
+===== SC =====
+Scenario: SC
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+
+Summary:
+  PASS | All peers completed successfully
+
+
+===== HUBTX_LENGTH =====
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | FAIL | No scenario payloads observed.
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed
+
+
+===== HUBT_STALLING =====
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-31" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed
+

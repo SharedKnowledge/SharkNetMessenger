@@ -1,0 +1,5 @@
+CS
+PeerA: fail: Transport/encounter error detected (Exception in thread "Thread-12" java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "logs" is null).
+PeerB: pass: Remote scenario payloads observed (2 unique).
+CS
+FAIL: One or more peers failed

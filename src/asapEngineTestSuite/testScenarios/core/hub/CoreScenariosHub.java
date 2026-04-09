@@ -45,21 +45,23 @@ public class CoreScenariosHub {
         String[] commands = new String[x];
 
         commands[0] = hubHostCommand()
-                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CONNECT_HUB + " FILLER_IP " + hubPort
                 + CLI_SEPARATOR;
         for (int i = 1; i < x; i++) {
-            commands[0] += CLI_BLOCK + " P_hub" + i
+            commands[0] += CommandListToFile.WAIT + " " + (1000)
+                    + CLI_SEPARATOR
+                    + CLI_RELEASE + " P" + i
                     + CLI_SEPARATOR
                     + WAIT + " " + (1000)
                     + CLI_SEPARATOR;
         }
         for (int i = 1; i < x; i++) {
-            commands[0] += CLI_RELEASE + " P" + (i + 1)
+            commands[0] += CLI_BLOCK + " P_hub" + i
                     + CLI_SEPARATOR;
         }
         commands[0] += CommandListToFile.WAIT + " 1000"
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubT" + x + length + ".txt"
+                + CommandListToFile.SEND_MESSAGE + " HubT" + x + length + ".txt" + " sn/file"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000 * x)
                 + CLI_SEPARATOR
@@ -68,15 +70,16 @@ public class CoreScenariosHub {
         for (int i = 1; i < x; i++) {
             commands[i] = CommandListToFile.WAIT + " " + (1000)
                     + CLI_SEPARATOR
-                    + CONNECT_HUB + " IP_FILLER " + hubPort
+                    + CONNECT_HUB + " FILLER_IP " + hubPort
                     + CLI_SEPARATOR
                     + CommandListToFile.WAIT + " " + (1000)
                     + CLI_SEPARATOR
+                    + CLI_BLOCK + " P" + i
+                    + CLI_SEPARATOR
                     + CLI_RELEASE + " P_hub" + i
                     + CLI_SEPARATOR
-                    + CLI_BLOCK + " P" + (i + 1)
-                    + CLI_SEPARATOR
-                    + CommandListToFile.WAIT + " " + (1000 * x);
+                    + CommandListToFile.WAIT + " " + (1000 * x)
+                    + CLI_SEPARATOR;
         }
         return commands;
     }
@@ -91,7 +94,7 @@ public class CoreScenariosHub {
         String[] commands = new String[2];
 
         commands[0] = hubHostCommand()
-                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CONNECT_HUB + " FILLER_IP " + hubPort
                 + CLI_SEPARATOR
                 + CLI_BLOCK + " P_hub"
                 + CLI_SEPARATOR
@@ -101,15 +104,19 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " 1000"
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_1.txt"
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_1.txt" + " sn/file"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                +  CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_2.txt"
+                +  CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_2.txt" + " sn/file"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_3.txt"
+                + CommandListToFile.SEND_MESSAGE + " HubTStalling" + length + "_3.txt" + " sn/file"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR
+                + CLI_RELEASE + " P3"
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
@@ -118,7 +125,7 @@ public class CoreScenariosHub {
 
         commands[1] = CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
-                + CONNECT_HUB + " IP_FILLER " + hubPort
+                + CONNECT_HUB + " FILLER_IP " + hubPort
                 + CLI_SEPARATOR
                 + CommandListToFile.WAIT + " " + (1000)
                 + CLI_SEPARATOR
@@ -126,7 +133,10 @@ public class CoreScenariosHub {
                 + CLI_SEPARATOR
                 + CLI_BLOCK + " P2"
                 + CLI_SEPARATOR
-                + CommandListToFile.WAIT + " " + (5000);
+                + CLI_BLOCK + " P3"
+                + CLI_SEPARATOR
+                + CommandListToFile.WAIT + " " + (1000)
+                + CLI_SEPARATOR;
 
         return commands;
     }

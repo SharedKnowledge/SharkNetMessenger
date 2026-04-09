@@ -17,8 +17,8 @@ fi
 
 export TEST_ROOT="$SCRIPT_DIR"
 
-touch "$TEST_ROOT/eval.txt"
-touch "$TEST_ROOT/errorlog.txt"
+: > "$TEST_ROOT/eval.txt"
+: > "$TEST_ROOT/errorlog.txt"
 
 java -jar "$SCRIPT_DIR/scriptgenerator.jar"
 
@@ -68,11 +68,36 @@ AUTO_KILL_VERBOSE="${AUTO_KILL_VERBOSE:-0}"
 # Set to 0 to disable timeout
 TEST_TIMEOUT="${TEST_TIMEOUT:-60}"
 
+# Track timed out scenarios for final summary output
+declare -a timed_out_scenarios
+
 ################################################################################
 # Helper function to run commands with timeout
 ################################################################################
+kill_scenario_processes() {
+  local scenario_dir="$1"
+  [[ -n "$scenario_dir" ]] || return 0
+
+  # Prefer the dedicated helper when available.
+  if [[ -x "$SCRIPT_DIR/kill_shark_processes.sh" ]]; then
+    "$SCRIPT_DIR/kill_shark_processes.sh" -d "$scenario_dir" -f >/dev/null 2>&1 || true
+  fi
+
+  # Fallback: kill any remaining java SharkNet processes that still reference the scenario dir.
+  if command -v pgrep >/dev/null 2>&1; then
+    while IFS= read -r pid; do
+      [[ -n "$pid" ]] || continue
+      if ps -p "$pid" -o command= | grep -F "SharkNetMessengerCLI.jar" | grep -F "$scenario_dir" >/dev/null 2>&1; then
+        kill -9 "$pid" 2>/dev/null || true
+      fi
+    done < <(pgrep -f "SharkNetMessengerCLI.jar" || true)
+  fi
+}
+
 run_with_timeout() {
   local timeout_sec="$1"
+  local scenario_dir="$2"
+  shift
   shift
   local cmd=("$@")
 
@@ -90,9 +115,9 @@ run_with_timeout() {
   while kill -0 "$pid" 2>/dev/null; do
     if [[ $count -ge $timeout_sec ]]; then
       echo "⚠ WARNING: Test exceeded timeout of ${timeout_sec} seconds, force-killing..." >&2
-      # Kill the process and all children
+      # Kill the parent wrapper and then aggressively clean up scenario java processes.
       kill -9 "$pid" 2>/dev/null || true
-      # Wait a bit for process to die
+      kill_scenario_processes "$scenario_dir"
       sleep 1
       return 124  # Timeout exit code
     fi
@@ -141,8 +166,11 @@ execute_hub_test() {
   cp -a "$SCRIPT_DIR/SharkNetMessengerCLI.jar" "$g"
   chmod +x "$g/runHubCoreScenario.sh" || true
 
-  run_with_timeout "$TEST_TIMEOUT" bash -c "cd '$g' && ./runHubCoreScenario.sh '$ip'"
+  run_with_timeout "$TEST_TIMEOUT" "$g" bash -c "cd '$g' && ./runHubCoreScenario.sh '$ip'"
   local test_exit_code=$?
+  if [[ $test_exit_code -eq 124 ]]; then
+    timed_out_scenarios+=("$export_name (hub)")
+  fi
 
   export_hub_test_results "$g" "$export_name" "$test_exit_code"
 
@@ -187,8 +215,11 @@ execute_tcp_test() {
   cp -a "$SCRIPT_DIR/SharkNetMessengerCLI.jar" "$g"
   chmod +x "$g/runTCPCoreScenario.sh" || true
 
-  run_with_timeout "$TEST_TIMEOUT" bash -c "cd '$g' && ./runTCPCoreScenario.sh '$ip'"
+  run_with_timeout "$TEST_TIMEOUT" "$g" bash -c "cd '$g' && ./runTCPCoreScenario.sh '$ip'"
   local test_exit_code=$?
+  if [[ $test_exit_code -eq 124 ]]; then
+    timed_out_scenarios+=("$export_name ($test_type)")
+  fi
 
   # Export results
   export_tcp_test_results "$g" "$export_name" "$test_exit_code"
@@ -207,7 +238,7 @@ export_hub_test_results() {
 
   # Handle timeout case
   if [[ $test_exit_code -eq 124 ]]; then
-    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" | tee -a "$TEST_ROOT/errorlog.txt"
+    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" >> "$TEST_ROOT/errorlog.txt"
     echo "TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" > "$export_dir/TIMEOUT.txt"
   fi
 
@@ -239,12 +270,6 @@ export_hub_test_results() {
     ) 2>/dev/null || true
   fi
 
-  hub_target="$export_dir/hub/$export_name"
-  if [[ -f "$g/hubHostsnmLog.txt" ]]; then
-    mkdir -p "$hub_target" 2>/dev/null || true
-    cp "$g/hubHostsnmLog.txt" "$hub_target/hubHostsnmLog.txt" 2>/dev/null || true
-  fi
-
   # Process ASAP logs from hub and all peers
   for af in "$g"/asapLogs*.txt "$g"/Peer*/asapLogs*.txt; do
     [[ -f "$af" ]] || continue
@@ -253,7 +278,7 @@ export_hub_test_results() {
       peer_dir=$(echo "$relpath" | cut -d'/' -f1)
       targetdir="$export_dir/$peer_dir"
     else
-      targetdir="$hub_target"
+      targetdir="$export_dir"
     fi
     mkdir -p "$targetdir" 2>/dev/null || true
     cp "$af" "$targetdir/" 2>/dev/null || true
@@ -283,7 +308,9 @@ export_hub_test_results() {
 
   if [[ -s "$g/eval_local.txt" ]]; then
     cp "$g/eval_local.txt" "$export_dir/eval_local.txt" 2>/dev/null || true
+    printf '\n===== %s =====\n' "$export_name" >> "$TEST_ROOT/eval.txt"
     cat "$g/eval_local.txt" >> "$TEST_ROOT/eval.txt"
+    printf '\n' >> "$TEST_ROOT/eval.txt"
     rm -f "$g/eval_local.txt"
   else
     rm -f "$g/eval_local.txt" 2>/dev/null || true
@@ -299,13 +326,25 @@ export_hub_test_results() {
         mkdir -p "$export_dir/$peer_dir" 2>/dev/null || true
         cp "$el" "$export_dir/$peer_dir/$(basename "$el")" 2>/dev/null || true
       else
-        mkdir -p "$hub_target" 2>/dev/null || true
-        cp "$el" "$hub_target/$(basename "$el")" 2>/dev/null || true
+          cp "$el" "$export_dir/$(basename "$el")" 2>/dev/null || true
       fi
     fi
   done
 
-  echo "$g"
+  # Mirror failed hub runs into testRunsFailed (timeout and/or FAIL in eval output)
+  mark_failed=0
+  if [[ $test_exit_code -eq 124 ]]; then
+    mark_failed=1
+  fi
+  if [[ -f "$export_dir/eval_local.txt" ]] && grep -Fiq "FAIL" "$export_dir/eval_local.txt" 2>/dev/null; then
+    mark_failed=1
+  fi
+  if [[ "$mark_failed" -eq 1 ]]; then
+    dest="$TEST_ROOT/testRunsFailed/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
+    mkdir -p "$dest" 2>/dev/null || true
+    cp -a "$export_dir/." "$dest/" 2>/dev/null || true
+  fi
+
 }
 
 # Function to export TCP test results
@@ -318,7 +357,7 @@ export_tcp_test_results() {
 
   # Handle timeout case
   if [[ $test_exit_code -eq 124 ]]; then
-    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" | tee -a "$TEST_ROOT/errorlog.txt"
+    echo "⚠ TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" >> "$TEST_ROOT/errorlog.txt"
     echo "TIMEOUT: Test exceeded ${TEST_TIMEOUT}s timeout limit" > "$export_dir/TIMEOUT.txt"
   fi
 
@@ -374,7 +413,9 @@ export_tcp_test_results() {
 
   if [[ -s "$g/eval_local.txt" ]]; then
     cp "$g/eval_local.txt" "$export_dir/eval_local.txt" 2>/dev/null || true
+    printf '\n===== %s =====\n' "$export_name" >> "$TEST_ROOT/eval.txt"
     cat "$g/eval_local.txt" >> "$TEST_ROOT/eval.txt"
+    printf '\n' >> "$TEST_ROOT/eval.txt"
     rm -f "$g/eval_local.txt"
   else
     rm -f "$g/eval_local.txt" 2>/dev/null || true
@@ -415,15 +456,20 @@ export_tcp_test_results() {
     done < <(find "$g" -type f -name 'asapLogs*.txt' -print0 2>/dev/null)
   fi
 
-  if [[ -f "$export_dir/eval_local.txt" ]]; then
-    if grep -Fiq "FAIL" "$export_dir/eval_local.txt" 2>/dev/null; then
-      dest="$TEST_ROOT/testRunsFailed/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
-      mkdir -p "$dest" 2>/dev/null || true
-      cp -a "$export_dir/." "$dest/" 2>/dev/null || true
-    fi
+  # Mirror failed TCP runs into testRunsFailed (timeout and/or FAIL in eval output)
+  mark_failed=0
+  if [[ $test_exit_code -eq 124 ]]; then
+    mark_failed=1
+  fi
+  if [[ -f "$export_dir/eval_local.txt" ]] && grep -Fiq "FAIL" "$export_dir/eval_local.txt" 2>/dev/null; then
+    mark_failed=1
+  fi
+  if [[ "$mark_failed" -eq 1 ]]; then
+    dest="$TEST_ROOT/testRunsFailed/$export_name/$TEST_ENV_NAME/$date_str/run_$RUN_SEQ"
+    mkdir -p "$dest" 2>/dev/null || true
+    cp -a "$export_dir/." "$dest/" 2>/dev/null || true
   fi
 
-  echo "$g"
 }
 
 ################################################################################
@@ -605,8 +651,17 @@ echo "  Basic Encounter Tests:   $basic_test_count"
 echo "  Complex Encounter Tests: $complex_test_count"
 echo "  Hub Encounter Tests:     $hub_test_count"
 echo "  Total Tests:             $((basic_test_count + complex_test_count + hub_test_count))"
+echo "  Timed Out Tests:         ${#timed_out_scenarios[@]}"
 echo "======================================================================="
 echo ""
+
+if (( ${#timed_out_scenarios[@]} > 0 )); then
+  echo "Timed Out Scenario List:"
+  for timeout_entry in "${timed_out_scenarios[@]}"; do
+    echo "  - $timeout_entry"
+  done
+  echo ""
+fi
 
 ts=$(date +"%Y-%m-%d_%H-%M-%S%Z")
 archive="testresults_${ts}.zip"

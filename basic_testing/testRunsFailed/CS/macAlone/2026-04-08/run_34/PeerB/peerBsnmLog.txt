@@ -1,0 +1,56 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-08 21:36:59.099: created a new asap peer id for PeerB: PeerB_xoOjegv0000TXd
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 21:37:00.331: block and wait for release CS_CS
+2026-04-08 21:37:01.561: 
+new encounter to PeerA_eoOjegv0000Bpn via internet
+2026-04-08 21:37:01.563: 
+Peer PeerA_eoOjegv0000Bpn has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 21:37:02.634: 1messages received in channel snm://block_release
+2026-04-08 21:37:02.640: block released CS_CS
+2026-04-08 21:37:02.641: wait 1000 ms ...
+2026-04-08 21:37:03.642: resume
+2026-04-08 21:37:03.649: no messages in channel 2
+2026-04-08 21:37:03.666: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-08 21:37:03.667: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: PeerA_eoOjegv0000Bpn | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:37:02.592
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_eoOjegv0000Bpn | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-08 21:37:03.667: wait 1000 ms ...
+2026-04-08 21:37:03.722: 2messages received in channel snm://block_release
+2026-04-08 21:37:03.736: name: <no name set> | uri: snm://block_release | #messages: 2 | age: unknown
+2026-04-08 21:37:03.738: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CS_CS'
+sender: PeerA_eoOjegv0000Bpn | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:37:02.592
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_eoOjegv0000Bpn | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: CS_filler_A.txt (1024 bytes) | saved to disc
+sender: PeerA_eoOjegv0000Bpn | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 21:37:03.612
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_eoOjegv0000Bpn | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+
+2026-04-08 21:37:03.742: no messages in channel 2

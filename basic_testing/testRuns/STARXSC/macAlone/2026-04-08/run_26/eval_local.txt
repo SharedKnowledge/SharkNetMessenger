@@ -1,0 +1,7 @@
+STARXSC
+PeerA: fail: Transport/encounter error detected (exception caught: sleep interrupted).
+PeerB: fail: Only self-produced scenario messages observed (no remote delivery evidence).
+PeerC: fail: Transport/encounter error detected (Exception in thread "Thread-2" java.util.ConcurrentModificationException).
+PeerD: fail: Only partial remote delivery observed (1/2 scenario messages).
+STARXSC
+FAIL: One or more peers failed

@@ -1,0 +1,5 @@
+2026-04-08 21:37:01.567: new connection but no connection type?? there is no connection to peer PeerB_xoOjegv0000TXd
+2026-04-08 21:37:04.102: encounter terminated but no record - that's unexpected: PeerB_xoOjegv0000TXd
+Exception in thread "Thread-12" java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "logs" is null
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerApp.encounterTerminated(SharkNetMessengerApp.java:499)
+	at net.sharksystem.SharkPeerBasicImpl$1.run(SharkPeerBasicImpl.java:254)

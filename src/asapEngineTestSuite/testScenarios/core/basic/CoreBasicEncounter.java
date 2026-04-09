@@ -116,6 +116,8 @@ public class CoreBasicEncounter {
                 + CLI_SEPARATOR
                 + CommandListToFile.CONNECT_TCP + FILLER_IP + portNr
                 + CLI_SEPARATOR
+                + WAIT + " " + WAIT_TIME
+                + CLI_SEPARATOR
                 + RELEASE + " " + syncMarker
                 + CLI_SEPARATOR;
     }

@@ -1,0 +1,9 @@
+Scenario: STARXSC
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (2026-04-09 20:54:43.426: Error: Connection refused).
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (4 unique).
+  PeerD | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed

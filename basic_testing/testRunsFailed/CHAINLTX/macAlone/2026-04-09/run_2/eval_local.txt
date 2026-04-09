@@ -1,0 +1,9 @@
+Scenario: CHAINLTX
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Remote scenario payloads observed (2 unique).
+  PeerC | PASS | Remote scenario payloads observed (2 unique).
+  PeerD | FAIL | Transport/encounter error detected (2026-04-09 20:46:03.638: there is no encounter.).
+
+Summary:
+  FAIL | One or more peers failed

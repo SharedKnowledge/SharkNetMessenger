@@ -1,0 +1,73 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-09 20:45:49.658: created a new asap peer id for PeerA: PeerA_StsXjgv0000sJf
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-09 20:45:54.278: sendMessage
+2026-04-09 20:45:54.389: openTCP
+2026-04-09 20:45:54.390: wait 500 ms ...
+2026-04-09 20:45:54.893: resume
+2026-04-09 20:45:54.893: block and wait for release CHAINLTX_P1
+2026-04-09 20:45:57.406: 
+new encounter to PeerB_susXjgv00009Zf via internet
+2026-04-09 20:45:57.410: 
+Peer PeerB_susXjgv00009Zf has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-09 20:45:58.462: 1messages received in channel snm://block_release
+2026-04-09 20:45:58.473: block released CHAINLTX_P1
+2026-04-09 20:45:58.473: wait 500 ms ...
+2026-04-09 20:45:58.975: resume
+2026-04-09 20:45:58.977: close encounter with PeerB_susXjgv00009Zf
+2026-04-09 20:45:58.980: wait 1000 ms ...
+2026-04-09 20:45:58.986: 
+encounter closed: PeerB_susXjgv00009Zf | connection: internet | started: 2026-04-09 20:45:57.409 | closed: 2026-04-09 20:45:58.986
+
+2026-04-09 20:45:59.985: resume
+2026-04-09 20:45:59.986: closeEncounter
+2026-04-09 20:46:00.057: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-09 20:46:00.071: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINLTX_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:45:54.216
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_StsXjgv0000sJf): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-09 20:46:00.087: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-09 20:46:00.089: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P1'
+sender: PeerB_susXjgv00009Zf | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:45:58.375
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_susXjgv00009Zf | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-09 20:46:00.089: wait 1000 ms ...
+2026-04-09 20:46:01.093: resume
+2026-04-09 20:46:01.114: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-09 20:46:01.115: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P1'
+sender: PeerB_susXjgv00009Zf | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:45:58.375
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_susXjgv00009Zf | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+
+2026-04-09 20:46:01.124: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-09 20:46:01.127: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: CHAINLTX_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 20:45:54.216
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_StsXjgv0000sJf): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

@@ -1,0 +1,9 @@
+Scenario: CHAINX
+Peer results:
+  PeerA | FAIL | Encounter observed but no remote payloads were received.
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerD | PASS | Encounter observed and remote payloads received (1 unique).
+
+Summary:
+  FAIL | One or more peers failed

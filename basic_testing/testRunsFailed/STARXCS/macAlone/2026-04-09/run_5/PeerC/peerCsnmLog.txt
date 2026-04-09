@@ -1,0 +1,135 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerC
+2026-04-09 21:08:45.112: created a new asap peer id for PeerC: PeerC_cie3kgv0000ru3
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-09 21:08:48.291: openTCP
+2026-04-09 21:08:48.292: block and wait for release STARXCS_P2
+2026-04-09 21:08:52.071: 
+new encounter to PeerA_9ke3kgv0000iDM via internet
+2026-04-09 21:08:52.072: 
+Peer PeerA_9ke3kgv0000iDM has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-09 21:08:52.130: 1messages received in channel snm://block_release
+2026-04-09 21:08:52.181: 3messages received in channel snm://block_release
+2026-04-09 21:08:53.617: 4messages received in channel snm://block_release
+2026-04-09 21:08:53.641: block released STARXCS_P2
+2026-04-09 21:08:53.641: wait 5000 ms ...
+2026-04-09 21:08:57.608: 5messages received in channel snm://block_release
+2026-04-09 21:08:57.625: no messages in channel 2
+2026-04-09 21:08:57.644: name: <no name set> | uri: snm://block_release | #messages: 5 | age: unknown
+2026-04-09 21:08:57.649: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerD_6ie3kgv0000zfp | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:50.900
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6ie3kgv0000zfp | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_D.txt (1024 bytes) | saved to disc
+sender: PeerD_6ie3kgv0000zfp | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:51.936
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6ie3kgv0000zfp | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: PeerA_9ke3kgv0000iDM | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:53.559
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerA_9ke3kgv0000iDM | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:57.578
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: PeerB_fke3kgv0000FbP | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:51.209
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_fke3kgv0000FbP | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#5 --------------------------------------------------------------------------------
+
+2026-04-09 21:08:57.650: wait 1000 ms ...
+2026-04-09 21:08:58.650: resume
+2026-04-09 21:08:58.676: name: <no name set> | uri: snm://block_release | #messages: 5 | age: unknown
+2026-04-09 21:08:58.680: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerD_6ie3kgv0000zfp | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:50.900
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6ie3kgv0000zfp | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXCS_filler_D.txt (1024 bytes) | already saved
+sender: PeerD_6ie3kgv0000zfp | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:51.936
+E2E security: encrypted: no | signed: yes | verified: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerD_6ie3kgv0000zfp | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P2'
+sender: PeerA_9ke3kgv0000iDM | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:53.559
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P3'
+sender: PeerA_9ke3kgv0000iDM | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:57.578
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXCS_P1'
+sender: PeerB_fke3kgv0000FbP | recipients: ANY_SHARKNET_PEER | time: 2026-04-09 21:08:51.209
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_fke3kgv0000FbP | P2P security: encrypted: no | verified: no | via: TCP
+1: sender: PeerA_9ke3kgv0000iDM | P2P security: encrypted: no | verified: no | via: TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#5 --------------------------------------------------------------------------------
+
+2026-04-09 21:08:58.691: no messages in channel 2

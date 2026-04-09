@@ -1,0 +1,39 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-08 15:22:28.950: created a new asap peer id for PeerB: PeerB_BSwNcgv0000XWU
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-08 15:22:31.289: wait 3000 ms ...
+2026-04-08 15:22:34.294: resume
+2026-04-08 15:22:34.324: wait 500 ms ...
+2026-04-08 15:22:34.334: 
+new encounter to PeerA_rSwNcgv0000jVs via internet
+2026-04-08 15:22:34.335: 
+Peer PeerA_rSwNcgv0000jVs has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-08 15:22:34.418: 1messages received in channel sn://universal
+2026-04-08 15:22:34.826: resume
+2026-04-08 15:22:34.827: connectTCP
+2026-04-08 15:22:34.827: wait 500 ms ...
+2026-04-08 15:22:35.329: resume
+2026-04-08 15:22:35.335: release block sent: CHAINLTX_P1
+2026-04-08 15:22:35.335: release
+2026-04-08 15:22:35.336: wait 500 ms ...
+2026-04-08 15:22:35.839: resume
+2026-04-08 15:22:35.848: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-08 15:22:35.849: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'CHAINLTX_P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-08 15:22:35.331
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-08 15:22:35.853: openTCP
+2026-04-08 15:22:35.853: wait 500 ms ...
+2026-04-08 15:22:35.888: 
+encounter closed: PeerA_rSwNcgv0000jVs | connection: internet | started: 2026-04-08 15:22:34.334 | closed: 2026-04-08 15:22:35.888
+
+2026-04-08 15:22:36.357: resume
+2026-04-08 15:22:36.358: block and wait for release CHAINLTX_P2

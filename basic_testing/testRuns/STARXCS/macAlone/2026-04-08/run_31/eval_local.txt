@@ -1,0 +1,7 @@
+STARXCS
+PeerA: fail: Transport/encounter error detected (2026-04-08 19:47:15.704: Error: Connection refused).
+PeerB: pass: Remote scenario messages observed (4).
+PeerC: pass: Remote scenario messages observed (10).
+PeerD: pass: Remote scenario messages observed (4).
+STARXCS
+FAIL: One or more peers failed

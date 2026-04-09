@@ -1,0 +1,5 @@
+CS
+PeerA: fail: Transport/encounter error detected (Exception in thread "Thread-1" java.util.ConcurrentModificationException).
+PeerB: pass: Remote scenario messages observed (3).
+CS
+FAIL: One or more peers failed

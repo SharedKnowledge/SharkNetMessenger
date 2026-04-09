@@ -1,0 +1,7 @@
+STARXCS
+PeerA: fail: Transport/encounter error detected (exception caught: sleep interrupted).
+PeerB: pass: Remote scenario messages observed (2).
+PeerC: fail: Transport/encounter error detected (exception caught: sleep interrupted).
+PeerD: pass: Remote scenario messages observed (2).
+STARXCS
+FAIL: One or more peers failed

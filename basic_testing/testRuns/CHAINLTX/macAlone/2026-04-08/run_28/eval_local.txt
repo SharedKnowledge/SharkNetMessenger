@@ -1,0 +1,7 @@
+CHAINLTX
+PeerA: pass: Remote scenario messages observed (2).
+PeerB: pass: Remote scenario messages observed (4).
+PeerC: pass: Remote scenario messages observed (7).
+PeerD: fail: Transport/encounter error detected (2026-04-08 18:19:34.550: there is no encounter.).
+CHAINLTX
+FAIL: One or more peers failed
