@@ -23,7 +23,6 @@ for peer_file in "$SCRIPT_DIR"/Peer*/${folderName}_Peer*.txt; do
   fi
 done
 
-# configurable via environment variables:
 # FILLER_SIZE (bytes, default 1024)
 # FILLER_NAME (default: <folderName>_filler.txt)
 FILLER_SIZE="${FILLER_SIZE:-1024}"
@@ -43,7 +42,6 @@ else
   head -c "$FILLER_SIZE" </dev/zero > "$FILLER_PATH" || :
 fi
 
-# If other peers reference FILLER_FILENAME, create per-peer variants and replace tokens
 shopt -s nullglob
 for peer_dir in "$SCRIPT_DIR"/Peer*; do
   if [[ -d "$peer_dir" ]]; then
@@ -99,6 +97,69 @@ if [[ -f "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" ]]; then
   fi
 fi
 
+# Create any missing payload files referenced by explicit sendMessage commands.
+# Some scenarios (e.g. HUBT_STALLING) use concrete file names instead of FILLER_FILENAME.
+create_sendmessage_payload_files() {
+  local peer_dir peer_name cmd_file payload size payload_path
+
+  shopt -s nullglob
+  for peer_dir in "$SCRIPT_DIR"/Peer*; do
+    [[ -d "$peer_dir" ]] || continue
+    peer_name=$(basename "$peer_dir")
+    cmd_file="$peer_dir/${folderName}_${peer_name}.txt"
+    [[ -f "$cmd_file" ]] || continue
+
+    while IFS= read -r payload; do
+      [[ -n "$payload" ]] || continue
+      payload_path="$peer_dir/$payload"
+
+      # Keep existing scenario files untouched.
+      [[ -f "$payload_path" ]] && continue
+
+      # Derive payload size from the file name when possible.
+      # Numeric markers are interpreted as bytes (e.g. 1000 -> ~1 KB).
+      size="${FILLER_SIZE:-1024}"
+      if [[ "$payload" =~ ([0-9]{2,}) ]]; then
+        size="${BASH_REMATCH[1]}"
+      fi
+
+      if command -v truncate >/dev/null 2>&1; then
+        truncate -s "$size" "$payload_path" || :
+      elif command -v fallocate >/dev/null 2>&1; then
+        fallocate -l "$size" "$payload_path" || :
+      elif command -v dd >/dev/null 2>&1; then
+        dd if=/dev/zero of="$payload_path" bs=1 count="$size" status=none || :
+      else
+        head -c "$size" </dev/zero > "$payload_path" || :
+      fi
+    done < <(
+      awk '
+        {
+          gsub(/\r/, "")
+          n = split($0, cmds, ";")
+          for (i = 1; i <= n; i++) {
+            cmd = cmds[i]
+            sub(/^[[:space:]]+/, "", cmd)
+            sub(/[[:space:]]+$/, "", cmd)
+            if (cmd ~ /^sendMessage[[:space:]]+/) {
+              rest = cmd
+              sub(/^sendMessage[[:space:]]+/, "", rest)
+              split(rest, parts, /[[:space:]]+/)
+              file = parts[1]
+              if (file ~ /\.txt$/) {
+                print file
+              }
+            }
+          }
+        }
+      ' "$cmd_file" | sort -u
+    )
+  done
+  shopt -u nullglob
+}
+
+create_sendmessage_payload_files
+
 # Check that at least PeerA and PeerB exist
 if [[ ! -f "$SCRIPT_DIR/PeerA/${folderName}_PeerA.txt" || ! -f "$SCRIPT_DIR/PeerB/${folderName}_PeerB.txt" ]]; then
   echo "Required peer files (PeerA and PeerB) missing in $SCRIPT_DIR"
@@ -124,7 +185,6 @@ for peer_dir in "$SCRIPT_DIR"/Peer*; do
   fi
 done
 
-# Wait for all processes to complete
 wait "${pids[@]}"
 
 # Additional safeguard: wait until no process is using files in the scenario directory
@@ -143,7 +203,6 @@ wait_for_scenario_dir_free() {
       fi
     done
   else
-    # Fallback: look for java processes referencing the scenario directory on their command line
     while ps -eo pid=,command= | grep -F "SharkNetMessengerCLI.jar" | grep -F "$dir" >/dev/null 2>&1; do
       sleep 1
       waited=$((waited+1))

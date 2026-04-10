@@ -1,0 +1,7 @@
+Exception in thread "Thread-1" java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1096)
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1050)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.setEncounteredPeer(ASAPSessionImpl.java:80)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.run(ASAPSessionImpl.java:272)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2026-04-10 22:29:36.700: new connection but no connection type?? there is no connection to peer PeerA_tZ5eqgv0000nkv

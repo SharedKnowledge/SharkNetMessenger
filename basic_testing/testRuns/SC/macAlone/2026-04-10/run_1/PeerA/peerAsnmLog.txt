@@ -1,0 +1,56 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-10 22:29:56.529: created a new asap peer id for PeerA: PeerA_V9ceqgv0000Fcp
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-10 22:29:57.695: wait 1000 ms ...
+2026-04-10 22:29:58.698: resume
+2026-04-10 22:29:58.755: wait 1000 ms ...
+2026-04-10 22:29:59.756: resume
+2026-04-10 22:29:59.804: wait 1000 ms ...
+2026-04-10 22:29:59.813: 
+new encounter to PeerB_faceqgv0000qpN via internet
+2026-04-10 22:29:59.814: 
+Peer PeerB_faceqgv0000qpN has not yet issued a certificate for you. You are connected now. A good time to ask for one?
+2026-04-10 22:30:00.808: resume
+2026-04-10 22:30:00.814: release block sent: SC_SC
+2026-04-10 22:30:00.827: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-10 22:30:00.831: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:58.716
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_V9ceqgv0000Fcp): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:30:00.839: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-10 22:30:00.840: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:30:00.809
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:30:00.840: wait 1000 ms ...
+2026-04-10 22:30:01.841: resume
+2026-04-10 22:30:01.846: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-10 22:30:01.847: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'SC_SC'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:30:00.809
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:30:01.852: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-10 22:30:01.854: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: SC_filler_A.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:58.716
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_V9ceqgv0000Fcp): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

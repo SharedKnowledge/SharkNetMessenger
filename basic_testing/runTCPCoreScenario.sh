@@ -103,7 +103,6 @@ for peer_dir in "$SCRIPT_DIR"/Peer*; do
   fi
 done
 
-
 found_any=false
 for peer_dir in "$SCRIPT_DIR"/Peer*; do
   if [[ -d "$peer_dir" ]]; then

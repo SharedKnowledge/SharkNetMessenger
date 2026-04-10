@@ -1,11 +1,5 @@
 
-==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogA.txt ====\nException in thread "Thread-23" java.util.ConcurrentModificationException
-	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1096)
-	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1050)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerAppSupportingDistributedTesting.releaseReceived(SharkNetMessengerAppSupportingDistributedTesting.java:102)
-	at net.sharksystem.ui.messenger.cli.SNMDistributedTestsMessageReceivedListener$1.run(SNMDistributedTestsMessageReceivedListener.java:22)
-	at java.base/java.lang.Thread.run(Thread.java:1570)
-exception caught: sleep interrupted
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogA.txt ====\nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
 	at java.base/java.lang.Thread.sleepNanos0(Native Method)
 	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
@@ -27,7 +21,7 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
-2026-04-09 22:12:26.639: Error: Connection refused
+2026-04-10 23:00:29.375: Error: Connection refused
 
 ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogC.txt ====\nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
@@ -41,20 +35,9 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
 
-==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogD.txt ====\n2026-04-09 22:12:49.402: there is no encounter.
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogC.txt ====\n2026-04-10 23:00:52.297: there is no encounter.
 
-==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\nexception caught: sleep interrupted
-java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleepNanos0(Native Method)
-	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
-	at java.base/java.lang.Thread.sleep(Thread.java:522)
-	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
-	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
-2026-04-09 22:13:01.264: Error: Connection refused
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\n2026-04-10 23:01:10.049: Error: Connection refused
 
 ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogC.txt ====\nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
@@ -79,14 +62,38 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
-⚠ TIMEOUT: Test exceeded 60s timeout limit
-⚠ TIMEOUT: Test exceeded 60s timeout limit
 
- ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBT_STALLING_: errorlogA.txt ==== \n2026-04-09 22:14:35.474: file does not exist: HubTStalling1000_1.txt
-2026-04-09 22:14:36.478: file does not exist: HubTStalling1000_2.txt
-2026-04-09 22:14:37.481: file does not exist: HubTStalling1000_3.txt
-Exception in thread "Thread-31" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null
-	at net.sharksystem.asap.engine.ASAPOnlineMessageSenderEngineSide.sendStoredMessages(ASAPOnlineMessageSenderEngineSide.java:132)
-	at net.sharksystem.asap.protocol.ASAPSessionImpl.sendOnlineMessages(ASAPSessionImpl.java:171)
-	at net.sharksystem.asap.protocol.ASAPSessionImpl.access$200(ASAPSessionImpl.java:17)
-	at net.sharksystem.asap.protocol.ASAPSessionImpl$OnlineMessageSenderThread.run(ASAPSessionImpl.java:182)
+ ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_: errorlogB.txt ==== \nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+exception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+
+ ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_: errorlogC.txt ==== \nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)

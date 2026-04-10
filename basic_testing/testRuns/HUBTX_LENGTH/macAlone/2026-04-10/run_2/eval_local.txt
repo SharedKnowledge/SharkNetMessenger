@@ -1,0 +1,8 @@
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
+
+Summary:
+  FAIL | One or more peers failed

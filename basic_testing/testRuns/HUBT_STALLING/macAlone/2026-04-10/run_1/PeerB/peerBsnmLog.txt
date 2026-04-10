@@ -1,0 +1,22 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-10 22:31:08.852: created a new asap peer id for PeerB: PeerB_MYueqgv00006YC
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-10 22:31:10.068: wait 1000 ms ...
+2026-04-10 22:31:11.070: resume
+2026-04-10 22:31:11.083: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-10 22:31:11.086: try to connect
+2026-04-10 22:31:11.087: wait 1000 ms ...
+2026-04-10 22:31:11.136: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-10 22:31:11.142: 
+remembered hub description
+
+2026-04-10 22:31:12.090: resume
+2026-04-10 22:31:12.096: release block sent: HUBT_STALLING_P_hub
+2026-04-10 22:31:12.097: block and wait for release HUBT_STALLING_P2
+2026-04-10 22:31:12.487: 
+new encounter to PeerA_HYueqgv0000s60 via hub

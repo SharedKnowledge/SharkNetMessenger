@@ -1,0 +1,52 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerB
+2026-04-10 22:29:32.814: created a new asap peer id for PeerB: PeerB_HZ5eqgv0000LJt
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-10 22:29:34.552: wait 1000 ms ...
+2026-04-10 22:29:35.573: resume
+2026-04-10 22:29:35.640: wait 1000 ms ...
+2026-04-10 22:29:36.641: resume
+2026-04-10 22:29:36.719: wait 1000 ms ...
+2026-04-10 22:29:37.720: resume
+2026-04-10 22:29:37.726: release block sent: STARXSC_P1
+2026-04-10 22:29:37.739: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-10 22:29:37.744: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler_B.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:35.598
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_HZ5eqgv0000LJt): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:29:37.749: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-10 22:29:37.750: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXSC_P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:37.720
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:29:37.750: wait 1000 ms ...
+2026-04-10 22:29:38.750: resume
+2026-04-10 22:29:38.756: name: <no name set> | uri: snm://block_release | #messages: 1 | age: unknown
+2026-04-10 22:29:38.757: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'STARXSC_P1'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:37.720
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+
+2026-04-10 22:29:38.762: name: sharkNet | uri: sn://universal | #messages: 1 | age: unknown
+2026-04-10 22:29:38.763: list messages in channel: sn://universal
+#1 ---------------------------------------------------------------------------------
+content type: sn/file | file: STARXSC_filler_B.txt (1024 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 22:29:35.598
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerB_HZ5eqgv0000LJt): 10 (perfect) 
+hoping list: no hops
+/#1 --------------------------------------------------------------------------------
+

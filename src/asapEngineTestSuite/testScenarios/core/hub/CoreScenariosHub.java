@@ -47,10 +47,11 @@ public class CoreScenariosHub {
         commands[0] = hubHostCommand()
                 + CONNECT_HUB + " FILLER_IP " + hubPort
                 + CLI_SEPARATOR;
+        // Give receiver peers enough time to connect and reach their initial block commands.
+        commands[0] += CommandListToFile.WAIT + " 3000"
+            + CLI_SEPARATOR;
         for (int i = 1; i < x; i++) {
-            commands[0] += CommandListToFile.WAIT + " " + (1000)
-                    + CLI_SEPARATOR
-                    + CLI_RELEASE + " P" + i
+            commands[0] += CLI_RELEASE + " P" + i
                     + CLI_SEPARATOR
                     + WAIT + " " + (1000)
                     + CLI_SEPARATOR;

@@ -1,0 +1,124 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-10 23:01:58.224: created a new asap peer id for PeerA: PeerA_t5gmqgv0000sn8
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-10 23:01:59.837: start hub on port: 6907 | creates new connections: true | connections max idle (in sec): 60
+2026-04-10 23:01:59.903: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-10 23:01:59.951: try to connect
+2026-04-10 23:01:59.952: block and wait for release HUBT_STALLING_P_hub
+2026-04-10 23:01:59.985: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-10 23:01:59.988: 
+remembered hub description
+
+2026-04-10 23:02:02.163: 
+new encounter to PeerB_D5gmqgv00004EN via hub
+2026-04-10 23:02:02.708: 1messages received in channel snm://block_release
+2026-04-10 23:02:02.720: block released HUBT_STALLING_P_hub
+2026-04-10 23:02:02.721: wait 1000 ms ...
+2026-04-10 23:02:03.722: resume
+2026-04-10 23:02:03.727: release block sent: HUBT_STALLING_P2
+2026-04-10 23:02:03.727: wait 1000 ms ...
+2026-04-10 23:02:04.730: resume
+2026-04-10 23:02:04.779: wait 1000 ms ...
+2026-04-10 23:02:05.783: resume
+2026-04-10 23:02:05.829: wait 1000 ms ...
+2026-04-10 23:02:06.834: resume
+2026-04-10 23:02:06.868: wait 1000 ms ...
+2026-04-10 23:02:07.869: resume
+2026-04-10 23:02:07.873: release block sent: HUBT_STALLING_P3
+2026-04-10 23:02:07.873: wait 1000 ms ...
+2026-04-10 23:02:08.877: resume
+2026-04-10 23:02:08.882: no messages in channel 2
+2026-04-10 23:02:08.889: name: <no name set> | uri: snm://block_release | #messages: 6 | age: unknown
+2026-04-10 23:02:08.896: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P_hub'
+sender: PeerB_D5gmqgv00004EN | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:02.645
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_D5gmqgv00004EN | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:03.723
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_1.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:04.752
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_2.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:05.804
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_3.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:06.851
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#5 --------------------------------------------------------------------------------
+#6 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:07.870
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#6 --------------------------------------------------------------------------------
+
+2026-04-10 23:02:08.896: wait 1000 ms ...
+2026-04-10 23:02:09.901: resume
+2026-04-10 23:02:09.910: name: <no name set> | uri: snm://block_release | #messages: 6 | age: unknown
+2026-04-10 23:02:09.915: list messages in channel: snm://block_release
+#1 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P_hub'
+sender: PeerB_D5gmqgv00004EN | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:02.645
+E2E security: encrypted: no | signed: no
+hoping list: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+0: sender: PeerB_D5gmqgv00004EN | P2P security: encrypted: no | verified: no | via: HUB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/#1 --------------------------------------------------------------------------------
+#2 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P2'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:03.723
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#2 --------------------------------------------------------------------------------
+#3 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_1.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:04.752
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#3 --------------------------------------------------------------------------------
+#4 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_2.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:05.804
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#4 --------------------------------------------------------------------------------
+#5 ---------------------------------------------------------------------------------
+content type: sn/file | file: HubTStalling1000_3.txt (1000 bytes) | already saved
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:06.851
+E2E security: encrypted: no | signed: yes | verified: yes | ia (PeerA_t5gmqgv0000sn8): 10 (perfect) 
+hoping list: no hops
+/#5 --------------------------------------------------------------------------------
+#6 ---------------------------------------------------------------------------------
+content type: sn/characters | 'HUBT_STALLING_P3'
+sender: you | recipients: ANY_SHARKNET_PEER | time: 2026-04-10 23:02:07.870
+E2E security: encrypted: no | signed: no
+hoping list: no hops
+/#6 --------------------------------------------------------------------------------
+
+2026-04-10 23:02:09.922: no messages in channel 2

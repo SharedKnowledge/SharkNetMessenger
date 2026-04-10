@@ -14,7 +14,7 @@ Summary:
 ===== STARXCS =====
 Scenario: STARXCS
 Peer results:
-  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-23" java.util.ConcurrentModificationException).
+  PeerA | FAIL | Transport/encounter error detected (2026-04-10 23:00:29.375: Error: Connection refused).
   PeerB | PASS | Sender peer produced local scenario payloads (1 unique).
   PeerC | PASS | Encounter observed and remote payloads received (2 unique).
   PeerD | PASS | Sender peer produced local scenario payloads (1 unique).
@@ -28,8 +28,8 @@ Scenario: CHAINLTX
 Peer results:
   PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
   PeerB | PASS | Encounter observed and remote payloads received (2 unique).
-  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
-  PeerD | FAIL | Transport/encounter error detected (2026-04-09 22:12:49.402: there is no encounter.).
+  PeerC | FAIL | Transport/encounter error detected (2026-04-10 23:00:52.297: there is no encounter.).
+  PeerD | PASS | Encounter observed and remote payloads received (2 unique).
 
 Summary:
   FAIL | One or more peers failed
@@ -38,7 +38,7 @@ Summary:
 ===== STARXSC =====
 Scenario: STARXSC
 Peer results:
-  PeerA | FAIL | Transport/encounter error detected (2026-04-09 22:13:01.264: Error: Connection refused).
+  PeerA | FAIL | Transport/encounter error detected (2026-04-10 23:01:10.049: Error: Connection refused).
   PeerB | PASS | Sender peer produced local scenario payloads (1 unique).
   PeerC | PASS | Encounter observed and remote payloads received (4 unique).
   PeerD | PASS | Sender peer produced local scenario payloads (1 unique).
@@ -70,9 +70,9 @@ Summary:
 ===== HUBTX_LENGTH =====
 Scenario: HUBTX_LENGTH
 Peer results:
-  PeerA | FAIL | No scenario payloads observed.
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
   PeerB | FAIL | Encounter observed but no remote payloads were received.
-  PeerC | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | PASS | Encounter observed and remote payloads received (2 unique).
 
 Summary:
   FAIL | One or more peers failed
@@ -81,9 +81,9 @@ Summary:
 ===== HUBT_STALLING =====
 Scenario: HUBT_STALLING
 Peer results:
-  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-31" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
-  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerA | PASS | Sender peer produced local scenario payloads (3 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (6 unique).
 
 Summary:
-  FAIL | One or more peers failed
+  PASS | All peers completed successfully
 

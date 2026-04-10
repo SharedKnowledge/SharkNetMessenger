@@ -1,0 +1,7 @@
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | FAIL | Transport/encounter error detected (Exception in thread "Thread-25" java.lang.OutOfMemoryError: Java heap space).
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+
+Summary:
+  FAIL | One or more peers failed
