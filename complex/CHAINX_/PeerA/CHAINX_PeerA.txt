@@ -1,0 +1,1 @@
+openTCP 4444;echo openTCP;sendMessage FILLER_FILENAME sn/file;echo sendMessage;wait 500;block CHAINX_P1;wait 750;wait 12000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

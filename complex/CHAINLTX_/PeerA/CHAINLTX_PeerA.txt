@@ -1,0 +1,1 @@
+sendMessage FILLER_FILENAME sn/file;echo sendMessage;openTCP 4444;echo openTCP;wait 500;block CHAINLTX_P1;wait 500;closeEncounter 1;wait 1000;echo closeEncounter;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

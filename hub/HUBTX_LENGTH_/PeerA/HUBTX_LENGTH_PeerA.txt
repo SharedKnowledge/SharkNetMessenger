@@ -1,0 +1,1 @@
+startHub 6907;connectHub FILLER_IP 6907;wait 3000;release HUBTX_LENGTH_P1;wait 1000;release HUBTX_LENGTH_P2;wait 1000;block HUBTX_LENGTH_P_hub1;block HUBTX_LENGTH_P_hub2;wait 1000;sendMessage HubT31000.txt sn/file;wait 3000;stopHub 6907;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

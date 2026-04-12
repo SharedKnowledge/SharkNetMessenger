@@ -1,0 +1,1 @@
+wait 1700;connectTCP FILLER_IP 4444;wait 1000;release STARXCS_P1;wait 1000;sendMessage FILLER_FILENAME sn/file;wait 2000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

@@ -1,0 +1,1 @@
+openTCP 4444;block SC_SC;wait 1000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;
