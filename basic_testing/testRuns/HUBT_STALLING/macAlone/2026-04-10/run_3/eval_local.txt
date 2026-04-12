@@ -1,0 +1,7 @@
+Scenario: HUBT_STALLING
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (3 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (6 unique).
+
+Summary:
+  PASS | All peers completed successfully

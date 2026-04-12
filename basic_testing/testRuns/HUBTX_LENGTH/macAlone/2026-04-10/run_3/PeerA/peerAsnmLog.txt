@@ -1,0 +1,33 @@
+Welcome to SharkNetMessenger version 0.1
+Welcome PeerA
+2026-04-10 23:32:14.395: created a new asap peer id for PeerA: PeerA_eyStqgv0000t1Y
+type 'help' to see the list of commands
+Unknown command: 
+Type 'help' to see the list of commands.
+
+Enter a (semicolon separated) command (list) and press ENTER > 2026-04-10 23:32:16.248: start hub on port: 6907 | creates new connections: true | connections max idle (in sec): 60
+2026-04-10 23:32:16.338: connect to hub on localhost, port 6907, createNewChannel: true
+2026-04-10 23:32:16.341: try to connect
+2026-04-10 23:32:16.342: wait 3000 ms ...
+2026-04-10 23:32:16.368: connected to a new hub:
+
+host: localhost | port: 6907 | can multichannel: true | type: 02026-04-10 23:32:16.371: 
+remembered hub description
+
+2026-04-10 23:32:18.578: 
+new encounter to PeerB_EyStqgv00003L7 via hub
+2026-04-10 23:32:19.345: resume
+2026-04-10 23:32:19.357: release block sent: HUBTX_LENGTH_P1
+2026-04-10 23:32:19.358: wait 1000 ms ...
+2026-04-10 23:32:19.475: 2messages received in channel snm://block_release
+2026-04-10 23:32:20.362: resume
+2026-04-10 23:32:20.368: release block sent: HUBTX_LENGTH_P2
+2026-04-10 23:32:20.369: wait 1000 ms ...
+2026-04-10 23:32:20.611: 
+new encounter to PeerC_ryStqgv0000RWe via hub
+2026-04-10 23:32:21.372: resume
+2026-04-10 23:32:21.376: block and wait for release HUBTX_LENGTH_P_hub1
+2026-04-10 23:32:21.376: block released HUBTX_LENGTH_P_hub1
+2026-04-10 23:32:21.376: block and wait for release HUBTX_LENGTH_P_hub2
+2026-04-10 23:32:21.946: 
+new encounter to PeerC_ryStqgv0000RWe via hub

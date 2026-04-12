@@ -1,0 +1,1 @@
+openTCP 4444;echo openTCP;block STARXSC_P1;wait 1500;connectTCP FILLER_IP 4445;echo connectTCP;wait 1500;release STARXSC_P2;echo connectTCP;connectTCP FILLER_IP 4446;echo connectTCP;wait 4000;release STARXSC_P3;echo connectTCPlsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

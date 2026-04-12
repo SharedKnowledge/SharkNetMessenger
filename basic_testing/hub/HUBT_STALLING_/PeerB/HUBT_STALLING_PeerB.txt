@@ -1,0 +1,1 @@
+wait 1000;connectHub FILLER_IP 6907;wait 1000;release HUBT_STALLING_P_hub;block HUBT_STALLING_P2;block HUBT_STALLING_P3;wait 1000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

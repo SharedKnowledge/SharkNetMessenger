@@ -1,0 +1,9 @@
+Scenario: CHAINLTX
+Peer results:
+  PeerA | PASS | Sender peer produced local scenario payloads (1 unique).
+  PeerB | PASS | Encounter observed and remote payloads received (2 unique).
+  PeerC | FAIL | Encounter observed but no remote payloads were received.
+  PeerD | FAIL | Transport/encounter error detected (Exception in thread "Thread-21" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null).
+
+Summary:
+  FAIL | One or more peers failed

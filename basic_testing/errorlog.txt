@@ -21,7 +21,7 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
-2026-04-10 23:00:29.375: Error: Connection refused
+2026-04-10 23:30:22.358: Error: Connection refused
 
 ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXCS_: errorlogC.txt ====\nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
@@ -34,10 +34,26 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+⚠ TIMEOUT: Test exceeded 60s timeout limit
 
-==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogC.txt ====\n2026-04-10 23:00:52.297: there is no encounter.
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/CHAINLTX_: errorlogD.txt ====\nException in thread "Thread-21" java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "messageList" is null
+	at net.sharksystem.asap.engine.ASAPOnlineMessageSenderEngineSide.sendStoredMessages(ASAPOnlineMessageSenderEngineSide.java:132)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.sendOnlineMessages(ASAPSessionImpl.java:171)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl.access$200(ASAPSessionImpl.java:17)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$OnlineMessageSenderThread.run(ASAPSessionImpl.java:182)
 
-==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\n2026-04-10 23:01:10.049: Error: Connection refused
+==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogA.txt ====\nexception caught: sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
+	at java.base/java.lang.Thread.sleep(Thread.java:522)
+	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
+	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
+	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
+	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+2026-04-10 23:31:44.939: Error: Connection refused
 
 ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/complex/STARXSC_: errorlogC.txt ====\nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
@@ -62,6 +78,7 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+⚠ TIMEOUT: Test exceeded 60s timeout limit
 
  ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_: errorlogB.txt ==== \nexception caught: sleep interrupted
 java.lang.InterruptedException: sleep interrupted
@@ -74,26 +91,13 @@ java.lang.InterruptedException: sleep interrupted
 	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
 	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
-exception caught: sleep interrupted
-java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleepNanos0(Native Method)
-	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
-	at java.base/java.lang.Thread.sleep(Thread.java:522)
-	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
-	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
 
- ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_: errorlogC.txt ==== \nexception caught: sleep interrupted
-java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleepNanos0(Native Method)
-	at java.base/java.lang.Thread.sleepNanos(Thread.java:491)
-	at java.base/java.lang.Thread.sleep(Thread.java:522)
-	at net.sharksystem.ui.messenger.cli.commands.testing.UICommandWait.execute(UICommandWait.java:15)
-	at net.sharksystem.ui.messenger.cli.UICommand.execute(UICommand.java:102)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.handleUserInput(SharkNetMessengerUI.java:73)
-	at net.sharksystem.ui.messenger.cli.SharkNetMessengerUI.runCommandLoop(SharkNetMessengerUI.java:332)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.startCLI(ProductionUI.java:57)
-	at net.sharksystem.ui.messenger.cli.ProductionUI.main(ProductionUI.java:52)
+ ==== /Users/cemreozen/Documents/IntelliJProjects/SharkNetMessenger/basic_testing/hub/HUBTX_LENGTH_: errorlogC.txt ==== \nException in thread "Thread-26" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOfRange(Arrays.java:3846)
+	at java.base/java.lang.String.<init>(String.java:566)
+	at java.base/java.lang.String.<init>(String.java:1499)
+	at net.sharksystem.asap.utils.ASAPSerialization.readCharSequenceParameter(ASAPSerialization.java:301)
+	at net.sharksystem.asap.protocol.PDU_Impl.readFormat(PDU_Impl.java:195)
+	at net.sharksystem.asap.protocol.InterestPDU_Impl.<init>(InterestPDU_Impl.java:24)
+	at net.sharksystem.asap.protocol.ASAP_Modem_Impl.readPDU(ASAP_Modem_Impl.java:251)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUReader.run(ASAPSessionImpl.java:523)

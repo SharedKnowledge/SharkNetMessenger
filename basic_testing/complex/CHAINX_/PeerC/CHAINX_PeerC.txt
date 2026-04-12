@@ -1,0 +1,1 @@
+openTCP 4446;echo openTCP;wait 3000;connectTCP FILLER_IP 4445;wait 6000;echo connectTCP;wait 500;release CHAINX_P2;wait 1500;block CHAINX_P3;wait 3000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

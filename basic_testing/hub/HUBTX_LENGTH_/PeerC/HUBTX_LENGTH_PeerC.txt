@@ -1,0 +1,1 @@
+wait 1000;connectHub FILLER_IP 6907;wait 1000;block HUBTX_LENGTH_P2;release HUBTX_LENGTH_P_hub2;wait 3000;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

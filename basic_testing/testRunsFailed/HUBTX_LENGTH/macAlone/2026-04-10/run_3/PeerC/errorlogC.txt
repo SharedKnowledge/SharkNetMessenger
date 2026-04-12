@@ -1,0 +1,9 @@
+Exception in thread "Thread-26" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOfRange(Arrays.java:3846)
+	at java.base/java.lang.String.<init>(String.java:566)
+	at java.base/java.lang.String.<init>(String.java:1499)
+	at net.sharksystem.asap.utils.ASAPSerialization.readCharSequenceParameter(ASAPSerialization.java:301)
+	at net.sharksystem.asap.protocol.PDU_Impl.readFormat(PDU_Impl.java:195)
+	at net.sharksystem.asap.protocol.InterestPDU_Impl.<init>(InterestPDU_Impl.java:24)
+	at net.sharksystem.asap.protocol.ASAP_Modem_Impl.readPDU(ASAP_Modem_Impl.java:251)
+	at net.sharksystem.asap.protocol.ASAPSessionImpl$ASAPPDUReader.run(ASAPSessionImpl.java:523)

@@ -1,0 +1,1 @@
+wait 6000;connectTCP FILLER_IP 4446;wait 500;echo connectTCP;wait 500;release CHAINLTX_P3;echo release CHAINLTX_P3;wait 500;lsMessages;wait 1500;closeEncounter 1;echo closeEncounter 1;wait 500;lsMessages 2;lsMessages 1;wait 1000;lsMessages 1;lsMessages 2;exit;

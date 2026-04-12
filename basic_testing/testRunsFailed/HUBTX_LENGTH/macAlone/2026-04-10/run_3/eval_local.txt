@@ -1,0 +1,8 @@
+Scenario: HUBTX_LENGTH
+Peer results:
+  PeerA | FAIL | Encounter observed but no remote payloads were received.
+  PeerB | FAIL | Encounter observed but no remote payloads were received.
+  PeerC | FAIL | Transport/encounter error detected (Exception in thread "Thread-26" java.lang.OutOfMemoryError: Java heap space).
+
+Summary:
+  FAIL | One or more peers failed
