@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/libs" />
+      <root url="jar://$PROJECT_DIR$/libs/ASAPJava.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/SharkPeer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ASAPHub.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/SharkPKI.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
   </library>
 </component>

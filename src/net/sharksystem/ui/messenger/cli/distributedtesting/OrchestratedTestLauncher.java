@@ -8,7 +8,6 @@ import net.sharksystem.utils.Log;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.UnknownHostException;
-import java.util.List;
 
 /**
  * class that orchestrates one distributed test scenario
@@ -19,7 +18,6 @@ import java.util.List;
  *
  */
 class OrchestratedTestLauncher extends Thread {
-    private static String scriptEnd_Exit;
     private final SNMAppSupportingDistributedTesting snmApp4DistributedTesting;
     final OrchestratedTest test2run;
     public static final int FIRST_ORCHESTRATOR_PORT = 1000;
@@ -29,10 +27,13 @@ class OrchestratedTestLauncher extends Thread {
     public final static int FINAL_WAIT_PERIODE_BEFORE_LAUNCH = 1000;
     public final static int MAX_TEST_DURATION_IN_MILLIS = 1000 * 60 * 2; // 2minutes
 
+    private static String scriptStartOrchestrator_SyncWithPeers = null;
+    private static String scriptStartPeer_SyncWithOrchestator = null;
+    private static String scriptEnd_Exit = null;
+    private static String scriptSetTimeBomb;
+
     public static int nextTestNumber = 0;
     private final int portNumber4ThisTest;
-    private final String orchestratorScript;
-    private String[] effectiveScripts;
     public int testNumber = 0;
 
     private int maxTestDurationInMillis = MAX_TEST_DURATION_IN_MILLIS;
@@ -72,56 +73,77 @@ class OrchestratedTestLauncher extends Thread {
         this.maxTestDurationInMillis = test2run.maxDurationInMilli;
         this.testName = test2run.testName;
 
+        this.scriptSetTimeBomb =
+                CommandNames.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
+                        + this.maxTestDurationInMillis + TestLanguageCompiler.LANGUAGE_SEPARATOR;
+
         this.snmApp4DistributedTesting = snmDTesterApp;
         this.test2run = test2run;
         synchronized (OrchestratedTestLauncher.class) {
             this.testNumber = nextTestNumber++;
-            // find available orchestratorPort
-            this.portNumber4ThisTest = getAvailablePortNumber();
+        }
+
+        // find available orchestratorPort
+        this.portNumber4ThisTest = getAvailablePortNumber();
+
+        ///// init scripts used for each test run
+
+        // orchestrator opens port, e.g. openTCP 2222;
+        if (OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(CommandNames.CLI_OPEN_TCP);
+            sb.append(TestLanguageCompiler.CLI_SPACE);
+            sb.append(portNumber4ThisTest);
+            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers = sb.toString();
+        }
+
+        // peer connects to orchestrator, e.g. connectTCP <orchestrator-IPAddress> 2222;
+        if (OrchestratedTestLauncher.scriptStartPeer_SyncWithOrchestator == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(CommandNames.CLI_CONNECT_TCP);
+            sb.append(TestLanguageCompiler.CLI_SPACE);
+            sb.append(snmDTesterApp.getLocalIPAddress());
+            sb.append(TestLanguageCompiler.CLI_SPACE);
+            sb.append(portNumber4ThisTest);
+            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            OrchestratedTestLauncher.scriptStartPeer_SyncWithOrchestator = sb.toString();
         }
 
         // script ends: exit;
         if (OrchestratedTestLauncher.scriptEnd_Exit == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR).
-                append(CommandNames.CLI_EXIT).append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            sb.append(CommandNames.CLI_EXIT);
+            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
             OrchestratedTestLauncher.scriptEnd_Exit = sb.toString();
         }
+    }
 
-        //////////////////// produce orchestrator script //////////////////////////////////////////////////////////////
+    private String getTestID() {
+        return this.testName + "_#" + this.testNumber;
+    }
+
+    private String getBlockTag4Peer(int peerIndex) {
+        return  this.getTestID() + "_" + peerIndex;
+    }
+
+    public void run() {
         String launchTag = LAUNCH_TEST_TAG_PREAMBLE + this.getTestID();
 
-        // add setup time to max duration:
-        /*
-        calculation: peer start is delayed. Each peer has multiple connection attempts including a wait period.
-        The whole max time increased by last peers additional time
-        startDelay*(#peers-1) + maxConnection time
-         */
-        int additionalTimeInMS =
-                TestLanguageCompiler.NR_CONNECTION_ATTEMPTS*TestLanguageCompiler.WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS;
-                        //+ TestLanguageCompiler.HEAD_START_PEER_IN_MS * this.test2run.peerScripts.size()-1;
-        this.maxTestDurationInMillis += additionalTimeInMS;
-
-        this.snmApp4DistributedTesting.tellUI(
-                "add test setup time (" + additionalTimeInMS + ") to max test duration which is now (in ms): "
-                + this.maxTestDurationInMillis);
-
+        // produce orchestrator script - sync and collect data
         StringBuilder sb = new StringBuilder();
         this.snmApp4DistributedTesting.tellUI(
-                "note: orchestrator test runs 10 time as long as each peer");
+                "note: orchestrator test runs 10 time as long as each peer (in ms): " + this.maxTestDurationInMillis);
 
         // set timeBomb like timeBomb 1200000;
         sb.append(CommandNames.CLI_TIME_BOMB + TestLanguageCompiler.CLI_SPACE
                 + this.maxTestDurationInMillis * 10 + TestLanguageCompiler.LANGUAGE_SEPARATOR);
 
         // e.g. openTCP 2222;
-        sb.append(CommandNames.CLI_OPEN_TCP);
-        sb.append(TestLanguageCompiler.CLI_SPACE);
-        sb.append(this.portNumber4ThisTest);
-        sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
-
+        sb.append(OrchestratedTestLauncher.scriptStartOrchestrator_SyncWithPeers);
         //// wait for each peer to settle
-        for (int peerIndex = 0; peerIndex < this.test2run.peerScripts.size(); peerIndex++) {
+        for (int peerIndex = 0; peerIndex < this.test2run.scripts.size(); peerIndex++) {
             // block peerSettled_cs1_#0_1; ... for up to n peers... block peerSettled_cs1_#0_n;
             sb.append(CommandNames.CLI_BLOCK);
             sb.append(TestLanguageCompiler.CLI_SPACE);
@@ -151,56 +173,22 @@ class OrchestratedTestLauncher extends Thread {
         sb.append(CommandNames.CLI_LIST_MESSAGES);
         sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-        //// finish peer
+       //// finish peer
         // exit;
         sb.append(scriptEnd_Exit);
 
         //// orchestrator script produced
-        this.orchestratorScript = sb.toString();
+        String orchestratorScript = sb.toString();
 
-        ////// produce test script each peer ////////////////////////////////////////////////////////////////////
-        // substitute ip-address placeholder
-        this.effectiveScripts = new String[this.test2run.peerScripts.size()];
-        int scriptsIndex = 0;
-        while(scriptsIndex < this.test2run.peerScripts.size()) {
-            this.effectiveScripts[scriptsIndex] =
-                    this.substituteScriptPlaceHolder(
-                        this.test2run.peerScripts.get(scriptsIndex), // script
-                        this.test2run.peerEnvironment // complete peer environment
-                );
-            scriptsIndex++;
-        }
-
-        for (int peerIndex = 0; peerIndex < this.effectiveScripts.length; peerIndex++) {
+        //// produce script for each peer
+        String[] effectiveScripts = new String[this.test2run.scripts.size()];
+        for (int peerIndex = 0; peerIndex < this.test2run.scripts.size(); peerIndex++) {
             sb = new StringBuilder();
             //// set time bomb to avoid orphan processes - value is set in test case description file
             // e.g. timeBomb 120000;
-            sb.append(CommandNames.CLI_TIME_BOMB).append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(this.maxTestDurationInMillis).append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
-
-            // head start
-            /*
-            if(peerIndex > 0) {
-                sb.append(CommandNames.CLI_WAIT).append(TestLanguageCompiler.CLI_SPACE);
-                sb.append(TestLanguageCompiler.HEAD_START_PEER_IN_MS * peerIndex);
-                sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
-            }
-             */
-
-            // connect <orchestratorIP> <port> <further parameters;
-            sb.append(CommandNames.CLI_CONNECT_TCP);
-            sb.append(TestLanguageCompiler.CLI_SPACE);
-            try {
-                sb.append(this.snmApp4DistributedTesting.getLocalIPAddress());
-            } catch (UnknownHostException e) {
-                throw new RuntimeException(e);
-            }
-            sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(this.portNumber4ThisTest).append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(TestLanguageCompiler.NR_CONNECTION_ATTEMPTS).append(TestLanguageCompiler.CLI_SPACE);
-            sb.append(TestLanguageCompiler.WAIT_BETWEEN_CONNECTION_ATTEMPTS_IN_MS).append(TestLanguageCompiler.CLI_SPACE);
-            sb.append("true"); // block during attempts
-            sb.append(TestLanguageCompiler.LANGUAGE_SEPARATOR);
+            sb.append(scriptSetTimeBomb);
+            // add open connection to orchestrator
+            sb.append(scriptStartPeer_SyncWithOrchestator);
 
             //// tell orchestrator settled
             // e.g. release peerSettled_cs1_#0_1;
@@ -218,45 +206,19 @@ class OrchestratedTestLauncher extends Thread {
             sb.append(launchTag);
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
 
-            //// close encounter with orchestrator
-            // e.g. block launchTest_cs1_#0
-            sb.append(CommandNames.CLI_CLOSE_ENCOUNTER);
+            //// don't (it can hurt, though): and better wait a moment - won't hurt -
+            // wait 1000;
+            /*
+            sb.append(CommandNames.CLI_WAIT);
             sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append("1");
+            sb.append(FINAL_WAIT_PERIODE_BEFORE_LAUNCH);
             sb.append(TestLanguageCompiler.CLI_SEPARATOR);
-
-            //// write a readable log message
-            // e.g. markstep
-            sb.append(CommandNames.CLI_MARKSTEP);
-            sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append("startTest_").append(getTestID());
-            sb.append(TestLanguageCompiler.CLI_SEPARATOR);
-
-            // add actual script
-            sb.append(this.effectiveScripts[peerIndex]);
-            // e.g. markstep
-            sb.append(CommandNames.CLI_MARKSTEP);
-            sb.append(TestLanguageCompiler.CLI_SPACE);
-            sb.append("test_ended_").append(getTestID());
-            sb.append(TestLanguageCompiler.CLI_SEPARATOR);
-
-            // add exit;
-            sb.append(scriptEnd_Exit);
+             */
 
             // add to peer script and finish with exit in case test developer forgot
-            this.effectiveScripts[peerIndex] = sb.toString();
+            effectiveScripts[peerIndex] = sb.toString() + this.test2run.scripts.get(peerIndex) + scriptEnd_Exit;
         }
-    }
 
-    private String getTestID() {
-        return this.testName + "_#" + this.testNumber;
-    }
-
-    private String getBlockTag4Peer(int peerIndex) {
-        return  this.getTestID() + "_" + peerIndex;
-    }
-
-    public void run() {
         // run orchestrator script first - wait to collect logs
         Log.writeLog(this, "launching orchestrator: ");
         try {
@@ -281,6 +243,7 @@ class OrchestratedTestLauncher extends Thread {
          */
 
         //// now - send script to each peer
+
         // to avoid even the slightest chance of a race condition - make a little break;
         try {
             Thread.sleep(1000);
@@ -295,7 +258,7 @@ class OrchestratedTestLauncher extends Thread {
                 TestScriptDescription testScriptDescription = new TestScriptDescription(
                         peerEnvironment.toString(), // peer IP Address
                         i, // peerName
-                        this.effectiveScripts[i], // testscript to run
+                        effectiveScripts[i], // testscript to run
                         this.getTestID(),
                         peerEnvironment.peerID,
                         this.snmApp4DistributedTesting.getLocalIPAddress(),
@@ -327,54 +290,5 @@ class OrchestratedTestLauncher extends Thread {
         }
 
         ///  test launcher launched a test - this thread ends here - orchestrator process is running.
-    }
-
-    private String substituteScriptPlaceHolder(String script, List<PeerHostingEnvironmentDescription> peerEnvironments)
-            throws UnknownHostException {
-
-        int ipAddressTagStartIndex = script.indexOf(TestLanguageCompiler.IP_ADDRESS_PLACEHOLDER_START_TAG);
-        while(ipAddressTagStartIndex != -1) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(script.substring(0, ipAddressTagStartIndex));
-
-            // get peer index
-            int endTagIndex = script.indexOf(TestLanguageCompiler.PLACEHOLDER_END_TAG, ipAddressTagStartIndex+1);
-            if(endTagIndex == -1)
-                throw new UnknownHostException("malformed placeholder (should be %IP_n% .. n is a value) - give up");
-
-            String peerIndexString = script.substring(
-                    ipAddressTagStartIndex + TestLanguageCompiler.IP_ADDRESS_PLACEHOLDER_START_TAG.length(),
-                    endTagIndex);
-
-            int peerIndex = -1;
-            try {
-                peerIndex = Integer.parseInt(peerIndexString);
-            }
-            catch(NumberFormatException e) {
-                throw new UnknownHostException("malformed placeholder (should be %IP_n% .. n is NOT a value) - give up");
-            }
-
-            // replace with actual ip-address
-            try {
-                PeerHostingEnvironmentDescription peerEnvironment = peerEnvironments.get(peerIndex);
-                sb.append(peerEnvironment.ipAddress);
-            }
-            catch(RuntimeException e) {
-                throw new UnknownHostException("exception when substituting ip address placeholder for peer "
-                        + peerIndexString + "\n" + e.getLocalizedMessage());
-            }
-
-            // add rest of the script
-            if(endTagIndex+1 < script.length()) {
-                sb.append(script.substring(endTagIndex + 1));
-            }
-
-            script = sb.toString();
-
-            // more placeholder?
-            ipAddressTagStartIndex = script.indexOf(TestLanguageCompiler.IP_ADDRESS_PLACEHOLDER_START_TAG);
-        }
-
-        return script;
     }
 }

@@ -70,8 +70,6 @@ class TestScriptDescription {
                 + " | testID: " + this.testID
                 + " | max in ms: " + this.maxDurationInMillis
                 + " | o-host: " + this.orchestratorAddress
-                + " | o-port: " + this.orchestratorPort
-                + " | script: " + this.script
-                ;
+                + " | o-port: " + this.orchestratorPort;
     }
 }
